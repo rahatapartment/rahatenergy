@@ -1,0 +1,227 @@
+[
+  {
+    "id": "re-001",
+    "sku": "RE-001",
+    "slug": "450w-monocrystalline-solar-panel",
+    "name": "450W Monocrystalline Solar Panel",
+    "category": "Solar Panels",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "450W Monocrystalline Solar Panel",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-002",
+    "sku": "RE-002",
+    "slug": "550w-bifacial-solar-panel",
+    "name": "550W Bifacial Solar Panel",
+    "category": "Solar Panels",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "550W Bifacial Solar Panel",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-003",
+    "sku": "RE-003",
+    "slug": "600w-high-efficiency-solar-panel",
+    "name": "600W High-Efficiency Solar Panel",
+    "category": "Solar Panels",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "600W High-Efficiency Solar Panel",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-004",
+    "sku": "RE-004",
+    "slug": "3-5kva-hybrid-solar-inverter",
+    "name": "3.5kVA Hybrid Solar Inverter",
+    "category": "Solar Inverters",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "3.5kVA Hybrid Solar Inverter",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-005",
+    "sku": "RE-005",
+    "slug": "5kva-hybrid-solar-inverter",
+    "name": "5kVA Hybrid Solar Inverter",
+    "category": "Solar Inverters",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "5kVA Hybrid Solar Inverter",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-006",
+    "sku": "RE-006",
+    "slug": "10kva-hybrid-solar-inverter",
+    "name": "10kVA Hybrid Solar Inverter",
+    "category": "Solar Inverters",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "10kVA Hybrid Solar Inverter",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-007",
+    "sku": "RE-007",
+    "slug": "5kwh-lithium-battery",
+    "name": "5kWh Lithium Battery",
+    "category": "Battery Storage",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "5kWh Lithium Battery",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-008",
+    "sku": "RE-008",
+    "slug": "10kwh-wall-mounted-lithium-battery",
+    "name": "10kWh Wall-Mounted Lithium Battery",
+    "category": "Battery Storage",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "10kWh Wall-Mounted Lithium Battery",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-009",
+    "sku": "RE-009",
+    "slug": "15kwh-lithium-battery",
+    "name": "15kWh Lithium Battery",
+    "category": "Battery Storage",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "15kWh Lithium Battery",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-010",
+    "sku": "RE-010",
+    "slug": "100w-solar-flood-light",
+    "name": "100W Solar Flood Light",
+    "category": "Solar Lighting",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "100W Solar Flood Light",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-011",
+    "sku": "RE-011",
+    "slug": "200w-solar-street-light",
+    "name": "200W Solar Street Light",
+    "category": "Solar Lighting",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "200W Solar Street Light",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-012",
+    "sku": "RE-012",
+    "slug": "solar-outdoor-security-light",
+    "name": "Solar Outdoor Security Light",
+    "category": "Solar Lighting",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "Solar Outdoor Security Light",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-013",
+    "sku": "RE-013",
+    "slug": "mppt-solar-charge-controller",
+    "name": "MPPT Solar Charge Controller",
+    "category": "Energy Accessories",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "MPPT Solar Charge Controller",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-014",
+    "sku": "RE-014",
+    "slug": "solar-panel-mounting-kit",
+    "name": "Solar Panel Mounting Kit",
+    "category": "Energy Accessories",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "Solar Panel Mounting Kit",
+      "description": "Unverified development catalogue item."
+    }
+  },
+  {
+    "id": "re-015",
+    "sku": "RE-015",
+    "slug": "solar-cable-and-connector-kit",
+    "name": "Solar Cable and Connector Kit",
+    "category": "Energy Accessories",
+    "verification": "placeholder",
+    "description": "Provisional identity from the development brief; awaiting company verification.",
+    "images": [],
+    "specifications": {},
+    "seo": {
+      "title": "Solar Cable and Connector Kit",
+      "description": "Unverified development catalogue item."
+    }
+  }
+]

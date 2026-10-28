@@ -1,0 +1,12 @@
+{
+  "passed": [
+    "Full-screen mobile menu, body scroll lock and automated accessibility",
+    "Escape restores menu-button focus and releases scroll lock",
+    "Keyboard focus stays within the open menu and navigation closes it on route change",
+    "Catalogue filtering and persistent cart remain functional",
+    "Interior-page menu passes accessibility checks",
+    "Scroll invitation reaches the introduction beneath the fixed header",
+    "Reduced-motion preference disables scene transforms and scroll animation",
+    "Resizing to desktop closes mobile navigation and releases scroll"
+  ]
+}

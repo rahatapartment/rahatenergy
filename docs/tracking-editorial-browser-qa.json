@@ -1,0 +1,98 @@
+[
+  {
+    "width": 1440,
+    "height": 1000,
+    "at": "hero",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "height": 1000,
+    "at": "form",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "at": "hero",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "at": "form",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "at": "hero",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "at": "form",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "at": "hero",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "at": "form",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 320,
+    "height": 650,
+    "at": "hero",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 320,
+    "height": 650,
+    "at": "form",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "at": "hero",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "at": "form",
+    "overflow": false,
+    "broken": 0,
+    "violations": []
+  }
+]

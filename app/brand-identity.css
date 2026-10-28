@@ -1,0 +1,240 @@
+/* Approved Rahat Energy palette. Deep green carries small white text;
+   emerald, lime and metallic gold provide deliberate larger accents. */
+:root {
+  --brand-emerald: #009b4d;
+  --brand-gold: #d4af37;
+  --brand-lime: #a3e635;
+  --brand-deep: #006b3c;
+  --brand-champagne: #fff2a6;
+  --brand-green: #009b4d;
+  --brand-green-light: #e8f5e9;
+  --deep: #006b3c;
+  --lime: #a3e635;
+}
+.brand.brand-official {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  line-height: 0;
+  flex-shrink: 0;
+  transform: none;
+}
+.brand-official > .brand-logo {
+  display: block;
+  width: 100px;
+  height: auto;
+  max-height: 88px;
+  object-fit: contain;
+  filter: none;
+}
+.cinematic-header .brand-official > .brand-logo {
+  width: 96px;
+  height: 88px;
+}
+.footer-top .brand-official > .brand-logo {
+  width: 125px;
+  max-height: 118px;
+}
+.admin-desktop-brand {
+  display: flex;
+  justify-content: flex-start;
+}
+.admin-desktop-brand .brand-official > .brand-logo {
+  width: 105px;
+  max-height: 98px;
+}
+.admin-mobile-bar .brand-official > .brand-logo {
+  width: 76px;
+  max-height: 70px;
+}
+.admin-login-story .brand-official > .brand-logo {
+  width: 120px;
+  max-height: 112px;
+}
+.button.dark,
+.button.lime {
+  background: var(--brand-deep);
+  color: #fff;
+  border-color: var(--brand-deep);
+}
+.button.lime {
+  background: var(--brand-lime);
+  color: #123b27;
+  border-color: var(--brand-lime);
+}
+.cinematic-eyebrow > span,
+.solutions-coordinate > span {
+  background: var(--brand-gold);
+}
+.solutions-hero-copy h1 em {
+  color: var(--brand-champagne);
+}
+.solutions-hero-enter > span:last-child {
+  border-color: var(--brand-gold);
+  color: var(--brand-lime);
+}
+.cinematic-header .main-nav > a::after {
+  background: var(--brand-emerald);
+}
+.header-home:not(.header-over-content) .main-nav > a::after {
+  background: var(--brand-gold);
+}
+.home-editorial .eyebrow {
+  color: var(--brand-deep);
+}
+.product-add-button,
+.cart-primary-action,
+.tracking-submit {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #fff;
+}
+.product-add-button:hover:not(:disabled),
+.cart-primary-action:hover,
+.tracking-submit:hover:not(:disabled) {
+  background: #00542f;
+}
+.solutions-closing,
+.help-closing,
+.cart-closing,
+.tracking-assistance,
+.content-cta {
+  background: var(--brand-deep);
+}
+.solutions-closing h2 em,
+.help-closing h2 em,
+.cart-closing h2 em,
+.tracking-assistance h2 em {
+  color: var(--brand-champagne);
+}
+.solutions-closing-action,
+.help-closing-action {
+  border-color: var(--brand-gold);
+}
+.cart-empty-symbol,
+.tracking-privacy {
+  border-color: var(--brand-emerald);
+}
+.cart-quantity,
+.tracking-field input:focus-visible {
+  border-color: var(--brand-emerald);
+}
+.footer-signature > p,
+.footer-top .eyebrow {
+  color: var(--brand-champagne);
+}
+.admin-premium {
+  --admin-green: var(--brand-emerald);
+}
+.admin-premium .admin-sidebar {
+  background: var(--brand-deep);
+}
+.admin-premium .admin-sidebar nav a[aria-current] {
+  background: var(--brand-lime);
+  color: #123b27;
+  border-color: var(--brand-lime);
+}
+.admin-premium .admin-nav-group > span {
+  color: var(--brand-champagne);
+}
+.admin-premium .admin-topbar {
+  border-bottom-color: #d4af3760;
+}
+.admin-premium .admin-mode-pill {
+  background: #fff8d8;
+  border-color: #b49a47;
+  color: #66521c;
+}
+.admin-premium .admin-quick-routes > a > svg:first-child {
+  color: var(--brand-emerald);
+}
+.admin-premium .admin-operating-note {
+  background: var(--brand-deep);
+  border-top: 2px solid var(--brand-gold);
+}
+.admin-premium .admin-operating-note .eyebrow {
+  color: var(--brand-champagne);
+}
+.admin-login-story {
+  background:
+    radial-gradient(ellipse at 100% 100%, #009b4d, transparent 75%),
+    var(--brand-deep);
+}
+.admin-login-story h2 em {
+  color: var(--brand-champagne);
+}
+.admin-login-lock {
+  border-color: var(--brand-gold);
+}
+@media (max-width: 600px) {
+  .cinematic-header .brand-official > .brand-logo {
+    width: 82px;
+    height: 76px;
+  }
+  .admin-login-story .brand-official > .brand-logo {
+    width: 100px;
+    max-height: 94px;
+  }
+}
+/* Emerald is the primary action colour; dark text preserves readable contrast. */
+.button.dark,
+.product-add-button,
+.cart-primary-action,
+.tracking-submit {
+  background: var(--brand-emerald);
+  border-color: var(--brand-emerald);
+  color: #082519;
+}
+.button.dark:hover:not(:disabled),
+.product-add-button:hover:not(:disabled),
+.cart-primary-action:hover,
+.tracking-submit:hover:not(:disabled) {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #fff;
+}
+.solutions-atmosphere {
+  background:
+    linear-gradient(90deg, #003c22e6, #006b3c8c 42%, #009b4d12 80%),
+    linear-gradient(
+      180deg,
+      #003c2280,
+      transparent 35%,
+      #003c2240 65%,
+      #003c22e6
+    );
+}
+/* Accessible text variants of the approved colours. */
+:root {
+  --brand-green: var(--brand-deep);
+}
+.button.dark,
+.product-add-button,
+.cart-primary-action,
+.tracking-submit,
+.header-quote {
+  color: #04190c;
+}
+footer .footer-top p,
+footer .footer-top a,
+footer .footer-note p,
+footer .footer-bottom,
+footer .footer-bottom a {
+  color: #edf7ef;
+}
+.element-status,
+.element-editorial > p,
+.element-tabs > button,
+.element-tabs > button:not([aria-selected="true"]),
+.element-number,
+.element-bottomline > span {
+  color: #e8f5e9;
+}
+.admin-premium .admin-workspace-label small,
+.admin-premium .admin-access-state small {
+  color: #e8f5e9;
+}
+footer .footer-top > div > a:not(:first-child) {
+  color: #edf7ef;
+}

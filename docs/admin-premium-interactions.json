@@ -1,0 +1,9 @@
+{
+  "passed": [
+    "Catalogue search, empty state, reset and category filters preserve all fifteen identities",
+    "Navigation search filters real sections and provides an empty state",
+    "Mobile section disclosure supports Escape and restores focus without overflow",
+    "Login visibility and mocked rejection preserve the existing authentication contract"
+  ],
+  "note": "No connected database or authenticated operational mutations tested."
+}

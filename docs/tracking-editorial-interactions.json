@@ -1,0 +1,11 @@
+{
+  "passed": [
+    "Empty form uses native required-field validation",
+    "Private code is masked by default and visibility is keyboard-accessible",
+    "Mocked rejection verifies normalized POST fields, pending state and accessible error without exposing the code in the URL",
+    "Mocked service failure displays a retryable error and re-enables submit",
+    "Mocked success follows the existing order route; unauthenticated requests still reveal no order details",
+    "Mobile navigation accessibility, Escape focus restoration and reduced motion pass"
+  ],
+  "note": "API outcomes are mocked UI checks; no provisioned database or authenticated order was used."
+}

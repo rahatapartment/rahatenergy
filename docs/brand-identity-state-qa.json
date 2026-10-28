@@ -1,0 +1,17 @@
+[
+  {
+    "state": "Populated mobile cart",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "state": "Mobile storefront menu over content",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "state": "Expanded operations navigation",
+    "overflow": false,
+    "violations": []
+  }
+]

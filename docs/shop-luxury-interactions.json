@@ -1,0 +1,14 @@
+{
+  "passed": [
+    "All 15 identities appear in a category-balanced curated order",
+    "Each category filters to its three products with one selected control",
+    "Search supports SKU, category, case-insensitive text, whitespace, clear and empty-state reset",
+    "Name sorting works and price sorting retains unknown prices without fabricating amounts",
+    "Desktop gallery and grid controls change image density",
+    "Stock and pricing filters respect unconfigured data and can be removed individually",
+    "Two shop products can be shortlisted and remain saved in the cart",
+    "Category/search deep links work and invalid categories fall back to the full collection",
+    "Mobile refinements open and close accessibly, and the full category rail stays usable",
+    "Reduced-motion preference removes decorative product transitions"
+  ]
+}

@@ -1,0 +1,443 @@
+[
+  {
+    "width": 1440,
+    "route": "/",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Poweringwhat matters.",
+    "violations": [],
+    "imageCheck": "All image elements requested and decoded, including below-the-fold lazy images"
+  },
+  {
+    "width": 1440,
+    "route": "/shop",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Engineered for your everyday.",
+    "violations": [],
+    "imageCheck": "All image elements requested and decoded, including below-the-fold lazy images"
+  },
+  {
+    "width": 1440,
+    "route": "/shop/450w-monocrystalline-solar-panel",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "450W Monocrystalline Solar Panel",
+    "violations": [],
+    "imageCheck": "All image elements requested and decoded, including below-the-fold lazy images"
+  },
+  {
+    "width": 1440,
+    "route": "/about",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "A clearer starting point for your energy plans.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/contact",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "The right conversation starts here.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/solutions",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Different spaces. Your energy priorities.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/solutions/home",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Energy around your everyday.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/categories/solar-panels",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Start with the sun.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/request-quote",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your project.Our next conversation.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/cart",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your energy edit.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/checkout",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your energy.Ready for review.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/faq",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Good questions. Clearer next steps.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/how-to-order",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your energy journey, step by step.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/track-order",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your order. Your next step.",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/policies/privacy",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Privacy notice",
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "route": "/admin/preview",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Overview walkthrough",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Poweringwhat matters.",
+    "violations": [],
+    "imageCheck": "All image elements requested and decoded, including below-the-fold lazy images"
+  },
+  {
+    "width": 768,
+    "route": "/shop",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Engineered for your everyday.",
+    "violations": [],
+    "imageCheck": "All image elements requested and decoded, including below-the-fold lazy images"
+  },
+  {
+    "width": 768,
+    "route": "/shop/450w-monocrystalline-solar-panel",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "450W Monocrystalline Solar Panel",
+    "violations": [],
+    "imageCheck": "All image elements requested and decoded, including below-the-fold lazy images"
+  },
+  {
+    "width": 768,
+    "route": "/about",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "A clearer starting point for your energy plans.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/contact",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "The right conversation starts here.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/solutions",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Different spaces. Your energy priorities.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/solutions/home",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Energy around your everyday.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/categories/solar-panels",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Start with the sun.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/request-quote",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your project.Our next conversation.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/cart",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your energy edit.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/checkout",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your energy.Ready for review.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/faq",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Good questions. Clearer next steps.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/how-to-order",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your energy journey, step by step.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/track-order",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your order. Your next step.",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/policies/privacy",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Privacy notice",
+    "violations": []
+  },
+  {
+    "width": 768,
+    "route": "/admin/preview",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Overview walkthrough",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Poweringwhat matters.",
+    "violations": [],
+    "imageCheck": "All image elements requested and decoded, including below-the-fold lazy images"
+  },
+  {
+    "width": 390,
+    "route": "/shop",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Engineered for your everyday.",
+    "violations": [],
+    "imageCheck": "All image elements requested and decoded, including below-the-fold lazy images"
+  },
+  {
+    "width": 390,
+    "route": "/shop/450w-monocrystalline-solar-panel",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "450W Monocrystalline Solar Panel",
+    "violations": [],
+    "imageCheck": "All image elements requested and decoded, including below-the-fold lazy images"
+  },
+  {
+    "width": 390,
+    "route": "/about",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "A clearer starting point for your energy plans.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/contact",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "The right conversation starts here.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/solutions",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Different spaces. Your energy priorities.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/solutions/home",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Energy around your everyday.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/categories/solar-panels",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Start with the sun.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/request-quote",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your project.Our next conversation.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/cart",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your energy edit.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/checkout",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your energy.Ready for review.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/faq",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Good questions. Clearer next steps.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/how-to-order",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your energy journey, step by step.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/track-order",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Your order. Your next step.",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/policies/privacy",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Privacy notice",
+    "violations": []
+  },
+  {
+    "width": 390,
+    "route": "/admin/preview",
+    "status": 200,
+    "overflow": false,
+    "broken": [],
+    "title": "Overview walkthrough",
+    "violations": []
+  }
+]

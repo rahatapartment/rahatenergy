@@ -1,0 +1,38 @@
+[
+  {
+    "width": 320,
+    "path": "/admin/products",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 320,
+    "path": "/admin/login",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 900,
+    "path": "/admin/products",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 900,
+    "path": "/admin/login",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1024,
+    "path": "/admin/products",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1024,
+    "path": "/admin/login",
+    "overflow": false,
+    "violations": []
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "provider": "simulated Paystack response; no external transaction",
+  "database": "disposable local PostgreSQL",
+  "checks": [
+    "multi-product checkout, server price review, simulated gateway redirect and verified confirmation",
+    "private order page hides personal data without access; recovery code restores access",
+    "admin login, order search, details and audited fulfillment update",
+    "390px checkout, confirmation and admin order layouts",
+    "populated multi-product checkout at 390px, with accessible contact/address form"
+  ],
+  "accessibility": [
+    {
+      "page": "checkout",
+      "violations": []
+    },
+    {
+      "page": "confirmation",
+      "violations": []
+    },
+    {
+      "page": "admin order",
+      "violations": []
+    }
+  ],
+  "reference": "RE-AEA86EEE9AE6CBD1DDB9",
+  "pageErrors": []
+}

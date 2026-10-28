@@ -1,0 +1,14 @@
+{
+  "passed": [
+    "Gallery switches between the full composition and an honestly labelled crop",
+    "Native viewer supports zoom, accessible controls, background scroll locking and Escape/focus restoration",
+    "Quantity selection saves the requested units and unpriced products cannot initiate Buy Now",
+    "Quotation action preselects the exact catalogue identity",
+    "Section navigation reaches readable specifications without inventing missing technical data",
+    "Mobile quick selection shares the main quantity and preserves additive cart behavior",
+    "Mobile quick selection disappears when the main purchase controls are visible",
+    "Related product shortlisting and the original selection persist together into the cart",
+    "Viewer controls remain visible and accessible in portrait and short landscape viewports",
+    "Reduced-motion preference removes decorative gallery transitions"
+  ]
+}

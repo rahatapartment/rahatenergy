@@ -1,0 +1,184 @@
+[
+  {
+    "width": 1440,
+    "path": "/admin",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/products",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/inventory",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/orders",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/deliveries",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/customers",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/quotations",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/monitoring",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/settings",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/login",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/preview/orders",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/preview/quotations",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/preview/deliveries",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/products",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/inventory",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/orders",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/deliveries",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/customers",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/quotations",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/monitoring",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/settings",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/login",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/preview/orders",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/preview/quotations",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/preview/deliveries",
+    "status": 200,
+    "overflow": false,
+    "violations": []
+  }
+]

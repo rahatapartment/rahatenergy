@@ -1,0 +1,44 @@
+{
+  "name": "rahat-energy",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/prisma.mjs generate && next build",
+    "start": "next start -p 3001",
+    "typecheck": "tsc --noEmit",
+    "verify:isolation": "node scripts/verify-isolation.mjs",
+    "lint": "next lint",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "db:generate": "node scripts/prisma.mjs generate",
+    "db:deploy": "node scripts/prisma.mjs migrate deploy",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:validate": "node scripts/prisma.mjs validate",
+    "db:check": "tsx scripts/activate-database.ts --check-only",
+    "db:activate": "tsx scripts/activate-database.ts",
+    "test:integration": "node --import tsx --test tests/postgres.integration.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "framer-motion": "^11.18.2",
+    "jose": "^6.2.12",
+    "lucide-react": "^0.468.0",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.10",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.35",
+    "postcss": "^8.4.49",
+    "prisma": "^5.22.0",
+    "tailwindcss": "^3.4.16",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

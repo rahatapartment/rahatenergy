@@ -1,0 +1,40 @@
+{
+  "database": "disposable loopback PostgreSQL only",
+  "provider": "simulated read-only test refund evidence; no external payment/refund/email",
+  "checks": [
+    "server-paginated enquiry list: 20 + 5 records",
+    "quotation status, private notes and durable staff history",
+    "delivery tracking update and persisted history",
+    "first owner creation preserves new named session and rejects old setup session",
+    "owner creates a named operator",
+    "reviewed cancellation, stock restoration and simulated provider refund verification",
+    "late-payment review resolved by audited stock allocation",
+    "operator sign-in succeeds and owner-only cancellation is rejected",
+    "disabling an operator revokes its active session",
+    "authenticated worker run is visible in monitoring"
+  ],
+  "accessibility": [
+    {
+      "route": "/admin/quotations/cmvp9g5zr00236cavkwsfo9ub",
+      "violations": []
+    },
+    {
+      "route": "/admin/orders/cmvp9g5wl000u6cavr2baegf5",
+      "violations": []
+    },
+    {
+      "route": "/admin/settings",
+      "violations": []
+    },
+    {
+      "route": "/admin/monitoring",
+      "violations": []
+    },
+    {
+      "route": "/admin/orders",
+      "violations": []
+    }
+  ],
+  "pageErrors": [],
+  "mobile": "390px operations layouts passed"
+}

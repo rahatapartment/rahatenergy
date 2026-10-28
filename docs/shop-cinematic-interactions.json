@@ -1,0 +1,11 @@
+{
+  "passed": [
+    "Full-screen shop hero remains pinned with fixed overlay navigation",
+    "The primary hero action reaches the curved catalogue introduction",
+    "Direct product shortcut bypasses the opening and lands at a working search field",
+    "Shop mobile menu remains accessible over the light catalogue and restores focus on Escape",
+    "Shared motion and navigation preserve the homepage pin and scrolled-menu contrast",
+    "Product details retain their normal interior navigation treatment",
+    "Reduced motion keeps the scene static and removes decorative fades and scroll animation"
+  ]
+}

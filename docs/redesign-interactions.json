@@ -1,0 +1,16 @@
+{
+  "passed": [
+    "Mobile navigation opens and links to shop",
+    "Mobile category filters show the matching three products",
+    "Search empty state and reset restore all 15 products",
+    "Quick add supports multiple products",
+    "Multiple cart products persist across reload",
+    "Cart quantity editing persists",
+    "Cart remove works",
+    "Unconfigured checkout remains disabled",
+    "Product gallery opens and Escape closes the native modal",
+    "Product quantity control works",
+    "Quote preselection, spacious multiline writing and unavailable-service gate work",
+    "Search deep link initializes the catalogue query"
+  ]
+}

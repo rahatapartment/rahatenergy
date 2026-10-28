@@ -1,0 +1,578 @@
+[
+  {
+    "width": 1440,
+    "path": "/",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/shop",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/shop/450w-monocrystalline-solar-panel",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/solutions",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/about",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/contact",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/faq",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/cart",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/track-order",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/request-quote",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/checkout",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 96,
+        "height": 88
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 116.203125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 0,
+        "height": 0
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 105,
+        "height": 97.609375
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/products",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 0,
+        "height": 0
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 105,
+        "height": 97.609375
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 1440,
+    "path": "/admin/login",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 120,
+        "height": 111.5625
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/shop",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/shop/450w-monocrystalline-solar-panel",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/solutions",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/about",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/contact",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/faq",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/cart",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/track-order",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/request-quote",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/checkout",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 82,
+        "height": 76
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 125,
+        "height": 115.875
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 76,
+        "height": 70
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 0,
+        "height": 0
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/products",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 76,
+        "height": 70
+      },
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 0,
+        "height": 0
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "path": "/admin/login",
+    "overflow": false,
+    "logos": [
+      {
+        "src": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+        "loaded": true,
+        "width": 100,
+        "height": 92.703125
+      }
+    ],
+    "oldLogo": false,
+    "violations": []
+  }
+]

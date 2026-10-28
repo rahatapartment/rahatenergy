@@ -1,0 +1,42 @@
+[
+  {
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "broken": [],
+    "products": 15,
+    "violations": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "broken": [],
+    "products": 15,
+    "violations": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "overflow": false,
+    "broken": [],
+    "products": 15,
+    "violations": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "broken": [],
+    "products": 15,
+    "violations": []
+  },
+  {
+    "width": 320,
+    "height": 650,
+    "overflow": false,
+    "broken": [],
+    "products": 15,
+    "violations": []
+  }
+]

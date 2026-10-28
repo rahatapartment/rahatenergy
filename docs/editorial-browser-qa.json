@@ -1,0 +1,165 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "broken": [],
+    "palette": [
+      [
+        "--brand-green",
+        "#1f6a48"
+      ],
+      [
+        "--brand-silver",
+        "#ccc"
+      ],
+      [
+        "--brand-black",
+        "#333"
+      ]
+    ],
+    "hiddenReveal": 0,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 1024,
+    "height": 768,
+    "overflow": false,
+    "broken": [],
+    "palette": [
+      [
+        "--brand-green",
+        "#1f6a48"
+      ],
+      [
+        "--brand-silver",
+        "#ccc"
+      ],
+      [
+        "--brand-black",
+        "#333"
+      ]
+    ],
+    "hiddenReveal": 0,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 768,
+    "height": 1024,
+    "overflow": false,
+    "broken": [],
+    "palette": [
+      [
+        "--brand-green",
+        "#1f6a48"
+      ],
+      [
+        "--brand-silver",
+        "#ccc"
+      ],
+      [
+        "--brand-black",
+        "#333"
+      ]
+    ],
+    "hiddenReveal": 0,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "broken": [],
+    "palette": [
+      [
+        "--brand-green",
+        "#1f6a48"
+      ],
+      [
+        "--brand-silver",
+        "#ccc"
+      ],
+      [
+        "--brand-black",
+        "#333"
+      ]
+    ],
+    "hiddenReveal": 0,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 320,
+    "height": 650,
+    "overflow": false,
+    "broken": [],
+    "palette": [
+      [
+        "--brand-green",
+        "#1f6a48"
+      ],
+      [
+        "--brand-silver",
+        "#ccc"
+      ],
+      [
+        "--brand-black",
+        "#333"
+      ]
+    ],
+    "hiddenReveal": 0,
+    "violations": []
+  },
+  {
+    "route": "/shop",
+    "width": 1440,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "route": "/request-quote",
+    "width": 1440,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "route": "/contact",
+    "width": 1440,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "route": "/admin/preview",
+    "width": 1440,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "route": "/shop",
+    "width": 390,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "route": "/request-quote",
+    "width": 390,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "route": "/contact",
+    "width": 390,
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "route": "/admin/preview",
+    "width": 390,
+    "overflow": false,
+    "violations": []
+  }
+]

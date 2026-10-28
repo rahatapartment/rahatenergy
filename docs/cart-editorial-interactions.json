@@ -1,0 +1,11 @@
+{
+  "passed": [
+    "Empty cart offers collection and quotation routes",
+    "Multiple saved products restore and unknown prices never produce a misleading total",
+    "Quantity buttons and numeric entry respect the 1–99 bounds",
+    "Quantity changes persist across reload",
+    "Review checkout reaches the existing checkout without initiating payment",
+    "Removing all products restores a persistent empty state",
+    "Empty state accessibility and reduced-motion behavior pass"
+  ]
+}

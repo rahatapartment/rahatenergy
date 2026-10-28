@@ -1,0 +1,52 @@
+{
+  "routes": 22,
+  "internalLinks": 44,
+  "accessibility": [
+    {
+      "route": "/",
+      "violations": []
+    },
+    {
+      "route": "/about",
+      "violations": []
+    },
+    {
+      "route": "/contact",
+      "violations": []
+    },
+    {
+      "route": "/solutions",
+      "violations": []
+    },
+    {
+      "route": "/solutions/home",
+      "violations": []
+    },
+    {
+      "route": "/categories/solar-panels",
+      "violations": []
+    },
+    {
+      "route": "/shop/450w-monocrystalline-solar-panel",
+      "violations": []
+    },
+    {
+      "route": "/faq",
+      "violations": []
+    },
+    {
+      "route": "/how-to-order",
+      "violations": []
+    },
+    {
+      "route": "/policies/privacy",
+      "violations": []
+    },
+    {
+      "route": "/track-order",
+      "violations": []
+    }
+  ],
+  "mobile": "390px layouts and navigation passed",
+  "pageErrors": []
+}

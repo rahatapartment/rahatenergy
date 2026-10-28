@@ -1,0 +1,248 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("ENERGY_DATABASE_URL")
+  directUrl = env("ENERGY_DIRECT_URL")
+}
+
+model Product {
+  id           String                 @id
+  sku          String                 @unique
+  inventory    Inventory?
+  orderItems   OrderItem[]
+  quotations   Quotation[]
+  reservations InventoryReservation[]
+}
+
+model Inventory {
+  productId         String              @id
+  product           Product             @relation(fields: [productId], references: [id])
+  priceKobo         Int?
+  stock             Int                 @default(0)
+  reserved          Int                 @default(0)
+  lowStockThreshold Int                 @default(5)
+  enabled           Boolean             @default(false)
+  version           Int                 @default(0)
+  updatedAt         DateTime            @updatedAt
+  movements         InventoryMovement[]
+}
+
+model InventoryMovement {
+  id            String    @id @default(cuid())
+  productId     String
+  inventory     Inventory @relation(fields: [productId], references: [productId])
+  delta         Int
+  reservedDelta Int       @default(0)
+  reason        String
+  actor         String
+  eventKey      String    @unique
+  createdAt     DateTime  @default(now())
+
+  @@index([productId, createdAt])
+}
+
+model Customer {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  phone     String?
+  createdAt DateTime @default(now())
+  orders    Order[]
+}
+
+model Order {
+  id                 String                 @id @default(cuid())
+  reference          String                 @unique
+  accessTokenHash    String                 @unique
+  checkoutKey        String?                @unique
+  checkoutHash       String?
+  customerId         String
+  customer           Customer               @relation(fields: [customerId], references: [id])
+  customerSnapshot   Json
+  subtotalKobo       Int
+  deliveryFeeKobo    Int
+  totalKobo          Int
+  currency           String                 @default("NGN")
+  expiresAt          DateTime               @default(now())
+  paymentStatus      String                 @default("PENDING")
+  fulfillmentStatus  String                 @default("PENDING")
+  createdAt          DateTime               @default(now())
+  updatedAt          DateTime               @updatedAt
+  items              OrderItem[]
+  payments           Payment[]
+  delivery           Delivery?
+  reservations       InventoryReservation[]
+  events             OrderEvent[]
+  cancelledAt        DateTime?
+  cancellationReason String?
+  stockRestoredAt    DateTime?
+  refund             Refund?
+}
+
+model OrderItem {
+  id            String  @id @default(cuid())
+  orderId       String
+  order         Order   @relation(fields: [orderId], references: [id])
+  productId     String
+  product       Product @relation(fields: [productId], references: [id])
+  name          String
+  sku           String
+  quantity      Int
+  unitPriceKobo Int
+
+  @@unique([orderId, productId])
+}
+
+model InventoryReservation {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id])
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  quantity  Int
+  status    String   @default("ACTIVE")
+  expiresAt DateTime
+
+  @@unique([orderId, productId])
+  @@index([status, expiresAt])
+}
+
+model Payment {
+  id                  String    @id @default(cuid())
+  orderId             String
+  order               Order     @relation(fields: [orderId], references: [id])
+  reference           String    @unique
+  provider            String    @default("PAYSTACK")
+  amountKobo          Int
+  currency            String    @default("NGN")
+  status              String    @default("PENDING")
+  paidAt              DateTime?
+  createdAt           DateTime  @default(now())
+  authorizationUrl    String?
+  initializationState String    @default("NEW")
+}
+
+model Delivery {
+  id                String   @id @default(cuid())
+  orderId           String   @unique
+  order             Order    @relation(fields: [orderId], references: [id])
+  method            String
+  address           Json
+  feeKobo           Int
+  status            String   @default("PENDING")
+  trackingReference String?
+  version           Int      @default(0)
+  updatedAt         DateTime @updatedAt
+}
+
+model Quotation {
+  id            String   @id @default(cuid())
+  name          String
+  email         String
+  phone         String
+  productId     String?
+  product       Product? @relation(fields: [productId], references: [id])
+  quantity      Int      @default(1)
+  location      String
+  requirements  String
+  notes         String?
+  internalNotes String?
+  status        String   @default("NEW")
+  version       Int      @default(0)
+  updatedAt     DateTime @default(now()) @updatedAt
+  createdAt     DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actor     String
+  action    String
+  subject   String
+  data      Json
+  createdAt DateTime @default(now())
+}
+
+model OrderEvent {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id])
+  actor     String
+  event     String
+  createdAt DateTime @default(now())
+}
+
+model DeliveryOption {
+  id            String   @id @default(cuid())
+  label         String
+  method        String
+  state         String?
+  city          String?
+  pickupAddress String?
+  feeKobo       Int
+  enabled       Boolean  @default(false)
+  updatedAt     DateTime @updatedAt
+}
+
+model Notification {
+  id             String    @id @default(cuid())
+  eventKey       String    @unique
+  payload        Json
+  attempts       Int       @default(0)
+  firstAttemptAt DateTime?
+  nextAttemptAt  DateTime  @default(now())
+  lockedUntil    DateTime?
+  lockToken      String?
+  sentAt         DateTime?
+  lastError      String?
+  providerId     String?
+  createdAt      DateTime  @default(now())
+
+  @@index([sentAt, nextAttemptAt])
+}
+
+model Refund {
+  id               String    @id @default(cuid())
+  orderId          String    @unique
+  order            Order     @relation(fields: [orderId], references: [id])
+  amountKobo       Int
+  reason           String
+  status           String    @default("REQUESTED")
+  providerRefundId String?   @unique
+  requestedBy      String
+  verifiedBy       String?
+  verifiedAt       DateTime?
+  createdAt        DateTime  @default(now())
+}
+
+model AdminUser {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  name           String
+  passwordHash   String
+  role           String   @default("OPERATOR")
+  active         Boolean  @default(true)
+  sessionVersion Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model RateLimitBucket {
+  id        String   @id
+  count     Int
+  expiresAt DateTime
+}
+
+model JobRun {
+  id         String    @id @default(cuid())
+  job        String
+  status     String    @default("RUNNING")
+  startedAt  DateTime  @default(now())
+  finishedAt DateTime?
+  result     Json?
+  error      String?
+
+  @@index([job, startedAt])
+}

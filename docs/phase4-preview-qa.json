@@ -1,0 +1,45 @@
+{
+  "mode": "read-only walkthrough, no configured database",
+  "sections": 9,
+  "writeRequests": [],
+  "pageErrors": [],
+  "accessibility": [
+    {
+      "route": "/admin/preview",
+      "violations": []
+    },
+    {
+      "route": "/admin/preview/quotations",
+      "violations": []
+    },
+    {
+      "route": "/admin/preview/deliveries",
+      "violations": []
+    },
+    {
+      "route": "/admin/preview/orders",
+      "violations": []
+    },
+    {
+      "route": "/admin/settings",
+      "violations": []
+    },
+    {
+      "route": "/admin/monitoring",
+      "violations": []
+    },
+    {
+      "route": "/admin/quotations",
+      "violations": []
+    },
+    {
+      "route": "/admin/deliveries",
+      "violations": []
+    },
+    {
+      "route": "/admin/orders",
+      "violations": []
+    }
+  ],
+  "mobile": "390px layouts and walkthrough navigation passed"
+}

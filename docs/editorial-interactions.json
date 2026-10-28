@@ -1,0 +1,12 @@
+{
+  "passed": [
+    "All five category tabs update their image, description, selected state and destination",
+    "Category tabs support Home, End and arrow-key navigation",
+    "The curated edit preserves multiple-product cart additions",
+    "All solution paths and the closing enquiry action route correctly",
+    "Native FAQ disclosure reveals readable answers",
+    "Mobile category navigation scrolls within its own panel without page overflow",
+    "Reduced motion keeps every section visible and disables image animation",
+    "Homepage product choices remain saved when navigating to the cart"
+  ]
+}

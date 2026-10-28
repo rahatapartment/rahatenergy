@@ -1,0 +1,14 @@
+{
+  "passed": [
+    "Hero action reaches the curved help introduction and all twelve existing answers are available",
+    "Expand and collapse controls update every answer in the current result set",
+    "All four topic filters show the correct questions with a single selected control",
+    "Search matches answer text case-insensitively, preserves whitespace tolerance and previews the matching phrase",
+    "Search clearing, empty-state reset and Escape return to the full library without losing focus",
+    "Native answer disclosures support keyboard activation and accessible expanded content",
+    "Ordering, shortlist, enquiry, policy, contact and private-order routes remain valid",
+    "Mobile topic scrolling and filtered expansion stay within the document width",
+    "Mobile navigation remains readable over light content and restores focus and scrolling",
+    "Reduced motion disables decorative scene scaling and copy fading"
+  ]
+}
