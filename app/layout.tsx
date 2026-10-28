@@ -13,6 +13,8 @@ import "./cart-editorial.css";
 import "./tracking-editorial.css";
 import "./admin-premium.css";
 import "./brand-identity.css";
+import "./home-sales.css";
+import "./category-editorial.css";
 import localFont from "next/font/local";
 const manrope = localFont({
   src: "../public/fonts/manrope.ttf",

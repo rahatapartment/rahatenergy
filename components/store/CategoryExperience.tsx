@@ -2,10 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Sun,
+  Cable,
+  BatteryCharging,
+  Lightbulb,
+  PlugZap,
+  MoveHorizontal,
+} from "lucide-react";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { categories, imageFor } from "@/lib/catalogue";
 
+const icons = [Sun, Cable, BatteryCharging, Lightbulb, PlugZap];
 const chapters = [
   {
     slug: "solar-panels",
@@ -51,6 +60,20 @@ export function CategoryExperience() {
   }, []);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   const chapter = chapters[selected];
+  const touch = useRef<{ x: number; y: number } | null>(null);
+  useEffect(() => {
+    const button = buttons.current[selected];
+    if (horizontal && button) {
+      const rail = button.parentElement;
+      if (rail)
+        rail.scrollTo({
+          left: button.offsetLeft - rail.offsetLeft - 12,
+          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "instant"
+            : "smooth",
+        });
+    }
+  }, [selected, horizontal]);
   function navigate(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     let next = index;
     if (["ArrowRight", "ArrowDown"].includes(event.key))
@@ -79,36 +102,68 @@ export function CategoryExperience() {
             <br />
             <em>One bigger picture.</em>
           </h2>
-          <p>Explore the pieces. Imagine how they fit your world.</p>
+          <p>
+            Shop five categories of solar and energy equipment. Choose a
+            category to explore the collection.
+          </p>
           <div
             className="element-tabs"
             role="tablist"
             aria-label="Explore energy categories"
             aria-orientation={horizontal ? "horizontal" : "vertical"}
           >
-            {categories.map((category, index) => (
-              <button
-                role="tab"
-                id={`element-tab-${index}`}
-                aria-controls="element-panel"
-                aria-selected={selected === index}
-                tabIndex={selected === index ? 0 : -1}
-                ref={(node) => {
-                  buttons.current[index] = node;
-                }}
-                onClick={() => setSelected(index)}
-                onKeyDown={(event) => navigate(event, index)}
-                key={category}
-              >
-                <span className="element-number">0{index + 1}</span>
-                <span>{category}</span>
-                <ArrowUpRight size={20} strokeWidth={1.3} />
-              </button>
-            ))}
+            {categories.map((category, index) => {
+              const Icon = icons[index];
+              return (
+                <button
+                  role="tab"
+                  id={`element-tab-${index}`}
+                  aria-controls="element-panel"
+                  aria-selected={selected === index}
+                  tabIndex={selected === index ? 0 : -1}
+                  ref={(node) => {
+                    buttons.current[index] = node;
+                  }}
+                  onClick={() => setSelected(index)}
+                  onKeyDown={(event) => navigate(event, index)}
+                  key={category}
+                >
+                  <Icon
+                    className="element-category-icon"
+                    size={20}
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  <span>{category}</span>
+                  <ArrowUpRight size={20} strokeWidth={1.3} />
+                </button>
+              );
+            })}
           </div>
+          <span className="element-swipe-hint">
+            <MoveHorizontal size={18} /> Swipe image or categories to explore
+          </span>
         </div>
         <div
           className="element-panel"
+          onTouchStart={(e) => {
+            touch.current = {
+              x: e.touches[0].clientX,
+              y: e.touches[0].clientY,
+            };
+          }}
+          onTouchEnd={(e) => {
+            if (!touch.current) return;
+            const dx = e.changedTouches[0].clientX - touch.current.x,
+              dy = e.changedTouches[0].clientY - touch.current.y;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4)
+              setSelected(
+                (n) =>
+                  (n + (dx < 0 ? 1 : categories.length - 1)) %
+                  categories.length,
+              );
+            touch.current = null;
+          }}
           role="tabpanel"
           id="element-panel"
           aria-labelledby={`element-tab-${selected}`}
@@ -139,7 +194,7 @@ export function CategoryExperience() {
             <Link
               href={`/categories/${chapter.slug}`}
               className="element-browse"
-              aria-label={`Explore ${categories[selected]}`}
+              aria-label={`Shop ${categories[selected]}`}
             >
               <ArrowUpRight size={27} strokeWidth={1.2} />
             </Link>

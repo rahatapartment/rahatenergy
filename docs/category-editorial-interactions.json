@@ -1,0 +1,9 @@
+{
+  "passed": [
+    "All five categories show exactly three matching products and one current category",
+    "Hero shopping action reaches each category product section",
+    "Product, filtered shop, quotation and next-category routes are valid",
+    "Horizontal category navigation changes route and current-page state",
+    "Unknown categories preserve 404 behavior"
+  ]
+}

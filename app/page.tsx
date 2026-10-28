@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
+import { categories } from "@/lib/catalogue";
+import { MoveHorizontal } from "lucide-react";
 import { storeData } from "@/lib/store-data";
 import { faqs } from "@/lib/content";
 import { FAQList } from "@/components/store/Content";
@@ -25,26 +27,25 @@ export default async function Home() {
             <div className="introduction-horizon" aria-hidden="true">
               <span />R / E<span />
             </div>
-            <span className="eyebrow">THE ART OF EVERYDAY ENERGY</span>
+            <span className="eyebrow">YOUR SOLAR & ENERGY STORE</span>
             <h2 id="introduction-title">
-              A quieter kind of power.
+              Solar solutions.
               <br />
-              <em>A greater sense of possibility.</em>
+              <em>Ready for your shortlist.</em>
             </h2>
             <div className="introduction-bottom">
               <span className="introduction-index">01 / A NEW PERSPECTIVE</span>
               <div>
                 <p>
-                  Morning light. An idea taking shape. A space that feels like
-                  yours. Energy is part of every moment. Choosing it should feel
-                  just as considered.
+                  Shop solar panels, inverters, battery storage, solar lighting
+                  and the accessories that bring your system together.
                 </p>
                 <p>
                   Explore solar, storage and the essentials that connect them.
                   Start with your space. Build toward what matters.
                 </p>
-                <Link href="/about" className="introduction-link">
-                  The Rahat Energy approach <ArrowUpRight size={18} />
+                <Link href="/shop" className="introduction-link">
+                  Shop all energy products <ArrowUpRight size={18} />
                 </Link>
               </div>
             </div>
@@ -56,20 +57,25 @@ export default async function Home() {
             </div>
           </section>
           <CategoryExperience />
-          <section className="curated-edit" aria-labelledby="curated-title">
+          <section
+            id="frequently-bought"
+            className="curated-edit energy-essentials"
+            aria-labelledby="curated-title"
+          >
             <div className="curated-heading" data-reveal>
               <div>
-                <span className="eyebrow">03 / THE CONSIDERED EDIT</span>
+                <span className="eyebrow">03 / SHOP THE ENERGY ESSENTIALS</span>
                 <h2 id="curated-title">
-                  Good energy.
+                  Five categories.
                   <br />
-                  <em>Down to the detail.</em>
+                  <em>Find your next essential.</em>
                 </h2>
               </div>
               <div className="curated-intro">
                 <p>
-                  Three starting points. A closer look at solar, conversion and
-                  storage.
+                  One featured product from every category. Compare your
+                  options, build your cart and confirm the details before
+                  ordering.
                 </p>
                 <Link href="/shop" className="editorial-inline-link">
                   Explore all products <ArrowUpRight size={18} />
@@ -77,26 +83,40 @@ export default async function Home() {
               </div>
             </div>
             <div className="curated-products">
-              {[products[1], products[4], products[7]].map((product, index) => (
-                <div className="curated-product" key={product.id} data-reveal>
-                  <div className="curated-product-index">
-                    <span>0{index + 1}</span>
-                    <span>
-                      {
-                        [
-                          "CAPTURE THE LIGHT",
-                          "MAKE THE CONNECTION",
-                          "SAVE THE POSSIBILITY",
-                        ][index]
-                      }
-                    </span>
+              {categories
+                .map((category) =>
+                  products.find((product) => product.category === category),
+                )
+                .filter(
+                  (product): product is (typeof products)[number] => !!product,
+                )
+                .map((product, index) => (
+                  <div className="curated-product" key={product.id} data-reveal>
+                    <div className="curated-product-index">
+                      <span>0{index + 1}</span>
+                      <span>
+                        {
+                          [
+                            "CAPTURE THE LIGHT",
+                            "MAKE THE CONNECTION",
+                            "SAVE THE POSSIBILITY",
+                            "LIGHT YOUR SPACE",
+                            "COMPLETE YOUR SETUP",
+                          ][index]
+                        }
+                      </span>
+                    </div>
+                    <ProductCard product={product} />
                   </div>
-                  <ProductCard product={product} />
-                </div>
-              ))}
+                ))}
             </div>
+            <span className="essentials-swipe-hint">
+              <MoveHorizontal size={18} />
+              Swipe to browse all five categories
+            </span>
             <p className="curated-disclosure">
-              A provisional collection. Confirm exact models, specifications and
+              Curated product highlights, not a verified sales ranking. Product
+              identities and images are provisional; confirm models, prices and
               availability before purchasing.
             </p>
           </section>

@@ -26,6 +26,13 @@ export function Chrome({ children }: { children: ReactNode }) {
   const hasCinematicHero =
     isHome ||
     [
+      "solar-panels",
+      "solar-inverters",
+      "battery-storage",
+      "solar-lighting",
+      "energy-accessories",
+    ].some((slug) => path === `/categories/${slug}`) ||
+    [
       "/shop",
       "/about",
       "/contact",

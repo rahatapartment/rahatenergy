@@ -1,0 +1,9 @@
+{
+  "passed": [
+    "Hero next/previous and category selectors navigate to the expected category with shopping links",
+    "Horizontal touch gestures switch both hero and category panels",
+    "Category tabs retain keyboard navigation and icons",
+    "Featured collection contains exactly one product from each category",
+    "Slideshow exposes explicit play/pause controls; reduced motion disables automatic rotation"
+  ]
+}

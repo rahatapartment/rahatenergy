@@ -130,3 +130,15 @@ Metrics remain grounded in actual database records and show unavailable values w
 The supplied `public/images/logo.png` replaces the provisional constructed brand mark across shared storefront and operations components. The confirmed palette supersedes earlier no-gold/provisional palette guidance: emerald `#009B4D`, metallic gold `#D4AF37`, electric lime `#A3E635`, deep green `#006B3C` and champagne `#FFF2A6`.
 
 Use emerald for prominent action surfaces with readable dark labels, deep green for contrast and supporting surfaces, lime for selective electrical accents, and metallic/champagne gold for restrained outlines and highlights. Retain paper backgrounds and neutral reading text. Do not recolour or distort the supplied logo. Small green text on paper uses the deeper brand variant; gold and lime are not used as low-contrast paragraph text.
+
+## Shopping-led landing page — 28 October 2026
+
+The homepage must communicate immediately that Rahat Energy sells solar and energy equipment. Its hero now rotates through five shopping categories, each with a direct category action and an all-products link. Retain the cinematic identity while prioritizing product discovery. Provide manual and touch controls, pause rotation during interaction, and respect reduced motion.
+
+Category navigation is compact and icon-led. Swipeable interfaces include visible guidance; touch gestures must work as well as mouse and keyboard controls. The featured collection shows one item per category without inventing sales popularity. On short screens, prioritize reachable content over hero pinning. Official logo sizing is restrained, and circular CTA arrows align to the circle centre.
+
+## Category collections — 28 October 2026
+
+All five category pages now extend the established cinematic storefront direction. Category-specific equipment imagery and shopping copy lead to a curved paper collection surface. Shared content retains the original descriptions and confirmation questions, while compact icon-led navigation and next-category routes connect the five collections.
+
+Use three matching product cards per category, truthful pricing/stock states, illustrative-image labels and a filtered-shop route. Keep the official logo, approved palette and centered hero-arrow controls consistent. Short screens use natural hero scrolling for reachability. Do not fabricate models, warranties or compatibility guarantees.
