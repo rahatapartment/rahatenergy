@@ -16,7 +16,7 @@ const slides = [
   {
     category: "Solar panels",
     slug: "solar-panels",
-    image: "panels",
+    image: "hero",
     title: "Start with sunlight.",
     accent: "Shop solar panels.",
     copy: "Discover solar panels for your next energy setup. Compare the collection and confirm the right model for your space.",
@@ -128,7 +128,11 @@ export function HeroExperience() {
         <div className="cinematic-scene sales-hero-scene" key={slide.image}>
           <Image
             src={`/images/${slide.image}.webp`}
-            alt={`Illustrative ${slide.category.toLowerCase()} equipment; exact models require confirmation`}
+            alt={
+              slide.image === "hero"
+                ? "Illustrative solar-powered home; not a completed Rahat Energy project"
+                : `Illustrative ${slide.category.toLowerCase()} equipment; exact models require confirmation`
+            }
             fill
             priority
             sizes="100vw"

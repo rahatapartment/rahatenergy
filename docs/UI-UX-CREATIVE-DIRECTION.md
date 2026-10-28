@@ -142,3 +142,7 @@ Category navigation is compact and icon-led. Swipeable interfaces include visibl
 All five category pages now extend the established cinematic storefront direction. Category-specific equipment imagery and shopping copy lead to a curved paper collection surface. Shared content retains the original descriptions and confirmation questions, while compact icon-led navigation and next-category routes connect the five collections.
 
 Use three matching product cards per category, truthful pricing/stock states, illustrative-image labels and a filtered-shop route. Keep the official logo, approved palette and centered hero-arrow controls consistent. Short screens use natural hero scrolling for reachability. Do not fabricate models, warranties or compatibility guarantees.
+
+## Mobile reveal correction — 28 October 2026
+
+The homepage's earlier natural-scroll fallback below 700px has been removed. Preserve the pinned hero and curved second-section reveal on phones even when browser chrome reduces available height. Compact short-screen content and omit secondary actions where needed, rather than switching off the core transition. This supersedes the earlier homepage short-screen fallback guidance; other page treatments are unchanged.

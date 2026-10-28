@@ -1,0 +1,7 @@
+{
+  "production": true,
+  "checks": 45,
+  "scrollDecoration": true,
+  "reducedMotion": true,
+  "axeViolations": 0
+}
