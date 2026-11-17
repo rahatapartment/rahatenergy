@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Minus, Plus, ShoppingBag, ArrowUpRight, Check } from "lucide-react";
-import { money, type StoreProduct } from "@/lib/catalogue";
+import { isOutOfStock, money, type StoreProduct } from "@/lib/catalogue";
 import { useCart } from "./CartProvider";
 
 export function ProductPurchase({ product: p }: { product: StoreProduct }) {
@@ -18,6 +18,7 @@ export function ProductPurchase({ product: p }: { product: StoreProduct }) {
     p.stock === null ? 99 : Math.min(99, Math.max(0, p.stock - p.reserved));
   const disabled = !ready || (p.stock !== null && (!p.enabled || max === 0));
   const unpriced = p.priceKobo === null;
+  const soldOut = isOutOfStock(p);
   useEffect(() => {
     if (!actions.current || !("IntersectionObserver" in window)) return;
     const observer = new IntersectionObserver(
@@ -83,7 +84,9 @@ export function ProductPurchase({ product: p }: { product: StoreProduct }) {
           >
             {added ? <Check size={17} /> : <ShoppingBag size={17} />}
             <span>
-              {added
+              {soldOut
+                ? "Out of stock"
+                : added
                 ? "Saved · add another"
                 : unpriced
                   ? "Save to your shortlist"
@@ -136,7 +139,7 @@ export function ProductPurchase({ product: p }: { product: StoreProduct }) {
           >
             {added ? <Check size={18} /> : <ShoppingBag size={17} />}
             <span>
-              {added ? "Saved" : unpriced ? "Shortlist" : "Add to cart"}
+              {soldOut ? "Out of stock" : added ? "Saved" : unpriced ? "Shortlist" : "Add to cart"}
             </span>
           </button>
         </div>

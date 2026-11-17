@@ -1,0 +1,60 @@
+[
+  {
+    "slug": "rahat-power-station-1000w-768wh",
+    "width": 1440,
+    "overflow": false,
+    "photos": 5,
+    "features": 5,
+    "faqs": 3,
+    "overview": 853,
+    "thumbnails": "pass",
+    "navigation": "pass",
+    "zoom": "pass",
+    "escape": "pass",
+    "faq": "pass"
+  },
+  {
+    "slug": "rahat-lithium-battery-32kwh",
+    "width": 1440,
+    "overflow": false,
+    "photos": 4,
+    "features": 4,
+    "faqs": 3,
+    "overview": 794,
+    "thumbnails": "pass",
+    "navigation": "pass",
+    "zoom": "pass",
+    "escape": "pass",
+    "faq": "pass"
+  },
+  {
+    "slug": "rahat-power-station-1000w-768wh",
+    "width": 390,
+    "overflow": false,
+    "photos": 5,
+    "features": 5,
+    "faqs": 3,
+    "overview": 853,
+    "thumbnails": "pass",
+    "navigation": "pass",
+    "zoom": "pass",
+    "escape": "pass",
+    "faq": "pass",
+    "swipe": "pass"
+  },
+  {
+    "slug": "rahat-lithium-battery-32kwh",
+    "width": 390,
+    "overflow": false,
+    "photos": 4,
+    "features": 4,
+    "faqs": 3,
+    "overview": 794,
+    "thumbnails": "pass",
+    "navigation": "pass",
+    "zoom": "pass",
+    "escape": "pass",
+    "faq": "pass",
+    "swipe": "pass"
+  }
+]

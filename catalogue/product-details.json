@@ -1,0 +1,1152 @@
+{
+  "re-001": {
+    "headline": "Make sunlight part of your everyday energy plan.",
+    "intro": "Start your solar installation with the equipment that captures the energy. Rahat solar panels form the generation side of a matched system for your home or business.",
+    "overview": [
+      "A solar panel uses photovoltaic cells to convert sunlight into DC electricity. In a complete system, that electricity is managed by compatible power electronics and, where included, stored in a battery or converted by an inverter for suitable AC equipment.",
+      "This listing brings the Rahat panel range into your project plan. The right panel choice depends on its actual wattage, voltage and current characteristics, as well as the space available and the equipment it will connect to. The exact wattage of the supplied panel has not been specified in this listing.",
+      "Good results start before installation: consider shading, usable roof or ground area, mounting direction and cable routes. A matched array gives the installer a sound foundation for designing the rest of your energy system."
+    ],
+    "features": [
+      {
+        "title": "Photovoltaic generation",
+        "description": "Converts available sunlight into DC electricity."
+      },
+      {
+        "title": "System building block",
+        "description": "Select the panel alongside compatible inverter or charge-controller input requirements."
+      },
+      {
+        "title": "Array planning",
+        "description": "Panel dimensions and electrical ratings determine the layout and how modules can be grouped."
+      },
+      {
+        "title": "Project-led sizing",
+        "description": "Plan the number of panels around your energy needs and installation conditions."
+      }
+    ],
+    "benefits": [
+      "Introduce a sunlight-powered generation source to your system.",
+      "Plan an array around the space and daylight conditions at your property.",
+      "Choose panels as part of a coordinated energy setup."
+    ],
+    "uses": [
+      "New home solar installations.",
+      "Business solar projects designed around daytime demand.",
+      "Compatible extensions to an existing array after an electrical review."
+    ],
+    "checks": [
+      "Request the exact panel model, wattage, dimensions and datasheet.",
+      "Check open-circuit voltage, operating current and inverter/controller limits.",
+      "Review shading, mounting requirements and cable routes.",
+      "Confirm the supplied quantity and written product warranty."
+    ],
+    "specifications": {
+      "Product type": "Photovoltaic solar panel",
+      "Exact wattage": "Confirm the supplied panel variant"
+    },
+    "faq": [
+      {
+        "question": "Can a panel power my appliances on its own?",
+        "answer": "Most household AC appliances require a suitable complete system, including compatible power conversion and protection. A panel is a generation component rather than a household socket."
+      },
+      {
+        "question": "Does the listing specify a particular wattage?",
+        "answer": "No single panel wattage has been confirmed here. Ask for the exact variant and its electrical specification before ordering."
+      },
+      {
+        "question": "How many panels do I need?",
+        "answer": "That depends on energy demand, sunlight, available space and the rest of the system. Share your appliance list and installation location for an array proposal."
+      }
+    ]
+  },
+  "re-004": {
+    "headline": "Bring essential power into focus.",
+    "intro": "The Rahat 3.5kVA solar inverter is a central component in a matched solar and storage installation. Choose it around the equipment you need to run, then build the rest of the system to suit.",
+    "overview": [
+      "An inverter converts DC electricity into AC electricity for compatible AC appliances. In a solar installation, it is one of the key pieces connecting the energy side of the system with the equipment you want to use.",
+      "This model carries a listed 3.5kVA rating. It is the entry capacity in the three-model Rahat inverter collection, making it a starting point for a focused essential-load plan.",
+      "The right choice starts with continuous demand and the extra power some appliances need when starting. kVA is an apparent-power rating; it should not be treated as a guaranteed identical kW output. Check the exact model\u2019s rated watts, surge capability and supported battery and solar inputs before finalising the installation."
+    ],
+    "features": [
+      {
+        "title": "3.5kVA listed rating",
+        "description": "A capacity reference for planning and comparing inverter options."
+      },
+      {
+        "title": "DC-to-AC conversion",
+        "description": "The inverter\u2019s core role is to make suitable DC energy available to compatible AC equipment."
+      },
+      {
+        "title": "Solar-system component",
+        "description": "Choose alongside the panels, battery and protection equipment intended for the project."
+      },
+      {
+        "title": "Three capacity options",
+        "description": "Compare the 3.5kVA, 5.5kVA and 10kVA Rahat models using the same appliance list."
+      }
+    ],
+    "benefits": [
+      "Give your power system a clear centre point for load planning.",
+      "Match inverter capacity to actual equipment rather than buying by room count.",
+      "Choose from multiple sizes within the Rahat collection."
+    ],
+    "uses": [
+      "Home energy systems with an agreed essential-load schedule.",
+      "Office or shop installations reviewed against actual equipment demand.",
+      "New solar projects or compatible system upgrades."
+    ],
+    "checks": [
+      "Provide continuous wattage and startup demand for your appliances.",
+      "Confirm rated watts, surge rating and output voltage on the exact model.",
+      "Check battery voltage, PV input limits and supported charging/operating modes.",
+      "Agree installation, protection and commissioning requirements."
+    ],
+    "specifications": {
+      "Product type": "Solar inverter",
+      "Listed apparent-power rating": "3.5kVA"
+    },
+    "faq": [
+      {
+        "question": "Does kVA tell me exactly how many watts I can run?",
+        "answer": "No. kVA and kW are different ratings. Use the manufacturer\u2019s rated output in watts and account for the power factor and startup requirements of the connected equipment."
+      },
+      {
+        "question": "Are panels and a battery included?",
+        "answer": "This listing is for the inverter. Ask for a written system quotation if you also need panels, batteries, mounting or installation."
+      },
+      {
+        "question": "Can it run an air conditioner or a pump?",
+        "answer": "The appliance\u2019s running demand and startup surge must both be checked against the exact inverter specification. Share the model details before choosing a capacity."
+      }
+    ]
+  },
+  "re-005": {
+    "headline": "A considered step up for your power system.",
+    "intro": "The Rahat 5.5kVA solar inverter is a central component in a matched solar and storage installation. Choose it around the equipment you need to run, then build the rest of the system to suit.",
+    "overview": [
+      "An inverter converts DC electricity into AC electricity for compatible AC appliances. In a solar installation, it is one of the key pieces connecting the energy side of the system with the equipment you want to use.",
+      "This model carries a listed 5.5kVA rating. It sits between the 3.5kVA and 10kVA models, offering another sizing option when your planned loads go beyond the smaller unit.",
+      "The right choice starts with continuous demand and the extra power some appliances need when starting. kVA is an apparent-power rating; it should not be treated as a guaranteed identical kW output. Check the exact model\u2019s rated watts, surge capability and supported battery and solar inputs before finalising the installation."
+    ],
+    "features": [
+      {
+        "title": "5.5kVA listed rating",
+        "description": "A capacity reference for planning and comparing inverter options."
+      },
+      {
+        "title": "DC-to-AC conversion",
+        "description": "The inverter\u2019s core role is to make suitable DC energy available to compatible AC equipment."
+      },
+      {
+        "title": "Solar-system component",
+        "description": "Choose alongside the panels, battery and protection equipment intended for the project."
+      },
+      {
+        "title": "Three capacity options",
+        "description": "Compare the 3.5kVA, 5.5kVA and 10kVA Rahat models using the same appliance list."
+      }
+    ],
+    "benefits": [
+      "Give your power system a clear centre point for load planning.",
+      "Match inverter capacity to actual equipment rather than buying by room count.",
+      "Choose from multiple sizes within the Rahat collection."
+    ],
+    "uses": [
+      "Home energy systems with an agreed essential-load schedule.",
+      "Office or shop installations reviewed against actual equipment demand.",
+      "New solar projects or compatible system upgrades."
+    ],
+    "checks": [
+      "Provide continuous wattage and startup demand for your appliances.",
+      "Confirm rated watts, surge rating and output voltage on the exact model.",
+      "Check battery voltage, PV input limits and supported charging/operating modes.",
+      "Agree installation, protection and commissioning requirements."
+    ],
+    "specifications": {
+      "Product type": "Solar inverter",
+      "Listed apparent-power rating": "5.5kVA"
+    },
+    "faq": [
+      {
+        "question": "Does kVA tell me exactly how many watts I can run?",
+        "answer": "No. kVA and kW are different ratings. Use the manufacturer\u2019s rated output in watts and account for the power factor and startup requirements of the connected equipment."
+      },
+      {
+        "question": "Are panels and a battery included?",
+        "answer": "This listing is for the inverter. Ask for a written system quotation if you also need panels, batteries, mounting or installation."
+      },
+      {
+        "question": "Can it run an air conditioner or a pump?",
+        "answer": "The appliance\u2019s running demand and startup surge must both be checked against the exact inverter specification. Share the model details before choosing a capacity."
+      }
+    ]
+  },
+  "re-006": {
+    "headline": "Plan for a larger set of power needs.",
+    "intro": "The Rahat 10kVA solar inverter is a central component in a matched solar and storage installation. Choose it around the equipment you need to run, then build the rest of the system to suit.",
+    "overview": [
+      "An inverter converts DC electricity into AC electricity for compatible AC appliances. In a solar installation, it is one of the key pieces connecting the energy side of the system with the equipment you want to use.",
+      "This model carries a listed 10kVA rating. It is the largest listed inverter in this collection, giving an installer a higher apparent-power rating to evaluate for more demanding load schedules.",
+      "The right choice starts with continuous demand and the extra power some appliances need when starting. kVA is an apparent-power rating; it should not be treated as a guaranteed identical kW output. Check the exact model\u2019s rated watts, surge capability and supported battery and solar inputs before finalising the installation."
+    ],
+    "features": [
+      {
+        "title": "10kVA listed rating",
+        "description": "A capacity reference for planning and comparing inverter options."
+      },
+      {
+        "title": "DC-to-AC conversion",
+        "description": "The inverter\u2019s core role is to make suitable DC energy available to compatible AC equipment."
+      },
+      {
+        "title": "Solar-system component",
+        "description": "Choose alongside the panels, battery and protection equipment intended for the project."
+      },
+      {
+        "title": "Three capacity options",
+        "description": "Compare the 3.5kVA, 5.5kVA and 10kVA Rahat models using the same appliance list."
+      }
+    ],
+    "benefits": [
+      "Give your power system a clear centre point for load planning.",
+      "Match inverter capacity to actual equipment rather than buying by room count.",
+      "Choose from multiple sizes within the Rahat collection."
+    ],
+    "uses": [
+      "Home energy systems with an agreed essential-load schedule.",
+      "Office or shop installations reviewed against actual equipment demand.",
+      "New solar projects or compatible system upgrades."
+    ],
+    "checks": [
+      "Provide continuous wattage and startup demand for your appliances.",
+      "Confirm rated watts, surge rating and output voltage on the exact model.",
+      "Check battery voltage, PV input limits and supported charging/operating modes.",
+      "Agree installation, protection and commissioning requirements."
+    ],
+    "specifications": {
+      "Product type": "Solar inverter",
+      "Listed apparent-power rating": "10kVA"
+    },
+    "faq": [
+      {
+        "question": "Does kVA tell me exactly how many watts I can run?",
+        "answer": "No. kVA and kW are different ratings. Use the manufacturer\u2019s rated output in watts and account for the power factor and startup requirements of the connected equipment."
+      },
+      {
+        "question": "Are panels and a battery included?",
+        "answer": "This listing is for the inverter. Ask for a written system quotation if you also need panels, batteries, mounting or installation."
+      },
+      {
+        "question": "Can it run an air conditioner or a pump?",
+        "answer": "The appliance\u2019s running demand and startup surge must both be checked against the exact inverter specification. Share the model details before choosing a capacity."
+      }
+    ]
+  },
+  "re-007": {
+    "headline": "A focused starting point for essential backup.",
+    "intro": "Keep energy available for the moments you need it. The Rahat 5kWh lithium battery adds storage to a compatible power system, giving your installer a clear capacity to plan around.",
+    "overview": [
+      "The 5kWh model is a lithium battery for storing electricity and making it available later through a compatible inverter. It is a storage component, so it should be selected alongside the equipment that will charge it and turn stored energy into usable power.",
+      "This is the smallest capacity in the Rahat lithium range shown here. It is a useful starting point when your priority is a focused selection of essential loads rather than the broadest possible backup coverage.",
+      "Capacity describes stored energy, not how much equipment can run at once. The complete system\u2019s usable energy, discharge limits, inverter rating and connected appliances determine the result you get. A correctly matched installation turns the product capacity into a practical backup plan."
+    ],
+    "features": [
+      {
+        "title": "5kWh listed capacity",
+        "description": "A clear nominal storage size for comparing this battery with the other Rahat models."
+      },
+      {
+        "title": "Lithium battery format",
+        "description": "An energy-storage option for a compatible inverter and charging arrangement."
+      },
+      {
+        "title": "System-based backup",
+        "description": "Designed to be considered as part of the full power system, with charging, protection and installation planned together."
+      },
+      {
+        "title": "Choice within the Rahat range",
+        "description": "Compare 5kWh, 10kWh, 15kWh and 32kWh models against the same list of loads to choose the appropriate capacity."
+      }
+    ],
+    "benefits": [
+      "Store energy for later use instead of relying only on what is being generated at that moment.",
+      "Build a backup plan around the appliances that matter most to you.",
+      "Compare storage sizes with a clear understanding of nominal capacity."
+    ],
+    "uses": [
+      "Home backup systems sized around a defined list of appliances.",
+      "Workspaces that need an installer-designed energy-storage solution.",
+      "Solar projects requiring storage alongside compatible equipment."
+    ],
+    "checks": [
+      "Confirm battery voltage, compatible inverters and communication requirements.",
+      "Request usable capacity, maximum discharge power and charging limits.",
+      "Review installation position, protection equipment and included accessories.",
+      "Confirm the exact model\u2019s warranty and any expansion or parallel-operation options."
+    ],
+    "specifications": {
+      "Product type": "Lithium storage battery",
+      "Listed energy capacity": "5kWh"
+    },
+    "faq": [
+      {
+        "question": "Will it power my whole home?",
+        "answer": "That depends on your loads and the complete system. Share the appliances you want to use together and your desired backup duration so the battery and inverter can be sized as a pair."
+      },
+      {
+        "question": "How long will a full charge last?",
+        "answer": "There is no single runtime for a battery capacity. Higher combined loads use stored energy faster; usable capacity, inverter losses and battery settings also affect the duration."
+      },
+      {
+        "question": "Can I use it with my existing inverter?",
+        "answer": "Ask us to check the inverter\u2019s exact model, battery voltage, charging settings and any communication requirements before ordering."
+      }
+    ]
+  },
+  "re-008": {
+    "headline": "More room for your everyday backup plan.",
+    "intro": "Keep energy available for the moments you need it. The Rahat 10kWh lithium battery adds storage to a compatible power system, giving your installer a clear capacity to plan around.",
+    "overview": [
+      "The 10kWh model is a lithium battery for storing electricity and making it available later through a compatible inverter. It is a storage component, so it should be selected alongside the equipment that will charge it and turn stored energy into usable power.",
+      "Positioned above the 5kWh option, this model gives you more nominal storage to work with when planning a wider set of essential loads or a longer backup period for the same loads.",
+      "Capacity describes stored energy, not how much equipment can run at once. The complete system\u2019s usable energy, discharge limits, inverter rating and connected appliances determine the result you get. A correctly matched installation turns the product capacity into a practical backup plan."
+    ],
+    "features": [
+      {
+        "title": "10kWh listed capacity",
+        "description": "A clear nominal storage size for comparing this battery with the other Rahat models."
+      },
+      {
+        "title": "Lithium battery format",
+        "description": "An energy-storage option for a compatible inverter and charging arrangement."
+      },
+      {
+        "title": "System-based backup",
+        "description": "Designed to be considered as part of the full power system, with charging, protection and installation planned together."
+      },
+      {
+        "title": "Choice within the Rahat range",
+        "description": "Compare 5kWh, 10kWh, 15kWh and 32kWh models against the same list of loads to choose the appropriate capacity."
+      }
+    ],
+    "benefits": [
+      "Store energy for later use instead of relying only on what is being generated at that moment.",
+      "Build a backup plan around the appliances that matter most to you.",
+      "Compare storage sizes with a clear understanding of nominal capacity."
+    ],
+    "uses": [
+      "Home backup systems sized around a defined list of appliances.",
+      "Workspaces that need an installer-designed energy-storage solution.",
+      "Solar projects requiring storage alongside compatible equipment."
+    ],
+    "checks": [
+      "Confirm battery voltage, compatible inverters and communication requirements.",
+      "Request usable capacity, maximum discharge power and charging limits.",
+      "Review installation position, protection equipment and included accessories.",
+      "Confirm the exact model\u2019s warranty and any expansion or parallel-operation options."
+    ],
+    "specifications": {
+      "Product type": "Lithium storage battery",
+      "Listed energy capacity": "10kWh"
+    },
+    "faq": [
+      {
+        "question": "Will it power my whole home?",
+        "answer": "That depends on your loads and the complete system. Share the appliances you want to use together and your desired backup duration so the battery and inverter can be sized as a pair."
+      },
+      {
+        "question": "How long will a full charge last?",
+        "answer": "There is no single runtime for a battery capacity. Higher combined loads use stored energy faster; usable capacity, inverter losses and battery settings also affect the duration."
+      },
+      {
+        "question": "Can I use it with my existing inverter?",
+        "answer": "Ask us to check the inverter\u2019s exact model, battery voltage, charging settings and any communication requirements before ordering."
+      }
+    ]
+  },
+  "re-009": {
+    "headline": "A larger reserve for a broader energy plan.",
+    "intro": "Keep energy available for the moments you need it. The Rahat 15kWh lithium battery adds storage to a compatible power system, giving your installer a clear capacity to plan around.",
+    "overview": [
+      "The 15kWh model is a lithium battery for storing electricity and making it available later through a compatible inverter. It is a storage component, so it should be selected alongside the equipment that will charge it and turn stored energy into usable power.",
+      "Sitting between the 10kWh and 32kWh options, this model is worth considering when your backup plan needs more storage headroom without moving to the largest capacity in the collection.",
+      "Capacity describes stored energy, not how much equipment can run at once. The complete system\u2019s usable energy, discharge limits, inverter rating and connected appliances determine the result you get. A correctly matched installation turns the product capacity into a practical backup plan."
+    ],
+    "features": [
+      {
+        "title": "15kWh listed capacity",
+        "description": "A clear nominal storage size for comparing this battery with the other Rahat models."
+      },
+      {
+        "title": "Lithium battery format",
+        "description": "An energy-storage option for a compatible inverter and charging arrangement."
+      },
+      {
+        "title": "System-based backup",
+        "description": "Designed to be considered as part of the full power system, with charging, protection and installation planned together."
+      },
+      {
+        "title": "Choice within the Rahat range",
+        "description": "Compare 5kWh, 10kWh, 15kWh and 32kWh models against the same list of loads to choose the appropriate capacity."
+      }
+    ],
+    "benefits": [
+      "Store energy for later use instead of relying only on what is being generated at that moment.",
+      "Build a backup plan around the appliances that matter most to you.",
+      "Compare storage sizes with a clear understanding of nominal capacity."
+    ],
+    "uses": [
+      "Home backup systems sized around a defined list of appliances.",
+      "Workspaces that need an installer-designed energy-storage solution.",
+      "Solar projects requiring storage alongside compatible equipment."
+    ],
+    "checks": [
+      "Confirm battery voltage, compatible inverters and communication requirements.",
+      "Request usable capacity, maximum discharge power and charging limits.",
+      "Review installation position, protection equipment and included accessories.",
+      "Confirm the exact model\u2019s warranty and any expansion or parallel-operation options."
+    ],
+    "specifications": {
+      "Product type": "Lithium storage battery",
+      "Listed energy capacity": "15kWh"
+    },
+    "faq": [
+      {
+        "question": "Will it power my whole home?",
+        "answer": "That depends on your loads and the complete system. Share the appliances you want to use together and your desired backup duration so the battery and inverter can be sized as a pair."
+      },
+      {
+        "question": "How long will a full charge last?",
+        "answer": "There is no single runtime for a battery capacity. Higher combined loads use stored energy faster; usable capacity, inverter losses and battery settings also affect the duration."
+      },
+      {
+        "question": "Can I use it with my existing inverter?",
+        "answer": "Ask us to check the inverter\u2019s exact model, battery voltage, charging settings and any communication requirements before ordering."
+      }
+    ]
+  },
+  "re-016": {
+    "headline": "Substantial storage for a more demanding project.",
+    "intro": "Keep energy available for the moments you need it. The Rahat 32kWh lithium battery adds storage to a compatible power system, giving your installer a clear capacity to plan around.",
+    "overview": [
+      "The 32kWh model is a lithium battery for storing electricity and making it available later through a compatible inverter. It is a storage component, so it should be selected alongside the equipment that will charge it and turn stored energy into usable power.",
+      "As the largest capacity in this Rahat collection, this model is a starting point for projects with a larger energy requirement. The installer should review the load schedule and charging system together rather than selecting storage in isolation.",
+      "Capacity describes stored energy, not how much equipment can run at once. The complete system\u2019s usable energy, discharge limits, inverter rating and connected appliances determine the result you get. A correctly matched installation turns the product capacity into a practical backup plan."
+    ],
+    "features": [
+      {
+        "title": "32kWh listed capacity",
+        "description": "A clear nominal storage size for comparing this battery with the other Rahat models."
+      },
+      {
+        "title": "Lithium battery format",
+        "description": "An energy-storage option for a compatible inverter and charging arrangement."
+      },
+      {
+        "title": "System-based backup",
+        "description": "Designed to be considered as part of the full power system, with charging, protection and installation planned together."
+      },
+      {
+        "title": "Choice within the Rahat range",
+        "description": "Compare 5kWh, 10kWh, 15kWh and 32kWh models against the same list of loads to choose the appropriate capacity."
+      }
+    ],
+    "benefits": [
+      "Store energy for later use instead of relying only on what is being generated at that moment.",
+      "Build a backup plan around the appliances that matter most to you.",
+      "Compare storage sizes with a clear understanding of nominal capacity."
+    ],
+    "uses": [
+      "Home backup systems sized around a defined list of appliances.",
+      "Workspaces that need an installer-designed energy-storage solution.",
+      "Solar projects requiring storage alongside compatible equipment."
+    ],
+    "checks": [
+      "Confirm battery voltage, compatible inverters and communication requirements.",
+      "Request usable capacity, maximum discharge power and charging limits.",
+      "Review installation position, protection equipment and included accessories.",
+      "Confirm the exact model\u2019s warranty and any expansion or parallel-operation options."
+    ],
+    "specifications": {
+      "Product type": "Lithium storage battery",
+      "Listed energy capacity": "32kWh"
+    },
+    "faq": [
+      {
+        "question": "Will it power my whole home?",
+        "answer": "That depends on your loads and the complete system. Share the appliances you want to use together and your desired backup duration so the battery and inverter can be sized as a pair."
+      },
+      {
+        "question": "How long will a full charge last?",
+        "answer": "There is no single runtime for a battery capacity. Higher combined loads use stored energy faster; usable capacity, inverter losses and battery settings also affect the duration."
+      },
+      {
+        "question": "Can I use it with my existing inverter?",
+        "answer": "Ask us to check the inverter\u2019s exact model, battery voltage, charging settings and any communication requirements before ordering."
+      }
+    ]
+  },
+  "re-017": {
+    "headline": "Comfort that belongs in your everyday space.",
+    "intro": "A distinctive tower-style Rahat fan for your home or workspace. Explore the hybrid model\u2019s appearance, footprint and controls, then confirm the power options that suit your routine.",
+    "overview": [
+      "Air movement can make a room feel more comfortable without making a fan the visual centre of the space. The supplied Rahat Hybrid Fan photographs show a tall loop-style body above a freestanding base, with a clean appearance suited to contemporary interiors.",
+      "Its upright format offers an alternative to the familiar round pedestal fan. Consider where you will place it, the seated or standing area you want to reach and the access you need to its controls and power connection.",
+      "The product is supplied under the Hybrid Fan name. That name alone does not establish the available charging inputs, battery runtime or operating modes. Ask us to demonstrate the exact variant\u2019s power options, speed settings and controls before choosing it."
+    ],
+    "features": [
+      {
+        "title": "Tower-style profile",
+        "description": "The supplied photographs show a tall, loop-shaped airflow body with a freestanding base."
+      },
+      {
+        "title": "Room-focused comfort",
+        "description": "Use a fan to circulate air around the area where you sit, work or relax."
+      },
+      {
+        "title": "Floor-standing design",
+        "description": "Choose a stable location with room around the unit and an accessible power connection."
+      },
+      {
+        "title": "Hybrid model selection",
+        "description": "Discuss the exact model\u2019s supported power sources and operating controls with the team."
+      }
+    ],
+    "benefits": [
+      "Bring airflow to a comfortable position in your room.",
+      "Choose an upright design that fits your interior.",
+      "Discuss operating options around the way you use your space."
+    ],
+    "uses": [
+      "Living rooms and bedrooms.",
+      "Home offices and workspaces.",
+      "Reception or personal seating areas."
+    ],
+    "checks": [
+      "Confirm power inputs, rechargeable operation and any battery included.",
+      "Ask about speed settings, oscillation and remote or onboard controls.",
+      "Check dimensions, placement requirements and operating sound.",
+      "Confirm cleaning instructions and the warranty for the supplied variant."
+    ],
+    "specifications": {
+      "Product type": "Hybrid fan",
+      "Visible format": "Floor-standing tower with loop-style body"
+    },
+    "faq": [
+      {
+        "question": "Does it include a rechargeable battery?",
+        "answer": "Battery inclusion and runtime have not been confirmed in the supplied information. Ask for the exact variant\u2019s power specification."
+      },
+      {
+        "question": "Does it cool a room like an air conditioner?",
+        "answer": "A fan moves air for personal comfort; it should not be treated as an air-conditioning system that lowers the room temperature."
+      },
+      {
+        "question": "Can I see the controls before buying?",
+        "answer": "Yes\u2014ask the team for a demonstration or close-up photos of the controls on the exact unit being offered."
+      }
+    ]
+  },
+  "re-018": {
+    "headline": "Make room for a moment to yourself.",
+    "intro": "Bring a dedicated place to unwind into your home. The Rahat Massage Chair combines a substantial upholstered seat with the supported seating format shown in your product photos.",
+    "overview": [
+      "A massage chair creates a dedicated place for a relaxing seated experience at home. This Rahat model is shown with padded seating, a high back, arm areas and an integrated lower-leg section, giving it a more enveloping format than an ordinary lounge chair.",
+      "The supplied close-up photographs show a side-mounted control area and the upholstered upper section. These details help you picture how the chair looks in your space and where you will reach to operate it.",
+      "The best way to select a massage chair is to experience the actual model. Ask for a demonstration of its programs, intensity settings, recline movement and fit. This listing does not establish medical benefits or unconfirmed functions such as heating, zero-gravity positioning or body scanning."
+    ],
+    "features": [
+      {
+        "title": "Upholstered seating",
+        "description": "Padded surfaces and a high-back format are visible in the supplied photographs."
+      },
+      {
+        "title": "Integrated lower-leg section",
+        "description": "The photographed chair includes a dedicated lower-leg/foot seating area."
+      },
+      {
+        "title": "Side control area",
+        "description": "A control section is visible beside the seat in the detail photographs."
+      },
+      {
+        "title": "A dedicated relaxation space",
+        "description": "A substantial chair format for a planned position in your home."
+      }
+    ],
+    "benefits": [
+      "Create a place to pause and unwind in your own space.",
+      "See the actual upholstery and controls before making a decision.",
+      "Choose the chair around comfort, fit and the available room."
+    ],
+    "uses": [
+      "A personal relaxation corner at home.",
+      "A lounge or private sitting room with adequate floor space.",
+      "A demonstration-led purchase where comfort can be assessed in person."
+    ],
+    "checks": [
+      "Ask for a demonstration of programs, massage areas and intensity levels.",
+      "Confirm upright/reclined dimensions, doorway access and delivery arrangements.",
+      "Check the exact model\u2019s user limits, power requirements and operating instructions.",
+      "Confirm assembly, servicing and warranty terms in writing."
+    ],
+    "specifications": {
+      "Product type": "Massage chair",
+      "Visible details": "Upholstered high-back seat, lower-leg section and side control area"
+    },
+    "faq": [
+      {
+        "question": "Which massage programs are included?",
+        "answer": "The exact program list has not been provided. Ask for a live demonstration or the user manual for the supplied model."
+      },
+      {
+        "question": "How much space will it need?",
+        "answer": "Request both upright and fully reclined dimensions, along with clearance requirements and doorway access measurements."
+      },
+      {
+        "question": "Is this a medical device or treatment?",
+        "answer": "No medical or therapeutic outcome is claimed here. Follow the manufacturer\u2019s user guidance and any relevant personal health advice before use."
+      }
+    ]
+  },
+  "re-019": {
+    "headline": "Give your garden an after-dark focal point.",
+    "intro": "A decorative moon-inspired lighting feature for outdoor spaces, with the distinctive rounded appearance shown in the supplied photographs.",
+    "overview": [
+      "The Rahat Garden Moonlight is a decorative lighting choice for people who want an outdoor space to feel considered after dark. Its rounded, moon-inspired appearance gives it a different visual role from a conventional pole or wall light.",
+      "Use the product photographs to think about the atmosphere you want to create: a feature in a planting scheme, a focal point near a seating area or an accent within a larger landscape. The result depends on the light\u2019s actual brightness, position and the surroundings.",
+      "Outdoor suitability must be checked for the exact model. Ask about its power source, weather-protection rating, light output and installation requirements. The listing does not specify an IP rating, automatic operating mode or a guaranteed lighting duration."
+    ],
+    "features": [
+      {
+        "title": "Moon-inspired appearance",
+        "description": "A rounded decorative lighting form shown in the supplied images."
+      },
+      {
+        "title": "Landscape-led placement",
+        "description": "Choose a position that complements planting, paths or outdoor seating."
+      },
+      {
+        "title": "Outdoor lighting purpose",
+        "description": "Discuss the exact model\u2019s environmental rating before choosing an exposed location."
+      },
+      {
+        "title": "Site-specific selection",
+        "description": "Match the lighting arrangement to the area rather than relying on a photograph alone."
+      }
+    ],
+    "benefits": [
+      "Add a considered lighting feature to your outdoor layout.",
+      "Coordinate the product\u2019s appearance with the surrounding space.",
+      "Plan placement and installation around the site."
+    ],
+    "uses": [
+      "Decorative garden and landscape projects.",
+      "Outdoor seating areas after checking brightness and placement.",
+      "Paths or entrances as part of a properly specified lighting design."
+    ],
+    "checks": [
+      "Confirm the power source and any charging or wiring requirements.",
+      "Ask for light output, colour temperature and operating controls.",
+      "Check the weather-protection rating and installation location.",
+      "Confirm dimensions, mounting hardware and what the quoted price includes."
+    ],
+    "specifications": {
+      "Product type": "Moon-style garden light",
+      "Design format": "Rounded moon-inspired feature"
+    },
+    "faq": [
+      {
+        "question": "Is it solar-powered?",
+        "answer": "The power source has not been confirmed for this exact listing. Ask whether the supplied model needs a solar panel, charging supply or fixed wiring."
+      },
+      {
+        "question": "Will it provide security lighting?",
+        "answer": "Decorative appearance is not a measure of security-light coverage. Ask for the light-output and coverage specifications for your location."
+      },
+      {
+        "question": "Can it stay outdoors in the rain?",
+        "answer": "Check the manufacturer\u2019s weather-protection rating and installation guidance for the exact model before choosing an exposed location."
+      }
+    ]
+  },
+  "re-020": {
+    "headline": "Bring a clearer sense of place to your outdoors.",
+    "intro": "A tall garden-light format for outdoor layouts where the position and appearance of the light matter as much as the surrounding landscape.",
+    "overview": [
+      "The Rahat Garden Light is the long-pole lighting option in this collection. Its upright form gives you a different way to position light in a garden or outdoor area than a low decorative feature.",
+      "Start by identifying the location you want to illuminate and how people move through it. Pole height, spacing and mounting all affect the usefulness of a lighting layout, so the product should be chosen with the site in mind.",
+      "Outdoor suitability must be checked for the exact model. Ask about its power source, weather-protection rating, light output and installation requirements. The listing does not specify an IP rating, automatic operating mode or a guaranteed lighting duration."
+    ],
+    "features": [
+      {
+        "title": "Tall pole format",
+        "description": "An upright garden-light format for planning the position of outdoor illumination."
+      },
+      {
+        "title": "Landscape-led placement",
+        "description": "Choose a position that complements planting, paths or outdoor seating."
+      },
+      {
+        "title": "Outdoor lighting purpose",
+        "description": "Discuss the exact model\u2019s environmental rating before choosing an exposed location."
+      },
+      {
+        "title": "Site-specific selection",
+        "description": "Match the lighting arrangement to the area rather than relying on a photograph alone."
+      }
+    ],
+    "benefits": [
+      "Add a considered lighting feature to your outdoor layout.",
+      "Coordinate the product\u2019s appearance with the surrounding space.",
+      "Plan placement and installation around the site."
+    ],
+    "uses": [
+      "Gardens and landscape layouts with suitable pole mounting.",
+      "Outdoor seating areas after checking brightness and placement.",
+      "Paths or entrances as part of a properly specified lighting design."
+    ],
+    "checks": [
+      "Confirm the power source and any charging or wiring requirements.",
+      "Ask for light output, colour temperature and operating controls.",
+      "Check the weather-protection rating and installation location.",
+      "Confirm dimensions, mounting hardware and what the quoted price includes."
+    ],
+    "specifications": {
+      "Product type": "Garden pole light",
+      "Design format": "Long-pole garden light"
+    },
+    "faq": [
+      {
+        "question": "Is it solar-powered?",
+        "answer": "The power source has not been confirmed for this exact listing. Ask whether the supplied model needs a solar panel, charging supply or fixed wiring."
+      },
+      {
+        "question": "Will it provide security lighting?",
+        "answer": "Decorative appearance is not a measure of security-light coverage. Ask for the light-output and coverage specifications for your location."
+      },
+      {
+        "question": "Can it stay outdoors in the rain?",
+        "answer": "Check the manufacturer\u2019s weather-protection rating and installation guidance for the exact model before choosing an exposed location."
+      }
+    ]
+  },
+  "re-021": {
+    "headline": "Compact power for your small-device essentials.",
+    "intro": "400W listed output. 256Wh of stored energy. A compact USB/DC companion for the devices you take with you.",
+    "overview": [
+      "Keep a compact source of stored energy close to the small devices you rely on. This Rahat power station is listed at 400W with a 256Wh battery; the supplied YJ-911 material specifically shows USB and 12V DC connections.",
+      "Its smaller storage size and carry-handle format make it a focused choice for portable small-device power. Think first about the connections your devices require: USB and DC equipment can have different needs from appliances that plug into a household AC socket.",
+      "The supplied material lists a 12V DC output up to 5A, USB output at 5V/3A and a solar input at 18V under 50W. An AC outlet is not specified for this variant. Ask us to confirm the exact ports and charging accessories for the unit you will receive."
+    ],
+    "features": [
+      {
+        "title": "400W listed output",
+        "description": "Use the output rating to compare your devices\u2019 demand; check individual port limits and any startup surge."
+      },
+      {
+        "title": "256Wh energy capacity",
+        "description": "A reference for stored energy. The duration depends on the devices and their combined demand."
+      },
+      {
+        "title": "Connection options",
+        "description": "USB and 12V DC are shown in the supplied product material."
+      },
+      {
+        "title": "Portable format",
+        "description": "A self-contained product that can be moved between suitable locations instead of being treated as a fixed storage installation."
+      },
+      {
+        "title": "Solar-charging input",
+        "description": "The supplied material lists up to 50w solar input. Match panel voltage, connectors and input limits before connecting a panel."
+      }
+    ],
+    "benefits": [
+      "Bring stored power to the place it is needed.",
+      "Compare both output and battery capacity before choosing your devices.",
+      "Keep compatible equipment organised around the unit\u2019s available connections."
+    ],
+    "uses": [
+      "A portable small-device kit with compatible USB/DC connections.",
+      "A mobile workspace after checking device wattages and connections.",
+      "Outdoor or off-grid plans where charging and weather protection have been arranged."
+    ],
+    "checks": [
+      "Confirm the exact socket layout, output voltage and individual port ratings.",
+      "Check appliance startup demand and the total simultaneous load.",
+      "Confirm charging methods, solar limits and which cables/adapters are included.",
+      "Use in an appropriate dry, ventilated location; outdoor use does not imply waterproofing."
+    ],
+    "specifications": {
+      "Listed output rating": "400W",
+      "Listed battery capacity": "256Wh",
+      "Connections in supplied material": "USB and 12V DC",
+      "Battery chemistry in supplied material": "LiFePO4",
+      "Model shown in supplied material": "YJ-911",
+      "Solar input in supplied material": "Up to 50W"
+    },
+    "faq": [
+      {
+        "question": "What is the difference between W and Wh?",
+        "answer": "The 400W figure is the listed output rating. The 256Wh figure describes stored energy. A higher connected load uses that energy faster; they are not interchangeable measures."
+      },
+      {
+        "question": "Can I connect a solar panel?",
+        "answer": "The supplied material lists solar charging. The panel\u2019s voltage, connector and input power must match this exact unit; ask which panels and cables are suitable."
+      },
+      {
+        "question": "Which appliances will it run?",
+        "answer": "The supplied material shows USB and 12V DC outputs, so start with compatible small devices. An AC socket is not specified for this variant."
+      }
+    ]
+  },
+  "re-022": {
+    "headline": "Everyday essentials, ready to go.",
+    "intro": "500W listed output. 384Wh of stored energy. Portable power with practical connections for compatible equipment.",
+    "overview": [
+      "The Rahat 500W 384Wh power station combines stored energy with a portable product format, giving you a power source that can move with your plans. Its listed 500W output and 384Wh energy capacity describe two different parts of the buying decision: appliance demand and stored energy.",
+      "A compact AC-equipped option for a focused essentials kit. The supplied Model 905 poster shows two AC sockets alongside USB and 12V outputs, plus a built-in LED light. It suits a conversation about phones, lighting and other compatible lower-demand equipment.",
+      "Choose by adding up the devices you intend to use at the same time, checking startup demand and matching each connection. Higher loads use the battery faster, and actual runtime also depends on conversion losses and operating conditions. A portable power station is not an automatic whole-building backup system."
+    ],
+    "features": [
+      {
+        "title": "500W listed output",
+        "description": "Use the output rating to compare your devices\u2019 demand; check individual port limits and any startup surge."
+      },
+      {
+        "title": "384Wh energy capacity",
+        "description": "A reference for stored energy. The duration depends on the devices and their combined demand."
+      },
+      {
+        "title": "Connection options",
+        "description": "2 AC sockets, USB and 12V DC are shown in the supplied product material."
+      },
+      {
+        "title": "Portable format",
+        "description": "A self-contained product that can be moved between suitable locations instead of being treated as a fixed storage installation."
+      },
+      {
+        "title": "Solar-charging input",
+        "description": "The supplied material lists up to 100w solar input. Match panel voltage, connectors and input limits before connecting a panel."
+      },
+      {
+        "title": "Built-in LED lighting",
+        "description": "LED lighting is shown or described in the supplied poster for this model."
+      }
+    ],
+    "benefits": [
+      "Bring stored power to the place it is needed.",
+      "Compare both output and battery capacity before choosing your devices.",
+      "Keep compatible equipment organised around the unit\u2019s available connections."
+    ],
+    "uses": [
+      "A home essentials kit sized to the station\u2019s output and available energy.",
+      "A mobile workspace after checking device wattages and connections.",
+      "Outdoor or off-grid plans where charging and weather protection have been arranged."
+    ],
+    "checks": [
+      "Confirm the exact socket layout, output voltage and individual port ratings.",
+      "Check appliance startup demand and the total simultaneous load.",
+      "Confirm charging methods, solar limits and which cables/adapters are included.",
+      "Use in an appropriate dry, ventilated location; outdoor use does not imply waterproofing."
+    ],
+    "specifications": {
+      "Listed output rating": "500W",
+      "Listed battery capacity": "384Wh",
+      "Connections in supplied material": "2 AC sockets, USB and 12V DC",
+      "Model shown in supplied material": "Model 905",
+      "Solar input in supplied material": "Up to 100W"
+    },
+    "faq": [
+      {
+        "question": "What is the difference between W and Wh?",
+        "answer": "The 500W figure is the listed output rating. The 384Wh figure describes stored energy. A higher connected load uses that energy faster; they are not interchangeable measures."
+      },
+      {
+        "question": "Can I connect a solar panel?",
+        "answer": "The supplied material lists solar charging. The panel\u2019s voltage, connector and input power must match this exact unit; ask which panels and cables are suitable."
+      },
+      {
+        "question": "Which appliances will it run?",
+        "answer": "Share the devices\u2019 running wattage, startup demand and required connections. Several sockets do not mean every connected device can run at its maximum rating simultaneously."
+      }
+    ]
+  },
+  "re-023": {
+    "headline": "Portable backup with more ways to plug in.",
+    "intro": "800W listed output. 576Wh of stored energy. Portable power with practical connections for compatible equipment.",
+    "overview": [
+      "The Rahat 800W 576Wh power station combines stored energy with a portable product format, giving you a power source that can move with your plans. Its listed 800W output and 576Wh energy capacity describe two different parts of the buying decision: appliance demand and stored energy.",
+      "This model steps up from the smaller 400W and 500W options in listed output. The CNS800WA poster also identifies a LiFePO4 battery, two AC outlets and USB-C PD, giving you a useful mix of connection types to compare with your devices.",
+      "Choose by adding up the devices you intend to use at the same time, checking startup demand and matching each connection. Higher loads use the battery faster, and actual runtime also depends on conversion losses and operating conditions. A portable power station is not an automatic whole-building backup system."
+    ],
+    "features": [
+      {
+        "title": "800W listed output",
+        "description": "Use the output rating to compare your devices\u2019 demand; check individual port limits and any startup surge."
+      },
+      {
+        "title": "576Wh energy capacity",
+        "description": "A reference for stored energy. The duration depends on the devices and their combined demand."
+      },
+      {
+        "title": "Connection options",
+        "description": "2 AC sockets and USB-C PD are shown in the supplied product material."
+      },
+      {
+        "title": "Portable format",
+        "description": "A self-contained product that can be moved between suitable locations instead of being treated as a fixed storage installation."
+      },
+      {
+        "title": "Solar-charging input",
+        "description": "The supplied material lists up to 150w solar input. Match panel voltage, connectors and input limits before connecting a panel."
+      }
+    ],
+    "benefits": [
+      "Bring stored power to the place it is needed.",
+      "Compare both output and battery capacity before choosing your devices.",
+      "Keep compatible equipment organised around the unit\u2019s available connections."
+    ],
+    "uses": [
+      "A home essentials kit sized to the station\u2019s output and available energy.",
+      "A mobile workspace after checking device wattages and connections.",
+      "Outdoor or off-grid plans where charging and weather protection have been arranged."
+    ],
+    "checks": [
+      "Confirm the exact socket layout, output voltage and individual port ratings.",
+      "Check appliance startup demand and the total simultaneous load.",
+      "Confirm charging methods, solar limits and which cables/adapters are included.",
+      "Use in an appropriate dry, ventilated location; outdoor use does not imply waterproofing."
+    ],
+    "specifications": {
+      "Listed output rating": "800W",
+      "Listed battery capacity": "576Wh",
+      "Connections in supplied material": "2 AC sockets and USB-C PD",
+      "Battery chemistry in supplied material": "LiFePO4",
+      "Model shown in supplied material": "CNS800WA",
+      "Solar input in supplied material": "Up to 150W"
+    },
+    "faq": [
+      {
+        "question": "What is the difference between W and Wh?",
+        "answer": "The 800W figure is the listed output rating. The 576Wh figure describes stored energy. A higher connected load uses that energy faster; they are not interchangeable measures."
+      },
+      {
+        "question": "Can I connect a solar panel?",
+        "answer": "The supplied material lists solar charging. The panel\u2019s voltage, connector and input power must match this exact unit; ask which panels and cables are suitable."
+      },
+      {
+        "question": "Which appliances will it run?",
+        "answer": "Share the devices\u2019 running wattage, startup demand and required connections. Several sockets do not mean every connected device can run at its maximum rating simultaneously."
+      }
+    ]
+  },
+  "re-024": {
+    "headline": "A practical power hub for home and away.",
+    "intro": "1000W listed output. 768Wh of stored energy. Portable power with practical connections for compatible equipment.",
+    "overview": [
+      "The Rahat 1000W 768Wh power station combines stored energy with a portable product format, giving you a power source that can move with your plans. Its listed 1000W output and 768Wh energy capacity describe two different parts of the buying decision: appliance demand and stored energy.",
+      "The supplied product poster highlights three AC outlets, USB, Type-C and 12V connections, together with built-in LED lighting. That makes the connection layout a key attraction when you need to organise several compatible devices around one portable unit.",
+      "Choose by adding up the devices you intend to use at the same time, checking startup demand and matching each connection. Higher loads use the battery faster, and actual runtime also depends on conversion losses and operating conditions. A portable power station is not an automatic whole-building backup system."
+    ],
+    "features": [
+      {
+        "title": "1000W listed output",
+        "description": "Use the output rating to compare your devices\u2019 demand; check individual port limits and any startup surge."
+      },
+      {
+        "title": "768Wh energy capacity",
+        "description": "A reference for stored energy. The duration depends on the devices and their combined demand."
+      },
+      {
+        "title": "Connection options",
+        "description": "3 AC sockets, USB, Type-C and 12V DC are shown in the supplied product material."
+      },
+      {
+        "title": "Portable format",
+        "description": "A self-contained product that can be moved between suitable locations instead of being treated as a fixed storage installation."
+      },
+      {
+        "title": "Built-in LED lighting",
+        "description": "LED lighting is shown or described in the supplied poster for this model."
+      }
+    ],
+    "benefits": [
+      "Bring stored power to the place it is needed.",
+      "Compare both output and battery capacity before choosing your devices.",
+      "Keep compatible equipment organised around the unit\u2019s available connections."
+    ],
+    "uses": [
+      "A home essentials kit sized to the station\u2019s output and available energy.",
+      "A mobile workspace after checking device wattages and connections.",
+      "Outdoor or off-grid plans where charging and weather protection have been arranged."
+    ],
+    "checks": [
+      "Confirm the exact socket layout, output voltage and individual port ratings.",
+      "Check appliance startup demand and the total simultaneous load.",
+      "Confirm charging methods, solar limits and which cables/adapters are included.",
+      "Use in an appropriate dry, ventilated location; outdoor use does not imply waterproofing."
+    ],
+    "specifications": {
+      "Listed output rating": "1000W",
+      "Listed battery capacity": "768Wh",
+      "Connections in supplied material": "3 AC sockets, USB, Type-C and 12V DC"
+    },
+    "faq": [
+      {
+        "question": "What is the difference between W and Wh?",
+        "answer": "The 1000W figure is the listed output rating. The 768Wh figure describes stored energy. A higher connected load uses that energy faster; they are not interchangeable measures."
+      },
+      {
+        "question": "Can I connect a solar panel?",
+        "answer": "Ask for the charging-input specification for this exact model before connecting a solar panel. Do not assume the same input limits as another Rahat power station."
+      },
+      {
+        "question": "Which appliances will it run?",
+        "answer": "Share the devices\u2019 running wattage, startup demand and required connections. Several sockets do not mean every connected device can run at its maximum rating simultaneously."
+      }
+    ]
+  },
+  "re-025": {
+    "headline": "More output. More room in your backup plan.",
+    "intro": "1500W listed output. 1152Wh of stored energy. Portable power with practical connections for compatible equipment.",
+    "overview": [
+      "The Rahat 1500W 1152Wh power station combines stored energy with a portable product format, giving you a power source that can move with your plans. Its listed 1500W output and 1152Wh energy capacity describe two different parts of the buying decision: appliance demand and stored energy.",
+      "The supplied CNS1500WA poster lists a 1152Wh LiFePO4 battery, four AC sockets and USB-C PD. This combination is worth considering when you want more storage and listed output than the smaller models in the range.",
+      "Choose by adding up the devices you intend to use at the same time, checking startup demand and matching each connection. Higher loads use the battery faster, and actual runtime also depends on conversion losses and operating conditions. A portable power station is not an automatic whole-building backup system."
+    ],
+    "features": [
+      {
+        "title": "1500W listed output",
+        "description": "Use the output rating to compare your devices\u2019 demand; check individual port limits and any startup surge."
+      },
+      {
+        "title": "1152Wh energy capacity",
+        "description": "A reference for stored energy. The duration depends on the devices and their combined demand."
+      },
+      {
+        "title": "Connection options",
+        "description": "4 AC sockets and USB-C PD are shown in the supplied product material."
+      },
+      {
+        "title": "Portable format",
+        "description": "A self-contained product that can be moved between suitable locations instead of being treated as a fixed storage installation."
+      },
+      {
+        "title": "Solar-charging input",
+        "description": "The supplied material lists up to 300w solar input. Match panel voltage, connectors and input limits before connecting a panel."
+      }
+    ],
+    "benefits": [
+      "Bring stored power to the place it is needed.",
+      "Compare both output and battery capacity before choosing your devices.",
+      "Keep compatible equipment organised around the unit\u2019s available connections."
+    ],
+    "uses": [
+      "A home essentials kit sized to the station\u2019s output and available energy.",
+      "A mobile workspace after checking device wattages and connections.",
+      "Outdoor or off-grid plans where charging and weather protection have been arranged."
+    ],
+    "checks": [
+      "Confirm the exact socket layout, output voltage and individual port ratings.",
+      "Check appliance startup demand and the total simultaneous load.",
+      "Confirm charging methods, solar limits and which cables/adapters are included.",
+      "Use in an appropriate dry, ventilated location; outdoor use does not imply waterproofing."
+    ],
+    "specifications": {
+      "Listed output rating": "1500W",
+      "Listed battery capacity": "1152Wh",
+      "Connections in supplied material": "4 AC sockets and USB-C PD",
+      "Battery chemistry in supplied material": "LiFePO4",
+      "Model shown in supplied material": "CNS1500WA",
+      "Solar input in supplied material": "Up to 300W"
+    },
+    "faq": [
+      {
+        "question": "What is the difference between W and Wh?",
+        "answer": "The 1500W figure is the listed output rating. The 1152Wh figure describes stored energy. A higher connected load uses that energy faster; they are not interchangeable measures."
+      },
+      {
+        "question": "Can I connect a solar panel?",
+        "answer": "The supplied material lists solar charging. The panel\u2019s voltage, connector and input power must match this exact unit; ask which panels and cables are suitable."
+      },
+      {
+        "question": "Which appliances will it run?",
+        "answer": "Share the devices\u2019 running wattage, startup demand and required connections. Several sockets do not mean every connected device can run at its maximum rating simultaneously."
+      }
+    ]
+  },
+  "re-026": {
+    "headline": "A bigger portable reserve for demanding plans.",
+    "intro": "3000W listed output. 2662Wh of stored energy. Portable power with practical connections for compatible equipment.",
+    "overview": [
+      "The Rahat 3000W 2662Wh power station combines stored energy with a portable product format, giving you a power source that can move with your plans. Its listed 3000W output and 2662Wh energy capacity describe two different parts of the buying decision: appliance demand and stored energy.",
+      "This is the largest listed output and energy capacity among the Rahat power stations shown here. The supplied CNS3000WA poster identifies four AC sockets, USB-C PD and a LiFePO4 battery, giving a higher-capacity starting point for a carefully checked load plan.",
+      "Choose by adding up the devices you intend to use at the same time, checking startup demand and matching each connection. Higher loads use the battery faster, and actual runtime also depends on conversion losses and operating conditions. A portable power station is not an automatic whole-building backup system."
+    ],
+    "features": [
+      {
+        "title": "3000W listed output",
+        "description": "Use the output rating to compare your devices\u2019 demand; check individual port limits and any startup surge."
+      },
+      {
+        "title": "2662Wh energy capacity",
+        "description": "A reference for stored energy. The duration depends on the devices and their combined demand."
+      },
+      {
+        "title": "Connection options",
+        "description": "4 AC sockets and USB-C PD are shown in the supplied product material."
+      },
+      {
+        "title": "Portable format",
+        "description": "A self-contained product that can be moved between suitable locations instead of being treated as a fixed storage installation."
+      },
+      {
+        "title": "Solar-charging input",
+        "description": "The supplied material lists up to 550w solar input. Match panel voltage, connectors and input limits before connecting a panel."
+      },
+      {
+        "title": "Built-in LED lighting",
+        "description": "LED lighting is shown or described in the supplied poster for this model."
+      }
+    ],
+    "benefits": [
+      "Bring stored power to the place it is needed.",
+      "Compare both output and battery capacity before choosing your devices.",
+      "Keep compatible equipment organised around the unit\u2019s available connections."
+    ],
+    "uses": [
+      "A home essentials kit sized to the station\u2019s output and available energy.",
+      "A mobile workspace after checking device wattages and connections.",
+      "Outdoor or off-grid plans where charging and weather protection have been arranged."
+    ],
+    "checks": [
+      "Confirm the exact socket layout, output voltage and individual port ratings.",
+      "Check appliance startup demand and the total simultaneous load.",
+      "Confirm charging methods, solar limits and which cables/adapters are included.",
+      "Use in an appropriate dry, ventilated location; outdoor use does not imply waterproofing."
+    ],
+    "specifications": {
+      "Listed output rating": "3000W",
+      "Listed battery capacity": "2662Wh",
+      "Connections in supplied material": "4 AC sockets and USB-C PD",
+      "Battery chemistry in supplied material": "LiFePO4",
+      "Model shown in supplied material": "CNS3000WA",
+      "Solar input in supplied material": "Up to 550W"
+    },
+    "faq": [
+      {
+        "question": "What is the difference between W and Wh?",
+        "answer": "The 3000W figure is the listed output rating. The 2662Wh figure describes stored energy. A higher connected load uses that energy faster; they are not interchangeable measures."
+      },
+      {
+        "question": "Can I connect a solar panel?",
+        "answer": "The supplied material lists solar charging. The panel\u2019s voltage, connector and input power must match this exact unit; ask which panels and cables are suitable."
+      },
+      {
+        "question": "Which appliances will it run?",
+        "answer": "Share the devices\u2019 running wattage, startup demand and required connections. Several sockets do not mean every connected device can run at its maximum rating simultaneously."
+      }
+    ]
+  }
+}
