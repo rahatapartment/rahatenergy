@@ -15,7 +15,10 @@ async function backup() {
   try {
     await db.$queryRaw`SELECT 1`;
     await assertEnergyDatabase(db);
-    const migrations = await db.$queryRaw<{ migration_name: string }[]>`SELECT migration_name FROM "_prisma_migrations" WHERE finished_at IS NOT NULL ORDER BY migration_name`;
+    const history = await db.$queryRaw<{ present: string | null }[]>`SELECT to_regclass('public."_prisma_migrations"')::text AS present`;
+    const migrations = history[0]?.present
+      ? await db.$queryRaw<{ migration_name: string }[]>`SELECT migration_name FROM "_prisma_migrations" WHERE finished_at IS NOT NULL ORDER BY migration_name`
+      : [];
     const url = new URL(direct);
     const directory = resolve(".backups");
     mkdirSync(directory, { recursive: true, mode: 0o700 }); chmodSync(directory, 0o700);
