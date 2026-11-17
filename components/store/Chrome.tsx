@@ -104,7 +104,7 @@ export function Chrome({ children }: { children: ReactNode }) {
     return () => document.removeEventListener("keydown", close);
   }, [open]);
   const { lines } = useCart();
-  if (path.startsWith("/admin")) return <>{children}</>;
+  if (path.startsWith("/admin") && path !== "/admin/login") return <>{children}</>;
   const links = [
     ["Shop", "/shop"],
     ["Solutions", "/solutions"],

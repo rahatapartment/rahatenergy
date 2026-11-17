@@ -1,0 +1,32 @@
+.admin-signin-page { background: #f5f7f2; border-top: 1px solid #e5eadd; }
+.admin-signin-container { width: min(1140px,91%); margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(36px,6vw,90px); align-items: center; padding: 60px 0 68px; }
+.signin-eyebrow { display: block; font-size: 9px; font-weight: 600; letter-spacing: .14em; color: #718268; margin-bottom: 16px; }
+.admin-signin-intro h2 { font-family: var(--font-editorial),Georgia,serif; font-size: clamp(42px,4.7vw,66px); font-weight: 500; line-height: 1.08; letter-spacing: -.035em; margin: 0 0 22px; color: #243d28; }
+.admin-signin-intro h2 em { color: #6e835c; font-weight: 400; }
+.admin-signin-intro > p { max-width: 340px; color: #718167; line-height: 1.8; font-size: 14px; margin-bottom: 30px; }
+.signin-capabilities { display: grid; gap: 22px; margin: 0 0 24px; }
+.signin-capabilities > div { display: flex; gap: 16px; align-items: flex-start; }
+.signin-capabilities > div > svg { color: #687e56; flex: 0 0 20px; margin-top: 2px; }
+.signin-capabilities strong { display: block; color: #32472c; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+.signin-capabilities span > span { display: block; color: #7c8972; font-size: 12px; line-height: 1.7; }
+.admin-signin-intro > a { display: inline-flex; align-items: center; gap: 16px; min-height: 42px; font-size: 12px; color: #39512d; }
+.admin-signin-card { background: #fff; border: 1px solid #dce4d4; border-radius: 14px; padding: clamp(24px,3vw,40px); box-shadow: 0 14px 40px #1f3b2210; }
+.signin-lock { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #d8e3ce; border-radius: 12px; background: #f3f7ed; color: #536e40; margin-bottom: 24px; }
+.admin-signin-card h1 { font-family: var(--font-editorial),Georgia,serif; color: #243d28; font-size: 39px; font-weight: 500; line-height: 1.1; letter-spacing: -.025em; margin: 0 0 14px; }
+.admin-signin-card > p { font-size: 13px; line-height: 1.8; color: #74836a; margin: 0 0 26px; }
+.admin-signin-card form label { display: block; color: #53664a; font-size: 12px; line-height: 1.6; margin: 0 0 8px; }
+.admin-signin-card input { display: block; width: 100%; padding: 13px 14px; min-height: 48px; font-size: 14px; border: 1px solid #cbd8c1; border-radius: 6px; background: #fdfefb; color: #2d4725; }
+.admin-signin-card label input { margin: 8px 0 20px; }
+.admin-signin-card input:focus-visible { outline: 2px solid #1c4a3b; outline-offset: 2px; }
+.signin-password { position: relative; }
+.signin-password input { padding-right: 48px; }
+.signin-password > button { position: absolute; top: 4px; right: 4px; width: 40px; height: 40px; display: grid; place-items: center; border: 0; background: transparent; color: #6e825e; }
+.signin-submit { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 48px; padding: 14px 16px; background: #1c4a3b; color: #fff; border-radius: 6px; font-size: 13px; font-weight: 600; margin-top: 22px; }
+.signin-submit:hover:not(:disabled) { background: #143c2e; }
+.signin-submit:disabled { opacity: .5; cursor: not-allowed; }
+.signin-error { color: #964a36; background: #fff5ef; border: 1px solid #e6c9bd; padding: 12px 14px; border-radius: 6px; font-size: 12px; line-height: 1.7; margin-top: 16px; }
+.signin-card-note { display: flex; gap: 8px; padding-top: 20px; border-top: 1px solid #e8eddf; margin-top: 24px; color: #809172; }
+.signin-card-note svg { flex: 0 0 14px; margin-top: 3px; }
+.signin-card-note p { font-size: 11px; line-height: 1.8; margin: 0; }
+.signin-help { display: inline-block; min-height: 36px; padding-top: 16px; font-size: 11px; color: #5b7846; }
+@media(max-width: 800px) { .admin-signin-container { grid-template-columns: 1fr; max-width: 520px; gap: 26px; padding: 32px 0 40px; } .admin-signin-intro h2 { font-size: 42px; } .admin-signin-intro > p { margin-bottom: 0; } .signin-capabilities, .admin-signin-intro > a { display: none; } .admin-signin-card h1 { font-size: 34px; } }

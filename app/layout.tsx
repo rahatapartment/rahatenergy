@@ -22,6 +22,7 @@ import "./product-carousel.css";
 import "./footer-premium.css";
 import "./product-cards.css";
 import "./product-detail.css";
+import "./admin-signin.css";
 import localFont from "next/font/local";
 const manrope = localFont({
   src: "../public/fonts/manrope.ttf",
