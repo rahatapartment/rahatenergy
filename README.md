@@ -12,6 +12,8 @@ npm run db:generate
 npm run dev
 ```
 
+`npm run dev` reuses an existing Rahat Energy preview on port 3001. Port 3000 is an optional redirect; if another app uses it, Energy still starts on 3001. Unrelated processes are never stopped automatically.
+
 Open http://localhost:3001. Run commands from this **nested `rahat-energy` directory**; the parent folder is the preserved apartment source.
 
 The storefront works without credentials. Checkout becomes available only when the independent database, verified operational inventory, delivery options and Paystack test credentials are configured. See [Phase 3 setup and status](docs/PHASE-3.md). Live payments are rejected in code.
