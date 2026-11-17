@@ -76,9 +76,6 @@ export function CategoryHero({
           <Link href="/shop" className="solutions-all-perspectives">
             Shop all products <ArrowUpRight size={16} />
           </Link>
-          <span className="solutions-hero-disclosure">
-            Illustrative category photography
-          </span>
         </div>
         <div className="solutions-horizon" aria-hidden="true">
           <span />

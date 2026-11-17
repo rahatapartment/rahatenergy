@@ -180,9 +180,6 @@ export function CategoryExperience() {
             <span className="element-verb" aria-hidden="true">
               {chapter.verb}
             </span>
-            <span className="element-image-note">
-              RAHAT PRODUCT PHOTOGRAPHY
-            </span>
           </div>
           <div className="element-description">
             <div>

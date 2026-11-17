@@ -59,9 +59,6 @@ export function HelpHero() {
           <Link href="/track-order" className="solutions-all-perspectives">
             Access an existing order <ArrowUpRight size={16} />
           </Link>
-          <span className="solutions-hero-disclosure">
-            Illustrative category photography · A CLEARER PERSPECTIVE
-          </span>
         </div>
         <div className="solutions-horizon" aria-hidden="true">
           <span />

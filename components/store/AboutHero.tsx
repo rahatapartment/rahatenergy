@@ -61,9 +61,6 @@ export function AboutHero() {
           <Link className="solutions-all-perspectives" href="/solutions">
             Explore energy solutions <ArrowUpRight size={16} />
           </Link>
-          <span className="solutions-hero-disclosure">
-            Illustrative category photography · SOLAR, STORAGE & POSSIBILITY
-          </span>
         </div>
         <div className="solutions-horizon" aria-hidden="true">
           <span />

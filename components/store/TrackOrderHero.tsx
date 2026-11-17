@@ -59,9 +59,6 @@ export function TrackOrderHero() {
           <Link href="/faq" className="solutions-all-perspectives">
             Help & answers <ArrowUpRight size={16} />
           </Link>
-          <span className="solutions-hero-disclosure">
-            Illustrative category photography · A CONSIDERED CONNECTION
-          </span>
         </div>
         <div className="solutions-horizon" aria-hidden="true">
           <span />

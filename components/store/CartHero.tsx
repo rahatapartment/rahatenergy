@@ -59,9 +59,6 @@ export function CartHero() {
           <Link href="/shop" className="solutions-all-perspectives">
             Continue exploring <ArrowUpRight size={16} />
           </Link>
-          <span className="solutions-hero-disclosure">
-            Illustrative category photography · YOUR NEXT POSSIBILITY
-          </span>
         </div>
         <div className="solutions-horizon" aria-hidden="true">
           <span />

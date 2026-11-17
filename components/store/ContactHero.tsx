@@ -61,9 +61,6 @@ export function ContactHero() {
           <a href="#contact-enquiry" className="solutions-all-perspectives">
             Start a project enquiry <ArrowUpRight size={16} />
           </a>
-          <span className="solutions-hero-disclosure">
-            Illustrative category photography · THE DETAILS THAT CONNECT
-          </span>
         </div>
         <div className="solutions-horizon" aria-hidden="true">
           <span />

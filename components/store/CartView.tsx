@@ -93,7 +93,7 @@ export function CartView({ products }: { products: StoreProduct[] }) {
                       width={440}
                       height={440}
                       sizes="(max-width: 600px) 105px, (max-width: 1000px) 180px, 220px"
-                      alt={`${p.name}: illustrative category photograph`}
+                      alt={p.name}
                     />
                     <span>{String(index + 1).padStart(2, "0")}</span>
                   </Link>

@@ -242,9 +242,6 @@ export function HeroExperience() {
               Explore the energy essentials <ArrowUpRight size={16} />
             </span>
           </Link>
-          <span className="hero-image-disclosure">
-            Illustrative category photography
-          </span>
         </div>
       </section>
     </div>

@@ -66,7 +66,6 @@ export default async function Home() {
             <div className="living-shade" />
             <div className="living-topline">
               <span className="eyebrow">04 / ENERGY, IN YOUR ELEMENT</span>
-              <span>ILLUSTRATIVE ARCHITECTURE</span>
             </div>
             <div className="living-heading" data-reveal>
               <span className="living-preface">

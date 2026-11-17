@@ -70,9 +70,6 @@ export function ShopHero({
               <ArrowUpRight size={17} strokeWidth={1.3} />
             </span>
           </a>
-          <span className="shop-scene-disclosure">
-            Illustrative category photography
-          </span>
         </div>
         <div className="shop-horizon-rule" aria-hidden="true">
           <span />
