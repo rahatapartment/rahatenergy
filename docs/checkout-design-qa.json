@@ -1,0 +1,28 @@
+[
+  {
+    "width": 1440,
+    "overflow": false,
+    "items": 2,
+    "sections": 3,
+    "pendingTotal": true,
+    "testMode": true,
+    "disabled": true,
+    "navbar": true,
+    "footer": true,
+    "emptyState": "pass",
+    "emailValidation": "pass"
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "items": 2,
+    "sections": 3,
+    "pendingTotal": true,
+    "testMode": true,
+    "disabled": true,
+    "navbar": true,
+    "footer": true,
+    "emptyState": "pass",
+    "emailValidation": "pass"
+  }
+]

@@ -2,7 +2,9 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useCart } from "./CartProvider";
-import { money, type StoreProduct } from "@/lib/catalogue";
+import Image from "@/components/WebImage";
+import { ArrowLeft, ArrowRight, LockKeyhole, ShoppingBag, Truck, ShieldCheck, MapPin } from "lucide-react";
+import { money, productImage, type StoreProduct } from "@/lib/catalogue";
 type Option = {
   id: string;
   label: string;
@@ -70,7 +72,7 @@ export function Checkout({
   const linesKey = JSON.stringify(lines);
   useEffect(() => {
     setQuote(null);
-    if (!ready || !lines.length || !optionId || !available) return;
+    if (!ready || !lines.length || !optionId || !available) { setReviewing(false); return; }
     const controller = new AbortController();
     setReviewing(true);
     setError("");
@@ -99,7 +101,7 @@ export function Checkout({
   }, [ready, linesKey, lines.length, optionId, available, reviewAgain]);
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!quote || !option) return;
+    if (!quote || !option || pending || reviewing || !available) return;
     setPending(true);
     setError("");
     const form = new FormData(e.currentTarget);
@@ -177,29 +179,22 @@ export function Checkout({
     } catch {}
     setReviewAgain((n) => n + 1);
   }
-  if (!ready) return <p role="status">Restoring your selection…</p>;
-  if (!lines.length)
-    return (
-      <div className="empty">
-        <h2>Start with your energy shortlist.</h2>
-        <Link href="/shop" className="button dark">
-          Explore products
-        </Link>
-      </div>
-    );
+  if (!ready) return <div className="checkout-restoring" role="status"><span /><p>Preparing your checkout…</p></div>;
+  if (!lines.length) return (
+    <section className="checkout-empty" aria-labelledby="empty-cart-title">
+      <span className="checkout-empty-icon"><ShoppingBag size={30} strokeWidth={1.4} /></span>
+      <span className="checkout-kicker">YOUR NEXT ESSENTIAL</span>
+      <h2 id="empty-cart-title">Your cart is waiting.</h2>
+      <p>Explore our collection of solar, storage and everyday essentials, then come back here to review your selection.</p>
+      <Link href="/shop" className="checkout-primary-link">Explore the collection <ArrowRight size={18} /></Link>
+      <Link href="/request-quote" className="checkout-secondary-link">Need help choosing? Talk to our team</Link>
+    </section>
+  );
   return (
-    <div className="cart-layout">
-      <form onSubmit={submit}>
-        <div className="notice">
-          TEST CHECKOUT · Only Paystack test payments are supported. No live
-          payment credentials are accepted.
-        </div>
-        {!available && (
-          <p className="notice error" style={{ marginTop: 16 }}>
-            Test checkout is not available yet. Your cart remains saved while
-            product and delivery arrangements are being confirmed.
-          </p>
-        )}
+    <div className="checkout-grid">
+      <form onSubmit={submit} className="checkout-main-form">
+        <div className="checkout-test-notice"><ShieldCheck size={18} /><p><strong>Test checkout</strong><span>This checkout supports test payments only. Real payments are not enabled.</span></p></div>
+        {!available && <div className="checkout-unavailable" role="status"><p>Online checkout isn’t available right now. Your items are saved, and our team can help you with pricing and delivery.</p><Link href="/request-quote">Request a quote <ArrowRight size={15} /></Link></div>}
         {recovery && (
           <div className="notice" style={{ marginTop: 16 }}>
             An earlier checkout attempt is saved on this device.{" "}
@@ -216,13 +211,14 @@ export function Checkout({
             </button>
           </div>
         )}
-        <section className="checkout-form-section">
-          <h2>Your contact details</h2>
+        <section className="checkout-form-section checkout-panel">
+          <div className="checkout-panel-heading"><span>01</span><div><h2>Your details</h2><p>We’ll use these to confirm your order and keep you updated.</p></div></div>
           <div className="form-grid">
             <label>
               Full name
               <input
                 name="name"
+                placeholder="Your full name"
                 autoComplete="name"
                 required
                 minLength={2}
@@ -233,6 +229,7 @@ export function Checkout({
               Email address
               <input
                 name="email"
+                placeholder="you@example.com"
                 type="email"
                 autoComplete="email"
                 required
@@ -243,6 +240,7 @@ export function Checkout({
               Phone number
               <input
                 name="phone"
+                placeholder="Your phone number"
                 type="tel"
                 autoComplete="tel"
                 required
@@ -252,8 +250,8 @@ export function Checkout({
             </label>
           </div>
         </section>
-        <section className="checkout-form-section">
-          <h2>Delivery or collection</h2>
+        <section className="checkout-form-section checkout-panel">
+          <div className="checkout-panel-heading"><span>02</span><div><h2>How would you like to receive it?</h2><p>Choose delivery or collection from the available options.</p></div></div>
           <label className="field-label">
             Choose an available option
             <select
@@ -273,17 +271,18 @@ export function Checkout({
             </select>
           </label>
           {option?.method === "PICKUP" ? (
-            <div className="notice">
-              <strong>Collection location</strong>
+            <div className="checkout-pickup"><MapPin size={18} />
+              <div><strong>Collection location</strong>
               <br />
               {option.pickupAddress}
-            </div>
+              </div></div>
           ) : (
             <div className="form-grid">
               <label className="full">
                 Street address
                 <input
                   name="line1"
+                  placeholder="Street address and building number"
                   autoComplete="street-address"
                   required
                   maxLength={250}
@@ -314,6 +313,8 @@ export function Checkout({
             </div>
           )}
         </section>
+        <div className="checkout-payment-panel checkout-panel">
+        <div className="checkout-panel-heading"><span>03</span><div><h2>Review & continue</h2><p>You’ll complete your test payment on Paystack.</p></div></div>
         <label className="check-field">
           <input name="consent" type="checkbox" required />
           <span>
@@ -326,7 +327,7 @@ export function Checkout({
         </label>
         <button
           type="submit"
-          className="button dark wide"
+          className="checkout-submit"
           disabled={!available || !quote || pending || reviewing}
         >
           {pending
@@ -334,7 +335,10 @@ export function Checkout({
             : reviewing
               ? "Checking current prices…"
               : "Continue to Paystack test checkout"}
+          <ArrowRight size={18} aria-hidden="true" />
         </button>
+        <p className="checkout-payment-note"><LockKeyhole size={13} />Card details are entered on Paystack, not on this website.</p>
+        </div>
         {error && (
           <div className="notice error" role="alert" style={{ marginTop: 16 }}>
             {error}
@@ -361,28 +365,28 @@ export function Checkout({
           </details>
         )}
       </form>
-      <aside className="order-summary">
-        <span className="eyebrow">SERVER-VERIFIED REVIEW</span>
-        <h2>Your test order</h2>
+      <aside className="checkout-summary" aria-labelledby="checkout-summary-title">
+        <div className="checkout-summary-heading"><h2 id="checkout-summary-title">Your order</h2><span>{lines.reduce((sum, line) => sum + line.quantity, 0)} {lines.reduce((sum, line) => sum + line.quantity, 0) === 1 ? "item" : "items"}</span></div>
+        <div className="checkout-summary-items">
         {lines.map((line) => {
           const p = products.find((p) => p.id === line.productId);
           const item = quote?.items.find((i) => i.productId === line.productId);
           return (
-            <div className="checkout-line" key={line.productId}>
-              <span>
-                {line.quantity} × {p?.name}
-              </span>
+            <div className="checkout-summary-item" key={line.productId}>
+              <div className="checkout-item-image">{p && <Image src={productImage(p)} alt={p.name} width={76} height={76} sizes="76px" />}</div>
+              <div className="checkout-item-details"><Link href={p ? `/shop/${p.slug}` : "/shop"}>{p?.name || "Product unavailable"}</Link><span>Quantity: {line.quantity}</span>
               <strong>
                 {item
                   ? money(item.unitPriceKobo * line.quantity)
-                  : "Awaiting review"}
-              </strong>
+                  : p?.priceKobo != null ? money(p.priceKobo * line.quantity) : "Price on request"}
+              </strong></div>
             </div>
           );
         })}
+        </div>
         {quote ? (
           <>
-            <dl>
+            <dl className="checkout-totals">
               <div>
                 <dt>Subtotal</dt>
                 <dd>{money(quote.subtotalKobo)}</dd>
@@ -398,19 +402,11 @@ export function Checkout({
             </div>
           </>
         ) : (
-          <p className="small muted" role="status">
-            {reviewing
-              ? "Checking database prices and stock…"
-              : "Choose a configured option to calculate your total."}
-          </p>
+          <div className="checkout-total-pending" role="status"><div><span>Total</span><strong>Pending review</strong></div><p>{reviewing ? "Confirming current prices and availability…" : "Your final total will appear once prices, stock and your delivery option have been confirmed."}</p></div>
         )}
-        <p className="small muted">
-          Prices and stock are checked again when submitting. Stock is held for
-          15 minutes after an order is created.
-        </p>
-        <Link href="/cart" className="text-link">
-          Edit your cart →
-        </Link>
+        <Link href="/cart" className="checkout-edit-cart"><ArrowLeft size={14} />Edit your cart</Link>
+        <div className="checkout-summary-assurance"><div><ShieldCheck size={17} /><span>Prices and stock confirmed before payment</span></div><div><Truck size={17} /><span>Delivery or collection, arranged around you</span></div></div>
+        <div className="checkout-summary-help"><span>Need a hand with your order?</span><Link href="/contact">Contact our team <ArrowRight size={14} /></Link></div>
       </aside>
     </div>
   );
