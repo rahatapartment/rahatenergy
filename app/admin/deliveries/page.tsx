@@ -1,5 +1,7 @@
+import { hasPermission } from "@/lib/admin-permissions";
 import Link from "next/link";
 import { AdminShell } from "@/components/admin/AdminShell";
+import { DeliveryEditor } from "@/components/admin/OperationForms";
 import { DeliveryOptions } from "@/components/admin/DeliveryOptions";
 import { operationsAccess } from "@/lib/operations-access";
 import {
@@ -26,7 +28,7 @@ export default async function Page({
 }: {
   searchParams: { q?: string; status?: string; page?: string };
 }) {
-  const { actor, db } = await operationsAccess();
+  const { actor, db } = await operationsAccess("deliveries.view");
   const p = listParams(searchParams, statuses);
   const where = {
     ...(p.status === "ALL" ? {} : { status: p.status }),
@@ -41,7 +43,14 @@ export default async function Page({
         db.delivery.findMany({
           where,
           include: {
-            order: { select: { reference: true, customerSnapshot: true } },
+            order: {
+              select: {
+                reference: true,
+                customerSnapshot: true,
+                paymentStatus: true,
+                fulfillmentStatus: true,
+              },
+            },
           },
           orderBy: { updatedAt: "desc" },
           skip: (p.page - 1) * 20,
@@ -81,12 +90,34 @@ export default async function Page({
                     <td>{d.status}</td>
                     <td>{d.trackingReference || "Not assigned"}</td>
                     <td>
-                      <Link
-                        className="inline-link"
-                        href={`/admin/orders/${d.orderId}`}
-                      >
-                        Manage delivery →
-                      </Link>
+                      {hasPermission(actor, "deliveries.manage") && (
+                        <details>
+                          <summary>Update delivery</summary>
+                          <DeliveryEditor
+                            orderId={d.orderId}
+                            status={d.status}
+                            method={d.method}
+                            tracking={d.trackingReference || ""}
+                            version={d.version}
+                            eligible={
+                              d.order.paymentStatus === "PAID" &&
+                              ![
+                                "CANCELLED",
+                                "DELIVERED",
+                                "PAYMENT_REVIEW",
+                              ].includes(d.order.fulfillmentStatus)
+                            }
+                          />
+                        </details>
+                      )}
+                      {hasPermission(actor, "orders.view") && (
+                        <Link
+                          className="inline-link"
+                          href={`/admin/orders/${d.orderId}`}
+                        >
+                          Manage delivery →
+                        </Link>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -100,7 +131,9 @@ export default async function Page({
             query={p.q}
             status={p.status}
           />
-          <DeliveryOptions options={data[2]} />
+          {hasPermission(actor, "deliveries.manage") && (
+            <DeliveryOptions options={data[2]} />
+          )}
         </>
       )}
     </AdminShell>

@@ -1,3 +1,4 @@
+import { hasPermission, type AdminPermission } from "./admin-permissions";
 import { NextResponse, NextRequest } from "next/server";
 import { ZodError } from "zod";
 import { CommerceError } from "./commerce-validation";
@@ -55,15 +56,20 @@ export function commerceFailure(error: unknown) {
     { status: 503 },
   );
 }
-export async function adminMutation(req: Request, ownerOnly = false) {
+export async function adminMutation(
+  req: Request,
+  ownerOnly: boolean | AdminPermission = false,
+) {
   const identity = await adminIdentity(
     new NextRequest(req.url, { headers: req.headers }).cookies.get(ADMIN_COOKIE)
       ?.value,
   );
   if (!identity) throw new CommerceError("Unauthorized.", 401);
   if (!sameOrigin(req)) throw new CommerceError("Invalid request origin.", 403);
-  if (ownerOnly && identity.role !== "OWNER")
+  if (ownerOnly === true && identity.role !== "OWNER")
     throw new CommerceError("Owner access is required.", 403);
+  if (typeof ownerOnly === "string" && !hasPermission(identity, ownerOnly))
+    throw new CommerceError("You do not have permission for this action.", 403);
   return identity;
 }
 export async function smallJson(req: Request) {

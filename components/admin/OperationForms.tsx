@@ -348,9 +348,8 @@ export function AdminAccountForms({
     <section className="content-section">
       <h2>Administrator accounts</h2>
       <p className="small muted">
-        Owners manage accounts and financial review. Operators handle catalogue
-        operations, enquiries and deliveries. Account changes revoke existing
-        sessions.
+        Create the single business owner. Invite team members and assign their
+        permissions from Team access after setup.
       </p>
       {users.map((user) => (
         <details
@@ -375,7 +374,6 @@ export function AdminAccountForms({
                 disabled={user.id === self}
               >
                 <option>OWNER</option>
-                <option>OPERATOR</option>
               </select>
             </label>
             <label>
@@ -430,7 +428,6 @@ export function AdminAccountForms({
             defaultValue={users.length ? "OPERATOR" : "OWNER"}
           >
             <option>OWNER</option>
-            <option>OPERATOR</option>
           </select>
         </label>
         <label>

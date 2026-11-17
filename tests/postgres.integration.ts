@@ -1,5 +1,8 @@
 import { readdirSync } from "node:fs";
-import { updateProductContent, productContentSchema } from "../lib/product-content";
+import {
+  updateProductContent,
+  productContentSchema,
+} from "../lib/product-content";
 import { catalogue } from "../lib/catalogue";
 import { describe, it, before, beforeEach, after, mock } from "node:test";
 import assert from "node:assert/strict";
@@ -29,7 +32,7 @@ import {
   verifyCompletedRefund,
 } from "../lib/operations";
 import { createAdminUser, editAdminUser } from "../lib/admin-users";
-import { verifyPassword } from "../lib/passwords";
+import { hashPassword, verifyPassword } from "../lib/passwords";
 import { limitRequest } from "../lib/security";
 import { verifyAdminSession, type AdminIdentity } from "../lib/admin-auth";
 import { POST as cancelApi } from "../app/api/admin/orders/[id]/cancel/route";
@@ -118,6 +121,7 @@ describe(
       await db!.$transaction(async (tx) => {
         await tx.productContent.deleteMany();
         await tx.productImage.deleteMany();
+        await tx.adminInvitation.deleteMany();
         await tx.adminUser.deleteMany();
         await tx.rateLimitBucket.deleteMany();
         await tx.jobRun.deleteMany();
@@ -167,15 +171,20 @@ describe(
       const migrations = await db!.$queryRaw<
         { n: bigint }[]
       >`SELECT count(*) AS n FROM "_prisma_migrations" WHERE finished_at IS NOT NULL`;
-      assert.equal(Number(migrations[0].n), readdirSync("prisma/migrations", { withFileTypes: true }).filter(entry => entry.isDirectory()).length);
+      assert.equal(
+        Number(migrations[0].n),
+        readdirSync("prisma/migrations", { withFileTypes: true }).filter(
+          (entry) => entry.isDirectory(),
+        ).length,
+      );
       await db!.inventory.update({
         where: { productId: "re-001" },
         data: { priceKobo: 123456, stock: 7 },
       });
       await seedCatalogue(db!);
       await seedCatalogue(db!);
-      assert.ok(await db!.product.count() >= catalogue.length);
-      assert.ok(await db!.inventory.count() >= catalogue.length);
+      assert.ok((await db!.product.count()) >= catalogue.length);
+      assert.ok((await db!.inventory.count()) >= catalogue.length);
       const row = await db!.inventory.findUniqueOrThrow({
         where: { productId: "re-001" },
       });
@@ -187,18 +196,40 @@ describe(
         db!.product.create({ data: { id: "unapproved", sku: "bad" } }),
       );
       await assert.rejects(db!.product.delete({ where: { id: "re-001" } }));
-      assert.ok(await db!.product.count() >= catalogue.length);
+      assert.ok((await db!.product.count()) >= catalogue.length);
     });
     it("edits product presentation with conflict protection and immutable order pricing", async () => {
       const p = catalogue[0];
-      const edit = productContentSchema.parse({ name: "Updated Rahat panel", description: "Updated product description from the owner.", category: p.category, images: [...p.images].reverse(), specifications: { Finish: "Black" }, seoTitle: "Updated panel", seoDescription: "Explore the updated Rahat panel.", version: 0, reason: "Corrected catalogue details" });
-      const saved = await db!.$transaction(tx => updateProductContent(tx, p.id, edit, "test-owner"));
+      const edit = productContentSchema.parse({
+        name: "Updated Rahat panel",
+        description: "Updated product description from the owner.",
+        category: p.category,
+        images: [...p.images].reverse(),
+        specifications: { Finish: "Black" },
+        seoTitle: "Updated panel",
+        seoDescription: "Explore the updated Rahat panel.",
+        version: 0,
+        reason: "Corrected catalogue details",
+      });
+      const saved = await db!.$transaction((tx) =>
+        updateProductContent(tx, p.id, edit, "test-owner"),
+      );
       assert.equal(saved.version, 1);
-      await assert.rejects(db!.$transaction(tx => updateProductContent(tx, p.id, edit, "test-owner")), /changed/);
+      await assert.rejects(
+        db!.$transaction((tx) =>
+          updateProductContent(tx, p.id, edit, "test-owner"),
+        ),
+        /changed/,
+      );
       const quote = await checkoutQuote(db!, input().lines, optionId);
       assert.equal(quote.items[0].name, edit.name);
       assert.equal(quote.items[0].unitPriceKobo, 100000);
-      assert.equal(await db!.auditLog.count({ where: { action: "PRODUCT_CONTENT_UPDATED", subject: p.id } }), 1);
+      assert.equal(
+        await db!.auditLog.count({
+          where: { action: "PRODUCT_CONTENT_UPDATED", subject: p.id },
+        }),
+        1,
+      );
     });
     it("calculates server totals, snapshots multiple items and reserves inventory atomically", async () => {
       const data = input();
@@ -1041,11 +1072,13 @@ describe(
       };
       const ownerToken = await createAdminSession(owner);
       assert.ok(await verifyAdminSession(ownerToken));
-      const operator = await createAdminUser(db!, ownerIdentity, {
-        name: "Fixture Operator",
-        email: "operator@example.test",
-        password: "fixture-operator-password-123",
-        role: "OPERATOR",
+      const operator = await db!.adminUser.create({
+        data: {
+          name: "Fixture Operator",
+          email: "operator@example.test",
+          passwordHash: await hashPassword("fixture-operator-password-123"),
+          role: "OPERATOR",
+        },
       });
       const operatorToken = await createAdminSession(operator);
       assert.ok(await verifyAdminSession(operatorToken));
@@ -1082,16 +1115,14 @@ describe(
         password: "fixture-owner-password-123",
         role: "OWNER",
       });
-      const operator = await createAdminUser(
-        db!,
-        { ...owner, role: "OWNER", bootstrap: false },
-        {
+      const operator = await db!.adminUser.create({
+        data: {
           name: "Fixture Operator",
           email: "operator@example.test",
-          password: "fixture-operator-password-123",
+          passwordHash: await hashPassword("fixture-operator-password-123"),
           role: "OPERATOR",
         },
-      );
+      });
       const order = await createCheckout(db!, input());
       const cookie = `${ADMIN_COOKIE}=${await createAdminSession(operator)}`;
       const response = await cancelApi(

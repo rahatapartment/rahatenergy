@@ -1,6 +1,10 @@
+import { inventoryPermissionErrors } from "@/lib/admin-permissions";
+import { CommerceError } from "@/lib/commerce-validation";
+import { revalidatePath } from "next/cache";
+import { auditCreate } from "@/lib/audit";
 import { NextResponse } from "next/server";
 import { randomUUID } from "node:crypto";
-import { adminMutation, commerceFailure } from "@/lib/commerce-http";
+import { adminMutation, commerceFailure, smallJson } from "@/lib/commerce-http";
 import { catalogue } from "@/lib/catalogue";
 import { getDb } from "@/lib/db";
 import { inventorySchema } from "@/lib/validation";
@@ -11,7 +15,7 @@ export async function PATCH(
 ) {
   let actor;
   try {
-    actor = await adminMutation(req);
+    actor = await adminMutation(req, "inventory.view");
   } catch (e) {
     return commerceFailure(e);
   }
@@ -20,21 +24,40 @@ export async function PATCH(
       { error: "Unknown fixed catalogue identity." },
       { status: 404 },
     );
-  const parsed = inventorySchema.safeParse(await req.json().catch(() => null));
+  let body;
+  try {
+    body = await smallJson(req);
+  } catch (e) {
+    return commerceFailure(e);
+  }
+  const parsed = inventorySchema.safeParse(body);
   if (!parsed.success)
     return NextResponse.json(
-      { error: "Check prices, stock, version and adjustment reason." },
+      { error: "Check prices, stock and version." },
       { status: 400 },
     );
   const db = getDb();
   if (!db) return unavailable();
-  const { reason, version, ...values } = parsed.data;
+  const { reason: suppliedReason, version, ...values } = parsed.data;
+  const reason = suppliedReason || "Inventory updated";
   try {
-    await db.$transaction(async (tx) => {
+    const inventory = await db.$transaction(async (tx) => {
       const current = await tx.inventory.findUnique({
         where: { productId: params.id },
       });
       if (!current || current.version !== version) throw new Error("CONFLICT");
+      if (inventoryPermissionErrors(actor, current, values).length)
+        throw new CommerceError(
+          "Your permissions do not allow this inventory change.",
+          403,
+        );
+      if (
+        values.stock === current.stock &&
+        values.priceKobo === current.priceKobo &&
+        values.enabled === current.enabled &&
+        values.lowStockThreshold === current.lowStockThreshold
+      )
+        return current;
       if (values.stock < current.reserved) throw new Error("RESERVED");
       if (values.enabled && values.priceKobo === null) throw new Error("PRICE");
       const updated = await tx.inventory.updateMany({
@@ -51,7 +74,7 @@ export async function PATCH(
           eventKey: randomUUID(),
         },
       });
-      await tx.auditLog.create({
+      await auditCreate(tx, {
         data: {
           actor: actor.id,
           action: "INVENTORY_UPDATE",
@@ -59,9 +82,16 @@ export async function PATCH(
           data: { before: current, after: values, reason },
         },
       });
+      return tx.inventory.findUniqueOrThrow({
+        where: { productId: params.id },
+      });
     });
-    return NextResponse.json({ ok: true });
+    revalidatePath("/admin/inventory");
+    revalidatePath("/admin/products");
+    revalidatePath("/shop", "layout");
+    return NextResponse.json({ ok: true, inventory });
   } catch (error) {
+    if (error instanceof CommerceError) return commerceFailure(error);
     const message = error instanceof Error ? error.message : "";
     if (["CONFLICT", "RESERVED", "PRICE"].includes(message))
       return NextResponse.json(

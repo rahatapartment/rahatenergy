@@ -16,7 +16,7 @@ export default async function Page({
 }: {
   searchParams: { q?: string; status?: string; page?: string };
 }) {
-  const { actor, db } = await operationsAccess();
+  const { actor, db } = await operationsAccess("quotations.view");
   const p = listParams(searchParams, quoteStatuses);
   const where = {
     ...(p.status === "ALL" ? {} : { status: p.status }),

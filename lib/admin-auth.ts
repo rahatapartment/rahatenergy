@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { getDb } from "./db";
@@ -10,6 +11,8 @@ export type AdminIdentity = {
   role: "OWNER" | "OPERATOR";
   sessionVersion: number;
   bootstrap: boolean;
+  email?: string;
+  permissions?: string[];
 };
 function secret() {
   const value = process.env.ENERGY_ADMIN_SESSION_SECRET;
@@ -69,6 +72,8 @@ export async function adminIdentity(
       role: user.role as AdminIdentity["role"],
       sessionVersion: user.sessionVersion,
       bootstrap: false,
+      email: user.email,
+      permissions: user.permissions,
     };
   } catch {
     return null;
@@ -77,9 +82,10 @@ export async function adminIdentity(
 export async function verifyAdminSession(token: string | undefined) {
   return !!(await adminIdentity(token));
 }
-export async function currentAdmin() {
-  return adminIdentity(cookies().get(ADMIN_COOKIE)?.value);
-}
+const readCurrentAdmin = async () =>
+  adminIdentity(cookies().get(ADMIN_COOKIE)?.value);
+export const currentAdmin =
+  typeof cache === "function" ? cache(readCurrentAdmin) : readCurrentAdmin;
 export async function isAdmin() {
   return !!(await currentAdmin());
 }

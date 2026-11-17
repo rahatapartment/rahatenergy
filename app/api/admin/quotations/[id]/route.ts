@@ -11,7 +11,7 @@ export async function PATCH(
   { params }: { params: { id: string } },
 ) {
   try {
-    const actor = await adminMutation(req);
+    const actor = await adminMutation(req, "quotations.manage");
     await updateQuotation(
       requireDb(),
       params.id,

@@ -25,6 +25,6 @@ export const inventorySchema = z
     lowStockThreshold: z.number().int().min(0).max(1_000_000),
     enabled: z.boolean(),
     version: z.number().int().min(0),
-    reason: z.string().trim().min(5).max(500),
+    reason: z.string().trim().max(500).optional(),
   })
   .strict();

@@ -29,7 +29,7 @@ export default async function Page({
     fulfillment?: string;
   };
 }) {
-  const { actor, db } = await operationsAccess();
+  const { actor, db } = await operationsAccess("orders.view");
   const p = listParams(searchParams, payments);
   const fulfillment = fulfillments.includes(searchParams.fulfillment || "")
     ? searchParams.fulfillment!

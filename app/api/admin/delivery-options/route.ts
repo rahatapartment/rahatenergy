@@ -1,3 +1,4 @@
+import { auditCreate } from "@/lib/audit";
 import { NextResponse } from "next/server";
 import { deliveryOptionSchema } from "@/lib/commerce-validation";
 import {
@@ -8,12 +9,12 @@ import {
 } from "@/lib/commerce-http";
 export async function POST(req: Request) {
   try {
-    const actor = await adminMutation(req);
+    const actor = await adminMutation(req, "deliveries.manage");
     const input = deliveryOptionSchema.parse(await smallJson(req));
     const db = requireDb();
     await db.$transaction(async (tx) => {
       const option = await tx.deliveryOption.create({ data: input });
-      await tx.auditLog.create({
+      await auditCreate(tx, {
         data: {
           actor: actor.id,
           action: "DELIVERY_OPTION_CREATE",
@@ -29,7 +30,7 @@ export async function POST(req: Request) {
 }
 export async function PATCH(req: Request) {
   try {
-    const actor = await adminMutation(req);
+    const actor = await adminMutation(req, "deliveries.manage");
     const body = await smallJson(req);
     const { id, ...fields } = body;
     if (typeof id !== "string")
@@ -40,7 +41,7 @@ export async function PATCH(req: Request) {
     const values = deliveryOptionSchema.parse(fields);
     await requireDb().$transaction(async (tx) => {
       await tx.deliveryOption.update({ where: { id }, data: values });
-      await tx.auditLog.create({
+      await auditCreate(tx, {
         data: {
           actor: actor.id,
           action: "DELIVERY_OPTION_UPDATE",

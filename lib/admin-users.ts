@@ -1,3 +1,4 @@
+import { auditCreate } from "@/lib/audit";
 import type { PrismaClient, Prisma } from "@prisma/client";
 import { hashPassword } from "./passwords";
 import { CommerceError } from "./commerce-validation";
@@ -30,7 +31,9 @@ export async function createAdminUser(
   return db.$transaction(async (tx) => {
     await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext('energy-admin-management'))::text`;
     await ownerAuthority(tx, actor);
-    if ((await tx.adminUser.count()) === 0 && input.role !== "OWNER")
+    if ((await tx.adminUser.count()) > 0)
+      throw new CommerceError("Invite team members from Team access.", 409);
+    if (input.role !== "OWNER")
       throw new CommerceError(
         "The first named administrator must be an owner.",
       );
@@ -42,7 +45,7 @@ export async function createAdminUser(
         role: input.role,
       },
     });
-    await tx.auditLog.create({
+    await auditCreate(tx, {
       data: {
         actor: actor.id,
         action: "ADMIN_CREATED",
@@ -63,12 +66,19 @@ export async function editAdminUser(
   db: PrismaClient,
   actor: AdminIdentity,
   id: string,
-  input: { role: string; active: boolean; password?: string },
+  input: {
+    role: string;
+    active: boolean;
+    password?: string;
+    permissions?: string[];
+  },
 ) {
   if (actor.role !== "OWNER")
     throw new CommerceError("Owner access is required.", 403);
   if (id === actor.id)
-    throw new CommerceError("Ask another owner to change your own account.");
+    throw new CommerceError(
+      "The business owner account cannot be reassigned here.",
+    );
   const passwordHash = input.password
     ? await hashPassword(input.password)
     : undefined;
@@ -76,24 +86,22 @@ export async function editAdminUser(
     await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext('energy-admin-management'))::text`;
     await ownerAuthority(tx, actor);
     const current = await tx.adminUser.findUniqueOrThrow({ where: { id } });
-    if (
-      current.active &&
-      current.role === "OWNER" &&
-      (!input.active || input.role !== "OWNER") &&
-      (await tx.adminUser.count({ where: { active: true, role: "OWNER" } })) <=
-        1
-    )
-      throw new CommerceError("At least one active owner must remain.");
+    if (current.role === "OWNER" || input.role === "OWNER")
+      throw new CommerceError(
+        "The business owner cannot be reassigned here.",
+        403,
+      );
     await tx.adminUser.update({
       where: { id },
       data: {
         active: input.active,
+        permissions: input.permissions,
         role: input.role,
         passwordHash,
         sessionVersion: { increment: 1 },
       },
     });
-    await tx.auditLog.create({
+    await auditCreate(tx, {
       data: {
         actor: actor.id,
         action: "ADMIN_UPDATED_SESSIONS_REVOKED",
@@ -102,6 +110,8 @@ export async function editAdminUser(
           active: input.active,
           role: input.role,
           passwordChanged: !!passwordHash,
+          permissions: input.permissions ?? current.permissions,
+          before: { active: current.active, permissions: current.permissions },
         },
       },
     });

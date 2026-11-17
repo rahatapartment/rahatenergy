@@ -10,7 +10,7 @@ const format = (d: Date) =>
     timeZone: "Africa/Lagos",
   }).format(d);
 export default async function Page() {
-  const { actor, db } = await operationsAccess();
+  const { actor, db } = await operationsAccess("activity.view");
   const data = db
     ? await Promise.all([
         db.jobRun.findMany({ take: 20, orderBy: { startedAt: "desc" } }),

@@ -1,0 +1,18 @@
+{
+  "navigationMs": 55,
+  "stockSynchronization": "pass",
+  "reasonRequired": false,
+  "screens": [
+    {
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "overflow": false
+    }
+  ],
+  "teamPermissions": 16,
+  "emailDisabled": true,
+  "auditEmail": true
+}

@@ -1,12 +1,24 @@
 "use client";
+import { useAdmin } from "./AdminProvider";
+import { hasPermission } from "@/lib/admin-permissions";
 import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
 import { type StoreProduct } from "@/lib/catalogue";
-export function InventoryEditor({ product: p }: { product: StoreProduct }) {
+export function InventoryEditor({
+  product: initial,
+}: {
+  product: StoreProduct;
+}) {
+  const { actor, inventory, publish } = useAdmin();
+  const row = inventory[initial.id];
+  const p =
+    row && row.version >= initial.version ? { ...initial, ...row } : initial;
+  const allowed = (scope: Parameters<typeof hasPermission>[1]) =>
+    !!actor && hasPermission(actor, scope);
+  const increase = allowed("inventory.increase"),
+    decrease = allowed("inventory.decrease");
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
-  const router = useRouter();
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
@@ -23,16 +35,15 @@ export function InventoryEditor({ product: p }: { product: StoreProduct }) {
           lowStockThreshold: Number(f.get("threshold")),
           enabled: f.get("enabled") === "on",
           version: p.version,
-          reason: f.get("reason"),
         }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
+      publish(data.inventory);
       setError(false);
       setMessage(
         "Operational values saved. Stock history and audit record updated.",
       );
-      router.refresh();
     } catch (err) {
       setError(true);
       setMessage(err instanceof Error ? err.message : "Unable to save.");
@@ -41,10 +52,10 @@ export function InventoryEditor({ product: p }: { product: StoreProduct }) {
     }
   }
   return (
-    <details className="inventory-form">
-      <summary>
+    <section className="inventory-form inventory-inline">
+      <h3>
         {p.sku} · {p.name}
-      </summary>
+      </h3>
       <div>
         <form key={p.version} onSubmit={submit}>
           <div className="inventory-inputs">
@@ -52,6 +63,7 @@ export function InventoryEditor({ product: p }: { product: StoreProduct }) {
               Price (NGN, blank = unpriced)
               <input
                 name="price"
+                readOnly={!allowed("inventory.price")}
                 type="number"
                 defaultValue={p.priceKobo === null ? "" : p.priceKobo / 100}
                 min="0.01"
@@ -66,14 +78,15 @@ export function InventoryEditor({ product: p }: { product: StoreProduct }) {
                 type="number"
                 required
                 defaultValue={p.stock ?? 0}
-                min={p.reserved}
-                max={1000000}
+                min={decrease ? p.reserved : (p.stock ?? 0)}
+                max={increase ? 1000000 : (p.stock ?? 0)}
               />
             </label>
             <label>
               Low-stock threshold
               <input
                 name="threshold"
+                readOnly={!allowed("inventory.settings")}
                 type="number"
                 required
                 defaultValue={p.lowStockThreshold}
@@ -87,21 +100,30 @@ export function InventoryEditor({ product: p }: { product: StoreProduct }) {
             </label>
           </div>
           <label className="check-field">
-            <input name="enabled" type="checkbox" defaultChecked={p.enabled} />{" "}
-            Enable purchases when checkout becomes available
-          </label>
-          <label>
-            Reason for this change
             <input
-              name="reason"
-              required
-              minLength={5}
-              maxLength={500}
-              placeholder="Receipt of stock, correction, pricing review…"
-            />
+              name="enabled"
+              type="checkbox"
+              onClick={(e) => {
+                if (!allowed("inventory.settings")) e.preventDefault();
+              }}
+              aria-disabled={!allowed("inventory.settings")}
+              defaultChecked={p.enabled}
+            />{" "}
+            Enable purchases
           </label>
-          <button className="button dark" disabled={pending}>
-            {pending ? "Saving…" : "Save operational changes"}
+          <button
+            className="button dark"
+            disabled={
+              pending ||
+              !(
+                increase ||
+                decrease ||
+                allowed("inventory.price") ||
+                allowed("inventory.settings")
+              )
+            }
+          >
+            {pending ? "Saving…" : "Save changes"}
           </button>
           {message && (
             <p
@@ -114,6 +136,6 @@ export function InventoryEditor({ product: p }: { product: StoreProduct }) {
           )}
         </form>
       </div>
-    </details>
+    </section>
   );
 }

@@ -12,7 +12,7 @@ export async function PATCH(
   { params }: { params: { id: string } },
 ) {
   try {
-    const actor = await adminMutation(req);
+    const actor = await adminMutation(req, "orders.manage");
     const { status } = z
       .object({
         status: z.enum([

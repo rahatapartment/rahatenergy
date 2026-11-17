@@ -1,3 +1,4 @@
+import { auditCreate } from "@/lib/audit";
 import { NextResponse } from "next/server";
 import { timingSafeEqual } from "node:crypto";
 import { z } from "zod";
@@ -55,11 +56,33 @@ export async function POST(req: Request) {
       if (
         !user?.active ||
         !(await verifyPassword(body.data.password, user.passwordHash))
-      )
+      ) {
+        if (user)
+          await db!.$transaction((tx) =>
+            auditCreate(tx, {
+              data: {
+                actor: user.id,
+                action: "SIGN_IN_FAILED",
+                subject: user.id,
+                data: {},
+              },
+            }),
+          );
         return NextResponse.json(
           { error: "Invalid sign-in details." },
           { status: 401 },
         );
+      }
+      await db!.$transaction((tx) =>
+        auditCreate(tx, {
+          data: {
+            actor: user.id,
+            action: "SIGN_IN",
+            subject: user.id,
+            data: {},
+          },
+        }),
+      );
       token = await createAdminSession(user);
     } else {
       const expected = process.env.ENERGY_ADMIN_PASSWORD;

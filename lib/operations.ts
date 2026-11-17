@@ -1,3 +1,4 @@
+import { auditCreate } from "@/lib/audit";
 import type { PrismaClient, Prisma } from "@prisma/client";
 import { CommerceError } from "./commerce-validation";
 import {
@@ -68,7 +69,7 @@ export async function updateQuotation(
     });
     if (changed.count !== 1)
       throw new CommerceError("This enquiry changed. Refresh before saving.");
-    await tx.auditLog.create({
+    await auditCreate(tx, {
       data: {
         actor,
         action: "QUOTATION_UPDATED",
@@ -145,7 +146,7 @@ export async function updateDelivery(
     await tx.orderEvent.create({
       data: { orderId, actor, event: `DELIVERY_${input.status}` },
     });
-    await tx.auditLog.create({
+    await auditCreate(tx, {
       data: {
         actor,
         action: "DELIVERY_UPDATED",
@@ -265,7 +266,7 @@ export async function cancelOrder(
           : "ORDER_CANCELLED",
       },
     });
-    await tx.auditLog.create({
+    await auditCreate(tx, {
       data: {
         actor,
         action: "ORDER_CANCELLED",
@@ -347,7 +348,7 @@ export async function allocateReviewedOrder(
     await tx.orderEvent.create({
       data: { orderId: id, actor, event: "PAYMENT_REVIEW_STOCK_ALLOCATED" },
     });
-    await tx.auditLog.create({
+    await auditCreate(tx, {
       data: {
         actor,
         action: "PAYMENT_REVIEW_RESOLVED",
@@ -435,7 +436,7 @@ export async function verifyCompletedRefund(
     await tx.orderEvent.create({
       data: { orderId, actor, event: "PROVIDER_TEST_REFUND_VERIFIED" },
     });
-    await tx.auditLog.create({
+    await auditCreate(tx, {
       data: {
         actor,
         action: "TEST_REFUND_VERIFIED",

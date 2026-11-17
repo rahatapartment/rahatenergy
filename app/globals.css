@@ -2538,3 +2538,16 @@ td small {
   }
 }
 
+
+/* Operational editing: one visible form per product, consistent compact spacing. */
+.admin-premium .inventory-inline{padding:22px 24px;margin:0 0 16px;border:1px solid #dce4dd;border-radius:14px;background:#fff}
+.admin-premium .inventory-inline h3{font-family:inherit;font-size:16px;margin:0 0 16px;color:#163e31}
+.admin-premium .inventory-inline form{margin:0;padding:0}
+.admin-premium .inventory-inline .inventory-inputs{margin-bottom:12px}
+.admin-premium .inventory-inline .button{min-height:42px;padding:10px 22px}
+.team-permissions{border:1px solid #dce4dd;border-radius:10px;padding:18px;margin:18px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.team-permissions legend{font-weight:600;padding:0 8px}
+.team-permissions label{display:flex!important;flex-direction:row!important;align-items:center;gap:10px!important;font-size:13px}
+.team-permissions input[type=checkbox]{width:17px!important;min-height:17px!important;height:17px;padding:0;accent-color:#174b39}
+@media(max-width:680px){.team-permissions{grid-template-columns:1fr}.admin-premium .inventory-inline{padding:18px}.admin-premium .inventory-inputs{grid-template-columns:1fr}}
+.inventory-search{display:block;max-width:560px;font-size:13px;font-weight:600;margin:20px 0 12px}.inventory-search input{display:block;width:100%;padding:13px 16px;margin-top:8px;border:1px solid #cbd7cf;border-radius:8px;background:#fff;font:inherit}

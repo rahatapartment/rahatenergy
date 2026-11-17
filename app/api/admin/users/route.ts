@@ -1,3 +1,4 @@
+import { permissionKeys } from "@/lib/admin-permissions";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import {
@@ -44,6 +45,10 @@ export async function PATCH(req: Request) {
         id: z.string().min(1).max(100),
         role,
         active: z.boolean(),
+        permissions: z
+          .array(z.string().refine((v) => permissionKeys.includes(v as never)))
+          .max(30)
+          .optional(),
         password: z.string().min(16).max(128).optional(),
       })
       .strict()

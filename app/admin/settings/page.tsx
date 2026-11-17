@@ -7,7 +7,7 @@ import { Disconnected } from "@/components/admin/OperationsViews";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Operations settings" };
 export default async function Page() {
-  const { actor, db } = await operationsAccess();
+  const { actor, db } = await operationsAccess("owner");
   const connected = db
     ? await db.$queryRaw`SELECT 1`.then(() => true).catch(() => false)
     : false;
@@ -53,15 +53,20 @@ export default async function Page() {
       "Rate limiting",
       connected ? "Shared PostgreSQL counters" : "Process-local fallback",
     ],
-    ["Product catalogue", `${catalogue.length} products · names, details and images editable by owners`],
+    [
+      "Product catalogue",
+      `${catalogue.length} products · names, details and images editable by owners`,
+    ],
   ];
   return (
     <AdminShell title="Settings" authenticated={!!actor}>
       <p className="notice">
-        This page shows connection and setup status without displaying passwords,
-        API keys or connection strings.
+        This page shows connection and setup status without displaying
+        passwords, API keys or connection strings.
       </p>
-      <Link className="admin-table-link" href="/admin/readiness">Review launch readiness ↗</Link>
+      <Link className="admin-table-link" href="/admin/readiness">
+        Review launch readiness ↗
+      </Link>
       <dl className="settings-list">
         {flags.map(([label, value]) => (
           <div key={label}>
@@ -85,11 +90,18 @@ export default async function Page() {
               ? "Initial setup session: create your first named OWNER account. Existing setup sessions and the shared password stop working once a named account exists."
               : "Named accounts use hashed passwords and revocable sessions. Owner actions and changes are recorded in audit history."}
           </p>
-          <AdminAccountForms
-            users={users}
-            self={actor!.id}
-            owner={actor!.role === "OWNER"}
-          />
+          {!actor?.bootstrap && (
+            <Link className="button dark" href="/admin/team">
+              Manage team access →
+            </Link>
+          )}
+          {actor?.bootstrap && (
+            <AdminAccountForms
+              users={users}
+              self={actor!.id}
+              owner={actor!.role === "OWNER"}
+            />
+          )}
         </>
       )}
     </AdminShell>

@@ -182,12 +182,16 @@ model Quotation {
 }
 
 model AuditLog {
+  actorEmail String?
+  eventId String? @unique
   id        String   @id @default(cuid())
   actor     String
   action    String
   subject   String
   data      Json
   createdAt DateTime @default(now())
+  @@index([createdAt])
+  @@index([actorEmail, createdAt])
 }
 
 model OrderEvent {
@@ -243,6 +247,7 @@ model Refund {
 }
 
 model AdminUser {
+  permissions String[] @default([])
   id             String   @id @default(cuid())
   email          String   @unique
   name           String
@@ -252,6 +257,20 @@ model AdminUser {
   sessionVersion Int      @default(0)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+}
+
+model AdminInvitation {
+  id String @id @default(cuid())
+  email String
+  roleLabel String @default("Team member")
+  permissions String[]
+  tokenHash String @unique
+  invitedBy String
+  expiresAt DateTime
+  acceptedAt DateTime?
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([email, createdAt])
 }
 
 model RateLimitBucket {

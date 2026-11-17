@@ -11,7 +11,7 @@ export async function PATCH(
   { params }: { params: { orderId: string } },
 ) {
   try {
-    const actor = await adminMutation(req);
+    const actor = await adminMutation(req, "deliveries.manage");
     await updateDelivery(
       requireDb(),
       params.orderId,

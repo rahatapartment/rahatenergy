@@ -1,3 +1,4 @@
+import { hasPermission } from "@/lib/admin-permissions";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AdminShell } from "@/components/admin/AdminShell";
@@ -8,7 +9,7 @@ import { catalogue } from "@/lib/catalogue";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Enquiry details" };
 export default async function Page({ params }: { params: { id: string } }) {
-  const { actor, db } = await operationsAccess();
+  const { actor, db } = await operationsAccess("quotations.view");
   if (!db)
     return (
       <AdminShell title="Enquiry details" authenticated={!!actor}>
@@ -57,12 +58,14 @@ export default async function Page({ params }: { params: { id: string } }) {
           </>
         )}
       </section>
-      <QuoteEditor
-        id={quotation.id}
-        version={quotation.version}
-        notes={quotation.internalNotes || ""}
-        status={quotation.status}
-      />
+      {hasPermission(actor, "quotations.manage") && (
+        <QuoteEditor
+          id={quotation.id}
+          version={quotation.version}
+          notes={quotation.internalNotes || ""}
+          status={quotation.status}
+        />
+      )}
       <section className="content-section">
         <h2>Staff history</h2>
         {history.length ? (

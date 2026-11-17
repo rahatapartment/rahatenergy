@@ -1,4 +1,6 @@
 "use client";
+import { useAdmin } from "./AdminProvider";
+import { hasPermission, type AdminPermission } from "@/lib/admin-permissions";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useRef, type ReactNode } from "react";
@@ -30,23 +32,27 @@ const navigation = [
   ["Customers", "/admin/customers", Users, "Relationships"],
   ["Quotations", "/admin/quotations", MessageSquare, "Relationships"],
   ["Monitoring", "/admin/monitoring", Activity, "Administration"],
+  ["Activity", "/admin/activity", Activity, "Administration"],
+  ["Team access", "/admin/team", Users, "Administration"],
   ["Settings", "/admin/settings", Settings, "Administration"],
   ["Launch readiness", "/admin/readiness", ClipboardList, "Administration"],
 ] as const;
 const descriptions: Record<string, string> = {
   Overview: "A clear perspective on your independent energy operations.",
-  Products:
-    "Manage your product collection, presentation and photography.",
+  Products: "Manage your product collection, presentation and photography.",
   Inventory:
-    "Manage prices, stock and purchase availability with a recorded reason.",
+    "Manage prices, stock and purchase availability with a complete activity history.",
   Orders: "Review payment and fulfilment with the details that matter.",
   Deliveries: "Keep dispatch, collection and delivery progress in view.",
   Customers: "Customer relationships, handled with care.",
   Quotations: "Turn project context into a considered conversation.",
   Monitoring:
     "Inspect recorded worker activity, notifications and audit history.",
+  Activity: "Trace account activity and operational changes by email.",
+  "Team access": "Invite your team and control what each person can manage.",
   Settings: "Independent service configuration and administrator access.",
-  "Launch readiness": "Review catalogue, stock and the checks remaining before launch.",
+  "Launch readiness":
+    "Review catalogue, stock and the checks remaining before launch.",
 };
 export function AdminShell({
   title,
@@ -59,17 +65,41 @@ export function AdminShell({
   authenticated: boolean;
   preview?: boolean;
 }) {
+  const { actor } = useAdmin();
+  const permitted = (href: string) => {
+    if (preview) return !["/admin/team", "/admin/activity"].includes(href);
+    if (!actor) return true;
+    if (["/admin/team", "/admin/settings", "/admin/readiness"].includes(href))
+      return actor.role === "OWNER";
+    const section = href.split("/")[2];
+    return (
+      !section ||
+      hasPermission(
+        actor,
+        `${section === "monitoring" || section === "activity" ? "activity" : section}.view` as AdminPermission,
+      )
+    );
+  };
   const pathname = usePathname();
   const router = useRouter();
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const lastRecordedPath = useRef("");
   const toggle = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     setOpen(false);
     setQuery("");
-  }, [pathname]);
+    if (authenticated && !preview && lastRecordedPath.current !== pathname) {
+      lastRecordedPath.current = pathname;
+      void fetch("/api/admin/activity", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ path: pathname, eventId: crypto.randomUUID() }),
+      }).catch(() => {});
+    }
+  }, [pathname, authenticated, preview]);
   useEffect(() => {
     const escape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && open) {
@@ -149,7 +179,8 @@ export function AdminShell({
           {["Workspace", "Commerce", "Relationships", "Administration"].map(
             (group) => {
               const links = navigation.filter(
-                ([label, , , g]) =>
+                ([label, href, , g]) =>
+                  permitted(href) &&
                   g === group &&
                   label.toLowerCase().includes(query.toLowerCase().trim()),
               );
@@ -169,6 +200,7 @@ export function AdminShell({
                         <Link
                           key={href}
                           href={target}
+                          prefetch={true}
                           aria-current={active ? "page" : undefined}
                         >
                           <Icon size={17} strokeWidth={1.6} />

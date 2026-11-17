@@ -1,6 +1,8 @@
 import type { PrismaClient } from "@prisma/client";
 const allowed = new Set([
-  "Product", "ProductContent", "ProductImage",
+  "Product",
+  "ProductContent",
+  "ProductImage",
   "Inventory",
   "InventoryMovement",
   "Customer",
@@ -14,7 +16,11 @@ const allowed = new Set([
   "InventoryReservation",
   "DeliveryOption",
   "Notification",
-  "Refund", "AdminUser", "RateLimitBucket", "JobRun",
+  "Refund",
+  "AdminUser",
+  "AdminInvitation",
+  "RateLimitBucket",
+  "JobRun",
   "_prisma_migrations",
 ]);
 export async function assertEnergyDatabase(db: PrismaClient) {

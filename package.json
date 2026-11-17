@@ -16,7 +16,7 @@
     "db:validate": "node scripts/prisma.mjs validate",
     "db:check": "tsx scripts/activate-database.ts --check-only",
     "db:activate": "tsx scripts/activate-database.ts",
-    "test:integration": "node --import tsx --test tests/postgres.integration.ts",
+    "test:integration": "node --import ./tests/next-runtime.mjs --import tsx --test --test-concurrency=1 tests/admin-team.integration.ts tests/postgres.integration.ts",
     "images:optimize": "python3 scripts/optimize-images.py",
     "db:backup": "node --import tsx scripts/backup-database.ts",
     "db:release-check": "node --import tsx scripts/check-release-schema.ts",

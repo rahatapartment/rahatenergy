@@ -1,3 +1,4 @@
+import { hasPermission } from "@/lib/admin-permissions";
 import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
 import { isAdmin, currentAdmin } from "@/lib/admin-auth";
@@ -15,6 +16,8 @@ export const metadata = { title: "Order details" };
 export default async function Page({ params }: { params: { id: string } }) {
   if (!(await isAdmin())) redirect("/admin/login");
   const actor = await currentAdmin();
+  if (!hasPermission(actor, "orders.view"))
+    redirect("/admin?access=restricted");
   const db = getDb();
   const order = db
     ? await db.order
@@ -156,8 +159,10 @@ export default async function Page({ params }: { params: { id: string } }) {
         Subtotal {money(order.subtotalKobo)} · Delivery{" "}
         {money(order.deliveryFeeKobo)} · Total {money(order.totalKobo)}
       </p>
-      <FulfillmentControl id={order.id} allowed={allowed} />
-      {order.delivery && (
+      {hasPermission(actor, "orders.manage") && (
+        <FulfillmentControl id={order.id} allowed={allowed} />
+      )}
+      {order.delivery && hasPermission(actor, "deliveries.manage") && (
         <DeliveryEditor
           orderId={order.id}
           status={order.delivery.status}
