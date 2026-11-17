@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import { ArrowUpRight } from "lucide-react";
 import { solutionContent, categoryContent } from "@/lib/content";
 import { imageFor } from "@/lib/catalogue";

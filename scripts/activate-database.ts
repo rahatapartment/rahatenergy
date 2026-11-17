@@ -6,6 +6,7 @@ import {
   assertEnergyDatabase,
   assertConnectionPair,
 } from "../lib/database-safety";
+import { catalogue } from "../lib/catalogue";
 import { seedCatalogue } from "../lib/seed-catalogue";
 loadEnvConfig(process.cwd());
 async function activate() {
@@ -47,8 +48,8 @@ async function activate() {
     });
     if (
       JSON.stringify(before) !== JSON.stringify(after) ||
-      (await db.product.count()) !== 15 ||
-      after.length !== 15
+      catalogue.some(p => !after.some(row => row.productId === p.id)) ||
+      after.length < catalogue.length
     )
       throw new Error("SEED");
     const marker = `activation-check-${randomUUID()}`;
@@ -70,7 +71,7 @@ async function activate() {
     if (await db.auditLog.findFirst({ where: { subject: marker } }))
       throw new Error("ROLLBACK");
     console.log(
-      "Migrations applied; exactly 15 products/inventory rows verified; repeated seed preserved operational values; transactional write/rollback verified.",
+      "Migrations applied; active catalogue products/inventory rows verified; repeated seed preserved operational values; transactional write/rollback verified.",
     );
   } finally {
     await db.$disconnect();

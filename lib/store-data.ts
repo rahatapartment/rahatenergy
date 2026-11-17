@@ -1,4 +1,5 @@
 import { catalogue, type StoreProduct } from "./catalogue";
+import { withProductContent } from "./product-content";
 import { getDb } from "./db";
 export async function storeData(): Promise<{
   products: StoreProduct[];
@@ -6,7 +7,7 @@ export async function storeData(): Promise<{
 }> {
   const fallback = catalogue.map((p) => ({
     ...p,
-    priceKobo: null,
+    priceKobo: p.priceKobo,
     stock: null,
     reserved: 0,
     enabled: false,
@@ -16,11 +17,13 @@ export async function storeData(): Promise<{
   const db = getDb();
   if (!db) return { products: fallback, status: "unconfigured" };
   try {
-    const inventory = await db.inventory.findMany();
+    const [inventory, content] = await Promise.all([db.inventory.findMany(), db.productContent.findMany()]);
     return {
       products: fallback.map((p) => {
         const row = inventory.find((r) => r.productId === p.id);
-        return row ? { ...p, ...row } : p;
+        const details = content.find(c => c.productId === p.id);
+        const presentation = { ...p, ...withProductContent(p, details), contentVersion: details?.version ?? 0 };
+        return row ? { ...presentation, ...row } : { ...presentation, priceKobo: null };
       }),
       status: "connected",
     };

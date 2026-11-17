@@ -7,7 +7,7 @@ export async function seedCatalogue(db: PrismaClient) {
       skipDuplicates: true,
     });
     await tx.inventory.createMany({
-      data: catalogue.map((p) => ({ productId: p.id })),
+      data: catalogue.map((p) => ({ productId: p.id, priceKobo: p.priceKobo })),
       skipDuplicates: true,
     });
   });

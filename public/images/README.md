@@ -1,4 +1,21 @@
-# Illustrative photography
+# Image delivery
+
+All 73 raster assets under `public/images` and `public/products` have responsive
+WebP copies under `public/optimized`. Originals are retained for future edits.
+Run `npm run images:optimize` after adding or replacing an original; this requires
+`cwebp` and macOS `sips`. The script writes `lib/image-manifest.json` and uses
+content hashes so updated images cannot get stuck in the browser cache.
+
+`components/WebImage.tsx` selects prebuilt sizes for thumbnails, mobile screens
+and larger displays, with tiny blur previews and lazy loading by default. The
+product lightbox image mounts only when opened. Optimized images are cached for
+one year; original product uploads are not requested by the image components.
+SVG illustrations remain vector assets and need no raster conversion.
+
+The November 2026 set measures 152.02 MB originally and 4.02 MB at the largest
+web sizes (97.4% smaller); smaller screen sizes transfer less again.
+
+# Original illustrative photography
 
 Created on 26 October 2026 with the built-in image generation tool using the imagegen skill. These are AI-generated category concepts, not manufacturer photography or completed Rahat Energy installations. No third-party stock images were downloaded. Assets were compressed to WebP with cwebp quality 85; the hero is 1536px wide and the five equipment images are 1000px wide.
 
@@ -20,3 +37,5 @@ Original PNG outputs remain under the image tool’s generated_images directory;
 ## Supplied brand asset
 
 `logo.png` is the user-supplied official Rahat Energy logo, confirmed on 28 October 2026. It is not an AI-generated category concept. The shared Brand component and site icon metadata use this original asset. Its original green/gold rendering and transparency are preserved.
+
+On 29 October 2026 the user supplied `logo.webp` as the active brand asset. It supersedes `logo.png` for shared branding and site icon metadata. The square image is used without recolouring or cropping.

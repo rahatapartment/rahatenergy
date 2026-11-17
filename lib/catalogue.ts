@@ -5,8 +5,9 @@ export const categories = [
   "Battery Storage",
   "Solar Lighting",
   "Energy Accessories",
+  "Power Stations",
 ] as const;
-export type ProductDefinition = (typeof definitions)[number];
+export type ProductDefinition = Omit<(typeof definitions)[number], "priceKobo" | "specifications"> & { priceKobo: number | null; specifications: Record<string, string> };
 export type StoreProduct = ProductDefinition & {
   priceKobo: number | null;
   stock: number | null;
@@ -14,8 +15,9 @@ export type StoreProduct = ProductDefinition & {
   enabled: boolean;
   lowStockThreshold: number;
   version: number;
+  contentVersion?: number;
 };
-export const catalogue = definitions;
+export const catalogue = definitions as ProductDefinition[];
 export { imageFor } from "./placeholder-images";
 export function money(kobo: number | null) {
   return kobo === null
@@ -30,4 +32,8 @@ export function availability(p: StoreProduct) {
   if (p.stock === null) return "Availability unconfirmed";
   if (!p.enabled) return "Purchases paused";
   return p.stock - p.reserved > 0 ? "In stock" : "Out of stock";
+}
+
+export function productImage(p: ProductDefinition) {
+  return p.images[0] ? encodeURI(p.images[0]) : "/images/panels.webp";
 }

@@ -153,8 +153,8 @@
   transition: border-color 0.25s;
 }
 .product-gallery-selection > button[aria-pressed="true"] {
-  color: #006b3c;
-  border-bottom-color: #006b3c;
+  color: #1c4a3b;
+  border-bottom-color: #1c4a3b;
 }
 .gallery-thumbnail {
   display: block;
@@ -197,8 +197,8 @@
 .product-gallery-selection
   > button[aria-pressed="true"]
   .gallery-selection-dot {
-  background: #006b3c;
-  border-color: #006b3c;
+  background: #1c4a3b;
+  border-color: #1c4a3b;
 }
 .product-image-disclosure {
   font-size: 9px;
@@ -311,7 +311,7 @@
   flex: 0 0 4px;
 }
 .product-availability > i.is-available {
-  background: #006b3c;
+  background: #1c4a3b;
 }
 .product-purchase-panel {
   padding-top: 25px;
@@ -386,10 +386,10 @@
   justify-content: center;
   gap: 12px;
   min-height: 55px;
-  background: #006b3c;
+  background: #1c4a3b;
   color: #fff;
   padding: 14px 18px;
-  border: 1px solid #006b3c;
+  border: 1px solid #1c4a3b;
   border-radius: 3px;
   flex: 1;
   min-width: 0;
@@ -472,7 +472,7 @@
 .product-purchase-feedback svg {
   flex: 0 0 14px;
   margin-top: 3px;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .product-confidence {
   grid-area: confidence;
@@ -543,7 +543,7 @@
   white-space: nowrap;
 }
 .product-section-nav a:hover {
-  color: #006b3c;
+  color: #1c4a3b;
   text-decoration: underline;
   text-underline-offset: 7px;
 }
@@ -664,7 +664,7 @@
 .product-related-heading h2 em {
   font-family: inherit;
   font-style: italic;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .product-specification-heading > p,
 .product-suitability-heading > p {
@@ -1007,7 +1007,7 @@
 }
 .product-experience :focus-visible,
 .product-image-viewer :focus-visible {
-  outline-color: #006b3c;
+  outline-color: #1c4a3b;
 }
 .product-overview :focus-visible {
   outline-color: #d0e9d7;
@@ -1461,7 +1461,7 @@
     align-items: center;
     justify-content: center;
     gap: 11px;
-    background: #006b3c;
+    background: #1c4a3b;
     color: #fff;
     min-height: 46px;
     padding: 12px 19px;
@@ -1987,3 +1987,8 @@
     padding-bottom: 115px;
   }
 }
+
+/* Keep every supplied product view visible without cropping the equipment. */
+.product-gallery-scene.gallery-photo > img, .gallery-thumbnail > img, .viewer-canvas > img { object-fit: contain; filter: none; }
+.product-gallery-scene.gallery-photo > img { transform: none; }
+.product-art > img { object-fit: contain; }

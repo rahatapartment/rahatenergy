@@ -53,7 +53,7 @@
 }
 .sales-hero-atmosphere {
   background:
-    linear-gradient(90deg, #002d1ded, #003c22b8 43%, #003c2230 85%),
+    linear-gradient(90deg, #002d1ded, #10251eb8 43%, #10251e30 85%),
     linear-gradient(180deg, #002d1d60, transparent 40%, #002d1df0);
 }
 .sales-hero .sales-hero-copy {
@@ -164,7 +164,7 @@
   height: 42px;
   display: grid;
   place-items: center;
-  background: #003c2280;
+  background: #10251e80;
   border: 1px solid #b9d4c2;
   border-radius: 50%;
   color: #fff;
@@ -216,7 +216,7 @@
   display: none;
 }
 .element-tabs > button[aria-selected="true"] {
-  background: #003c22;
+  background: #10251e;
   border-color: var(--brand-gold);
   color: #fff;
 }

@@ -643,7 +643,7 @@
 .collection-consultation {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
-  background: #006b3c;
+  background: #1c4a3b;
   color: #f0f5ef;
   margin: 25px var(--shop-gutter) 0;
   border-radius: 3px;
@@ -730,7 +730,7 @@
 }
 .consultation-action:hover > span {
   background: #cce4d4;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .consultation-secondary {
   display: flex;

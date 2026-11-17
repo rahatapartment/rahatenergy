@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { catalogue } from "@/lib/catalogue";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { AdminAccountForms } from "@/components/admin/OperationForms";
 import { operationsAccess } from "@/lib/operations-access";
@@ -25,7 +27,7 @@ export default async function Page() {
   const flags = [
     [
       "Independent database",
-      connected ? "Connected" : "Deferred / unavailable",
+      connected ? "Connected" : "Connection unavailable",
     ],
     ["Payment mode", "Test only · live keys rejected"],
     [
@@ -51,14 +53,15 @@ export default async function Page() {
       "Rate limiting",
       connected ? "Shared PostgreSQL counters" : "Process-local fallback",
     ],
-    ["Product catalogue", "15 fixed identities · no add/delete controls"],
+    ["Product catalogue", `${catalogue.length} products · names, details and images editable by owners`],
   ];
   return (
     <AdminShell title="Settings" authenticated={!!actor}>
       <p className="notice">
-        Supabase provisioning is deferred. This page never displays passwords,
+        This page shows connection and setup status without displaying passwords,
         API keys or connection strings.
       </p>
+      <Link className="admin-table-link" href="/admin/readiness">Review launch readiness ↗</Link>
       <dl className="settings-list">
         {flags.map(([label, value]) => (
           <div key={label}>

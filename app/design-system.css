@@ -2,13 +2,13 @@
 :root {
   --ink: #333333;
   --deep: #333333;
-  --lime: #006b3c;
+  --lime: #1c4a3b;
   --cream: #f4f6f3;
   --muted: #58616a;
   --line: #dddeda;
   --font-jakarta: var(--font-manrope), Arial, sans-serif;
   --font-fraunces: var(--font-manrope), Arial, sans-serif;
-  --brand-green: #006b3c;
+  --brand-green: #1c4a3b;
   --brand-green-light: #cce4d4;
   --brand-silver: #cccccc;
   --brand-black: #333333;
@@ -926,7 +926,7 @@ footer .eyebrow {
 }
 .admin-sidebar a.active {
   background: #ffffff17;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .admin-content input,
 .admin-content select,
@@ -1036,7 +1036,7 @@ select:focus {
   outline-offset: 3px;
 }
 :focus-visible {
-  outline: 2px solid #006b3c;
+  outline: 2px solid #1c4a3b;
   outline-offset: 5px;
 }
 .loading-card {

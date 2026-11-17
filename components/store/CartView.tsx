@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import { useState } from "react";
 import {
   Trash2,
@@ -13,7 +13,7 @@ import {
 import {
   type StoreProduct,
   money,
-  imageFor,
+  productImage,
   availability,
 } from "@/lib/catalogue";
 import { cartSummary } from "@/lib/cart";
@@ -89,7 +89,7 @@ export function CartView({ products }: { products: StoreProduct[] }) {
                     aria-label={`View ${p.name}`}
                   >
                     <Image
-                      src={imageFor(p.category)}
+                      src={productImage(p)}
                       width={440}
                       height={440}
                       sizes="(max-width: 600px) 105px, (max-width: 1000px) 180px, 220px"

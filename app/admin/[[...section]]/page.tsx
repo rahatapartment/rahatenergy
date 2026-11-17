@@ -95,7 +95,7 @@ export default async function Page({
           </div>
           <OverviewWorkspace connected={!!data} />
           <div className="notice">
-            Exactly 15 code-controlled product identities. Product creation and
+            Owner-supplied product catalogue. Product creation and
             deletion are unavailable. Checkout uses Paystack test mode only.
             Paid test orders can be processed through controlled fulfillment
             states.
@@ -105,10 +105,9 @@ export default async function Page({
       {section === "products" && (
         <>
           <p className="small muted">
-            Read-only catalogue · Product names, identities and content are
-            maintained in version control.
+            Manage product content and gallery images. Prices and stock are managed in Inventory.
           </p>
-          <CatalogueTable />
+          <CatalogueTable sourceProducts={store?.products} editable={authenticated && store?.status === "connected"} />
         </>
       )}
       {section === "inventory" && (

@@ -1,10 +1,11 @@
 "use client";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { usePinnedScene } from "./usePinnedScene";
 import { imageFor } from "@/lib/catalogue";
 const headlines: Record<string, string> = {
+  "power-stations": "Power on the move.",
   "solar-panels": "Start with sunlight.",
   "solar-inverters": "Connect your possibilities.",
   "battery-storage": "Beyond the daylight.",
@@ -35,7 +36,7 @@ export function CategoryHero({
         <div className="cinematic-scene solutions-scene category-hero-scene">
           <Image
             src={imageFor(category)}
-            alt={`Illustrative ${category.toLowerCase()} equipment; not exact manufacturer models`}
+            alt={`Rahat ${category.toLowerCase()} collection`}
             fill
             priority
             sizes="100vw"

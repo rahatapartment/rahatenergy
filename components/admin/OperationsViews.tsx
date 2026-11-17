@@ -4,7 +4,7 @@ export function Disconnected() {
     <div className="empty">
       <h2>Ready when you are.</h2>
       <p>
-        Database setup is deferred. No records or successful operations are
+        The database connection is unavailable in this environment. No records or successful operations are
         being simulated here.
       </p>
       <Link className="button dark" href="/admin/preview">

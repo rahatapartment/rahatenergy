@@ -15,6 +15,31 @@ model Product {
   orderItems   OrderItem[]
   quotations   Quotation[]
   reservations InventoryReservation[]
+  content      ProductContent?
+}
+
+model ProductContent {
+  productId      String   @id
+  product        Product  @relation(fields: [productId], references: [id])
+  name           String
+  description    String
+  category       String
+  images         String[]
+  specifications Json
+  seoTitle       String
+  seoDescription String
+  version        Int      @default(0)
+  updatedAt      DateTime @updatedAt
+}
+
+model ProductImage {
+  id        String   @id
+  data      Bytes
+  thumbnail Bytes
+  medium    Bytes
+  width     Int
+  height    Int
+  createdAt DateTime @default(now())
 }
 
 model Inventory {

@@ -1,17 +1,11 @@
 export default function Loading() {
   return (
-    <main id="main" className="shop-experience shop-loading" aria-busy="true">
-      <div className="shop-loading-opening">
-        <span className="eyebrow">THE RAHAT ENERGY COLLECTION</span>
-        <h1>A new perspective.</h1>
-        <p role="status">Preparing the collection…</p>
-      </div>
-      <div className="shop-loading-body" aria-hidden="true">
-        <div className="shop-loading-controls" />
-        <div className="discovery-products view-grid">
-          {[1, 2, 3, 4, 5, 6].map((number) => (
-            <div className="loading-card" key={number} />
-          ))}
+    <main id="main" className="shop-experience shop-page shop-loading" aria-busy="true">
+      <div className="shop-container">
+        <header className="shop-heading"><h1>Shop our collection</h1><p role="status">Loading products…</p></header>
+        <div aria-hidden="true">
+          <div className="shop-loading-controls" />
+          <div className="shop-product-grid">{[1, 2, 3, 4, 5, 6, 7, 8].map(number => <div className="loading-card" key={number} />)}</div>
         </div>
       </div>
     </main>

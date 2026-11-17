@@ -1,0 +1,49 @@
+footer.premium-footer { padding: 0; background: radial-gradient(ellipse at top left, #1c342b 0%, transparent 58%), #101b16; color: #f5f4ed; border-top: 1px solid #d5b37466; }
+.premium-footer-inner { width: min(1320px, 91%); margin: 0 auto; }
+.footer-invitation { display: flex; justify-content: space-between; align-items: center; gap: 48px; padding: 56px 0 44px; border-bottom: 1px solid #ffffff21; }
+.footer-kicker { display: block; font-size: 10px; letter-spacing: .16em; color: #d5b374; margin-bottom: 20px; font-weight: 500; }
+.footer-invitation h2 { font-family: var(--font-editorial), Georgia, serif; font-weight: 400; font-size: clamp(42px, 4.5vw, 66px); line-height: 1.06; letter-spacing: -.025em; margin: 0; color: #f5f4ed; }
+.footer-invitation h2 em { font-family: inherit; font-weight: 400; color: #d9c6a3; }
+.footer-invitation-actions { min-width: 280px; }
+.footer-invitation-actions p { color: #bdc9c1; font-size: 14px; line-height: 1.8; margin: 0 0 20px; }
+.footer-quote { display: flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 50px; border: 1px solid #d9c6a3; border-radius: 4px; background: #e6dbc5; color: #14251b; padding: 14px 18px; font-size: 13px; font-weight: 600; }
+.footer-quote:hover { background: #f1e8d8; }
+.footer-contact { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; color: #c5cfc8; margin-top: 6px; font-size: 12px; }
+.footer-directory { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.15fr; gap: 40px; padding: 40px 0 36px; }
+.footer-brand-link { display: inline-flex; align-items: center; gap: 14px; }
+.premium-footer .footer-brand-link .brand-logo { width: 56px; height: 64px; object-fit: contain; }
+.footer-brand-link > span:last-child { font-size: 15px; font-weight: 600; letter-spacing: .1em; line-height: 1.5; }
+.footer-brand-link > span:last-child > span { display: block; color: #b3c1b7; font-size: 8px; letter-spacing: .22em; font-weight: 400; margin-top: 4px; }
+.footer-brand-block p { margin: 18px 0 12px; font-size: 13px; line-height: 1.8; color: #aebeb2; }
+.footer-collection-link { display: inline-flex; align-items: center; gap: 16px; min-height: 40px; color: #d9c6a3; font-size: 12px; }
+.footer-directory-column h3 { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #f2eee4; margin: 8px 0 18px; }
+.footer-directory-column > a { display: block; width: fit-content; color: #b9c6bd; font-size: 12px; line-height: 1.6; padding: 6px 0; }
+.premium-footer a:not(.footer-quote):hover { color: #f5e5c8; text-decoration: underline; text-underline-offset: 5px; }
+.premium-footer a:focus-visible { outline: 2px solid #d9c6a3; outline-offset: 5px; border-radius: 2px; }
+.footer-legal-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 24px; padding: 20px 0; border-top: 1px solid #ffffff21; color: #9eafa2; font-size: 10px; line-height: 1.6; }
+.footer-legal-row nav { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.footer-legal-row a { display: inline-flex; align-items: center; min-height: 32px; }
+.footer-back-top { gap: 10px; color: #d0d9d2; }
+@media (max-width: 1000px) {
+  .footer-directory { grid-template-columns: 1.35fr 1fr; gap: 32px 44px; }
+  .footer-invitation { gap: 32px; }
+}
+@media (max-width: 600px) {
+  .premium-footer-inner { width: 90%; }
+  .footer-invitation { flex-direction: column; align-items: stretch; gap: 26px; padding: 36px 0 28px; }
+  .footer-kicker { font-size: 9px; margin-bottom: 16px; }
+  .footer-invitation h2 { font-size: 46px; }
+  .footer-invitation-actions { min-width: 0; }
+  .footer-invitation-actions p { font-size: 13px; margin-bottom: 16px; }
+  .footer-invitation-actions p br { display: none; }
+  .footer-quote { font-size: 12px; gap: 12px; }
+  .footer-directory { grid-template-columns: 1fr 1fr; gap: 24px 20px; padding: 28px 0; }
+  .footer-brand-block { grid-column: 1 / -1; padding-bottom: 8px; }
+  .footer-directory-column:last-child { grid-column: 1 / -1; }
+  .footer-directory-column:last-child { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  .footer-directory-column:last-child h3 { grid-column: 1 / -1; }
+  .footer-directory-column h3 { margin: 0 0 10px; font-size: 10px; }
+  .footer-directory-column > a { font-size: 12px; min-height: 40px; padding: 9px 0; }
+  .footer-legal-row { align-items: flex-start; flex-direction: column; gap: 10px; padding: 20px 0 24px; }
+  .footer-legal-row nav { gap: 16px; }
+}

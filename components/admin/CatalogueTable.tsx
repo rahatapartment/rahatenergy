@@ -1,13 +1,14 @@
 "use client";
+import { productImage } from "@/lib/catalogue";
 import { useState } from "react";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import { Search, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { catalogue, categories, imageFor } from "@/lib/catalogue";
-export function CatalogueTable() {
+import { catalogue, categories, type ProductDefinition } from "@/lib/catalogue";
+export function CatalogueTable({ sourceProducts = catalogue, editable = false }: { sourceProducts?: ProductDefinition[]; editable?: boolean }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All categories");
-  const products = catalogue.filter(
+  const products = sourceProducts.filter(
     (p) =>
       `${p.name} ${p.sku} ${p.category}`
         .toLowerCase()
@@ -40,7 +41,7 @@ export function CatalogueTable() {
           </select>
         </label>
         <span role="status">
-          {products.length} of {catalogue.length} products
+          {products.length} of {sourceProducts.length} products
         </span>
       </div>
       <div
@@ -57,6 +58,7 @@ export function CatalogueTable() {
               <th>Category</th>
               <th>Verification</th>
               <th>Storefront</th>
+              {editable && <th>Manage</th>}
             </tr>
           </thead>
           <tbody>
@@ -65,7 +67,7 @@ export function CatalogueTable() {
                 <td>
                   <div className="admin-product-cell">
                     <Image
-                      src={imageFor(p.category)}
+                      src={productImage(p)}
                       alt=""
                       width={48}
                       height={48}
@@ -78,7 +80,7 @@ export function CatalogueTable() {
                 </td>
                 <td>{p.category}</td>
                 <td>
-                  <span className="admin-status-badge">Provisional</span>
+                  <span className="admin-status-badge">Owner supplied</span>
                 </td>
                 <td>
                   <Link
@@ -89,6 +91,7 @@ export function CatalogueTable() {
                     View <ArrowUpRight size={14} />
                   </Link>
                 </td>
+                {editable && <td><Link className="admin-table-link" href={`/admin/products/${p.id}`}>Edit product <ArrowUpRight size={14} /></Link></td>}
               </tr>
             ))}
           </tbody>

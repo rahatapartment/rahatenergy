@@ -130,7 +130,7 @@ export function QuoteForm({
           <option value="">A project / help me choose</option>
           {catalogue.map((p) => (
             <option value={p.id} key={p.id}>
-              {p.name} (provisional)
+              {p.name}
             </option>
           ))}
         </select>

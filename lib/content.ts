@@ -4,7 +4,7 @@ export const categoryContent = [
     category: "Solar Panels",
     title: "Start with the sun.",
     intro:
-      "Explore the starting point of a solar energy system. Compare the provisional panel options, then request the specifications for your project.",
+      "Explore the starting point of a solar energy system. Compare the Rahat panel options, then request the specifications for your project.",
     description:
       "Solar panels turn sunlight into electricity. The right choice depends on available space, the rest of your system and the output you need.",
     checks: [
@@ -72,9 +72,9 @@ export const categoryContent = [
     category: "Energy Accessories",
     title: "The details complete the system.",
     intro:
-      "Explore the supporting components for a considered energy setup, from mounting to connections and charge control.",
+      "Explore the Rahat Hybrid Fan and Rahat Massage Chair for everyday comfort.",
     description:
-      "Accessories need to suit the equipment they connect. Confirm the ratings, dimensions and manufacturer requirements for the complete installation.",
+      "Discover Rahat products for comfort at home or work. Ask about operating modes, power requirements and delivery.",
     checks: [
       "The equipment the accessory must work with",
       "Required electrical and mechanical ratings",
@@ -83,6 +83,13 @@ export const categoryContent = [
     ],
     productDescription:
       "Include this accessory in a project enquiry so its specification can be checked against the rest of the system. Exact ratings, dimensions and included components require confirmation.",
+  },
+  {
+    slug: "power-stations", category: "Power Stations", title: "Power wherever you need it.",
+    intro: "Explore Rahat portable power stations for everyday backup and power on the move.",
+    description: "Compare portable power stations by rated output and battery capacity to find an option for your equipment.",
+    checks: ["Equipment you want to power", "Required output and battery capacity", "Charging options", "Connections and portability"],
+    productDescription: "Explore portable backup power from Rahat Energy. Ask for pricing and charging specifications.",
   },
 ] as const;
 export const solutionContent = [
@@ -186,7 +193,7 @@ export const faqs = [
   {
     question: "Are these product models and specifications confirmed?",
     answer:
-      "The current collection contains 15 provisional product identities. Product photographs are illustrative. Ask for the exact manufacturer, model and verified specification sheet before making a decision.",
+      "Browse Rahat products with photographs supplied by Rahat Energy. Ask for the exact manufacturer, model and verified specification sheet before making a decision.",
   },
   {
     question: "Why do some products say “Price on request”?",

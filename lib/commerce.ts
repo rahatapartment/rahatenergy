@@ -39,6 +39,7 @@ async function priced(
   const inventory = await tx.inventory.findMany({
     where: { productId: { in: lines.map((l) => l.productId) } },
   });
+  const content = await tx.productContent.findMany({ where: { productId: { in: lines.map(l => l.productId) } } });
   const items = lines.map((line) => {
     const p = inventory.find((i) => i.productId === line.productId);
     const definition = catalogue.find((d) => d.id === line.productId);
@@ -52,7 +53,7 @@ async function priced(
       );
     return {
       productId: p.productId,
-      name: definition.name,
+      name: content.find(c => c.productId === line.productId)?.name ?? definition.name,
       sku: definition.sku,
       quantity: line.quantity,
       unitPriceKobo: p.priceKobo,

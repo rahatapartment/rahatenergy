@@ -1,0 +1,1968 @@
+{
+  "/images/accessories.webp": {
+    "width": 1000,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAgCdASoQABAABABoJYwCdAdwLeW1TwtGmRJDZwAA/uhsn93FwxEwqV/i5Vn0oo9mLR94n5lyLFz+zeUhU6TxFZwdlWZpezvmWpFizK4yKpRc4M+yElpkpYgx+AG1BARVKUJSLJ2+9kzOiDWu5gAA",
+    "variants": [
+      {
+        "src": "/optimized/images/accessories.webp-7609f13c1e3383d7-160.webp",
+        "width": 160,
+        "bytes": 4570
+      },
+      {
+        "src": "/optimized/images/accessories.webp-7609f13c1e3383d7-480.webp",
+        "width": 480,
+        "bytes": 21806
+      },
+      {
+        "src": "/optimized/images/accessories.webp-7609f13c1e3383d7-960.webp",
+        "width": 960,
+        "bytes": 51464
+      },
+      {
+        "src": "/optimized/images/accessories.webp-7609f13c1e3383d7-1000.webp",
+        "width": 1000,
+        "bytes": 65600
+      }
+    ]
+  },
+  "/images/batteries.webp": {
+    "width": 1000,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQABAABABoJZACdAywCRcsp2vgAPQL5vOXjpHLX5LfxiPyxytDdrK4hdPjt7dKvC4AZev1byvdUZx8WXU/wbpBJQ0Vm/dIJe8y9+Oz8tPoAA==",
+    "variants": [
+      {
+        "src": "/optimized/images/batteries.webp-ed1dd2f6043c6d85-160.webp",
+        "width": 160,
+        "bytes": 3152
+      },
+      {
+        "src": "/optimized/images/batteries.webp-ed1dd2f6043c6d85-480.webp",
+        "width": 480,
+        "bytes": 14550
+      },
+      {
+        "src": "/optimized/images/batteries.webp-ed1dd2f6043c6d85-960.webp",
+        "width": 960,
+        "bytes": 35428
+      },
+      {
+        "src": "/optimized/images/batteries.webp-ed1dd2f6043c6d85-1000.webp",
+        "width": 1000,
+        "bytes": 43364
+      }
+    ]
+  },
+  "/images/hero.webp": {
+    "width": 1536,
+    "height": 1024,
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQAAsABABoJbACdADSPTg8/aIAAP7X8A4xuEZ6+8tJ3fvUWnjHLmJmmsRpGtpXDUoDxTmJqRbnNZLkrylEl+NUuJqDvTaP8ea4t6Qm6c0XKSa96xclteyVNHIAAA==",
+    "variants": [
+      {
+        "src": "/optimized/images/hero.webp-490137f4c9fabde0-160.webp",
+        "width": 160,
+        "bytes": 4724
+      },
+      {
+        "src": "/optimized/images/hero.webp-490137f4c9fabde0-480.webp",
+        "width": 480,
+        "bytes": 29506
+      },
+      {
+        "src": "/optimized/images/hero.webp-490137f4c9fabde0-960.webp",
+        "width": 960,
+        "bytes": 89906
+      },
+      {
+        "src": "/optimized/images/hero.webp-490137f4c9fabde0-1536.webp",
+        "width": 1536,
+        "bytes": 213214
+      }
+    ]
+  },
+  "/images/inverters.webp": {
+    "width": 1000,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQABAABABoJZACdAEOACdGen/QAP7oRiAH2iJzUwXTJq4hyeurqRmOhqjnz2PLs6Vg8n/0/s1mSpGFXIRa6MtaWoST309am4b0/u0SC9aaImxN2BgAAA==",
+    "variants": [
+      {
+        "src": "/optimized/images/inverters.webp-1b19b3ed666d8bd6-160.webp",
+        "width": 160,
+        "bytes": 3338
+      },
+      {
+        "src": "/optimized/images/inverters.webp-1b19b3ed666d8bd6-480.webp",
+        "width": 480,
+        "bytes": 20770
+      },
+      {
+        "src": "/optimized/images/inverters.webp-1b19b3ed666d8bd6-960.webp",
+        "width": 960,
+        "bytes": 58768
+      },
+      {
+        "src": "/optimized/images/inverters.webp-1b19b3ed666d8bd6-1000.webp",
+        "width": 1000,
+        "bytes": 84212
+      }
+    ]
+  },
+  "/images/lighting.webp": {
+    "width": 1000,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoQABAABABoJYwCdAEJLJ5MlNFEAAD+6BBnu515x4uryDtp0uCnBVogGHOx3aJlugrZcVmq1OAsLaK3h833dAhJfLt77022eRZZnhisK8yIzHOKf6lNqHRLQAA=",
+    "variants": [
+      {
+        "src": "/optimized/images/lighting.webp-70d0b649a2d5fe3d-160.webp",
+        "width": 160,
+        "bytes": 2630
+      },
+      {
+        "src": "/optimized/images/lighting.webp-70d0b649a2d5fe3d-480.webp",
+        "width": 480,
+        "bytes": 17020
+      },
+      {
+        "src": "/optimized/images/lighting.webp-70d0b649a2d5fe3d-960.webp",
+        "width": 960,
+        "bytes": 43426
+      },
+      {
+        "src": "/optimized/images/lighting.webp-70d0b649a2d5fe3d-1000.webp",
+        "width": 1000,
+        "bytes": 54148
+      }
+    ]
+  },
+  "/images/logo.png": {
+    "width": 1301,
+    "height": 1209,
+    "blurDataURL": "data:image/webp;base64,UklGRlIBAABXRUJQVlA4WAoAAAAQAAAADwAADgAAQUxQSL4AAAABgLpt2/FX+Pv9bP9+czaaF20bzW1xa1Y1G5pt2zaq7e152oeIUNi2DZIxHkIYYkU4xDOZA8vrmOgAEwuihZkvgJ8qikE1DCAgIuMoDX46N5tfAdtpuL4DwpJkD6CDhld8Htx0nSP8+zPa5b/DiP+T4QyT309MfgCkMX9lbbw35CM+2tCheu6wULQPMEoRItfpbAuqy+ysfVuby900ivSFhe7pibbplavDjaPJCSf7pLCcwIjEgNyYrJSYDB8CVlA4IG4AAACwAgCdASoQAA8ABABoJbACdDiAN5EfAA8v4X2HHkAA/FFb/6hLl6PqMVeTRTn2avmtg5CEno8YzB4fzvJZXwKhHR/aO/Ef0YjuSo9AHnc4g2tRd+209tSB8/tHN5WQbdFZiTaT01guYDZ4vcAAAA==",
+    "variants": [
+      {
+        "src": "/optimized/images/logo.png-5c761e7f7df1fb8b-160.webp",
+        "width": 160,
+        "bytes": 9004
+      },
+      {
+        "src": "/optimized/images/logo.png-5c761e7f7df1fb8b-480.webp",
+        "width": 480,
+        "bytes": 41430
+      },
+      {
+        "src": "/optimized/images/logo.png-5c761e7f7df1fb8b-960.webp",
+        "width": 960,
+        "bytes": 110664
+      },
+      {
+        "src": "/optimized/images/logo.png-5c761e7f7df1fb8b-1301.webp",
+        "width": 1301,
+        "bytes": 172400
+      }
+    ]
+  },
+  "/images/logo.webp": {
+    "width": 2500,
+    "height": 2500,
+    "blurDataURL": "data:image/webp;base64,UklGRjgBAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSKgAAAABgFvbtqntfLZ/lvFnfwGObNu2bdtmavbgzEZke/+639dCREwA/a+Vk/6cHDIwZmSkJ9lUD4vnKQDXlgzF1voRAKwwxnGw2B8IfAr+cb+8wWd0CXDB+YfIHsuPABKI2buzCdx7ElN0MTfxClixHCY/alqANR4j9Rgl5o9ABCO4s86Egrs6SzlEFBWVVpsW2j3SNTFaWplNFFCSn1MeHN9Q09Se7O1EhgNWUDggagAAABACAJ0BKhAAEAAEAGglsAJ0Bi32NqoC5FQA9vp7MNWeUm+Kv7W8WpBjCMkom1FzkGpQpSpz6f6i6d1FXZjZjDE0rCJhgm3OCW+eONthfAlCKrlM6TVTECo6dKmgyESo+iGavZWRzM1AAAA=",
+    "variants": [
+      {
+        "src": "/optimized/images/logo.webp-b54ac8ad75fa2efc-160.webp",
+        "width": 160,
+        "bytes": 8364
+      },
+      {
+        "src": "/optimized/images/logo.webp-b54ac8ad75fa2efc-480.webp",
+        "width": 480,
+        "bytes": 35236
+      },
+      {
+        "src": "/optimized/images/logo.webp-b54ac8ad75fa2efc-960.webp",
+        "width": 960,
+        "bytes": 82136
+      },
+      {
+        "src": "/optimized/images/logo.webp-b54ac8ad75fa2efc-1600.webp",
+        "width": 1600,
+        "bytes": 155166
+      }
+    ]
+  },
+  "/images/panels.webp": {
+    "width": 1000,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQABAABABoJYwCdAEO8TflBdEAAP635KKlHhTH8rIMHtuKDm2IAduNnkgId1BGXdocfGtCrL0EM00Sls+3raEPimHWZ+kH0IaAmIQH8hA4VAAA",
+    "variants": [
+      {
+        "src": "/optimized/images/panels.webp-dd23cbb92c912b19-160.webp",
+        "width": 160,
+        "bytes": 3440
+      },
+      {
+        "src": "/optimized/images/panels.webp-dd23cbb92c912b19-480.webp",
+        "width": 480,
+        "bytes": 20724
+      },
+      {
+        "src": "/optimized/images/panels.webp-dd23cbb92c912b19-960.webp",
+        "width": 960,
+        "bytes": 57278
+      },
+      {
+        "src": "/optimized/images/panels.webp-dd23cbb92c912b19-1000.webp",
+        "width": 1000,
+        "bytes": 72002
+      }
+    ]
+  },
+  "/products/BATTERY/10K WAT/10WAT.jpg": {
+    "width": 2336,
+    "height": 3504,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoQABgAPxF0tFAsJyUisAgBgCIJaQAAW9Yb1fectNl5gAD+pCgL9IG/VxsuLmPkeonoNF3NpMgHwQ2lwd7l9B/V31n6rCcQkpB5klp2Xf7bgAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/10WAT.jpg-ada6b4843bdd1479-160.webp",
+        "width": 160,
+        "bytes": 922
+      },
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/10WAT.jpg-ada6b4843bdd1479-480.webp",
+        "width": 480,
+        "bytes": 3830
+      },
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/10WAT.jpg-ada6b4843bdd1479-960.webp",
+        "width": 960,
+        "bytes": 10802
+      },
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/10WAT.jpg-ada6b4843bdd1479-1333.webp",
+        "width": 1333,
+        "bytes": 17016
+      }
+    ]
+  },
+  "/products/BATTERY/10K WAT/10_5K WAT.jpeg": {
+    "width": 4032,
+    "height": 3434,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAA4ABABoJZwAAzcTIduXCdAA/D2NY/fTypky4CTYt17DIqzMuFdSGWqDqS605uSpsXbWevTNw+zjKy9kN28HT9Y2KD5UbOlbR1QA",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/10_5K WAT.jpeg-8c00f796019e2ca4-160.webp",
+        "width": 160,
+        "bytes": 1440
+      },
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/10_5K WAT.jpeg-8c00f796019e2ca4-480.webp",
+        "width": 480,
+        "bytes": 5374
+      },
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/10_5K WAT.jpeg-8c00f796019e2ca4-960.webp",
+        "width": 960,
+        "bytes": 12896
+      },
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/10_5K WAT.jpeg-8c00f796019e2ca4-1600.webp",
+        "width": 1600,
+        "bytes": 25654
+      }
+    ]
+  },
+  "/products/BATTERY/10K WAT/GRP.jpg": {
+    "width": 3504,
+    "height": 2336,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAsABABoJZACdAD5LMy9YAD5JA0VftRTmyChoHwEXvF6OWEOynE08Dun9rN79L8+KXXxL2HtB1vLGY1BmAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/GRP.jpg-2e4e7fc155eb7091-160.webp",
+        "width": 160,
+        "bytes": 1732
+      },
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/GRP.jpg-2e4e7fc155eb7091-480.webp",
+        "width": 480,
+        "bytes": 7138
+      },
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/GRP.jpg-2e4e7fc155eb7091-960.webp",
+        "width": 960,
+        "bytes": 19136
+      },
+      {
+        "src": "/optimized/products/BATTERY/10K WAT/GRP.jpg-2e4e7fc155eb7091-1600.webp",
+        "width": 1600,
+        "bytes": 41320
+      }
+    ]
+  },
+  "/products/BATTERY/15000WAT/DN.jpg": {
+    "width": 3504,
+    "height": 2336,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoQAAsABABoJbACdACwwgsQAAD+8yBvx4m6suFQzXssoRuvB3gJ2b66JZguPtKJ/57Zmp7BoyyoUtHYKdUFU5lZ8Nk057ds4cjLe3F2FJ11ywAA",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/DN.jpg-9878a115896e0c47-160.webp",
+        "width": 160,
+        "bytes": 1584
+      },
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/DN.jpg-9878a115896e0c47-480.webp",
+        "width": 480,
+        "bytes": 6392
+      },
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/DN.jpg-9878a115896e0c47-960.webp",
+        "width": 960,
+        "bytes": 19366
+      },
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/DN.jpg-9878a115896e0c47-1600.webp",
+        "width": 1600,
+        "bytes": 41322
+      }
+    ]
+  },
+  "/products/BATTERY/15000WAT/FRONT..jpg": {
+    "width": 3504,
+    "height": 2336,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoQAAsABABoJaQAAqH2C78eAAD+9InvrQ50tWEzahMKG61KhukkThqv0CluU+TXsFefL8GoYsdomAOAAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/FRONT..jpg-c008484aee3f6402-160.webp",
+        "width": 160,
+        "bytes": 582
+      },
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/FRONT..jpg-c008484aee3f6402-480.webp",
+        "width": 480,
+        "bytes": 2058
+      },
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/FRONT..jpg-c008484aee3f6402-960.webp",
+        "width": 960,
+        "bytes": 5108
+      },
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/FRONT..jpg-c008484aee3f6402-1600.webp",
+        "width": 1600,
+        "bytes": 11000
+      }
+    ]
+  },
+  "/products/BATTERY/15000WAT/SIDE.jpg": {
+    "width": 2336,
+    "height": 3504,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABQAgCdASoQABgABABoJaQAAp0oCum76ee8vAAA/vFtLPrX64QTZmgKgsDFQwFZC/8HrKRIXNJGQixPLHpFeyobo3Cw7gvRsZ2MfYbYQAAAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/SIDE.jpg-56c59e1586d4dc2f-160.webp",
+        "width": 160,
+        "bytes": 1188
+      },
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/SIDE.jpg-56c59e1586d4dc2f-480.webp",
+        "width": 480,
+        "bytes": 5738
+      },
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/SIDE.jpg-56c59e1586d4dc2f-960.webp",
+        "width": 960,
+        "bytes": 17288
+      },
+      {
+        "src": "/optimized/products/BATTERY/15000WAT/SIDE.jpg-56c59e1586d4dc2f-1333.webp",
+        "width": 1333,
+        "bytes": 27894
+      }
+    ]
+  },
+  "/products/BATTERY/32K WAT/FRONT.png": {
+    "width": 1376,
+    "height": 768,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAkABABoJaQAAv+qZJBAAAD+ue1Xwl2jGfw3uXeZEeYWOqYcwrdCOYdQAAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/FRONT.png-8c0107a73d4e20f6-160.webp",
+        "width": 160,
+        "bytes": 488
+      },
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/FRONT.png-8c0107a73d4e20f6-480.webp",
+        "width": 480,
+        "bytes": 1700
+      },
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/FRONT.png-8c0107a73d4e20f6-960.webp",
+        "width": 960,
+        "bytes": 4206
+      },
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/FRONT.png-8c0107a73d4e20f6-1376.webp",
+        "width": 1376,
+        "bytes": 7628
+      }
+    ]
+  },
+  "/products/BATTERY/32K WAT/POWER.jpg": {
+    "width": 1264,
+    "height": 848,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABQAgCdASoQAAsABABoJbAC7BagC3QemNIXXSAA/vFmy9Q6nNFClkaUKeiConp2tyVRXpEafTRH1BGRZUuROjfwxv5/gRYRcUHnTRJGN8aAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/POWER.jpg-5c2ab5156707c0d1-160.webp",
+        "width": 160,
+        "bytes": 2266
+      },
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/POWER.jpg-5c2ab5156707c0d1-480.webp",
+        "width": 480,
+        "bytes": 9460
+      },
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/POWER.jpg-5c2ab5156707c0d1-960.webp",
+        "width": 960,
+        "bytes": 24752
+      },
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/POWER.jpg-5c2ab5156707c0d1-1264.webp",
+        "width": 1264,
+        "bytes": 39800
+      }
+    ]
+  },
+  "/products/BATTERY/32K WAT/SIDE.jpg": {
+    "width": 1376,
+    "height": 768,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABwAQCdASoQAAkABABoJZwAAhAjAAD+8W1Cj5ObZursgL9UwN4YtKfRqMITReu4qqZgDuu1lAZRZgoAAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/SIDE.jpg-d34489efaceab15e-160.webp",
+        "width": 160,
+        "bytes": 1112
+      },
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/SIDE.jpg-d34489efaceab15e-480.webp",
+        "width": 480,
+        "bytes": 4372
+      },
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/SIDE.jpg-d34489efaceab15e-960.webp",
+        "width": 960,
+        "bytes": 12178
+      },
+      {
+        "src": "/optimized/products/BATTERY/32K WAT/SIDE.jpg-d34489efaceab15e-1376.webp",
+        "width": 1376,
+        "bytes": 23088
+      }
+    ]
+  },
+  "/products/BATTERY/5k wat/5K WAT .jpg": {
+    "width": 3000,
+    "height": 2000,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoQAAsABABoJaQAAv9EYbiXAAD+70q87fDF+AzXs2u6GAC+9oddWGRXAMA2YMVvlTnBDmES1jMhm0Z4AAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/5k wat/5K WAT .jpg-55570df59199c70b-160.webp",
+        "width": 160,
+        "bytes": 468
+      },
+      {
+        "src": "/optimized/products/BATTERY/5k wat/5K WAT .jpg-55570df59199c70b-480.webp",
+        "width": 480,
+        "bytes": 1682
+      },
+      {
+        "src": "/optimized/products/BATTERY/5k wat/5K WAT .jpg-55570df59199c70b-960.webp",
+        "width": 960,
+        "bytes": 4300
+      },
+      {
+        "src": "/optimized/products/BATTERY/5k wat/5K WAT .jpg-55570df59199c70b-1600.webp",
+        "width": 1600,
+        "bytes": 8726
+      }
+    ]
+  },
+  "/products/BATTERY/5k wat/5_10K WAT.jpeg": {
+    "width": 4032,
+    "height": 3434,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAA4ABABoJZwAAzcTIduXCdAA/D2NY/fTypky4CTYt17DIqzMuFdSGWqDqS605uSpsXbWevTNw+zjKy9kN28HT9Y2KD5UbOlbR1QA",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/5k wat/5_10K WAT.jpeg-8c00f796019e2ca4-160.webp",
+        "width": 160,
+        "bytes": 1440
+      },
+      {
+        "src": "/optimized/products/BATTERY/5k wat/5_10K WAT.jpeg-8c00f796019e2ca4-480.webp",
+        "width": 480,
+        "bytes": 5374
+      },
+      {
+        "src": "/optimized/products/BATTERY/5k wat/5_10K WAT.jpeg-8c00f796019e2ca4-960.webp",
+        "width": 960,
+        "bytes": 12896
+      },
+      {
+        "src": "/optimized/products/BATTERY/5k wat/5_10K WAT.jpeg-8c00f796019e2ca4-1600.webp",
+        "width": 1600,
+        "bytes": 25654
+      }
+    ]
+  },
+  "/products/BATTERY/ALL_.jpg": {
+    "width": 2658,
+    "height": 4032,
+    "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBACdASoQABkAPxFysFAsJqSisAgBgCIJaQAAXGJsklncFzNsw92mtbAAAP7an3YSCfWbc+MH/Po07o4mS8NZtfpR6H6V4OudgY9wkZWqe3sAsFyE9TRXrwkY4lH4S3DwDU0knG5cBJnbZHQZBFSLB+8hbgX3kR3XHp1gAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/BATTERY/ALL_.jpg-abd65c4e5f6f4885-160.webp",
+        "width": 160,
+        "bytes": 2116
+      },
+      {
+        "src": "/optimized/products/BATTERY/ALL_.jpg-abd65c4e5f6f4885-480.webp",
+        "width": 480,
+        "bytes": 8350
+      },
+      {
+        "src": "/optimized/products/BATTERY/ALL_.jpg-abd65c4e5f6f4885-960.webp",
+        "width": 960,
+        "bytes": 20408
+      },
+      {
+        "src": "/optimized/products/BATTERY/ALL_.jpg-abd65c4e5f6f4885-1318.webp",
+        "width": 1318,
+        "bytes": 30972
+      }
+    ]
+  },
+  "/products/GARDEM MOON LIGHT/1dad54e0-4b51-434e-9950-0a1c98f225b7.jpg": {
+    "width": 1074,
+    "height": 1079,
+    "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACQAwCdASoQABEAPxFysFAsJqSjMAgBgCIJQBbZA+3kulLoXNPoAP1uk3PSuVNhfst9S0P/b1M6ALu0YSUsqdPMElmn/gL7xaKsu+HB7w2j74wiOwRxaii8WGJI0CL2D9I86sAA",
+    "variants": [
+      {
+        "src": "/optimized/products/GARDEM MOON LIGHT/1dad54e0-4b51-434e-9950-0a1c98f225b7.jpg-a1be80a85e653e2d-160.webp",
+        "width": 160,
+        "bytes": 5032
+      },
+      {
+        "src": "/optimized/products/GARDEM MOON LIGHT/1dad54e0-4b51-434e-9950-0a1c98f225b7.jpg-a1be80a85e653e2d-480.webp",
+        "width": 480,
+        "bytes": 33168
+      },
+      {
+        "src": "/optimized/products/GARDEM MOON LIGHT/1dad54e0-4b51-434e-9950-0a1c98f225b7.jpg-a1be80a85e653e2d-960.webp",
+        "width": 960,
+        "bytes": 93382
+      },
+      {
+        "src": "/optimized/products/GARDEM MOON LIGHT/1dad54e0-4b51-434e-9950-0a1c98f225b7.jpg-a1be80a85e653e2d-1074.webp",
+        "width": 1074,
+        "bytes": 123378
+      }
+    ]
+  },
+  "/products/GARDEM MOON LIGHT/296b9c4a-e41b-4de7-8e92-6dcaf012acb8.jpg": {
+    "width": 1074,
+    "height": 1079,
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACwAwCdASoQABEAPxFysFAsJqSisAgBgCIJQBWABFK++qps+CzDcAD+6Ny6c4vH6WNULQ2baGo9HKGsxwryLD2isbH31thstetr7RoyIvSMKhROBt7C2ZOxklRJ4AAA",
+    "variants": [
+      {
+        "src": "/optimized/products/GARDEM MOON LIGHT/296b9c4a-e41b-4de7-8e92-6dcaf012acb8.jpg-328a02c5342a0c13-160.webp",
+        "width": 160,
+        "bytes": 3440
+      },
+      {
+        "src": "/optimized/products/GARDEM MOON LIGHT/296b9c4a-e41b-4de7-8e92-6dcaf012acb8.jpg-328a02c5342a0c13-480.webp",
+        "width": 480,
+        "bytes": 23178
+      },
+      {
+        "src": "/optimized/products/GARDEM MOON LIGHT/296b9c4a-e41b-4de7-8e92-6dcaf012acb8.jpg-328a02c5342a0c13-960.webp",
+        "width": 960,
+        "bytes": 69046
+      },
+      {
+        "src": "/optimized/products/GARDEM MOON LIGHT/296b9c4a-e41b-4de7-8e92-6dcaf012acb8.jpg-328a02c5342a0c13-1074.webp",
+        "width": 1074,
+        "bytes": 96742
+      }
+    ]
+  },
+  "/products/GARDEN POLE LIGHT/GARDEN LIGHT.jpeg": {
+    "width": 1024,
+    "height": 1024,
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQABAABABoJbACdAD0YqA9OkpQAP7p9eQI6KreW+M8cZK6hn0wMsk0nXw+TtNTc+qE69RmgSY/ukoSzXZUGQvHazcPXyYrgy3JXfq7sqfoPGQE90V/sAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/GARDEN POLE LIGHT/GARDEN LIGHT.jpeg-6083320b60dc8986-160.webp",
+        "width": 160,
+        "bytes": 5282
+      },
+      {
+        "src": "/optimized/products/GARDEN POLE LIGHT/GARDEN LIGHT.jpeg-6083320b60dc8986-480.webp",
+        "width": 480,
+        "bytes": 43924
+      },
+      {
+        "src": "/optimized/products/GARDEN POLE LIGHT/GARDEN LIGHT.jpeg-6083320b60dc8986-960.webp",
+        "width": 960,
+        "bytes": 147714
+      },
+      {
+        "src": "/optimized/products/GARDEN POLE LIGHT/GARDEN LIGHT.jpeg-6083320b60dc8986-1024.webp",
+        "width": 1024,
+        "bytes": 204970
+      }
+    ]
+  },
+  "/products/GARDEN POLE LIGHT/PR GARDEN LIGHT.PNG": {
+    "width": 2340,
+    "height": 2924,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABwAwCdASoQABQAPxFwsFAsJiSisAgBgCIJaQAANi0t2YTQmYAAdJ0SVetLHMH8hCBHhw8ZFIT9N0hvfIjalMIAAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/GARDEN POLE LIGHT/PR GARDEN LIGHT.PNG-5dad2622034e2bd2-160.webp",
+        "width": 160,
+        "bytes": 2330
+      },
+      {
+        "src": "/optimized/products/GARDEN POLE LIGHT/PR GARDEN LIGHT.PNG-5dad2622034e2bd2-480.webp",
+        "width": 480,
+        "bytes": 10008
+      },
+      {
+        "src": "/optimized/products/GARDEN POLE LIGHT/PR GARDEN LIGHT.PNG-5dad2622034e2bd2-960.webp",
+        "width": 960,
+        "bytes": 22422
+      },
+      {
+        "src": "/optimized/products/GARDEN POLE LIGHT/PR GARDEN LIGHT.PNG-5dad2622034e2bd2-1600.webp",
+        "width": 1600,
+        "bytes": 39182
+      }
+    ]
+  },
+  "/products/HYBRID FAN/All display.jpg": {
+    "width": 2336,
+    "height": 3504,
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAwCdASoQABgAPxFysFCsJqSisAgBgCIJaQAAW+wc/p6Un/GcAAD+6rdVxGVCc9LH+TE61IqCwx3GwJQf8KPLYtjq57myIWK4AAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/HYBRID FAN/All display.jpg-4256080e59db7520-160.webp",
+        "width": 160,
+        "bytes": 1390
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/All display.jpg-4256080e59db7520-480.webp",
+        "width": 480,
+        "bytes": 10470
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/All display.jpg-4256080e59db7520-960.webp",
+        "width": 960,
+        "bytes": 34556
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/All display.jpg-4256080e59db7520-1333.webp",
+        "width": 1333,
+        "bytes": 58314
+      }
+    ]
+  },
+  "/products/HYBRID FAN/Back.jpg": {
+    "width": 2336,
+    "height": 3504,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAABwAwCdASoQABgAPxFysFAsJqSisAgBgCIJaQAAetQubQWUfAAA/u/v8RHd3y4dFgwLkc99GeAAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/HYBRID FAN/Back.jpg-03da75c88f414d8a-160.webp",
+        "width": 160,
+        "bytes": 516
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/Back.jpg-03da75c88f414d8a-480.webp",
+        "width": 480,
+        "bytes": 4074
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/Back.jpg-03da75c88f414d8a-960.webp",
+        "width": 960,
+        "bytes": 14964
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/Back.jpg-03da75c88f414d8a-1333.webp",
+        "width": 1333,
+        "bytes": 26486
+      }
+    ]
+  },
+  "/products/HYBRID FAN/Front.jpg": {
+    "width": 2336,
+    "height": 3504,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAwCdASoQABgAPxFysVCsJqSisAgBgCIJaQAAetYkbRAA/u+ub3/Di3vz+rgCECAAtQQ45DvPtIOzNE+oAAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/HYBRID FAN/Front.jpg-622b24899a71beda-160.webp",
+        "width": 160,
+        "bytes": 892
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/Front.jpg-622b24899a71beda-480.webp",
+        "width": 480,
+        "bytes": 5960
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/Front.jpg-622b24899a71beda-960.webp",
+        "width": 960,
+        "bytes": 18886
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/Front.jpg-622b24899a71beda-1333.webp",
+        "width": 1333,
+        "bytes": 31636
+      }
+    ]
+  },
+  "/products/HYBRID FAN/Side.jpg": {
+    "width": 2336,
+    "height": 3504,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAgCdASoQABgAPxFysFAsJqSisAgBgCIJaQDMHC2xAAD+7BeScDhn+3tGMAuUkoXerWQYe+JzmljEtOgAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/HYBRID FAN/Side.jpg-32454f7682bb935c-160.webp",
+        "width": 160,
+        "bytes": 946
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/Side.jpg-32454f7682bb935c-480.webp",
+        "width": 480,
+        "bytes": 6638
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/Side.jpg-32454f7682bb935c-960.webp",
+        "width": 960,
+        "bytes": 21758
+      },
+      {
+        "src": "/optimized/products/HYBRID FAN/Side.jpg-32454f7682bb935c-1333.webp",
+        "width": 1333,
+        "bytes": 37558
+      }
+    ]
+  },
+  "/products/INVERTER/10KVA/10ka.jpg": {
+    "width": 3000,
+    "height": 2000,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAsABABoJZwAAvkp/7d0gAD+6jiCRo/ZPtJZVPFXw+Mx57VDjZLNj7LVUE0bsy7QrPt9y5lwj5B8sg0XUEsk+44AAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/INVERTER/10KVA/10ka.jpg-af5f8172bcb32278-160.webp",
+        "width": 160,
+        "bytes": 1130
+      },
+      {
+        "src": "/optimized/products/INVERTER/10KVA/10ka.jpg-af5f8172bcb32278-480.webp",
+        "width": 480,
+        "bytes": 4910
+      },
+      {
+        "src": "/optimized/products/INVERTER/10KVA/10ka.jpg-af5f8172bcb32278-960.webp",
+        "width": 960,
+        "bytes": 11506
+      },
+      {
+        "src": "/optimized/products/INVERTER/10KVA/10ka.jpg-af5f8172bcb32278-1600.webp",
+        "width": 1600,
+        "bytes": 22318
+      }
+    ]
+  },
+  "/products/INVERTER/10KVA/RAHAT_ENERGY_inverter_10kva.jpg": {
+    "width": 3000,
+    "height": 2000,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQAAsABABoJaQAAqH2AwkgAP7vSsIZqPcCfnqnXHXUvkmSiSIV3XF9kOWX2JmuiYhb9PAAAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/INVERTER/10KVA/RAHAT_ENERGY_inverter_10kva.jpg-a138348e95b97a25-160.webp",
+        "width": 160,
+        "bytes": 626
+      },
+      {
+        "src": "/optimized/products/INVERTER/10KVA/RAHAT_ENERGY_inverter_10kva.jpg-a138348e95b97a25-480.webp",
+        "width": 480,
+        "bytes": 2466
+      },
+      {
+        "src": "/optimized/products/INVERTER/10KVA/RAHAT_ENERGY_inverter_10kva.jpg-a138348e95b97a25-960.webp",
+        "width": 960,
+        "bytes": 6086
+      },
+      {
+        "src": "/optimized/products/INVERTER/10KVA/RAHAT_ENERGY_inverter_10kva.jpg-a138348e95b97a25-1600.webp",
+        "width": 1600,
+        "bytes": 12940
+      }
+    ]
+  },
+  "/products/INVERTER/10KVA/rahat png.png": {
+    "width": 2400,
+    "height": 2400,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQABAABABoJaQAAv93HMiB7pgA/u6hWLu8HX1NyC9FnMUE+ZLWq3LbnonuY9AgQs3pt80AAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/INVERTER/10KVA/rahat png.png-3d62691527b1e0bd-160.webp",
+        "width": 160,
+        "bytes": 842
+      },
+      {
+        "src": "/optimized/products/INVERTER/10KVA/rahat png.png-3d62691527b1e0bd-480.webp",
+        "width": 480,
+        "bytes": 3846
+      },
+      {
+        "src": "/optimized/products/INVERTER/10KVA/rahat png.png-3d62691527b1e0bd-960.webp",
+        "width": 960,
+        "bytes": 10106
+      },
+      {
+        "src": "/optimized/products/INVERTER/10KVA/rahat png.png-3d62691527b1e0bd-1600.webp",
+        "width": 1600,
+        "bytes": 19910
+      }
+    ]
+  },
+  "/products/INVERTER/3.5KVA/Copy of ALL SIDE.jpg": {
+    "width": 3504,
+    "height": 2336,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoQAAsABABoJaQAAi9oWLtbiAAA/cb93mOus0ZkNKf1Za86Bhf7PmGMtyElo/wTzdzuXeheHVoMuifARgonJAsfyG2sUT486MRxqDTwOFoJoAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/INVERTER/3.5KVA/Copy of ALL SIDE.jpg-80bc06899c99edbc-160.webp",
+        "width": 160,
+        "bytes": 1368
+      },
+      {
+        "src": "/optimized/products/INVERTER/3.5KVA/Copy of ALL SIDE.jpg-80bc06899c99edbc-480.webp",
+        "width": 480,
+        "bytes": 5756
+      },
+      {
+        "src": "/optimized/products/INVERTER/3.5KVA/Copy of ALL SIDE.jpg-80bc06899c99edbc-960.webp",
+        "width": 960,
+        "bytes": 15090
+      },
+      {
+        "src": "/optimized/products/INVERTER/3.5KVA/Copy of ALL SIDE.jpg-80bc06899c99edbc-1600.webp",
+        "width": 1600,
+        "bytes": 31120
+      }
+    ]
+  },
+  "/products/INVERTER/3.5KVA/FRONT.jpg": {
+    "width": 3504,
+    "height": 2336,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAsABABoJaQAAq8qnE1T4AD+70wSI0pHMapXgf/S/GomP3lP7iNofbQbXBFm0JoouHGQkYKDKVHvORoN5IZmoFAAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/INVERTER/3.5KVA/FRONT.jpg-d4bab94bc43768b0-160.webp",
+        "width": 160,
+        "bytes": 696
+      },
+      {
+        "src": "/optimized/products/INVERTER/3.5KVA/FRONT.jpg-d4bab94bc43768b0-480.webp",
+        "width": 480,
+        "bytes": 2734
+      },
+      {
+        "src": "/optimized/products/INVERTER/3.5KVA/FRONT.jpg-d4bab94bc43768b0-960.webp",
+        "width": 960,
+        "bytes": 6972
+      },
+      {
+        "src": "/optimized/products/INVERTER/3.5KVA/FRONT.jpg-d4bab94bc43768b0-1600.webp",
+        "width": 1600,
+        "bytes": 14562
+      }
+    ]
+  },
+  "/products/INVERTER/5.5KVA INVERTER/ALL SIDE.jpg": {
+    "width": 3504,
+    "height": 2336,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAQCdASoQAAsABABoJaQAAi9oWLtbiAAA/cb93mOus0ZkNKf1Za86Bhf7PmGMtyElo/wTzdzuXeheHVoMuifARgonJAsfyG2sUT486MRxqDTwOFoJoAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/ALL SIDE.jpg-80bc06899c99edbc-160.webp",
+        "width": 160,
+        "bytes": 1368
+      },
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/ALL SIDE.jpg-80bc06899c99edbc-480.webp",
+        "width": 480,
+        "bytes": 5756
+      },
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/ALL SIDE.jpg-80bc06899c99edbc-960.webp",
+        "width": 960,
+        "bytes": 15090
+      },
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/ALL SIDE.jpg-80bc06899c99edbc-1600.webp",
+        "width": 1600,
+        "bytes": 31120
+      }
+    ]
+  },
+  "/products/INVERTER/5.5KVA INVERTER/PR.JPG": {
+    "width": 3502,
+    "height": 2336,
+    "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAsABABoJaQAAp1K69LMWQAA/s6o/N+OXc0Eqd+Y99FVfRgjYAGz1DMYVKdfPoBHh5Ec8pz0Vv8e5AAAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/PR.JPG-4a0df5d9e4f5fd42-160.webp",
+        "width": 160,
+        "bytes": 1504
+      },
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/PR.JPG-4a0df5d9e4f5fd42-480.webp",
+        "width": 480,
+        "bytes": 8082
+      },
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/PR.JPG-4a0df5d9e4f5fd42-960.webp",
+        "width": 960,
+        "bytes": 24522
+      },
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/PR.JPG-4a0df5d9e4f5fd42-1600.webp",
+        "width": 1600,
+        "bytes": 55552
+      }
+    ]
+  },
+  "/products/INVERTER/5.5KVA INVERTER/SIDE.jpg": {
+    "width": 3504,
+    "height": 2336,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAsABABoJaQAAv+5DXu4AAD+6/3xqLksQOLj6lUdPc2CZXNFFdF5OvQIlTgDYU8e/Rt3GygbYyf2fu3BgAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/SIDE.jpg-bf48761cc4693e0c-160.webp",
+        "width": 160,
+        "bytes": 694
+      },
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/SIDE.jpg-bf48761cc4693e0c-480.webp",
+        "width": 480,
+        "bytes": 2926
+      },
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/SIDE.jpg-bf48761cc4693e0c-960.webp",
+        "width": 960,
+        "bytes": 7712
+      },
+      {
+        "src": "/optimized/products/INVERTER/5.5KVA INVERTER/SIDE.jpg-bf48761cc4693e0c-1600.webp",
+        "width": 1600,
+        "bytes": 16434
+      }
+    ]
+  },
+  "/products/INVERTER/IMG_6317.JPG.jpeg": {
+    "width": 2658,
+    "height": 4032,
+    "blurDataURL": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBACdASoQABkAPxFysFAsJqSisAgBgCIJaQAAXGJsklncFzNsw92mtbAAAP7an3YSCfWbc+MH/Po07o4mS8NZtfpR6H6V4OudgY9wkZWqe3sAsFyE9TRXrwkY4lH4S3DwDU0knG5cBJnbZHQZBFSLB+8hbgX3kR3XHp1gAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/INVERTER/IMG_6317.JPG.jpeg-abd65c4e5f6f4885-160.webp",
+        "width": 160,
+        "bytes": 2116
+      },
+      {
+        "src": "/optimized/products/INVERTER/IMG_6317.JPG.jpeg-abd65c4e5f6f4885-480.webp",
+        "width": 480,
+        "bytes": 8350
+      },
+      {
+        "src": "/optimized/products/INVERTER/IMG_6317.JPG.jpeg-abd65c4e5f6f4885-960.webp",
+        "width": 960,
+        "bytes": 20408
+      },
+      {
+        "src": "/optimized/products/INVERTER/IMG_6317.JPG.jpeg-abd65c4e5f6f4885-1318.webp",
+        "width": 1318,
+        "bytes": 30972
+      }
+    ]
+  },
+  "/products/MASSAGE CHAIR/DETAIL1.jpg": {
+    "width": 5999,
+    "height": 3999,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAwAgCdASoQAAsABABoJZQCdAEfgOyWcuuPoAD+7ACDKvBNVkauEm3FaHS8QIS1Vs+azda3xCumMtVuXxIAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/DETAIL1.jpg-15b1cb7398c318a9-160.webp",
+        "width": 160,
+        "bytes": 1656
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/DETAIL1.jpg-15b1cb7398c318a9-480.webp",
+        "width": 480,
+        "bytes": 7552
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/DETAIL1.jpg-15b1cb7398c318a9-960.webp",
+        "width": 960,
+        "bytes": 22942
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/DETAIL1.jpg-15b1cb7398c318a9-1600.webp",
+        "width": 1600,
+        "bytes": 50792
+      }
+    ]
+  },
+  "/products/MASSAGE CHAIR/DETAIL2.jpg": {
+    "width": 5999,
+    "height": 3999,
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAsABABoJQBOgCErEUdMpgAA/upNsIc7KU/9AprVq829GrGsNQJ2ObPB7bLPD25RpuY10ko8QwhLbst31eQR7PU2QAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/DETAIL2.jpg-978739c728f429c3-160.webp",
+        "width": 160,
+        "bytes": 2010
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/DETAIL2.jpg-978739c728f429c3-480.webp",
+        "width": 480,
+        "bytes": 8566
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/DETAIL2.jpg-978739c728f429c3-960.webp",
+        "width": 960,
+        "bytes": 21928
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/DETAIL2.jpg-978739c728f429c3-1600.webp",
+        "width": 1600,
+        "bytes": 44420
+      }
+    ]
+  },
+  "/products/MASSAGE CHAIR/MASSAGE CHAIR.jpeg": {
+    "width": 1073,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAABQBACdASoQABgAPxFwsFAsJiSisAgBgCIJYgCdMoAB7Ga1M0rHxEc7QtAgAN2zFrTbAqqlAV4vXqUJcKUZgxW0ytZvQ/RghnD4LnyQrtMdOEwWXIGwiyLGs7vQBneeDGZcpo7smJki6HrzS04RZKSW9vrHrP9oIxkMlX04INny1jMQOeRxeCGU5lUAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/MASSAGE CHAIR.jpeg-1bb73d262209a825-160.webp",
+        "width": 160,
+        "bytes": 5884
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/MASSAGE CHAIR.jpeg-1bb73d262209a825-480.webp",
+        "width": 480,
+        "bytes": 33200
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/MASSAGE CHAIR.jpeg-1bb73d262209a825-960.webp",
+        "width": 960,
+        "bytes": 87308
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/MASSAGE CHAIR.jpeg-1bb73d262209a825-1073.webp",
+        "width": 1073,
+        "bytes": 122468
+      }
+    ]
+  },
+  "/products/MASSAGE CHAIR/Rahat Massage chair.jpg": {
+    "width": 848,
+    "height": 1264,
+    "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAACQBACdASoQABgAPxFysFAsJqSisAgBgCIJYgCw8agBqOf3eVBQtrDo+xbHVCAA/reL4oX8oCXx4or/EJPXdtRc41q/p5oPPk2kgQAIcMGyd/XEnJgitzezcuEaXGdX9fxKvNYuufc4zmDYRFecNNGkl8AVeRTROf0toLmjFHvOnxza5EqxhDU8zS2pT0gfVU5npXjHm69CQAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/Rahat Massage chair.jpg-e7fdaa79dc0fa6fd-160.webp",
+        "width": 160,
+        "bytes": 6994
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/Rahat Massage chair.jpg-e7fdaa79dc0fa6fd-480.webp",
+        "width": 480,
+        "bytes": 46080
+      },
+      {
+        "src": "/optimized/products/MASSAGE CHAIR/Rahat Massage chair.jpg-e7fdaa79dc0fa6fd-848.webp",
+        "width": 848,
+        "bytes": 129628
+      }
+    ]
+  },
+  "/products/PANEL/PANEL 2.jpeg": {
+    "width": 1600,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQABAABABoJZwAAv+/Htl9riAA/vYTN3+Dl4787o7GxK1HFmZDgIFIF3AmVAGNMR/pvDagAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/PANEL/PANEL 2.jpeg-6a15359f0b8a374a-160.webp",
+        "width": 160,
+        "bytes": 1294
+      },
+      {
+        "src": "/optimized/products/PANEL/PANEL 2.jpeg-6a15359f0b8a374a-480.webp",
+        "width": 480,
+        "bytes": 7470
+      },
+      {
+        "src": "/optimized/products/PANEL/PANEL 2.jpeg-6a15359f0b8a374a-960.webp",
+        "width": 960,
+        "bytes": 19776
+      },
+      {
+        "src": "/optimized/products/PANEL/PANEL 2.jpeg-6a15359f0b8a374a-1600.webp",
+        "width": 1600,
+        "bytes": 53712
+      }
+    ]
+  },
+  "/products/PANEL/Solar Panel.jpeg": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAACwAQCdASoQAAkABABoJZwAAh+gqVYAAP65/nl1/CEf3uXJshJ5wgAA",
+    "variants": [
+      {
+        "src": "/optimized/products/PANEL/Solar Panel.jpeg-a1ac57866181b7f2-160.webp",
+        "width": 160,
+        "bytes": 488
+      },
+      {
+        "src": "/optimized/products/PANEL/Solar Panel.jpeg-a1ac57866181b7f2-480.webp",
+        "width": 480,
+        "bytes": 3486
+      },
+      {
+        "src": "/optimized/products/PANEL/Solar Panel.jpeg-a1ac57866181b7f2-960.webp",
+        "width": 960,
+        "bytes": 12002
+      },
+      {
+        "src": "/optimized/products/PANEL/Solar Panel.jpeg-a1ac57866181b7f2-1600.webp",
+        "width": 1600,
+        "bytes": 32834
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1000W , 768WH/1000 WAT POWER STATION.jpeg": {
+    "width": 1280,
+    "height": 1600,
+    "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACwAwCdASoQABQAPxFysFAsJqSisAgBgCIJQBZwBDuJi+m9WUVqmAD+6d2PETKz7r+njHisr0xyqeZnfGWPBef9zb3Sookyde5Fv5zK+x7jE2pFp3lsIRQcwS6+fqAegVSPcHrkj6NU/DCwGPEf9OhGuYTdYnfNPIqsgAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/1000 WAT POWER STATION.jpeg-c2f4d8f4b3432d88-160.webp",
+        "width": 160,
+        "bytes": 5296
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/1000 WAT POWER STATION.jpeg-c2f4d8f4b3432d88-480.webp",
+        "width": 480,
+        "bytes": 25720
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/1000 WAT POWER STATION.jpeg-c2f4d8f4b3432d88-960.webp",
+        "width": 960,
+        "bytes": 62876
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/1000 WAT POWER STATION.jpeg-c2f4d8f4b3432d88-1280.webp",
+        "width": 1280,
+        "bytes": 95820
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1000W , 768WH/1000WAT power.png": {
+    "width": 2400,
+    "height": 2400,
+    "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQABAABABoJaQAAueGB2wAAP7ujp/kvY6p7QPCmS9H8baUWAAlh0VMAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/1000WAT power.png-3231664c88247509-160.webp",
+        "width": 160,
+        "bytes": 1276
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/1000WAT power.png-3231664c88247509-480.webp",
+        "width": 480,
+        "bytes": 7126
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/1000WAT power.png-3231664c88247509-960.webp",
+        "width": 960,
+        "bytes": 19782
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/1000WAT power.png-3231664c88247509-1600.webp",
+        "width": 1600,
+        "bytes": 40386
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1000W , 768WH/DC12V..jpg": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRjQAAABXRUJQVlA4ICgAAAAwAQCdASoQAAkABABoJaQAA3AA/urlv2zQNAlDHYzIymGvYKHaYAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/DC12V..jpg-423821531c298e4a-160.webp",
+        "width": 160,
+        "bytes": 826
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/DC12V..jpg-423821531c298e4a-480.webp",
+        "width": 480,
+        "bytes": 3076
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/DC12V..jpg-423821531c298e4a-960.webp",
+        "width": 960,
+        "bytes": 7792
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/DC12V..jpg-423821531c298e4a-1600.webp",
+        "width": 1600,
+        "bytes": 18014
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1000W , 768WH/DC12V.jpg": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAABQAQCdASoQAAkABABoJaQABAAAAP7nFMLXHvHPTq4gOilStdg55S4msUEcAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/DC12V.jpg-64f7fab02365ac35-160.webp",
+        "width": 160,
+        "bytes": 916
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/DC12V.jpg-64f7fab02365ac35-480.webp",
+        "width": 480,
+        "bytes": 3846
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/DC12V.jpg-64f7fab02365ac35-960.webp",
+        "width": 960,
+        "bytes": 9734
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/DC12V.jpg-64f7fab02365ac35-1600.webp",
+        "width": 1600,
+        "bytes": 19768
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1000W , 768WH/Rahat_PowerStation_3AC_Poster.png": {
+    "width": 2160,
+    "height": 2700,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACQAwCdASoQABQAPxFysFAsJqSisAgBgCIJQBdgBDia0dnoeD6QAP7l8QCN7RfTWr8u3+cvVB2dfA3R4dNgD6z0yDvDoMWNZSBtfQWmIbsvFE0XgLRmsrbfuntafeJr6QpPEf+OEc+YU1gybrIPg4AA",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/Rahat_PowerStation_3AC_Poster.png-858e1135242702e2-160.webp",
+        "width": 160,
+        "bytes": 4756
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/Rahat_PowerStation_3AC_Poster.png-858e1135242702e2-480.webp",
+        "width": 480,
+        "bytes": 23030
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/Rahat_PowerStation_3AC_Poster.png-858e1135242702e2-960.webp",
+        "width": 960,
+        "bytes": 54552
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1000W , 768WH/Rahat_PowerStation_3AC_Poster.png-858e1135242702e2-1600.webp",
+        "width": 1600,
+        "bytes": 97854
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1500W , 1152WH/220V SIDE.jpg": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAAAwAQCdASoQAAkABABoJaQAA3AA/u1eXI9Z6d7dEb+ZVJRuQaYoAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/220V SIDE.jpg-f42e7be02dc8c62b-160.webp",
+        "width": 160,
+        "bytes": 542
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/220V SIDE.jpg-f42e7be02dc8c62b-480.webp",
+        "width": 480,
+        "bytes": 2244
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/220V SIDE.jpg-f42e7be02dc8c62b-960.webp",
+        "width": 960,
+        "bytes": 6334
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/220V SIDE.jpg-f42e7be02dc8c62b-1600.webp",
+        "width": 1600,
+        "bytes": 19010
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1500W , 1152WH/BACK.jpg": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAAAwAQCdASoQAAkABABoJaQAA3AA/uvwJHTwKe/cqXpWuHHQu2Bk2LAAAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/BACK.jpg-c3be21be4a6c1643-160.webp",
+        "width": 160,
+        "bytes": 416
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/BACK.jpg-c3be21be4a6c1643-480.webp",
+        "width": 480,
+        "bytes": 2196
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/BACK.jpg-c3be21be4a6c1643-960.webp",
+        "width": 960,
+        "bytes": 6486
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/BACK.jpg-c3be21be4a6c1643-1600.webp",
+        "width": 1600,
+        "bytes": 15918
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1500W , 1152WH/BG.jpeg": {
+    "width": 3746,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAQCdASoQAA4ABABoJZwAAWLR2gAA/p6jUYumHBI6UIbVaeL5+MoSa27SvJUVB2gnGY9FtXjlqHNwAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/BG.jpeg-93a193e1ff4b76e4-160.webp",
+        "width": 160,
+        "bytes": 1532
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/BG.jpeg-93a193e1ff4b76e4-480.webp",
+        "width": 480,
+        "bytes": 6998
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/BG.jpeg-93a193e1ff4b76e4-960.webp",
+        "width": 960,
+        "bytes": 17208
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/BG.jpeg-93a193e1ff4b76e4-1600.webp",
+        "width": 1600,
+        "bytes": 34844
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1500W , 1152WH/FRONT.jpg": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAABwAQCdASoQAAkABABoJaQAApJAAAD+6O0tPau1fRo4IMirbiYWExQTTTAAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/FRONT.jpg-635920ca7160ef4e-160.webp",
+        "width": 160,
+        "bytes": 998
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/FRONT.jpg-635920ca7160ef4e-480.webp",
+        "width": 480,
+        "bytes": 5128
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/FRONT.jpg-635920ca7160ef4e-960.webp",
+        "width": 960,
+        "bytes": 13238
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/FRONT.jpg-635920ca7160ef4e-1600.webp",
+        "width": 1600,
+        "bytes": 27064
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1500W , 1152WH/FRONT.png": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoQAAkABABoJZwAAjHj/eAAAP7QPWAsuN/+qg0tQzPYC86OVcdUlI2qO2BAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/FRONT.png-9636b99730a93c02-160.webp",
+        "width": 160,
+        "bytes": 1122
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/FRONT.png-9636b99730a93c02-480.webp",
+        "width": 480,
+        "bytes": 6206
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/FRONT.png-9636b99730a93c02-960.webp",
+        "width": 960,
+        "bytes": 18974
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/FRONT.png-9636b99730a93c02-1600.webp",
+        "width": 1600,
+        "bytes": 39620
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1500W , 1152WH/PR.jpg": {
+    "width": 2971,
+    "height": 1802,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAoABABoJaQAAxNjrsPwAAD8WnW1RbMwf6EDhj4eZ5CFwBspTmPIHG59Mg4A",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/PR.jpg-fa31d9c13116f47b-160.webp",
+        "width": 160,
+        "bytes": 1618
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/PR.jpg-fa31d9c13116f47b-480.webp",
+        "width": 480,
+        "bytes": 10352
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/PR.jpg-fa31d9c13116f47b-960.webp",
+        "width": 960,
+        "bytes": 33220
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/PR.jpg-fa31d9c13116f47b-1600.webp",
+        "width": 1600,
+        "bytes": 74366
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1500W , 1152WH/Rahat_220V_Outdoor_PowerSupply_Poster.png": {
+    "width": 2160,
+    "height": 2700,
+    "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwAwCdASoQABQAPxFysFAsJqSisAgBgCIJQBadBD4Ztl80YB6WAAD+7ABTiozNr6UQi+3+spSKRgFqKaLHskHmAUX0pKwcL1L1EaI4TYQjiDzNuEL+c0SlFsPn7OSnB5zQsibWrxNeaCUbwA4ebK/QqeOAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/Rahat_220V_Outdoor_PowerSupply_Poster.png-aa586941ac267050-160.webp",
+        "width": 160,
+        "bytes": 4562
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/Rahat_220V_Outdoor_PowerSupply_Poster.png-aa586941ac267050-480.webp",
+        "width": 480,
+        "bytes": 23102
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/Rahat_220V_Outdoor_PowerSupply_Poster.png-aa586941ac267050-960.webp",
+        "width": 960,
+        "bytes": 56552
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/Rahat_220V_Outdoor_PowerSupply_Poster.png-aa586941ac267050-1600.webp",
+        "width": 1600,
+        "bytes": 101046
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1500W , 1152WH/Rahat_CNS1500WA_Poster.png": {
+    "width": 2160,
+    "height": 2700,
+    "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAwCdASoQABQAPxF0sFCsJqSisAgBgCIJQBdgBDetF4b7OufEjSkAAP7sAFRxo8KqoIETlfYp4HCpkNq0JcOFo1GkuQhBGXse4vHCeZZT4fwJibZl/NmZ4saP/QsHz8h6ucIDHiP/HApqq+HEUHVQysAAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/Rahat_CNS1500WA_Poster.png-a3face5c3c5504df-160.webp",
+        "width": 160,
+        "bytes": 5020
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/Rahat_CNS1500WA_Poster.png-a3face5c3c5504df-480.webp",
+        "width": 480,
+        "bytes": 24974
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/Rahat_CNS1500WA_Poster.png-a3face5c3c5504df-960.webp",
+        "width": 960,
+        "bytes": 62108
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/Rahat_CNS1500WA_Poster.png-a3face5c3c5504df-1600.webp",
+        "width": 1600,
+        "bytes": 113760
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/1500W , 1152WH/SIDE.jpg": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkABABoJaQAAqo/aPqvAAD+40tHhFZa445igPHgMUtkVxqVAAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/SIDE.jpg-f22382181fdd7c28-160.webp",
+        "width": 160,
+        "bytes": 854
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/SIDE.jpg-f22382181fdd7c28-480.webp",
+        "width": 480,
+        "bytes": 4746
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/SIDE.jpg-f22382181fdd7c28-960.webp",
+        "width": 960,
+        "bytes": 14018
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/1500W , 1152WH/SIDE.jpg-f22382181fdd7c28-1600.webp",
+        "width": 1600,
+        "bytes": 30734
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/3000W , 2662WH/BACK.png": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAADQAQCdASoQAAkABABoJZwC7AD6H3FUAAD+zVNKLGZn9qoQVNcaVXy5gAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/BACK.png-284a9cde333e92aa-160.webp",
+        "width": 160,
+        "bytes": 502
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/BACK.png-284a9cde333e92aa-480.webp",
+        "width": 480,
+        "bytes": 2186
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/BACK.png-284a9cde333e92aa-960.webp",
+        "width": 960,
+        "bytes": 7730
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/BACK.png-284a9cde333e92aa-1600.webp",
+        "width": 1600,
+        "bytes": 23466
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/3000W , 2662WH/FRONT.jpg": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAkABABoJaQAApHd6K+BQAD+7daVV3nWvpcUuc5LUevZlunCw3HG5vxDhNSp/h9Ut1BAAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/FRONT.jpg-4fa272ed6e031619-160.webp",
+        "width": 160,
+        "bytes": 1046
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/FRONT.jpg-4fa272ed6e031619-480.webp",
+        "width": 480,
+        "bytes": 4384
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/FRONT.jpg-4fa272ed6e031619-960.webp",
+        "width": 960,
+        "bytes": 11058
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/FRONT.jpg-4fa272ed6e031619-1600.webp",
+        "width": 1600,
+        "bytes": 23914
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/3000W , 2662WH/PR2.png": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADQAQCdASoQAAkABABoJaQAApMq7RIgAAD+7L2Sfh0GVyhU3yEbsxVP/lM/iz7JwAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/PR2.png-eef4d999a0d66eac-160.webp",
+        "width": 160,
+        "bytes": 1140
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/PR2.png-eef4d999a0d66eac-480.webp",
+        "width": 480,
+        "bytes": 5484
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/PR2.png-eef4d999a0d66eac-960.webp",
+        "width": 960,
+        "bytes": 14150
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/PR2.png-eef4d999a0d66eac-1600.webp",
+        "width": 1600,
+        "bytes": 27372
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/3000W , 2662WH/Rahat_CNS3000WA_Poster.png": {
+    "width": 2160,
+    "height": 2700,
+    "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBACdASoQABQAPxFwsFAsJiSisAgBgCIJQBbZBD4aSTorSyTykztvAgAA/uwAU4qKkSPETnnxcGQ6yVaS17DETd2ukhpFX5iarxq1RT78T+AONHsYnYe7bPAS/KCsAV/peV0QfsGc0LI7uTZRgHuRcoxn9wwAAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/Rahat_CNS3000WA_Poster.png-21cdd22e02c3ee3f-160.webp",
+        "width": 160,
+        "bytes": 4882
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/Rahat_CNS3000WA_Poster.png-21cdd22e02c3ee3f-480.webp",
+        "width": 480,
+        "bytes": 24630
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/Rahat_CNS3000WA_Poster.png-21cdd22e02c3ee3f-960.webp",
+        "width": 960,
+        "bytes": 61494
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/Rahat_CNS3000WA_Poster.png-21cdd22e02c3ee3f-1600.webp",
+        "width": 1600,
+        "bytes": 111368
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/3000W , 2662WH/SIDE.jpg": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACQAQCdASoQAAkABABoJQBOgBIw6fAA/jpRCl9LL6J4K/Mn2mWTiTnKAu1qOiGPlANXmQAA",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/SIDE.jpg-f5ccb9df2d8cd049-160.webp",
+        "width": 160,
+        "bytes": 1184
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/SIDE.jpg-f5ccb9df2d8cd049-480.webp",
+        "width": 480,
+        "bytes": 6032
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/SIDE.jpg-f5ccb9df2d8cd049-960.webp",
+        "width": 960,
+        "bytes": 19620
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/3000W , 2662WH/SIDE.jpg-f5ccb9df2d8cd049-1600.webp",
+        "width": 1600,
+        "bytes": 47032
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/400W , 256WH/256WH..jpg": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQAAkABABoJZwC7AEClhZTkYAA/ndSjCba8vWdzTMELn+zi81ItUmrzyMTq7UYAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/256WH..jpg-a9c372393f31592e-160.webp",
+        "width": 160,
+        "bytes": 1138
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/256WH..jpg-a9c372393f31592e-480.webp",
+        "width": 480,
+        "bytes": 6052
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/256WH..jpg-a9c372393f31592e-960.webp",
+        "width": 960,
+        "bytes": 20972
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/256WH..jpg-a9c372393f31592e-1600.webp",
+        "width": 1600,
+        "bytes": 50880
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/400W , 256WH/FULL.jpg": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAADQAQCdASoQAAkABABoJZwC7AEQNYOKoAD+i3yrVvHIASopkqDIkIiHvWJq5AAA",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/FULL.jpg-32f5c6e2e5a0698b-160.webp",
+        "width": 160,
+        "bytes": 672
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/FULL.jpg-32f5c6e2e5a0698b-480.webp",
+        "width": 480,
+        "bytes": 3260
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/FULL.jpg-32f5c6e2e5a0698b-960.webp",
+        "width": 960,
+        "bytes": 9690
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/FULL.jpg-32f5c6e2e5a0698b-1600.webp",
+        "width": 1600,
+        "bytes": 24168
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/400W , 256WH/Rahat_YJ911_Poster.png": {
+    "width": 2160,
+    "height": 2700,
+    "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQAwCdASoQABQAPxFysFCsJqSisAgBgCIJQBdgBDaMcAIvSODo5gAA/undjxEyrHBJz4msABdbJwCwNlF++3CKFaY7LybXrPdXVYwvsWDolAGaP+whzMPZ/9lPv8h6uiD9gzmhZHdxfMKawZN1kHwcAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/Rahat_YJ911_Poster.png-3595d03088088607-160.webp",
+        "width": 160,
+        "bytes": 4994
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/Rahat_YJ911_Poster.png-3595d03088088607-480.webp",
+        "width": 480,
+        "bytes": 24302
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/Rahat_YJ911_Poster.png-3595d03088088607-960.webp",
+        "width": 960,
+        "bytes": 60092
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/Rahat_YJ911_Poster.png-3595d03088088607-1600.webp",
+        "width": 1600,
+        "bytes": 111712
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/400W , 256WH/SIDE.jpg": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoQAAkABABoJZwC/OCx1e1QAP2KrmLHSmT2HZaMOecf/cAhg/h/AmM8MVb+gAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/SIDE.jpg-48458a6671e08f42-160.webp",
+        "width": 160,
+        "bytes": 886
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/SIDE.jpg-48458a6671e08f42-480.webp",
+        "width": 480,
+        "bytes": 4500
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/SIDE.jpg-48458a6671e08f42-960.webp",
+        "width": 960,
+        "bytes": 13924
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/400W , 256WH/SIDE.jpg-48458a6671e08f42-1600.webp",
+        "width": 1600,
+        "bytes": 29852
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W..jpg": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAABQAQCdASoQAAkABABoJaQAAOgAAP7ZWRTLbflT86mbEvh04jg0UfGgoeWFAAAA",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W..jpg-08d90bfc5fc5e3d9-160.webp",
+        "width": 160,
+        "bytes": 744
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W..jpg-08d90bfc5fc5e3d9-480.webp",
+        "width": 480,
+        "bytes": 3502
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W..jpg-08d90bfc5fc5e3d9-960.webp",
+        "width": 960,
+        "bytes": 9200
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W..jpg-08d90bfc5fc5e3d9-1600.webp",
+        "width": 1600,
+        "bytes": 19476
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W.jpg": {
+    "width": 5504,
+    "height": 3072,
+    "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACQAQCdASoQAAkABABoJaQAAo5b6UAA/uWT4OFUkHay4rH78QII3eqgjAAAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W.jpg-27ad5ccfc87682fe-160.webp",
+        "width": 160,
+        "bytes": 840
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W.jpg-27ad5ccfc87682fe-480.webp",
+        "width": 480,
+        "bytes": 4244
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W.jpg-27ad5ccfc87682fe-960.webp",
+        "width": 960,
+        "bytes": 12102
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W.jpg-27ad5ccfc87682fe-1600.webp",
+        "width": 1600,
+        "bytes": 27114
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/Rahat_Model905_500W_Poster.png": {
+    "width": 2160,
+    "height": 2700,
+    "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwAwCdASoQABQAPxFysFAsJqSisAgBgCIJQBdgBDc49bZd7deaYAD+7ABTiooo3ne31rpEw9+QyDw2QuKxWrByjFvMhQTH7XHzudyVuGIICwT7zDTUA86f5rjp+l5XRB+wZzQsjlWxXcebXsC6yD4OAAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/Rahat_Model905_500W_Poster.png-48f57c1f95450f07-160.webp",
+        "width": 160,
+        "bytes": 4514
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/Rahat_Model905_500W_Poster.png-48f57c1f95450f07-480.webp",
+        "width": 480,
+        "bytes": 22304
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/Rahat_Model905_500W_Poster.png-48f57c1f95450f07-960.webp",
+        "width": 960,
+        "bytes": 53868
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/Rahat_Model905_500W_Poster.png-48f57c1f95450f07-1600.webp",
+        "width": 1600,
+        "bytes": 96042
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/800W , 576WH/BACK.png": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAABwAQCdASoQAAkABABoJZwAAOeOIAD9h+tsbVpenZm6BbpxFuZ+9rtJ9iTCGuSs15oAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/BACK.png-e9298e1306c98f78-160.webp",
+        "width": 160,
+        "bytes": 820
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/BACK.png-e9298e1306c98f78-480.webp",
+        "width": 480,
+        "bytes": 3872
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/BACK.png-e9298e1306c98f78-960.webp",
+        "width": 960,
+        "bytes": 12124
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/BACK.png-e9298e1306c98f78-1600.webp",
+        "width": 1600,
+        "bytes": 32024
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/800W , 576WH/FRONT.jpg": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADQAQCdASoQAAkABABoJaQAApMU+OjtgAD+OkR1zRC2qzJe408JRklj2/UAAA==",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/FRONT.jpg-b1ae623eaca7cb8b-160.webp",
+        "width": 160,
+        "bytes": 1134
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/FRONT.jpg-b1ae623eaca7cb8b-480.webp",
+        "width": 480,
+        "bytes": 6214
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/FRONT.jpg-b1ae623eaca7cb8b-960.webp",
+        "width": 960,
+        "bytes": 20692
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/FRONT.jpg-b1ae623eaca7cb8b-1600.webp",
+        "width": 1600,
+        "bytes": 52650
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/800W , 576WH/Rahat_CNS800WA_Poster.png": {
+    "width": 2160,
+    "height": 2700,
+    "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwAwCdASoQABQAPxFyslCsJqSisAgBgCIJQBYdg1tGYMVN6ZFRAAD+7ABU06AX0uIwG9ktHdEEakvyHqIxrh3vI3iZ1iQ0ir8wcYzx4EMj+X3EBjU1YKwKvjOBfZft3b8MhwgMeI/6cvmgVsGTdZB8HAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/Rahat_CNS800WA_Poster.png-25b5a87ce0910b81-160.webp",
+        "width": 160,
+        "bytes": 4748
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/Rahat_CNS800WA_Poster.png-25b5a87ce0910b81-480.webp",
+        "width": 480,
+        "bytes": 23940
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/Rahat_CNS800WA_Poster.png-25b5a87ce0910b81-960.webp",
+        "width": 960,
+        "bytes": 60634
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/Rahat_CNS800WA_Poster.png-25b5a87ce0910b81-1600.webp",
+        "width": 1600,
+        "bytes": 115036
+      }
+    ]
+  },
+  "/products/Power Stations(ALL)/800W , 576WH/SIDE.jpg": {
+    "width": 3840,
+    "height": 2160,
+    "blurDataURL": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADwAQCdASoQAAkABABoJZQCdAD8PeL9oAAA7zaNYXTC40/TYBSioeq3GWxXyGWuYAA=",
+    "variants": [
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/SIDE.jpg-8bc5e92853d0442c-160.webp",
+        "width": 160,
+        "bytes": 1174
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/SIDE.jpg-8bc5e92853d0442c-480.webp",
+        "width": 480,
+        "bytes": 6344
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/SIDE.jpg-8bc5e92853d0442c-960.webp",
+        "width": 960,
+        "bytes": 21310
+      },
+      {
+        "src": "/optimized/products/Power Stations(ALL)/800W , 576WH/SIDE.jpg-8bc5e92853d0442c-1600.webp",
+        "width": 1600,
+        "bytes": 49822
+      }
+    ]
+  }
+}

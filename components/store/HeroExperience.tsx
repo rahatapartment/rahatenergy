@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import Link from "next/link";
 import {
   ArrowDown,
@@ -134,7 +134,7 @@ export function HeroExperience() {
                 : `Illustrative ${slide.category.toLowerCase()} equipment; exact models require confirmation`
             }
             fill
-            priority
+            priority={selected === 0}
             sizes="100vw"
           />
         </div>

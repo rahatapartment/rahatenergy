@@ -33,7 +33,7 @@
   margin: 30px 0;
 }
 .tracking-introduction h2 em {
-  color: #006b3c;
+  color: #1c4a3b;
   font-weight: 400;
 }
 .tracking-introduction > p {
@@ -98,7 +98,7 @@
   margin: 32px 0 20px;
 }
 .tracking-form-panel h3 em {
-  color: #006b3c;
+  color: #1c4a3b;
   font-weight: 400;
 }
 .tracking-form-panel > p {
@@ -135,7 +135,7 @@
   color: #65746a;
 }
 .tracking-field input:focus-visible {
-  outline: 2px solid #006b3c;
+  outline: 2px solid #1c4a3b;
   outline-offset: 3px;
 }
 .tracking-field > p {
@@ -175,8 +175,8 @@
   padding: 18px 23px;
   min-height: 54px;
   border-radius: 30px;
-  background: #006b3c;
-  border: 1px solid #006b3c;
+  background: #1c4a3b;
+  border: 1px solid #1c4a3b;
   color: #fff;
   font: inherit;
   font-size: 12px;
@@ -215,7 +215,7 @@
   margin-top: 3px;
 }
 .tracking-perspectives {
-  background: #006b3c;
+  background: #1c4a3b;
   color: #f4f6f3;
   padding: 100px 9% 60px;
 }
@@ -288,7 +288,7 @@
   gap: 10%;
   padding: 100px 9%;
   border-radius: 70px 70px 0 0;
-  background: #006b3c;
+  background: #1c4a3b;
   color: #f4f6f3;
 }
 .tracking-assistance .eyebrow {

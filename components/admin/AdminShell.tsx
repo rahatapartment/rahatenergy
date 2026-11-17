@@ -31,11 +31,12 @@ const navigation = [
   ["Quotations", "/admin/quotations", MessageSquare, "Relationships"],
   ["Monitoring", "/admin/monitoring", Activity, "Administration"],
   ["Settings", "/admin/settings", Settings, "Administration"],
+  ["Launch readiness", "/admin/readiness", ClipboardList, "Administration"],
 ] as const;
 const descriptions: Record<string, string> = {
   Overview: "A clear perspective on your independent energy operations.",
   Products:
-    "Your controlled collection. Fifteen identities, one source of truth.",
+    "Manage your product collection, presentation and photography.",
   Inventory:
     "Manage prices, stock and purchase availability with a recorded reason.",
   Orders: "Review payment and fulfilment with the details that matter.",
@@ -45,6 +46,7 @@ const descriptions: Record<string, string> = {
   Monitoring:
     "Inspect recorded worker activity, notifications and audit history.",
   Settings: "Independent service configuration and administrator access.",
+  "Launch readiness": "Review catalogue, stock and the checks remaining before launch.",
 };
 export function AdminShell({
   title,

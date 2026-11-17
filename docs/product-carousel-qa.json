@@ -1,0 +1,25 @@
+[
+  {
+    "width": 1440,
+    "visible": 4,
+    "cards": 18,
+    "aligned": true,
+    "overflow": false,
+    "arrows": "pass",
+    "endState": "pass",
+    "cart": "pass",
+    "explore": "pass"
+  },
+  {
+    "width": 390,
+    "visible": 2,
+    "cards": 18,
+    "aligned": true,
+    "overflow": false,
+    "arrows": "pass",
+    "endState": "pass",
+    "cart": "pass",
+    "explore": "pass",
+    "touchSwipe": "pass"
+  }
+]

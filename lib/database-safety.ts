@@ -1,6 +1,6 @@
 import type { PrismaClient } from "@prisma/client";
 const allowed = new Set([
-  "Product",
+  "Product", "ProductContent", "ProductImage",
   "Inventory",
   "InventoryMovement",
   "Customer",

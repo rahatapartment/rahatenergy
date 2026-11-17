@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { usePinnedScene } from "./usePinnedScene";

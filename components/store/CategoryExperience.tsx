@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -14,7 +14,7 @@ import {
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { categories, imageFor } from "@/lib/catalogue";
 
-const icons = [Sun, Cable, BatteryCharging, Lightbulb, PlugZap];
+const icons = [Sun, Cable, BatteryCharging, Lightbulb, PlugZap, BatteryCharging];
 const chapters = [
   {
     slug: "solar-panels",
@@ -43,9 +43,10 @@ const chapters = [
   {
     slug: "energy-accessories",
     verb: "Complete.",
-    title: "The details connect everything.",
-    copy: "Explore the mounting, cabling and control essentials. Confirm the components that belong with your proposed system.",
+    title: "Comfort for your everyday.",
+    copy: "Explore the Rahat Hybrid Fan and Massage Chair for everyday comfort.",
   },
+  { slug: "power-stations", verb: "Go.", title: "Take your power with you.", copy: "Explore Rahat portable power stations for backup at home and power on the move." },
 ];
 
 export function CategoryExperience() {
@@ -180,7 +181,7 @@ export function CategoryExperience() {
               {chapter.verb}
             </span>
             <span className="element-image-note">
-              ILLUSTRATIVE CATEGORY PHOTOGRAPHY
+              RAHAT PRODUCT PHOTOGRAPHY
             </span>
           </div>
           <div className="element-description">

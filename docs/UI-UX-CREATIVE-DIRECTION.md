@@ -146,3 +146,9 @@ Use three matching product cards per category, truthful pricing/stock states, il
 ## Mobile reveal correction — 28 October 2026
 
 The homepage's earlier natural-scroll fallback below 700px has been removed. Preserve the pinned hero and curved second-section reveal on phones even when browser chrome reduces available height. Compact short-screen content and omit secondary actions where needed, rather than switching off the core transition. This supersedes the earlier homepage short-screen fallback guidance; other page treatments are unchanged.
+
+## Calmer confirmed identity — 29 October 2026
+
+Use the supplied square `logo.webp` in all shared brand placements and site icon metadata, retaining the compact sizing. The confirmed palette is emerald `#00A86B`, lime `#A8D545`, metallic gold `#D5B374`, champagne `#FFF08A` and black `#000000`.
+
+The user explicitly prefers a duller, calmer appearance. Use black and derived muted pine for substantial dark surfaces; keep paper for reading areas. Reserve exact emerald/lime for selective accents rather than expansive saturated panels. Buttons should feel restrained, and gold/champagne should remain quiet details. This supersedes the brighter primary-action treatment described earlier.

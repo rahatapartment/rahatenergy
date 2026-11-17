@@ -1,15 +1,15 @@
 /* Approved Rahat Energy palette. Deep green carries small white text;
    emerald, lime and metallic gold provide deliberate larger accents. */
 :root {
-  --brand-emerald: #009b4d;
-  --brand-gold: #d4af37;
-  --brand-lime: #a3e635;
-  --brand-deep: #006b3c;
-  --brand-champagne: #fff2a6;
-  --brand-green: #009b4d;
+  --brand-emerald: #00a86b;
+  --brand-gold: #d5b374;
+  --brand-lime: #a8d545;
+  --brand-deep: #1c4a3b;
+  --brand-champagne: #fff08a;
+  --brand-green: #00a86b;
   --brand-green-light: #e8f5e9;
-  --deep: #006b3c;
-  --lime: #a3e635;
+  --deep: #1c4a3b;
+  --lime: #a8d545;
 }
 .brand.brand-official {
   display: inline-flex;
@@ -139,7 +139,7 @@
   color: var(--brand-champagne);
 }
 .admin-premium .admin-topbar {
-  border-bottom-color: #d4af3760;
+  border-bottom-color: #d5b37460;
 }
 .admin-premium .admin-mode-pill {
   background: #fff8d8;
@@ -158,7 +158,7 @@
 }
 .admin-login-story {
   background:
-    radial-gradient(ellipse at 100% 100%, #009b4d, transparent 75%),
+    radial-gradient(ellipse at 100% 100%, #00a86b, transparent 75%),
     var(--brand-deep);
 }
 .admin-login-story h2 em {
@@ -196,13 +196,13 @@
 }
 .solutions-atmosphere {
   background:
-    linear-gradient(90deg, #003c22e6, #006b3c8c 42%, #009b4d12 80%),
+    linear-gradient(90deg, #10251ee6, #1c4a3b8c 42%, #00a86b12 80%),
     linear-gradient(
       180deg,
-      #003c2280,
+      #10251e80,
       transparent 35%,
-      #003c2240 65%,
-      #003c22e6
+      #10251e40 65%,
+      #10251ee6
     );
 }
 /* Accessible text variants of the approved colours. */

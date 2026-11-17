@@ -1,9 +1,9 @@
 import { QuickAdd } from "./QuickAdd";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import {
-  imageFor,
+  productImage,
   money,
   availability,
   type StoreProduct,
@@ -13,14 +13,14 @@ export function ProductCard({
   variant = "default",
 }: {
   product: StoreProduct;
-  variant?: "default" | "collection";
+  variant?: "default" | "collection" | "shop";
 }) {
   return (
     <article
       className={
         variant === "collection"
           ? "product-card collection-product"
-          : "product-card"
+          : variant === "shop" ? "product-card shop-product" : "product-card"
       }
     >
       {variant === "collection" && (
@@ -32,10 +32,12 @@ export function ProductCard({
       <Link href={`/shop/${p.slug}`} className="product-art">
         <span className="product-tag">{p.category}</span>
         <Image
-          src={imageFor(p.category)}
-          alt={`Illustrative photograph for ${p.name}; not the exact product`}
+          src={productImage(p)}
+          alt={p.name}
           sizes={
-            variant === "collection"
+            variant === "shop"
+              ? "(max-width: 600px) 44vw, (max-width: 1000px) 30vw, (max-width: 1440px) 23vw, 310px"
+              : variant === "collection"
               ? "(max-width: 600px) 88vw, (max-width: 1100px) 45vw, 40vw"
               : "(max-width: 540px) 90vw, (max-width: 1100px) 45vw, 28vw"
           }
@@ -47,7 +49,7 @@ export function ProductCard({
         </span>
       </Link>
       <div className="product-copy">
-        <span className="micro">ILLUSTRATIVE PHOTOGRAPHY</span>
+        {variant !== "shop" && <span className="micro">RAHAT PRODUCT PHOTOGRAPHY</span>}
         <h3>
           <Link href={`/shop/${p.slug}`}>{p.name}</Link>
         </h3>

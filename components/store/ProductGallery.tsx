@@ -1,11 +1,12 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import { Expand, Minus, Plus, X, ArrowUpRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { imageFor, type StoreProduct } from "@/lib/catalogue";
+import { productImage, type StoreProduct } from "@/lib/catalogue";
 
 export function ProductGallery({ product }: { product: StoreProduct }) {
+  const images = product.images.length ? product.images.map(encodeURI) : [productImage(product)];
   const [view, setView] = useState(0);
   const [open, setOpen] = useState(false);
   const [zoom, setZoom] = useState(100);
@@ -19,7 +20,7 @@ export function ProductGallery({ product }: { product: StoreProduct }) {
     };
   }, [open]);
   function enlarge() {
-    setZoom(view === 1 ? 140 : 100);
+    setZoom(100);
     dialog.current?.showModal();
     setOpen(true);
   }
@@ -27,15 +28,15 @@ export function ProductGallery({ product }: { product: StoreProduct }) {
     <div className="product-gallery-premium">
       <div className="product-gallery-topline">
         <span>{product.sku} / A CLOSER LOOK</span>
-        <span>{String(view + 1).padStart(2, "0")} — 02</span>
+        <span>{String(view + 1).padStart(2, "0")} — {String(images.length).padStart(2, "0")}</span>
       </div>
-      <div className={`product-gallery-scene gallery-view-${view}`}>
+      <div className={`product-gallery-scene gallery-photo`}>
         <Image
-          src={imageFor(product.category)}
-          alt={`Illustrative ${product.category.toLowerCase()} photography; not the exact ${product.name}`}
+          src={images[view]}
+          alt={`${product.name} — photo ${view + 1}`}
           width={1000}
           height={1000}
-          priority
+          priority={view === 0}
           sizes="(max-width: 800px) 88vw, 49vw"
         />
         <span className="gallery-registration" aria-hidden="true" />
@@ -48,7 +49,7 @@ export function ProductGallery({ product }: { product: StoreProduct }) {
         </button>
         <div className="gallery-scene-label">
           <span>
-            {view === 0 ? "The full composition." : "A study in detail."}
+            {`Product photo ${view + 1}` }
           </span>
           <button onClick={enlarge}>
             Look closer <ArrowUpRight size={15} />
@@ -60,36 +61,36 @@ export function ProductGallery({ product }: { product: StoreProduct }) {
         role="group"
         aria-label="Product image views"
       >
-        {["Full composition", "Detail crop"].map((label, index) => (
+        {images.map((src, index) => (
           <button
-            key={label}
+            key={src}
             aria-pressed={view === index}
-            onClick={() => setView(index)}
+            onClick={() => { setView(index); setZoom(100); }}
           >
-            <span className={`gallery-thumbnail thumb-view-${index}`}>
+            <span className={`gallery-thumbnail`}>
               <Image
-                src={imageFor(product.category)}
+                src={src}
                 alt=""
                 width={60}
                 height={60}
+                sizes="60px"
               />
             </span>
             <span>
               <small>0{index + 1} / VIEW</small>
-              {label}
+              Photo {index + 1}
             </span>
             <span className="gallery-selection-dot" aria-hidden="true" />
           </button>
         ))}
       </div>
       <p className="product-image-disclosure">
-        Illustrative category photography. The crop is the same image, not a
-        second product angle. Exact product photographs require confirmation.
+        Browse all {images.length} product photos supplied by Rahat Energy.
       </p>
       <dialog
         ref={dialog}
         className="product-image-viewer"
-        aria-label={`${product.name} illustrative image viewer`}
+        aria-label={`${product.name} image viewer`}
         onClose={() => setOpen(false)}
         onClick={(event) => {
           if (event.target === event.currentTarget) dialog.current?.close();
@@ -108,17 +109,17 @@ export function ProductGallery({ product }: { product: StoreProduct }) {
           </button>
         </div>
         <div className="viewer-canvas">
-          <Image
-            src={imageFor(product.category)}
-            alt={`Enlarged illustrative ${product.category.toLowerCase()}; not the exact product`}
+          {open && <Image
+            src={images[view]}
+            alt={`${product.name} — enlarged photo ${view + 1}`}
             width={1200}
             height={1200}
             sizes="90vw"
             style={{ transform: `scale(${zoom / 100})` }}
-          />
+          />}
         </div>
         <div className="viewer-toolbar">
-          <p>Illustrative photography · Exact model awaits confirmation</p>
+          <p>Product photo {view + 1} of {images.length}</p>
           <div
             className="viewer-zoom"
             role="group"

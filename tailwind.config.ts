@@ -7,12 +7,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        emerald: "#009B4D",
-        gold: "#D4AF37",
-        lime: "#A3E635",
-        "deep-green": "#006B3C",
-        champagne: "#FFF2A6",
-        ink: "#0A0A0A",
+        emerald: "#00A86B",
+        gold: "#D5B374",
+        lime: "#A8D545",
+        "deep-green": "#1C4A3B",
+        champagne: "#FFF08A",
+        black: "#000000",
+        ink: "#171C19",
         cream: "#F7F7F5",
       },
       fontFamily: {

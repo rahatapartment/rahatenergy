@@ -1,6 +1,6 @@
 # Rahat Energy
 
-**Current stage: Phase 4 operations. Supabase provisioning is deferred.** Review the database-free, read-only walkthrough at `/admin/preview`. See [Phase 4 report](docs/PHASE-4.md).
+**Current stage: operations and connected product management.** Review the database-free, read-only walkthrough at `/admin/preview`. See [Phase 4 report](docs/PHASE-4.md).
 
 Independent Next.js 14 storefront converted from the isolated source. Phase 3 adds server-authoritative test checkout, stock reservations, verified payments, private order confirmation and order operations to the existing storefront. No live payments or production deployment.
 
@@ -25,9 +25,9 @@ npm run db:check
 npm run db:activate
 ```
 
-The migration creates the energy schema and constraints; the seed inserts exactly 15 code-controlled identities and default inventory rows. Repeated seeding uses `ON CONFLICT DO NOTHING`, preserving prices, stock and availability. Initial inventory is zero, disabled and unpriced; this is a safe initialization, not verified business inventory. Product definitions live in `catalogue/products.json`. The API has no product create/delete methods; database checks restrict IDs/SKUs and a trigger prevents product identity updates/deletes. Future identity changes require a reviewed migration.
+The migration creates the energy schema and constraints; the seed inserts the active code-controlled identities and default inventory rows. Repeated seeding uses `ON CONFLICT DO NOTHING`, preserving prices, stock and availability. Initial inventory is zero and disabled, with owner-supplied catalogue prices where available; this is a safe initialization, not verified business inventory. Product definitions live in `catalogue/products.json`. The API has no product create/delete methods; database checks restrict IDs/SKUs and a trigger prevents product identity updates/deletes. Future identity changes require a reviewed migration.
 
-**Supabase status:** not provisioned or activated. Migrations, idempotent seeding and transactional reads/writes have been validated against a disposable local PostgreSQL instance only. No successful external Paystack transaction is claimed.
+**Service status:** the owner has an existing Vercel/Supabase setup. Production configuration was shown in Vercel, and local settings were restored from the owner’s Desktop file. The last local read-only connection check returned a pooler tenant error; production connectivity has not been independently verified in this update. No production migrations or provider transactions were performed.
 
 ## Independent admin access
 
@@ -40,8 +40,8 @@ Connected deployments use shared PostgreSQL route counters; disconnected develop
 ## Pages
 
 - `/` — home
-- `/shop` — search, categories, sorting and stock filter
-- `/shop/[slug]` — fifteen dedicated product pages
+- `/shop` — search, categories and sorting
+- `/shop/[slug]` — 18 dedicated product pages
 - `/cart` — persistent multi-product cart
 - `/checkout` — server-authoritative test checkout (configuration required)
 - `/orders/[reference]` — private verified order confirmation and status
@@ -74,3 +74,21 @@ Current implementation, activation instructions, changed files, verification res
 ## Open the correct workspace
 
 Open `Rahat Energy.code-workspace` in your editor, or open this `rahat-energy` directory directly. The containing folder holds the original apartment project and is not the Energy application root. Never edit its environment file for Energy configuration.
+
+The November 2026 catalogue uses all 65 uploaded product photos across 18 listings. Apply migration `202611170001_uploaded_catalogue` to add the new identities and supplied prices to an existing database. Retired placeholder rows remain for historical references and are disabled. Stock and enabled status are not inferred from photos. Power station and garden pole light prices remain on request.
+
+## Product management update
+
+Owners can edit product names, descriptions, categories, specifications, SEO and gallery order at `/admin/products/[id]`. The first photo becomes the cover. Slugs, IDs and SKUs remain fixed to preserve order references. Price and stock remain in Inventory.
+
+Apply migrations through `npm run db:activate` against the existing dedicated Energy project before using the editor. Migration `202611170002_product_management` adds editable presentation records and compressed image storage. The preceding uploaded-catalogue migration sets supplied prices and disables retired placeholders: review it before applying to operational data. No production migration is run by builds or tests.
+
+New uploads are decoded and validated with Sharp, limited to 10 MB/24 megapixels, stripped of metadata, resized within 1600px and converted to WebP. Database-backed 160px and 640px variants support thumbnails and mobile delivery. Content hashes support deduplication and immutable caching. Uploads require an owner session; content edits are audited and reject stale versions. Removing a gallery image does not delete the stored asset.
+
+Connected storefront prices come directly from Inventory, including an explicitly unpriced value. Product names in new checkout snapshots use the edited presentation data. Historic order snapshots stay unchanged.
+
+`npm test` isolates unit/API tests from local production secrets. `npm run test:integration` still requires a disposable loopback database ending in `_test`; it must never use the production database. Current production connection and provider status must be checked separately; no successful external connection or deployment is claimed by this update.
+
+## Launch readiness
+
+`/admin/readiness` gives signed-in staff a read-only product, price, stock, delivery, owner-account and worker checklist. It never changes environment variables, calls payment/email providers or marks configured services as externally verified. `/admin/preview/readiness` offers a database-free explanation of these checks. Missing connection data is shown as unverified rather than replaced with invented inventory.

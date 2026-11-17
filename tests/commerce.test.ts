@@ -21,18 +21,17 @@ const product: StoreProduct = {
   lowStockThreshold: 5,
   version: 0,
 };
-test("catalogue contains exactly 15 unique provisional identities without commercial claims", () => {
-  assert.equal(catalogue.length, 15);
+test("catalogue contains unique owner-supplied products with real photographs and valid prices", () => {
+  assert.equal(catalogue.length, 18);
   for (const k of ["id", "sku", "slug"] as const)
-    assert.equal(new Set(catalogue.map((p) => p[k])).size, 15);
-  assert.ok(
-    catalogue.every(
-      (p) =>
-        p.verification === "placeholder" &&
-        p.images.length === 0 &&
-        Object.keys(p.specifications).length === 0,
-    ),
-  );
+    assert.equal(new Set(catalogue.map(p => p[k])).size, catalogue.length);
+  for (const p of catalogue) {
+    assert.equal(p.verification, "owner-confirmed");
+    assert.ok(p.images.length > 0);
+    for (const image of p.images) assert.ok(readFileSync(`public${image}`).length > 0);
+    assert.ok(p.priceKobo === null || (Number.isSafeInteger(p.priceKobo) && p.priceKobo > 0));
+  }
+  assert.equal(catalogue.find(p => p.name === "Rahat Lithium Battery 32kWh")?.priceKobo, 450000000);
 });
 test("persisted cart rejects corruption, unknown identities, fractional and negative quantities; merges duplicates", () => {
   assert.deepEqual(normalizeCart(null), []);

@@ -1,15 +1,13 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
-import { categories } from "@/lib/catalogue";
-import { MoveHorizontal } from "lucide-react";
 import { storeData } from "@/lib/store-data";
 import { faqs } from "@/lib/content";
 import { FAQList } from "@/components/store/Content";
 import { CategoryExperience } from "@/components/store/CategoryExperience";
 import { HomeMotion } from "@/components/store/HomeMotion";
 import { HeroExperience } from "@/components/store/HeroExperience";
-import { ProductCard } from "@/components/store/ProductCard";
+import { ProductCarousel } from "@/components/store/ProductCarousel";
 export const dynamic = "force-dynamic";
 export default async function Home() {
   const { products } = await storeData();
@@ -57,69 +55,7 @@ export default async function Home() {
             </div>
           </section>
           <CategoryExperience />
-          <section
-            id="frequently-bought"
-            className="curated-edit energy-essentials"
-            aria-labelledby="curated-title"
-          >
-            <div className="curated-heading" data-reveal>
-              <div>
-                <span className="eyebrow">03 / SHOP THE ENERGY ESSENTIALS</span>
-                <h2 id="curated-title">
-                  Five categories.
-                  <br />
-                  <em>Find your next essential.</em>
-                </h2>
-              </div>
-              <div className="curated-intro">
-                <p>
-                  One featured product from every category. Compare your
-                  options, build your cart and confirm the details before
-                  ordering.
-                </p>
-                <Link href="/shop" className="editorial-inline-link">
-                  Explore all products <ArrowUpRight size={18} />
-                </Link>
-              </div>
-            </div>
-            <div className="curated-products">
-              {categories
-                .map((category) =>
-                  products.find((product) => product.category === category),
-                )
-                .filter(
-                  (product): product is (typeof products)[number] => !!product,
-                )
-                .map((product, index) => (
-                  <div className="curated-product" key={product.id} data-reveal>
-                    <div className="curated-product-index">
-                      <span>0{index + 1}</span>
-                      <span>
-                        {
-                          [
-                            "CAPTURE THE LIGHT",
-                            "MAKE THE CONNECTION",
-                            "SAVE THE POSSIBILITY",
-                            "LIGHT YOUR SPACE",
-                            "COMPLETE YOUR SETUP",
-                          ][index]
-                        }
-                      </span>
-                    </div>
-                    <ProductCard product={product} />
-                  </div>
-                ))}
-            </div>
-            <span className="essentials-swipe-hint">
-              <MoveHorizontal size={18} />
-              Swipe to browse all five categories
-            </span>
-            <p className="curated-disclosure">
-              Curated product highlights, not a verified sales ranking. Product
-              identities and images are provisional; confirm models, prices and
-              availability before purchasing.
-            </p>
-          </section>
+          <ProductCarousel products={products} />
           <section className="living-energy" aria-labelledby="living-title">
             <Image
               src="/images/hero.webp"

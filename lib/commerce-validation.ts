@@ -16,7 +16,7 @@ export const linesSchema = z
       .strict(),
   )
   .min(1)
-  .max(15)
+  .max(catalogue.length)
   .refine(
     (lines) => new Set(lines.map((l) => l.productId)).size === lines.length,
     "Duplicate products",

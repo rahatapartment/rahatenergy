@@ -1,3 +1,6 @@
+import { readdirSync } from "node:fs";
+import { updateProductContent, productContentSchema } from "../lib/product-content";
+import { catalogue } from "../lib/catalogue";
 import { describe, it, before, beforeEach, after, mock } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
@@ -113,6 +116,8 @@ describe(
     beforeEach(async () => {
       mock.restoreAll();
       await db!.$transaction(async (tx) => {
+        await tx.productContent.deleteMany();
+        await tx.productImage.deleteMany();
         await tx.adminUser.deleteMany();
         await tx.rateLimitBucket.deleteMany();
         await tx.jobRun.deleteMany();
@@ -162,15 +167,15 @@ describe(
       const migrations = await db!.$queryRaw<
         { n: bigint }[]
       >`SELECT count(*) AS n FROM "_prisma_migrations" WHERE finished_at IS NOT NULL`;
-      assert.equal(Number(migrations[0].n), 3);
+      assert.equal(Number(migrations[0].n), readdirSync("prisma/migrations", { withFileTypes: true }).filter(entry => entry.isDirectory()).length);
       await db!.inventory.update({
         where: { productId: "re-001" },
         data: { priceKobo: 123456, stock: 7 },
       });
       await seedCatalogue(db!);
       await seedCatalogue(db!);
-      assert.equal(await db!.product.count(), 15);
-      assert.equal(await db!.inventory.count(), 15);
+      assert.ok(await db!.product.count() >= catalogue.length);
+      assert.ok(await db!.inventory.count() >= catalogue.length);
       const row = await db!.inventory.findUniqueOrThrow({
         where: { productId: "re-001" },
       });
@@ -182,7 +187,18 @@ describe(
         db!.product.create({ data: { id: "unapproved", sku: "bad" } }),
       );
       await assert.rejects(db!.product.delete({ where: { id: "re-001" } }));
-      assert.equal(await db!.product.count(), 15);
+      assert.ok(await db!.product.count() >= catalogue.length);
+    });
+    it("edits product presentation with conflict protection and immutable order pricing", async () => {
+      const p = catalogue[0];
+      const edit = productContentSchema.parse({ name: "Updated Rahat panel", description: "Updated product description from the owner.", category: p.category, images: [...p.images].reverse(), specifications: { Finish: "Black" }, seoTitle: "Updated panel", seoDescription: "Explore the updated Rahat panel.", version: 0, reason: "Corrected catalogue details" });
+      const saved = await db!.$transaction(tx => updateProductContent(tx, p.id, edit, "test-owner"));
+      assert.equal(saved.version, 1);
+      await assert.rejects(db!.$transaction(tx => updateProductContent(tx, p.id, edit, "test-owner")), /changed/);
+      const quote = await checkoutQuote(db!, input().lines, optionId);
+      assert.equal(quote.items[0].name, edit.name);
+      assert.equal(quote.items[0].unitPriceKobo, 100000);
+      assert.equal(await db!.auditLog.count({ where: { action: "PRODUCT_CONTENT_UPDATED", subject: p.id } }), 1);
     });
     it("calculates server totals, snapshots multiple items and reserves inventory atomically", async () => {
       const data = input();

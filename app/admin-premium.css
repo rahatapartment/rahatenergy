@@ -1,6 +1,6 @@
 /* Energy operations: a focused application system, separate from storefront scenes. */
 .admin-premium {
-  --admin-green: #006b3c;
+  --admin-green: #1c4a3b;
   --admin-ink: #293a30;
   --admin-muted: #56665c;
   display: grid;
@@ -17,7 +17,7 @@
   overflow-y: auto;
   width: auto;
   padding: 32px 20px 22px;
-  background: #006b3c;
+  background: #1c4a3b;
   color: #e7eee8;
   display: flex;
   flex-direction: column;
@@ -269,7 +269,7 @@
 }
 .admin-premium .inline-link,
 .admin-premium .text-link {
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .admin-premium .metric-grid {
   display: grid;
@@ -282,7 +282,7 @@
   border: 1px solid #d6e1d7;
   border-radius: 12px;
   padding: 23px;
-  box-shadow: 0 3px 14px #006b3c03;
+  box-shadow: 0 3px 14px #1c4a3b03;
   min-width: 0;
 }
 .admin-premium .metric > span {
@@ -357,7 +357,7 @@
   gap: 35px;
   justify-content: space-between;
   align-items: center;
-  background: #006b3c;
+  background: #1c4a3b;
   color: #edf4ed;
   border-radius: 14px;
   margin: 25px 0;
@@ -465,9 +465,9 @@
   letter-spacing: 0;
 }
 .admin-premium .button.dark {
-  background: #006b3c;
+  background: #1c4a3b;
   color: #fff;
-  border-color: #006b3c;
+  border-color: #1c4a3b;
 }
 .admin-premium .button.outline {
   color: #355f42;
@@ -497,7 +497,7 @@
   min-height: 0;
   width: 17px;
   height: 17px;
-  accent-color: #006b3c;
+  accent-color: #1c4a3b;
 }
 .admin-premium input:disabled,
 .admin-premium textarea:disabled,
@@ -703,7 +703,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .admin-table-footnote {
   font-size: 10px;
@@ -748,7 +748,7 @@
   justify-content: space-between;
   padding: 55px 10%;
   background:
-    radial-gradient(ellipse at 100% 100%, #41694c, transparent 70%), #006b3c;
+    radial-gradient(ellipse at 100% 100%, #41694c, transparent 70%), #1c4a3b;
   color: #edf4ed;
   min-height: 100svh;
 }
@@ -813,7 +813,7 @@
   height: 55px;
   border: 1px solid #aec9b5;
   border-radius: 15px;
-  color: #006b3c;
+  color: #1c4a3b;
   margin-bottom: 28px;
 }
 .admin-login-premium .login-form > .eyebrow {
@@ -831,7 +831,7 @@
   margin: 18px 0;
 }
 .admin-login-premium h1 em {
-  color: #006b3c;
+  color: #1c4a3b;
   font-weight: 400;
 }
 .admin-login-premium .login-form p {
@@ -878,9 +878,9 @@
 }
 .admin-login-premium .button {
   border-radius: 8px;
-  background: #006b3c;
+  background: #1c4a3b;
   color: #fff;
-  border: 1px solid #006b3c;
+  border: 1px solid #1c4a3b;
   font-size: 12px;
   display: flex;
   justify-content: space-between;
@@ -937,7 +937,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 6%;
-    background: #006b3c;
+    background: #1c4a3b;
     color: #edf4ed;
   }
   .admin-mobile-bar .brand {
@@ -1129,3 +1129,33 @@
     font-size: 16px;
   }
 }
+
+/* Connected catalogue management. */
+.product-editor { margin-top: 24px; max-width: 1100px; }
+.product-editor fieldset { border: 1px solid #d7dfd7; border-radius: 8px; padding: 22px; margin: 24px 0; }
+.product-editor legend { padding: 0 8px; font-size: 14px; font-weight: 600; }
+.product-editor-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.product-editor label { display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+.product-editor input:not([type=file]), .product-editor textarea, .product-editor select { width: 100%; padding: 12px; border: 1px solid #bdcbbb; border-radius: 5px; background: white; font: inherit; }
+.product-editor textarea { resize: vertical; }
+.editor-wide { grid-column: 1 / -1; }
+.editor-image-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(170px,1fr)); gap: 16px; margin: 20px 0; }
+.editor-image { border: 1px solid #d7dfd7; padding: 10px; background: #f8faf6; border-radius: 6px; }
+.editor-image img { width: 100%; height: 150px; object-fit: contain; }
+.editor-image strong { display: block; margin: 10px 0; font-size: 12px; }
+.editor-image-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.editor-image-actions button { min-height: 36px; padding: 6px 8px; border: 1px solid #c4d1c2; border-radius: 4px; background: white; font-size: 11px; }
+.editor-image-actions button:disabled { opacity: .4; }
+.editor-upload { max-width: 400px; }
+.editor-reason { margin-bottom: 20px; }
+@media (max-width: 600px) { .product-editor-fields { grid-template-columns: 1fr; } .product-editor fieldset { padding: 14px; } .editor-image-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; } }
+.editor-spec-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; align-items: center; margin: 10px 0; }
+.editor-spec-row button { padding: 10px; min-height: 42px; border: 1px solid #c4d1c2; border-radius: 4px; background: white; }
+@media (max-width: 600px) { .editor-spec-row { grid-template-columns: 1fr; padding-bottom: 12px; border-bottom: 1px solid #d7dfd7; } }
+.readiness-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin: 24px 0 32px; }
+.readiness-card { padding: 20px; border: 1px solid #d5ded4; border-radius: 8px; background: white; display: flex; flex-direction: column; }
+.readiness-card h2 { font-size: 16px; margin: 0 0 12px; }
+.readiness-card p { color: #5d6a60; font-size: 13px; line-height: 1.7; margin-bottom: 18px; }
+.readiness-card a { margin-top: auto; }
+@media(max-width: 1000px) { .readiness-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width: 600px) { .readiness-grid { grid-template-columns: 1fr; } }

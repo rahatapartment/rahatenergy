@@ -9,14 +9,18 @@
     "typecheck": "tsc --noEmit",
     "verify:isolation": "node scripts/verify-isolation.mjs",
     "lint": "next lint",
-    "test": "node --import tsx --test tests/*.test.ts",
+    "test": "node --import ./tests/test-env.mjs --import tsx --test tests/*.test.ts",
     "db:generate": "node scripts/prisma.mjs generate",
     "db:deploy": "node scripts/prisma.mjs migrate deploy",
     "db:seed": "tsx prisma/seed.ts",
     "db:validate": "node scripts/prisma.mjs validate",
     "db:check": "tsx scripts/activate-database.ts --check-only",
     "db:activate": "tsx scripts/activate-database.ts",
-    "test:integration": "node --import tsx --test tests/postgres.integration.ts"
+    "test:integration": "node --import tsx --test tests/postgres.integration.ts",
+    "images:optimize": "python3 scripts/optimize-images.py",
+    "db:backup": "node --import tsx scripts/backup-database.ts",
+    "db:release-check": "node --import tsx scripts/check-release-schema.ts",
+    "release:build": "npm run db:generate && npm run db:release-check && next build"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
@@ -26,6 +30,7 @@
     "next": "^14.2.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sharp": "^0.35.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Plus, Check } from "lucide-react";
 import { useCart } from "./CartProvider";
 import type { StoreProduct } from "@/lib/catalogue";
-export function QuickAdd({ product }: { product: StoreProduct }) {
+export function QuickAdd({ product, label }: { product: StoreProduct; label?: string }) {
   const { add, ready } = useCart();
   const [added, setAdded] = useState(false);
   const disabled =
@@ -22,9 +22,9 @@ export function QuickAdd({ product }: { product: StoreProduct }) {
     >
       {added
         ? "Added · add another"
-        : product.priceKobo === null
+        : label ?? (product.priceKobo === null
           ? "Save to your shortlist"
-          : "Add to cart"}
+          : "Add to cart")}
       {added ? <Check size={17} /> : <Plus size={17} />}
     </button>
   );

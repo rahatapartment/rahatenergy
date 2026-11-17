@@ -1,18 +1,19 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, ShoppingBag, Search } from "lucide-react";
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import { useCart } from "./CartProvider";
+import { Footer } from "./Footer";
 export function Brand() {
   return (
     <span className="brand brand-official">
       <Image
-        src="/images/logo.png"
+        src="/images/logo.webp"
         alt="Rahat Energy"
-        width={1301}
-        height={1209}
+        width={2500}
+        height={2500}
         sizes="(max-width: 600px) 84px, 120px"
         className="brand-logo"
       />
@@ -33,7 +34,6 @@ export function Chrome({ children }: { children: ReactNode }) {
       "energy-accessories",
     ].some((slug) => path === `/categories/${slug}`) ||
     [
-      "/shop",
       "/about",
       "/contact",
       "/faq",
@@ -207,62 +207,7 @@ export function Chrome({ children }: { children: ReactNode }) {
       </header>
       <div ref={content} className="store-content">
         {children}
-        <footer>
-          {(isHome || path === "/about") && (
-            <div className="footer-signature">
-              <span>
-                rahat<span>energy.</span>
-              </span>
-              <p>
-                A considered approach.
-                <br />A world of possibility.
-              </p>
-            </div>
-          )}
-          <div className="footer-top">
-            <div>
-              <Link href="/">
-                <Brand />
-              </Link>
-              <p>
-                Power for the way you live.
-                <br />
-                Possibilities for what comes next.
-              </p>
-            </div>
-            <div>
-              <h3>Explore</h3>
-              <Link href="/shop">Shop all products</Link>
-              <Link href="/solutions">Energy solutions</Link>
-              <Link href="/about">Our story</Link>
-              <Link href="/request-quote">Plan your energy project</Link>
-            </div>
-            <div>
-              <h3>Here to help</h3>
-              <Link href="/contact">Contact us</Link>
-              <Link href="/how-to-order">How to order</Link>
-              <Link href="/faq">FAQs</Link>
-              <Link href="/track-order">Order support</Link>
-              <Link href="/admin">Operations</Link>
-            </div>
-            <div className="footer-note">
-              <span className="eyebrow">DEVELOPMENT PREVIEW</span>
-              <p>
-                Catalogue details are provisional. Prices, availability and
-                delivery arrangements require confirmation.
-              </p>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <span>© {new Date().getFullYear()} Rahat Energy</span>
-            <nav aria-label="Policies" className="footer-policy-links">
-              <Link href="/policies/delivery">Delivery</Link>
-              <Link href="/policies/returns">Returns & warranty</Link>
-              <Link href="/policies/privacy">Privacy</Link>
-              <Link href="/policies/terms">Terms</Link>
-            </nav>
-          </div>
-        </footer>
+        <Footer brand={<Brand />} />
       </div>
     </>
   );

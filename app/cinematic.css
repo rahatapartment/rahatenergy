@@ -367,7 +367,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  color: #006b3c;
+  color: #1c4a3b;
   font-family: var(--font-editorial), Georgia, serif;
   font-size: 24px;
   letter-spacing: 0.12em;
@@ -399,7 +399,7 @@
 .energy-introduction h2 em {
   font-family: inherit;
   font-style: italic;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .introduction-bottom {
   display: grid;

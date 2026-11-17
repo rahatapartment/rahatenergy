@@ -13,6 +13,7 @@ const labels: Record<string, string> = {
   quotations: "Quotations",
   settings: "Settings",
   monitoring: "Monitoring",
+  readiness: "Launch readiness",
 };
 export default function Page({ params }: { params: { section?: string[] } }) {
   const section = params.section?.[0] || "overview";
@@ -205,7 +206,7 @@ export default function Page({ params }: { params: { section?: string[] } }) {
       ) : section === "products" || section === "inventory" ? (
         <>
           <p className="notice">
-            The catalogue has exactly 15 provisional identities. Product
+            The catalogue contains owner-supplied products. Product
             creation and deletion are unavailable. No sample prices or
             quantities are presented as real inventory.
           </p>
@@ -286,10 +287,17 @@ export default function Page({ params }: { params: { section?: string[] } }) {
           ))}
         </div>
       )}
+      {section === "readiness" && <div className="readiness-grid">{[
+        ["Catalogue", "Review product descriptions, specifications, photos and cover images."],
+        ["Inventory", "Confirm prices, available stock and which products can be purchased."],
+        ["Delivery", "Review delivery charges, supported locations and pickup arrangements."],
+        ["Owner access", "Confirm named owner accounts and staff permissions."],
+        ["Payments & email", "Complete a test order and verify payment and customer notification delivery."],
+        ["Background work", "Check recent successful worker runs and any failed notification jobs."],
+      ].map(([title, detail]) => <article className="readiness-card" key={title}><h2>{title}</h2><p>{detail}</p><span className="small muted">Preview only · no operational status claimed</span></article>)}</div>}
       <p className="notice" style={{ marginTop: 30 }}>
-        Supabase setup is deferred. The real operational pages remain empty or
-        unavailable until an independent database is connected. This walkthrough
-        is separate from those pages.
+        This walkthrough uses sample data and is separate from the real operational pages.
+        Real records and editing require sign-in and a working database connection.
       </p>
     </AdminShell>
   );

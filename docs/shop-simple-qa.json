@@ -1,0 +1,28 @@
+[
+  {
+    "width": 1440,
+    "overflow": false,
+    "columns": 4,
+    "productsTop": 421,
+    "cards": 18,
+    "brokenImages": 0,
+    "categoryFilter": "pass",
+    "search": "pass",
+    "priceSort": "pass",
+    "emptyState": "pass",
+    "reset": "pass"
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "columns": 2,
+    "productsTop": 526,
+    "cards": 18,
+    "brokenImages": 0,
+    "categoryFilter": "pass",
+    "search": "pass",
+    "priceSort": "pass",
+    "emptyState": "pass",
+    "reset": "pass"
+  }
+]

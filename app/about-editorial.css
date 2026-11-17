@@ -91,7 +91,7 @@
 .about-perspective-copy h2 em {
   font-family: inherit;
   font-style: italic;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .about-perspective-copy > p {
   font-size: 14px;
@@ -228,7 +228,7 @@
 .about-collection-heading h2 em {
   font-family: inherit;
   font-style: italic;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .about-collection-heading > p {
   font-size: 13px;
@@ -303,7 +303,7 @@
 }
 .about-conversation {
   padding: 40px var(--about-gutter) 30px;
-  background: #006b3c;
+  background: #1c4a3b;
   color: #f0f7ec;
   border-radius: 100px 100px 0 0;
   position: relative;
@@ -401,7 +401,7 @@
 }
 .about-enquiry-circle:hover {
   background: #d3e8da;
-  color: #006b3c;
+  color: #1c4a3b;
   transform: rotate(-4deg);
 }
 .about-conversation-endline {
@@ -422,7 +422,7 @@
   color: #edf6e9;
 }
 .about-experience :focus-visible {
-  outline-color: #006b3c;
+  outline-color: #1c4a3b;
 }
 .about-cinematic-hero :focus-visible,
 .about-principles :focus-visible,

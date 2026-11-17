@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import { ArrowUpRight, ChevronRight, ArrowDown, Check } from "lucide-react";
-import { catalogue, imageFor, money, availability } from "@/lib/catalogue";
+import { catalogue, productImage, money, availability } from "@/lib/catalogue";
 import { storeData } from "@/lib/store-data";
 import { ProductGallery } from "@/components/store/ProductGallery";
 import { ProductPurchase } from "@/components/store/ProductPurchase";
@@ -14,11 +14,12 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const product = catalogue.find((item) => item.slug === params.slug);
+  const { products } = await storeData();
+  const product = products.find((item) => item.slug === params.slug);
   return {
-    title: product?.name || "Product not found",
+    title: product?.seo.title || "Product not found",
     description: product
-      ? `Explore ${product.name}. Request verified specifications and pricing from Rahat Energy.`
+      ? product.seo.description
       : undefined,
   };
 }
@@ -50,10 +51,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <span>{p.sku} / THE CONSIDERED COLLECTION</span>
           </div>
           <h1 id="product-title">{p.name}</h1>
-          <p>{content.productDescription}</p>
+          <p>{p.description}</p>
           <div className="product-identity-note">
             <span aria-hidden="true" />
-            Provisional catalogue identity · Exact model awaits verification
+            Rahat Energy · Product collection
           </div>
         </div>
         <div className="product-decision">
@@ -105,8 +106,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       >
         <div className="product-overview-art">
           <Image
-            src={imageFor(p.category)}
-            alt={`Illustrative ${p.category.toLowerCase()} composition; exact product photo pending`}
+            src={productImage(p)}
+            alt={p.name}
             fill
             sizes="(max-width: 800px) 100vw, 48vw"
           />
@@ -124,7 +125,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             Explore the right fit <ArrowUpRight size={20} strokeWidth={1.2} />
           </Link>
           <span className="overview-image-note">
-            Photography represents the category, not an exact model.
+            Product photography supplied by Rahat Energy.
           </span>
         </div>
       </section>
@@ -263,7 +264,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
         <div className="product-related-endnote">
           <p>
-            Other provisional options in this category. Confirm specifications
+            Other products in this category. Confirm specifications
             and suitability before choosing.
           </p>
           <Link href="/shop">

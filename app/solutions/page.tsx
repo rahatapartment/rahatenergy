@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/WebImage";
 import { ArrowUpRight } from "lucide-react";
 import { solutionContent } from "@/lib/content";
 import { SolutionsHero } from "@/components/store/SolutionsHero";

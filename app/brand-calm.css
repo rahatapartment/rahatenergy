@@ -1,0 +1,123 @@
+/* Confirmed palette, 29 October 2026. Exact accents; quieter derived surfaces. */
+:root {
+  --brand-emerald: #00a86b;
+  --brand-lime: #a8d545;
+  --brand-gold: #d5b374;
+  --brand-champagne: #fff08a;
+  --brand-black: #000000;
+  --brand-deep: #1c4a3b;
+  --brand-green: var(--brand-deep);
+  --brand-green-light: #e9eee8;
+  --deep: var(--brand-deep);
+  --lime: var(--brand-lime);
+}
+/* Avoid large, luminous green surfaces: reading areas remain warm paper. */
+.element-experience,
+.category-planning,
+.cart-guidance,
+.tracking-perspectives {
+  background: var(--brand-deep);
+}
+footer,
+.next-chapter,
+.solutions-closing,
+.help-closing,
+.cart-closing,
+.tracking-assistance,
+.category-closing,
+.content-cta {
+  background: var(--brand-black);
+}
+.button.dark,
+.product-add-button,
+.cart-primary-action,
+.tracking-submit,
+.category-quote-link {
+  background: var(--brand-deep);
+  border-color: var(--brand-deep);
+  color: #f7f8f3;
+}
+.button.dark:hover:not(:disabled),
+.product-add-button:hover:not(:disabled),
+.cart-primary-action:hover,
+.tracking-submit:hover:not(:disabled),
+.category-quote-link:hover {
+  background: #102d23;
+  border-color: #102d23;
+  color: #fff;
+}
+.button.lime {
+  background: #e8eddf;
+  border-color: #a4b291;
+  color: #263d2f;
+}
+.cinematic-header .header-quote {
+  background: var(--brand-deep);
+  border-color: #789384;
+  color: #f7f8f3;
+}
+.cinematic-header .header-quote:hover {
+  background: #102d23;
+  border-color: var(--brand-gold);
+  color: #fff;
+}
+.sales-hero-atmosphere {
+  background:
+    linear-gradient(90deg, #000000cf, #10251e94 43%, #00000010 85%),
+    linear-gradient(180deg, #00000065, transparent 40%, #000000c9);
+}
+.solutions-atmosphere {
+  background:
+    linear-gradient(90deg, #000000d9, #183b3099 42%, #00000010 80%),
+    linear-gradient(
+      180deg,
+      #00000070,
+      transparent 35%,
+      #00000020 65%,
+      #000000d9
+    );
+}
+.element-tabs > button[aria-selected="true"] {
+  background: #10251e;
+  border-color: var(--brand-gold);
+}
+.element-tabs > button > .element-category-icon {
+  color: #c3d1a6;
+}
+.sales-slide-dots button[aria-pressed="true"] > span {
+  background: var(--brand-gold);
+}
+.solutions-hero-enter > span:last-child {
+  color: var(--brand-champagne);
+  border-color: var(--brand-gold);
+}
+.admin-premium .admin-sidebar,
+.admin-mobile-bar {
+  background: var(--brand-black);
+}
+.admin-premium .admin-sidebar nav a[aria-current] {
+  background: #24392e;
+  border-color: #6b805c;
+  color: #f1f5e9;
+}
+.admin-premium .admin-sidebar nav a[aria-current] svg {
+  color: var(--brand-lime);
+}
+.admin-premium .admin-operating-note {
+  background: #10251e;
+}
+.admin-premium .admin-quick-routes > a > svg:first-child {
+  color: var(--brand-deep);
+}
+.admin-login-story {
+  background:
+    radial-gradient(ellipse at 100% 100%, #1c4a3b90, transparent 75%),
+    var(--brand-black);
+}
+/* The internal admin footer is a reading-surface footer, not a dark brand panel. */
+.admin-premium .admin-workspace-footer {
+  background: transparent;
+}
+.next-chapter .eyebrow {
+  color: var(--brand-champagne);
+}

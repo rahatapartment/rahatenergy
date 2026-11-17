@@ -234,7 +234,7 @@
   font-family: var(--font-editorial), Georgia, serif;
   font-size: 25px;
   letter-spacing: 0.12em;
-  color: #006b3c;
+  color: #1c4a3b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -264,7 +264,7 @@
 .solutions-introduction h2 em {
   font-family: inherit;
   font-style: italic;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .solutions-introduction > p {
   font-size: 14px;
@@ -326,7 +326,7 @@
 .solutions-perspectives-heading h2 em {
   font-family: inherit;
   font-style: italic;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .solutions-perspectives-heading > p {
   font-size: 14px;
@@ -668,7 +668,7 @@
 .solutions-approach h2 em {
   font-family: inherit;
   font-style: italic;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .solutions-approach > div > p {
   font-size: 14px;
@@ -719,7 +719,7 @@
 }
 .solutions-closing {
   padding: 40px var(--solutions-gutter) 35px;
-  background: #006b3c;
+  background: #1c4a3b;
   color: #f1f7ed;
   border-radius: 100px 100px 0 0;
   position: relative;
@@ -801,7 +801,7 @@
 }
 .solutions-closing-action:hover {
   background: #d0e7d7;
-  color: #006b3c;
+  color: #1c4a3b;
   transform: rotate(-4deg);
 }
 .solutions-scope-note {
@@ -978,7 +978,7 @@
 .building-blocks-heading h2 em {
   font-family: inherit;
   font-style: italic;
-  color: #006b3c;
+  color: #1c4a3b;
 }
 .building-blocks-grid {
   display: grid;
@@ -1068,7 +1068,7 @@
   color: #355f42;
 }
 .solutions-experience :focus-visible {
-  outline-color: #006b3c;
+  outline-color: #1c4a3b;
 }
 .solutions-cinematic-hero :focus-visible,
 .solution-planner :focus-visible,

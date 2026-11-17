@@ -1,6 +1,6 @@
 /* Rahat Energy: forest green, silver (#ccc), 80% black (#333), and light. */
 :root {
-  --brand-green: #006b3c;
+  --brand-green: #1c4a3b;
   --brand-green-light: #cce4d4;
   --brand-silver: #ccc;
   --brand-black: #333;
@@ -87,7 +87,7 @@ body {
 }
 /* The collection is a single, explorable editorial installation. */
 .element-experience {
-  background: #006b3c;
+  background: #1c4a3b;
   color: #f2f5f1;
   padding: 43px var(--editorial-gutter) 32px;
   position: relative;
@@ -377,7 +377,7 @@ body {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  color: #006b3c;
+  color: #1c4a3b;
   right: 15px;
   bottom: 15px;
 }
@@ -429,7 +429,7 @@ body {
   position: relative;
   min-height: 880px;
   color: #fff;
-  background: #006b3c;
+  background: #1c4a3b;
   isolation: isolate;
   padding: 45px var(--editorial-gutter) 0;
   display: flex;
@@ -686,7 +686,7 @@ body {
 }
 /* A generous green closing scene, rather than another boxed banner. */
 .next-chapter {
-  background: #006b3c;
+  background: #1c4a3b;
   color: #f4f7f3;
   padding: 40px var(--editorial-gutter) 30px;
   position: relative;
@@ -773,7 +773,7 @@ body {
 }
 .chapter-action:hover {
   background: #d4e8da;
-  color: #006b3c;
+  color: #1c4a3b;
   transform: rotate(-5deg);
 }
 .chapter-bottomline {
@@ -790,7 +790,7 @@ body {
 }
 /* The footer becomes a recognizable final signature. */
 footer {
-  background: #006b3c;
+  background: #1c4a3b;
   color: #f3f5f1;
 }
 .footer-signature {
@@ -1571,7 +1571,7 @@ footer .brand-icon {
 
 /* Keep off-screen tabs and operational navigation legible in every state. */
 .element-tabs > button:not([aria-selected="true"]) {
-  background: #006b3c;
+  background: #1c4a3b;
 }
 .admin-sidebar nav a[aria-current="page"],
 .admin-sidebar nav a:hover {
