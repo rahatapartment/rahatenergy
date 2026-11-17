@@ -46,6 +46,7 @@ export function ProductCard({
         <h3>
           <Link href={`/shop/${p.slug}`}>{p.name}</Link>
         </h3>
+        <p className="card-description">{p.description}</p>
         <div className="product-bottom">
           <strong>{money(p.priceKobo)}</strong>
           {!isOutOfStock(p) && <span className="stock">

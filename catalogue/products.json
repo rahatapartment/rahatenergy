@@ -6,7 +6,7 @@
     "name": "Rahat Solar Panel",
     "category": "Solar Panels",
     "verification": "owner-confirmed",
-    "description": "Rahat Solar Panel from Rahat Energy.",
+    "description": "Solar panels that turn sunlight into power for your energy system.",
     "images": [
       "/products/PANEL/Solar Panel.jpeg",
       "/products/PANEL/PANEL 2.jpeg"
@@ -25,7 +25,7 @@
     "name": "Rahat Solar Inverter 3.5kVA",
     "category": "Solar Inverters",
     "verification": "owner-confirmed",
-    "description": "Rahat Solar Inverter 3.5kVA from Rahat Energy.",
+    "description": "3.5kVA solar inverter for your solar power setup.",
     "images": [
       "/products/INVERTER/3.5KVA/FRONT.jpg",
       "/products/INVERTER/3.5KVA/Copy of ALL SIDE.jpg",
@@ -45,7 +45,7 @@
     "name": "Rahat Solar Inverter 5.5kVA",
     "category": "Solar Inverters",
     "verification": "owner-confirmed",
-    "description": "Rahat Solar Inverter 5.5kVA from Rahat Energy.",
+    "description": "5.5kVA solar inverter for your solar power setup.",
     "images": [
       "/products/INVERTER/5.5KVA INVERTER/PR.JPG",
       "/products/INVERTER/5.5KVA INVERTER/ALL SIDE.jpg",
@@ -65,7 +65,7 @@
     "name": "Rahat Solar Inverter 10kVA",
     "category": "Solar Inverters",
     "verification": "owner-confirmed",
-    "description": "Rahat Solar Inverter 10kVA from Rahat Energy.",
+    "description": "10kVA solar inverter for your solar power setup.",
     "images": [
       "/products/INVERTER/10KVA/RAHAT_ENERGY_inverter_10kva.jpg",
       "/products/INVERTER/10KVA/10ka.jpg",
@@ -85,7 +85,7 @@
     "name": "Rahat Lithium Battery 5kWh",
     "category": "Battery Storage",
     "verification": "owner-confirmed",
-    "description": "Rahat Lithium Battery 5kWh from Rahat Energy.",
+    "description": "5kWh lithium battery for storing energy for later use.",
     "images": [
       "/products/BATTERY/5k wat/5K WAT .jpg",
       "/products/BATTERY/5k wat/5_10K WAT.jpeg"
@@ -104,7 +104,7 @@
     "name": "Rahat Lithium Battery 10kWh",
     "category": "Battery Storage",
     "verification": "owner-confirmed",
-    "description": "Rahat Lithium Battery 10kWh from Rahat Energy.",
+    "description": "10kWh lithium battery for storing energy for later use.",
     "images": [
       "/products/BATTERY/10K WAT/10WAT.jpg",
       "/products/BATTERY/10K WAT/10_5K WAT.jpeg",
@@ -124,7 +124,7 @@
     "name": "Rahat Lithium Battery 15kWh",
     "category": "Battery Storage",
     "verification": "owner-confirmed",
-    "description": "Rahat Lithium Battery 15kWh from Rahat Energy.",
+    "description": "15kWh lithium battery for storing energy for later use.",
     "images": [
       "/products/BATTERY/15000WAT/FRONT..jpg",
       "/products/BATTERY/15000WAT/DN.jpg",
@@ -144,7 +144,7 @@
     "name": "Rahat Lithium Battery 32kWh",
     "category": "Battery Storage",
     "verification": "owner-confirmed",
-    "description": "Rahat Lithium Battery 32kWh from Rahat Energy.",
+    "description": "32kWh lithium battery for storing energy for later use.",
     "images": [
       "/products/BATTERY/32K WAT/FRONT.png",
       "/products/BATTERY/32K WAT/POWER.jpg",
@@ -165,7 +165,7 @@
     "name": "Rahat Hybrid Fan",
     "category": "Energy Accessories",
     "verification": "owner-confirmed",
-    "description": "Rahat Hybrid Fan from Rahat Energy.",
+    "description": "A hybrid fan for everyday comfort at home or in your workspace.",
     "images": [
       "/products/HYBRID FAN/Front.jpg",
       "/products/HYBRID FAN/All display.jpg",
@@ -186,7 +186,7 @@
     "name": "Rahat Massage Chair",
     "category": "Energy Accessories",
     "verification": "owner-confirmed",
-    "description": "Rahat Massage Chair from Rahat Energy.",
+    "description": "A massage chair for relaxing and unwinding at home.",
     "images": [
       "/products/MASSAGE CHAIR/MASSAGE CHAIR.jpeg",
       "/products/MASSAGE CHAIR/DETAIL1.jpg",
@@ -207,7 +207,7 @@
     "name": "Rahat Garden Moonlight",
     "category": "Solar Lighting",
     "verification": "owner-confirmed",
-    "description": "Rahat Garden Moonlight from Rahat Energy.",
+    "description": "Decorative moon-style lighting for gardens and outdoor spaces.",
     "images": [
       "/products/GARDEM MOON LIGHT/1dad54e0-4b51-434e-9950-0a1c98f225b7.jpg",
       "/products/GARDEM MOON LIGHT/296b9c4a-e41b-4de7-8e92-6dcaf012acb8.jpg"
@@ -226,7 +226,7 @@
     "name": "Rahat Garden Light",
     "category": "Solar Lighting",
     "verification": "owner-confirmed",
-    "description": "Rahat Garden Light from Rahat Energy.",
+    "description": "A tall garden pole light for outdoor spaces and pathways.",
     "images": [
       "/products/GARDEN POLE LIGHT/GARDEN LIGHT.jpeg",
       "/products/GARDEN POLE LIGHT/PR GARDEN LIGHT.PNG"
@@ -245,7 +245,7 @@
     "name": "Rahat Power Station 400W 256Wh",
     "category": "Power Stations",
     "verification": "owner-confirmed",
-    "description": "Rahat Power Station 400W 256Wh from Rahat Energy.",
+    "description": "Portable power station with 400W output and 256Wh battery capacity.",
     "images": [
       "/products/Power Stations(ALL)/400W , 256WH/256WH..jpg",
       "/products/Power Stations(ALL)/400W , 256WH/FULL.jpg",
@@ -269,7 +269,7 @@
     "name": "Rahat Power Station 500W 384Wh",
     "category": "Power Stations",
     "verification": "owner-confirmed",
-    "description": "Rahat Power Station 500W 384Wh from Rahat Energy.",
+    "description": "Portable power station with 500W output and 384Wh battery capacity.",
     "images": [
       "/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W..jpg",
       "/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W.jpg",
@@ -292,7 +292,7 @@
     "name": "Rahat Power Station 800W 576Wh",
     "category": "Power Stations",
     "verification": "owner-confirmed",
-    "description": "Rahat Power Station 800W 576Wh from Rahat Energy.",
+    "description": "Portable power station with 800W output and 576Wh battery capacity.",
     "images": [
       "/products/Power Stations(ALL)/800W , 576WH/FRONT.jpg",
       "/products/Power Stations(ALL)/800W , 576WH/BACK.png",
@@ -316,7 +316,7 @@
     "name": "Rahat Power Station 1000W 768Wh",
     "category": "Power Stations",
     "verification": "owner-confirmed",
-    "description": "Rahat Power Station 1000W 768Wh from Rahat Energy.",
+    "description": "Portable power station with 1000W output and 768Wh battery capacity.",
     "images": [
       "/products/Power Stations(ALL)/1000W , 768WH/DC12V.jpg",
       "/products/Power Stations(ALL)/1000W , 768WH/1000 WAT POWER STATION.jpeg",
@@ -341,7 +341,7 @@
     "name": "Rahat Power Station 1500W 1152Wh",
     "category": "Power Stations",
     "verification": "owner-confirmed",
-    "description": "Rahat Power Station 1500W 1152Wh from Rahat Energy.",
+    "description": "Portable power station with 1500W output and 1152Wh battery capacity.",
     "images": [
       "/products/Power Stations(ALL)/1500W , 1152WH/FRONT.jpg",
       "/products/Power Stations(ALL)/1500W , 1152WH/220V SIDE.jpg",
@@ -370,7 +370,7 @@
     "name": "Rahat Power Station 3000W 2662Wh",
     "category": "Power Stations",
     "verification": "owner-confirmed",
-    "description": "Rahat Power Station 3000W 2662Wh from Rahat Energy.",
+    "description": "Portable power station with 3000W output and 2662Wh battery capacity.",
     "images": [
       "/products/Power Stations(ALL)/3000W , 2662WH/FRONT.jpg",
       "/products/Power Stations(ALL)/3000W , 2662WH/BACK.png",

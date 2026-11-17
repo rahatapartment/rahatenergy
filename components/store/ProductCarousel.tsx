@@ -8,14 +8,6 @@ import { money, productImage, type StoreProduct } from "@/lib/catalogue";
 import { ProductStockBadge } from "./ProductStockBadge";
 import { QuickAdd } from "./QuickAdd";
 
-const descriptions: Record<string, string> = {
-  "Solar Panels": "Solar panels for your energy system.",
-  "Solar Inverters": "An inverter for your solar and battery setup.",
-  "Battery Storage": "Lithium battery storage for your energy system.",
-  "Solar Lighting": "Garden lighting for your outdoor space.",
-  "Power Stations": "Portable power for home and on the move.",
-};
-
 export function ProductCarousel({ products }: { products: StoreProduct[] }) {
   const rail = useRef<HTMLUListElement>(null);
   const [canBack, setCanBack] = useState(false);
@@ -63,7 +55,7 @@ export function ProductCarousel({ products }: { products: StoreProduct[] }) {
               <div className="home-product-details card-content">
                 <span className="card-category">{product.category}</span>
                 <h3><Link href={`/shop/${product.slug}`}>{product.name}</Link></h3>
-                <p>{product.contentVersion ? product.description : descriptions[product.category] ?? (product.name.includes("Fan") ? "A hybrid fan for everyday comfort." : "A massage chair for relaxing at home.")}</p>
+                <p className="card-description">{product.description}</p>
                 <strong>{money(product.priceKobo)}</strong>
                 <div className="home-product-actions card-actions">
                   <QuickAdd product={product} label="Add to cart" />

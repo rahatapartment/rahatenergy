@@ -58,3 +58,4 @@
   .commerce-card.commerce-card .card-actions .quick-add,
   .commerce-card.commerce-card .card-explore { font-size: 13px; }
 }
+.commerce-card .card-description { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
