@@ -28,8 +28,12 @@ export function money(kobo: number | null) {
         maximumFractionDigits: 2,
       }).format(kobo / 100);
 }
+export function isOutOfStock(p: StoreProduct) {
+  return p.stock !== null && p.stock - p.reserved <= 0;
+}
 export function availability(p: StoreProduct) {
   if (p.stock === null) return "Availability unconfirmed";
+  if (isOutOfStock(p)) return "Out of stock";
   if (!p.enabled) return "Purchases paused";
   return p.stock - p.reserved > 0 ? "In stock" : "Out of stock";
 }

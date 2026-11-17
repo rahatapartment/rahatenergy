@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "@/components/WebImage";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { money, productImage, type StoreProduct } from "@/lib/catalogue";
+import { ProductStockBadge } from "./ProductStockBadge";
 import { QuickAdd } from "./QuickAdd";
 
 const descriptions: Record<string, string> = {
@@ -54,17 +55,19 @@ export function ProductCarousel({ products }: { products: StoreProduct[] }) {
       }}>
         {products.map(product => (
           <li className="home-product-item" key={product.id}>
-            <article className="home-product-link">
-              <Link href={`/shop/${product.slug}`} className="home-product-image">
+            <article className="home-product-link commerce-card">
+              <Link href={`/shop/${product.slug}`} className="home-product-image card-media">
+                <ProductStockBadge product={product} />
                 <Image src={productImage(product)} alt={product.name} width={600} height={600} sizes="(max-width: 600px) 44vw, (max-width: 900px) 45vw, (max-width: 1440px) 22vw, 310px" />
               </Link>
-              <div className="home-product-details">
+              <div className="home-product-details card-content">
+                <span className="card-category">{product.category}</span>
                 <h3><Link href={`/shop/${product.slug}`}>{product.name}</Link></h3>
                 <p>{product.contentVersion ? product.description : descriptions[product.category] ?? (product.name.includes("Fan") ? "A hybrid fan for everyday comfort." : "A massage chair for relaxing at home.")}</p>
                 <strong>{money(product.priceKobo)}</strong>
-                <div className="home-product-actions">
+                <div className="home-product-actions card-actions">
                   <QuickAdd product={product} label="Add to cart" />
-                  <Link href={`/shop/${product.slug}`} className="home-product-explore" aria-label={`Explore ${product.name}`}>Explore</Link>
+                  <Link href={`/shop/${product.slug}`} className="home-product-explore card-explore" aria-label={`Explore ${product.name}`}>Explore</Link>
                 </div>
               </div>
             </article>

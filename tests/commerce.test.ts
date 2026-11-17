@@ -5,6 +5,7 @@ import { normalizeCart, cartSummary } from "../lib/cart";
 import {
   catalogue,
   availability,
+  isOutOfStock,
   money,
   type StoreProduct,
 } from "../lib/catalogue";
@@ -76,6 +77,13 @@ test("availability distinguishes unconfirmed stock, disabled purchases and reser
   assert.equal(availability({ ...product, stock: 2 }), "Out of stock");
   assert.equal(availability(product), "In stock");
   assert.equal(money(null), "Price on request");
+});
+test("out-of-stock labels cover zero and fully reserved stock without mislabelling unknown or paused stock", () => {
+  assert.equal(isOutOfStock({ ...product, stock: 0, reserved: 0, enabled: false }), true);
+  assert.equal(availability({ ...product, stock: 0, reserved: 0, enabled: false }), "Out of stock");
+  assert.equal(isOutOfStock({ ...product, stock: 5, reserved: 5 }), true);
+  assert.equal(isOutOfStock({ ...product, stock: null }), false);
+  assert.equal(isOutOfStock({ ...product, enabled: false }), false);
 });
 test("operational mutations reject product definitions and invalid inventory values", () => {
   const valid = {

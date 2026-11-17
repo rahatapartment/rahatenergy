@@ -1,3 +1,4 @@
+import { ProductStockBadge } from "./ProductStockBadge";
 import { QuickAdd } from "./QuickAdd";
 import Image from "@/components/WebImage";
 import Link from "next/link";
@@ -6,6 +7,7 @@ import {
   productImage,
   money,
   availability,
+  isOutOfStock,
   type StoreProduct,
 } from "@/lib/catalogue";
 export function ProductCard({
@@ -19,18 +21,12 @@ export function ProductCard({
     <article
       className={
         variant === "collection"
-          ? "product-card collection-product"
-          : variant === "shop" ? "product-card shop-product" : "product-card"
+          ? "product-card collection-product commerce-card"
+          : variant === "shop" ? "product-card shop-product commerce-card" : "product-card commerce-card"
       }
     >
-      {variant === "collection" && (
-        <div className="collection-card-index">
-          <span>{p.sku}</span>
-          <span>{p.category}</span>
-        </div>
-      )}
-      <Link href={`/shop/${p.slug}`} className="product-art">
-        <span className="product-tag">{p.category}</span>
+      <Link href={`/shop/${p.slug}`} className="product-art card-media">
+        <ProductStockBadge product={p} />
         <Image
           src={productImage(p)}
           alt={p.name}
@@ -44,18 +40,15 @@ export function ProductCard({
           width={600}
           height={600}
         />
-        <span className="product-arrow">
-          <ArrowUpRight size={19} />
-        </span>
       </Link>
-      <div className="product-copy">
-        {variant !== "shop" && <span className="micro">RAHAT PRODUCT PHOTOGRAPHY</span>}
+      <div className="product-copy card-content">
+        <span className="card-category">{p.category}</span>
         <h3>
           <Link href={`/shop/${p.slug}`}>{p.name}</Link>
         </h3>
         <div className="product-bottom">
           <strong>{money(p.priceKobo)}</strong>
-          <span className="stock">
+          {!isOutOfStock(p) && <span className="stock">
             <i
               className={
                 p.enabled && p.stock !== null && p.stock > p.reserved
@@ -64,9 +57,12 @@ export function ProductCard({
               }
             />
             {availability(p)}
-          </span>
+          </span>}
         </div>
-        <QuickAdd product={p} />
+        <div className="card-actions">
+          <QuickAdd product={p} />
+          <Link href={`/shop/${p.slug}`} className="card-explore" aria-label={`Explore ${p.name}`}>Explore <ArrowUpRight size={15} aria-hidden="true" /></Link>
+        </div>
       </div>
     </article>
   );

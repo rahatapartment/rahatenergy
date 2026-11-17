@@ -1,0 +1,46 @@
+[
+  {
+    "path": "/shop",
+    "width": 1440,
+    "overflow": false,
+    "cards": 18,
+    "badges": 18,
+    "disabled": 18,
+    "explore": 18,
+    "nested": 0,
+    "brokenImages": 0
+  },
+  {
+    "path": "/",
+    "width": 1440,
+    "overflow": false,
+    "cards": 18,
+    "badges": 18,
+    "disabled": 18,
+    "explore": 18,
+    "nested": 0,
+    "brokenImages": 0
+  },
+  {
+    "path": "/shop",
+    "width": 390,
+    "overflow": false,
+    "cards": 18,
+    "badges": 18,
+    "disabled": 18,
+    "explore": 18,
+    "nested": 0,
+    "brokenImages": 0
+  },
+  {
+    "path": "/",
+    "width": 390,
+    "overflow": false,
+    "cards": 18,
+    "badges": 18,
+    "disabled": 18,
+    "explore": 18,
+    "nested": 0,
+    "brokenImages": 0
+  }
+]
