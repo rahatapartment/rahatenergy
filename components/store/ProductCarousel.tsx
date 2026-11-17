@@ -58,7 +58,7 @@ export function ProductCarousel({ products }: { products: StoreProduct[] }) {
             <article className="home-product-link commerce-card">
               <Link href={`/shop/${product.slug}`} className="home-product-image card-media">
                 <ProductStockBadge product={product} />
-                <Image src={productImage(product)} alt={product.name} width={600} height={600} sizes="(max-width: 600px) 44vw, (max-width: 900px) 45vw, (max-width: 1440px) 22vw, 310px" />
+                <Image src={productImage(product)} alt={product.name} width={600} height={600} sizes="(max-width: 767px) 92vw, (max-width: 900px) 45vw, (max-width: 1440px) 22vw, 310px" />
               </Link>
               <div className="home-product-details card-content">
                 <span className="card-category">{product.category}</span>

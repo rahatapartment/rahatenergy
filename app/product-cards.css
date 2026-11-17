@@ -40,3 +40,21 @@
 /* When purchasing is unavailable, make the useful details action prominent. */
 .commerce-card:has(.commerce-stock-badge) .card-explore { background: #1c4a3b; border-color: #1c4a3b; color: #fff; }
 .commerce-card:has(.commerce-stock-badge) .card-explore:hover { background: #123b2d; border-color: #123b2d; color: #fff; }
+/* One product per row throughout the mobile storefront, including loading states. */
+@media (max-width: 767px) {
+  .shop-page .shop-product-grid,
+  .category-product-grid,
+  .product-related-grid,
+  .discovery-products,
+  .discovery-products.view-gallery,
+  .product-grid { grid-template-columns: minmax(0, 1fr); }
+  .home-products-rail > .home-product-item { flex-basis: 100%; }
+  .commerce-card.commerce-card .card-content { padding: 18px; }
+  .commerce-card .card-content h3 { font-size: 17px; min-height: 0; }
+  .commerce-card .card-category { font-size: 10px; }
+  .commerce-card .card-content > p { font-size: 13px; }
+  .commerce-card.commerce-card .product-bottom strong,
+  .commerce-card .card-content > strong { font-size: 20px; }
+  .commerce-card.commerce-card .card-actions .quick-add,
+  .commerce-card.commerce-card .card-explore { font-size: 13px; }
+}

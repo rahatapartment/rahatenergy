@@ -1,0 +1,92 @@
+[
+  {
+    "path": "/shop",
+    "width": 390,
+    "overflow": false,
+    "cards": 18,
+    "columns": 1,
+    "firstWidth": 358.796875,
+    "containerWidth": 358.796875
+  },
+  {
+    "path": "/",
+    "width": 390,
+    "overflow": false,
+    "cards": 18,
+    "columns": 1,
+    "firstWidth": 358.796875,
+    "containerWidth": 358.796875
+  },
+  {
+    "path": "/categories/solar-inverters",
+    "width": 390,
+    "overflow": false,
+    "cards": 3,
+    "columns": 1,
+    "firstWidth": 335.40625,
+    "containerWidth": 335.40625
+  },
+  {
+    "path": "/shop/rahat-lithium-battery-32kwh",
+    "width": 390,
+    "overflow": false,
+    "cards": 3,
+    "columns": 1,
+    "firstWidth": 335.40625,
+    "containerWidth": 335.40625
+  },
+  {
+    "path": "/shop",
+    "width": 767,
+    "overflow": false,
+    "cards": 18,
+    "columns": 1,
+    "firstWidth": 705.625,
+    "containerWidth": 705.625
+  },
+  {
+    "path": "/",
+    "width": 767,
+    "overflow": false,
+    "cards": 18,
+    "columns": 1,
+    "firstWidth": 705.625,
+    "containerWidth": 705.625
+  },
+  {
+    "path": "/categories/solar-inverters",
+    "width": 767,
+    "overflow": false,
+    "cards": 3,
+    "columns": 1,
+    "firstWidth": 659.625,
+    "containerWidth": 659.625
+  },
+  {
+    "path": "/shop/rahat-lithium-battery-32kwh",
+    "width": 767,
+    "overflow": false,
+    "cards": 3,
+    "columns": 1,
+    "firstWidth": 674.96875,
+    "containerWidth": 674.96875
+  },
+  {
+    "path": "/shop",
+    "width": 1440,
+    "overflow": false,
+    "cards": 18,
+    "columns": 4,
+    "firstWidth": 315,
+    "containerWidth": 1320
+  },
+  {
+    "path": "/",
+    "width": 1440,
+    "overflow": false,
+    "cards": 18,
+    "columns": 4,
+    "firstWidth": 315,
+    "containerWidth": 1320
+  }
+]

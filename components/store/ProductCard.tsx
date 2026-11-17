@@ -32,10 +32,10 @@ export function ProductCard({
           alt={p.name}
           sizes={
             variant === "shop"
-              ? "(max-width: 600px) 44vw, (max-width: 1000px) 30vw, (max-width: 1440px) 23vw, 310px"
+              ? "(max-width: 767px) 92vw, (max-width: 1000px) 30vw, (max-width: 1440px) 23vw, 310px"
               : variant === "collection"
-              ? "(max-width: 600px) 88vw, (max-width: 1100px) 45vw, 40vw"
-              : "(max-width: 540px) 90vw, (max-width: 1100px) 45vw, 28vw"
+              ? "(max-width: 767px) 92vw, (max-width: 1100px) 45vw, 40vw"
+              : "(max-width: 767px) 92vw, (max-width: 1100px) 45vw, 28vw"
           }
           width={600}
           height={600}
