@@ -1,7 +1,9 @@
+import { createHmac } from "node:crypto";
 import { cache } from "react";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import { getDb } from "./db";
+import { environmentOwnerCredentials, environmentOwnerId } from "./admin-owner";
 export const ADMIN_COOKIE = "rahat_energy_admin_session";
 const issuer = "rahat-energy",
   audience = "rahat-energy-operations";
@@ -10,7 +12,6 @@ export type AdminIdentity = {
   name: string;
   role: "OWNER" | "OPERATOR";
   sessionVersion: number;
-  bootstrap: boolean;
   email?: string;
   permissions?: string[];
 };
@@ -22,14 +23,23 @@ function secret() {
     );
   return new TextEncoder().encode(value);
 }
+function ownerCredentialTag(owner: NonNullable<ReturnType<typeof environmentOwnerCredentials>>) {
+  return createHmac("sha256", secret()).update(JSON.stringify([owner.email, owner.password])).digest("base64url");
+}
 export async function createAdminSession(user?: {
   id: string;
   role: string;
   sessionVersion: number;
 }) {
-  return new SignJWT({ role: "admin", version: user?.sessionVersion ?? 0 })
+  const owner = user ? null : environmentOwnerCredentials();
+  if (!user && !owner) throw new Error("Environment owner is not configured.");
+  return new SignJWT({
+    role: "admin",
+    version: user?.sessionVersion ?? 0,
+    ...(owner ? { ownerCredential: ownerCredentialTag(owner) } : {}),
+  })
     .setProtectedHeader({ alg: "HS256" })
-    .setSubject(user?.id ?? "energy-admin")
+    .setSubject(user?.id ?? environmentOwnerId)
     .setIssuer(issuer)
     .setAudience(audience)
     .setIssuedAt()
@@ -47,31 +57,31 @@ export async function adminIdentity(
       algorithms: ["HS256"],
     });
     if (payload.role !== "admin" || !payload.sub) return null;
-    const db = getDb();
-    if (payload.sub === "energy-admin") {
-      if (db && (await db.adminUser.count()) > 0) return null;
+    if (payload.sub === environmentOwnerId) {
+      const owner = environmentOwnerCredentials();
+      if (!owner || payload.ownerCredential !== ownerCredentialTag(owner)) return null;
       return {
-        id: "energy-admin",
-        name: "Initial administrator",
+        id: environmentOwnerId,
+        name: "Store owner",
         role: "OWNER",
         sessionVersion: 0,
-        bootstrap: true,
+        email: owner.email,
       };
     }
+    const db = getDb();
     if (!db) return null;
     const user = await db.adminUser.findUnique({ where: { id: payload.sub } });
     if (
       !user?.active ||
       user.sessionVersion !== payload.version ||
-      !["OWNER", "OPERATOR"].includes(user.role)
+      user.role !== "OPERATOR"
     )
       return null;
     return {
       id: user.id,
       name: user.name,
-      role: user.role as AdminIdentity["role"],
+      role: "OPERATOR",
       sessionVersion: user.sessionVersion,
-      bootstrap: false,
       email: user.email,
       permissions: user.permissions,
     };

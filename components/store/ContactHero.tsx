@@ -34,9 +34,8 @@ export function ContactHero() {
               <span /> CONTACT & SUPPORT
             </span>
             <h1 id="contact-title">
-              A good connection.
-              <br />
-              <em>A clearer beginning.</em>
+              <span data-motion-line>A good connection.</span>
+              <em data-motion-line>A clearer beginning.</em>
             </h1>
             <p>
               A project question. A product choice. An existing order.

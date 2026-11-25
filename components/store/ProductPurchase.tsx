@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Minus, Plus, ShoppingBag, ArrowUpRight, Check } from "lucide-react";
 import { isOutOfStock, money, type StoreProduct } from "@/lib/catalogue";
 import { useCart } from "./CartProvider";
+import { CartTrigger } from "./CartTrigger";
 
 export function ProductPurchase({ product: p }: { product: StoreProduct }) {
   const [quantity, setQuantity] = useState(1);
@@ -34,7 +35,7 @@ export function ProductPurchase({ product: p }: { product: StoreProduct }) {
   }
   function put(buy = false) {
     if (disabled || (buy && unpriced)) return;
-    add(p.id, quantity);
+    add(p.id, quantity, { openDrawer: !buy });
     setAdded(true);
     if (buy) router.push("/checkout");
   }
@@ -103,12 +104,12 @@ export function ProductPurchase({ product: p }: { product: StoreProduct }) {
         </Link>
         <div className="product-checkout-line">
           <button disabled={disabled || unpriced} onClick={() => put(true)}>
-            Buy now · test checkout <ArrowUpRight size={15} />
+            Buy now <ArrowUpRight size={15} />
           </button>
-          <Link href="/cart">
+          <CartTrigger className="product-view-cart">
             View your {unpriced ? "shortlist" : "cart"}{" "}
             <ArrowUpRight size={14} />
-          </Link>
+          </CartTrigger>
         </div>
         <div className="product-purchase-feedback" role="status">
           {added ? (
@@ -121,7 +122,7 @@ export function ProductPurchase({ product: p }: { product: StoreProduct }) {
             <p>
               {unpriced
                 ? "Save your selection now. Pricing, availability and the exact equipment need confirmation before purchase."
-                : "Final prices, availability and delivery are checked again at test checkout."}
+                : "Final prices, availability and delivery are checked again at checkout."}
             </p>
           )}
         </div>

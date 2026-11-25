@@ -33,9 +33,8 @@ export function TrackOrderHero() {
               <span /> PRIVATE ORDER ACCESS
             </span>
             <h1 id="tracking-title">
-              Your order.
-              <br />
-              <em>A clearer view.</em>
+              <span data-motion-line>Your order.</span>
+              <em data-motion-line>A clearer view.</em>
             </h1>
             <p>
               Access verified payment, fulfilment and delivery updates with your

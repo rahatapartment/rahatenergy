@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { randomBytes } from "node:crypto";
 import { PrismaClient } from "@prisma/client";
-import { createAdminUser, editAdminUser } from "../lib/admin-users";
+import { editAdminUser } from "../lib/admin-users";
 import {
   inviteAdmin,
   acceptAdminInvitation,
@@ -31,6 +31,8 @@ let owner: AdminIdentity;
 before(async () => {
   process.env.ENERGY_DATABASE_URL = url;
   process.env.ENERGY_DIRECT_URL = url;
+  process.env.ENERGY_ADMIN_EMAIL = "owner@example.test";
+  process.env.ENERGY_ADMIN_PASSWORD = "fixture-owner-password-long";
   process.env.ENERGY_ADMIN_SESSION_SECRET =
     "temporary-admin-team-fixture-secret-123456";
   process.env.NEXT_PUBLIC_APP_URL = "http://localhost:3001";
@@ -54,23 +56,7 @@ beforeEach(async () => {
       lowStockThreshold: 2,
     },
   });
-  const u = await createAdminUser(
-    db,
-    {
-      id: "energy-admin",
-      name: "Setup",
-      role: "OWNER",
-      sessionVersion: 0,
-      bootstrap: true,
-    },
-    {
-      name: "Owner",
-      email: "owner@example.test",
-      password: "fixture-owner-password-long",
-      role: "OWNER",
-    },
-  );
-  owner = { ...u, role: "OWNER", bootstrap: false };
+  owner = (await adminIdentity(await createAdminSession()))!;
 });
 after(async () => db.$disconnect());
 async function invitation(permissions: string[]) {
@@ -102,15 +88,12 @@ async function req(
     body: JSON.stringify(body),
   });
 }
-test("single named owner, invitation hash only, acceptance once and email audit attribution", async () => {
-  await assert.rejects(
-    createAdminUser(db, owner, {
-      name: "Second",
-      email: "second@example.test",
-      password: "fixture-password-long-enough",
-      role: "OWNER",
-    }),
-  );
+test("environment owner, invitation hash only, acceptance once and email audit attribution", async () => {
+  await assert.rejects(inviteAdmin(db, owner, {
+    email: "owner@example.test",
+    roleLabel: "Stock manager",
+    permissions: ["inventory.increase"],
+  }), /reserved/);
   const { token, invite } = await invitation(["inventory.increase"]);
   assert.equal(invite.tokenHash, invitationHash(token));
   assert.ok(!JSON.stringify(invite).includes(token));
@@ -120,6 +103,7 @@ test("single named owner, invitation hash only, acceptance once and email audit 
     password: "fixture-worker-password-long",
   });
   assert.equal(user.role, "OPERATOR");
+  assert.equal(user.roleLabel, "Stock manager");
   assert.deepEqual(user.permissions, ["inventory.increase"]);
   await assert.rejects(
     acceptAdminInvitation(db, {
@@ -158,7 +142,7 @@ test("expired and revoked invitations cannot create accounts", async () => {
       password: "fixture-worker-password-long",
     }),
   );
-  assert.equal(await db.adminUser.count(), 1);
+  assert.equal(await db.adminUser.count(), 0);
 });
 test("stock API permits increase only, rejects decrease and unrelated customer changes", async () => {
   const { token } = await invitation(["inventory.increase"]);
@@ -234,14 +218,13 @@ test("permissions updates revoke previous sessions and cannot grant owner role",
   await assert.rejects(
     editAdminUser(db, owner, user.id, { role: "OWNER", active: true }),
   );
-  await assert.rejects(
-    db.adminUser.create({
-      data: {
-        name: "Other",
-        email: "other@example.test",
-        passwordHash: "fixture",
-        role: "OWNER",
-      },
-    }),
-  );
+  const legacyOwner = await db.adminUser.create({
+    data: {
+      name: "Legacy Owner",
+      email: "legacy-owner@example.test",
+      passwordHash: "fixture",
+      role: "OWNER",
+    },
+  });
+  assert.equal(await adminIdentity(await createAdminSession(legacyOwner)), null);
 });

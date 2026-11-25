@@ -20,6 +20,28 @@ export type AdminPermission = keyof typeof permissionLabels;
 export const permissionKeys = Object.keys(
   permissionLabels,
 ) as AdminPermission[];
+
+export const teamAccessPresets = {
+  manager: {
+    label: "Manager",
+    description: "Manage products, stock, pricing, customers, orders, deliveries and enquiries.",
+    permissions: [
+      "products.view", "products.edit", "inventory.view", "inventory.increase",
+      "inventory.decrease", "inventory.price", "inventory.settings", "customers.view",
+      "customers.manage", "orders.view", "orders.manage", "deliveries.view",
+      "deliveries.manage", "quotations.view", "quotations.manage",
+    ],
+  },
+  "team-member": {
+    label: "Team member",
+    description: "View products, inventory and deliveries, and update order fulfilment.",
+    permissions: ["products.view", "inventory.view", "orders.view", "orders.manage", "deliveries.view"],
+  },
+} as const satisfies Record<string, {
+  label: string;
+  description: string;
+  permissions: readonly AdminPermission[];
+}>;
 export type PermissionActor = { role: string; permissions?: string[] };
 export function hasPermission(
   actor: PermissionActor | null | undefined,

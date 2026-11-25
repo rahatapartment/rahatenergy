@@ -36,9 +36,8 @@ export function ShopHero({
             <span /> THE RAHAT ENERGY COLLECTION
           </span>
           <h1 id="collection-title">
-            The collection.
-            <br />
-            <em>A new perspective.</em>
+            <span data-motion-line>The collection.</span>
+            <em data-motion-line>A new perspective.</em>
           </h1>
           <p>
             Considered equipment. Connected possibilities.

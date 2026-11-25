@@ -19,6 +19,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const product = products.find(p => p.slug === params.slug);
   if (!product) notFound();
   const details = detailsFor(product);
+  if (!details) {
+    return <main id="main" className="page-wrap">
+      <section className="pdp-buying-panel" aria-labelledby="product-title">
+        <h1 id="product-title">{product.name}</h1>
+        <p>{product.description}</p>
+        <div className="pdp-price">
+          <strong>{money(product.priceKobo)}</strong>
+          <span>{availability(product)}</span>
+        </div>
+        <ProductPurchase product={product} />
+      </section>
+    </main>;
+  }
   const category = categoryContent.find(c => c.category === product.category)!;
   const related = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
   const specs = { ...details.specifications, ...product.specifications };

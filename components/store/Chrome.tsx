@@ -6,6 +6,8 @@ import { Menu, X, ArrowUpRight, ShoppingBag, Search } from "lucide-react";
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import { useCart } from "./CartProvider";
 import { Footer } from "./Footer";
+import { useStoreMotion } from "./useStoreMotion";
+import { CartDrawer } from "./CartDrawer";
 export function Brand() {
   return (
     <span className="brand brand-official">
@@ -32,10 +34,12 @@ export function Chrome({ children }: { children: ReactNode }) {
       "battery-storage",
       "solar-lighting",
       "energy-accessories",
+      "power-stations",
     ].some((slug) => path === `/categories/${slug}`) ||
     [
       "/about",
       "/contact",
+      "/request-quote",
       "/faq",
       "/cart",
       "/track-order",
@@ -49,6 +53,7 @@ export function Chrome({ children }: { children: ReactNode }) {
   const menuButton = useRef<HTMLButtonElement>(null);
   const header = useRef<HTMLElement>(null);
   const content = useRef<HTMLDivElement>(null);
+  useStoreMotion(content, path);
   useEffect(() => {
     let frame = 0;
     const update = () => {
@@ -103,7 +108,8 @@ export function Chrome({ children }: { children: ReactNode }) {
     document.addEventListener("keydown", close);
     return () => document.removeEventListener("keydown", close);
   }, [open]);
-  const { lines } = useCart();
+  const { lines, openCart } = useCart();
+  const cartCount = lines.reduce((total, line) => total + line.quantity, 0);
   if (path.startsWith("/admin") && path !== "/admin/login") return <>{children}</>;
   const links = [
     ["Shop", "/shop"],
@@ -139,16 +145,18 @@ export function Chrome({ children }: { children: ReactNode }) {
       >
         <Link className="header-brand" href="/" aria-label="Rahat Energy home">
           <Brand />
+          <span className="header-wordmark" aria-hidden="true">Rahat Energy</span>
         </Link>
         <nav
           className={open ? "main-nav open" : "main-nav"}
           aria-label="Main navigation"
           id="main-navigation"
         >
-          {links.map(([label, href], index) => (
+          {links.map(([label, href]) => (
             <Link
               aria-current={
-                path === href || (href !== "/" && path.startsWith(`${href}/`))
+                path === href || path.startsWith(`${href}/`) ||
+                  (href === "/shop" && path.startsWith("/categories/"))
                   ? "page"
                   : undefined
               }
@@ -156,9 +164,6 @@ export function Chrome({ children }: { children: ReactNode }) {
               href={href}
               onClick={() => setOpen(false)}
             >
-              <span className="nav-index" aria-hidden="true">
-                0{index + 1}
-              </span>
               {label}
               <ArrowUpRight
                 className="nav-mobile-arrow"
@@ -168,9 +173,8 @@ export function Chrome({ children }: { children: ReactNode }) {
             </Link>
           ))}
           <div className="navigation-bottom">
-            <span className="eyebrow">ENERGY, BEAUTIFULLY ENGINEERED.</span>
-            <Link href="/request-quote" onClick={() => setOpen(false)}>
-              Let’s talk about your project <ArrowUpRight size={18} />
+            <Link href="/track-order" onClick={() => setOpen(false)}>
+              Track your order <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </nav>
@@ -179,20 +183,22 @@ export function Chrome({ children }: { children: ReactNode }) {
             className="icon-button header-search"
             href="/shop#product-search"
             aria-label="Search products"
+            onClick={() => setOpen(false)}
           >
-            <Search size={20} />
+            <Search size={18} aria-hidden="true" />
+            <span className="header-search-label">Search</span>
           </Link>
-          <Link
+          <button
+            type="button"
             className="cart-link"
-            href="/cart"
-            aria-label={`Shopping bag, ${lines.reduce((n, l) => n + l.quantity, 0)} items`}
+            aria-label={`Shopping bag, ${cartCount} items`}
+            aria-haspopup="dialog"
+            aria-controls="cart-drawer"
+            onClick={() => { setOpen(false); openCart(); }}
           >
-            <ShoppingBag size={20} />
-            <span>{lines.reduce((n, l) => n + l.quantity, 0)}</span>
-          </Link>
-          <Link className="button dark header-quote" href="/request-quote">
-            Request a quote <ArrowUpRight size={16} />
-          </Link>
+            <ShoppingBag size={19} aria-hidden="true" />
+            <span>{cartCount}</span>
+          </button>
           <button
             ref={menuButton}
             className="icon-button mobile-menu"
@@ -209,6 +215,7 @@ export function Chrome({ children }: { children: ReactNode }) {
         {children}
         <Footer brand={<Brand />} />
       </div>
+      <CartDrawer />
     </>
   );
 }

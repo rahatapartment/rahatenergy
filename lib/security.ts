@@ -21,7 +21,18 @@ export function sameOrigin(req: Request) {
   if (!origin) return false;
   try {
     const configured = process.env.NEXT_PUBLIC_APP_URL;
-    if (configured) return origin === new URL(configured).origin;
+    if (configured) {
+      const expected = new URL(configured);
+      if (origin === expected.origin) return true;
+      if (process.env.NODE_ENV !== "development") return false;
+      const incoming = new URL(origin);
+      const loopback = ["localhost", "127.0.0.1", "[::1]"];
+      return origin === incoming.origin &&
+        loopback.includes(expected.hostname) &&
+        loopback.includes(incoming.hostname) &&
+        incoming.protocol === expected.protocol &&
+        incoming.port === expected.port;
+    }
     const url = new URL(req.url);
     const host = req.headers.get("host");
     return origin === (host ? `${url.protocol}//${host}` : url.origin);

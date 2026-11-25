@@ -75,9 +75,8 @@ export function SolutionsHero({
               {scene.eyebrow}
             </span>
             <h1 id="solutions-title">
-              {scene.title}
-              <br />
-              <em>{scene.emphasis}</em>
+              <span data-motion-line>{scene.title}</span>
+              <em data-motion-line>{scene.emphasis}</em>
             </h1>
             <p>
               {description ||

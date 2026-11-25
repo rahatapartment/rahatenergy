@@ -3,14 +3,14 @@ import { checkoutSchema, CommerceError } from "@/lib/commerce-validation";
 import { createCheckout, beginPayment, orderCookie } from "@/lib/commerce";
 import { requireDb, commerceFailure, smallJson } from "@/lib/commerce-http";
 import { sameOrigin, limitRequest } from "@/lib/security";
-import { testKey, appOrigin } from "@/lib/paystack";
+import { paymentKey, appOrigin } from "@/lib/paystack";
 export async function POST(req: Request) {
   try {
     if (!sameOrigin(req))
       throw new CommerceError("Invalid request origin.", 403);
     if (!(await limitRequest("checkout-create", 50, 60000)))
       throw new CommerceError("Please try again shortly.", 429);
-    testKey();
+    paymentKey();
     appOrigin();
     const input = checkoutSchema.parse(await smallJson(req));
     const db = requireDb();

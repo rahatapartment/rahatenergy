@@ -212,7 +212,7 @@
       "/products/GARDEM MOON LIGHT/1dad54e0-4b51-434e-9950-0a1c98f225b7.jpg",
       "/products/GARDEM MOON LIGHT/296b9c4a-e41b-4de7-8e92-6dcaf012acb8.jpg"
     ],
-    "priceKobo": 120000000,
+    "priceKobo": 130000000,
     "specifications": {},
     "seo": {
       "title": "Rahat Garden Moonlight",
@@ -231,7 +231,7 @@
       "/products/GARDEN POLE LIGHT/GARDEN LIGHT.jpeg",
       "/products/GARDEN POLE LIGHT/PR GARDEN LIGHT.PNG"
     ],
-    "priceKobo": null,
+    "priceKobo": 24000000,
     "specifications": {},
     "seo": {
       "title": "Rahat Garden Light",
@@ -252,7 +252,7 @@
       "/products/Power Stations(ALL)/400W , 256WH/Rahat_YJ911_Poster.png",
       "/products/Power Stations(ALL)/400W , 256WH/SIDE.jpg"
     ],
-    "priceKobo": null,
+    "priceKobo": 12000000,
     "specifications": {
       "Rated output": "400W",
       "Battery capacity": "256Wh"
@@ -275,7 +275,7 @@
       "/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/500W.jpg",
       "/products/Power Stations(ALL)/500W,384WH. 600W,576WH. 800W,576WH/Rahat_Model905_500W_Poster.png"
     ],
-    "priceKobo": null,
+    "priceKobo": 16000000,
     "specifications": {
       "Rated output": "500W",
       "Battery capacity": "384Wh"
@@ -299,7 +299,7 @@
       "/products/Power Stations(ALL)/800W , 576WH/Rahat_CNS800WA_Poster.png",
       "/products/Power Stations(ALL)/800W , 576WH/SIDE.jpg"
     ],
-    "priceKobo": null,
+    "priceKobo": 26000000,
     "specifications": {
       "Rated output": "800W",
       "Battery capacity": "576Wh"
@@ -324,7 +324,7 @@
       "/products/Power Stations(ALL)/1000W , 768WH/DC12V..jpg",
       "/products/Power Stations(ALL)/1000W , 768WH/Rahat_PowerStation_3AC_Poster.png"
     ],
-    "priceKobo": null,
+    "priceKobo": 32500000,
     "specifications": {
       "Rated output": "1000W",
       "Battery capacity": "768Wh"
@@ -353,7 +353,7 @@
       "/products/Power Stations(ALL)/1500W , 1152WH/Rahat_CNS1500WA_Poster.png",
       "/products/Power Stations(ALL)/1500W , 1152WH/SIDE.jpg"
     ],
-    "priceKobo": null,
+    "priceKobo": 61000000,
     "specifications": {
       "Rated output": "1500W",
       "Battery capacity": "1152Wh"
@@ -378,7 +378,7 @@
       "/products/Power Stations(ALL)/3000W , 2662WH/Rahat_CNS3000WA_Poster.png",
       "/products/Power Stations(ALL)/3000W , 2662WH/SIDE.jpg"
     ],
-    "priceKobo": null,
+    "priceKobo": 100000000,
     "specifications": {
       "Rated output": "3000W",
       "Battery capacity": "2662Wh"
@@ -386,6 +386,26 @@
     "seo": {
       "title": "Rahat Power Station 3000W 2662Wh",
       "description": "Explore Rahat Power Station 3000W 2662Wh from Rahat Energy."
+    }
+  },
+  {
+    "id": "re-028",
+    "sku": "RE-028",
+    "slug": "pen",
+    "name": "Pen",
+    "category": "Energy Accessories",
+    "verification": "owner-confirmed",
+    "description": "An everyday writing pen. Sold individually.",
+    "images": [
+      "/images/logo.webp"
+    ],
+    "priceKobo": 20000,
+    "specifications": {
+      "Unit": "One pen"
+    },
+    "seo": {
+      "title": "Pen",
+      "description": "Buy a pen from Rahat Energy for ₦200 per unit."
     }
   }
 ]

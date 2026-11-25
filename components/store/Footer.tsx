@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, ArrowUp } from "lucide-react";
+import Image from "@/components/WebImage";
 import type { ReactNode } from "react";
 
 const shopLinks = [
@@ -27,21 +28,27 @@ export function Footer({ brand }: { brand: ReactNode }) {
   return (
     <footer className="premium-footer" aria-labelledby="footer-title">
       <div className="premium-footer-inner">
-        <div className="footer-invitation">
-          <div>
-            <span className="footer-kicker">LET’S POWER WHAT’S NEXT</span>
-            <h2 id="footer-title">Good energy.<br /><em>Better possibilities.</em></h2>
-          </div>
+        <section className="footer-invitation" aria-labelledby="footer-title">
+          <Image
+            className="footer-invitation-photo"
+            src="/images/hero.webp"
+            alt=""
+            fill
+            sizes="(max-width: 720px) 94vw, (max-width: 1440px) 68vw, 960px"
+          />
+          <h2 id="footer-title">
+            <span data-motion-line>Good energy.</span>
+            <em data-motion-line>Better possibilities.</em>
+          </h2>
           <div className="footer-invitation-actions">
-            <p>Find the right energy solution<br />for your home or business.</p>
-            <Link className="footer-quote" href="/request-quote">Let’s talk about your project <ArrowUpRight size={19} aria-hidden="true" /></Link>
-            <Link className="footer-contact" href="/contact">Have a question? Get in touch <ArrowUpRight size={15} aria-hidden="true" /></Link>
+            <Link className="footer-quote" href="/request-quote">Request a quote <ArrowUpRight size={18} aria-hidden="true" /></Link>
+            <Link className="footer-contact" href="/contact">Contact our team <ArrowUpRight size={16} aria-hidden="true" /></Link>
           </div>
-        </div>
+        </section>
         <div className="footer-directory">
           <div className="footer-brand-block">
-            <Link href="/" aria-label="Rahat Energy home" className="footer-brand-link">{brand}<span>RAHAT ENERGY<span>ENERGY SOLUTIONS</span></span></Link>
-            <p>Solar, storage and everyday essentials.<br />Power for the way you live.</p>
+            <Link href="/" aria-label="Rahat Energy home" className="footer-brand-link">{brand}<span>Rahat Energy</span></Link>
+            <p>Solar, storage and everyday essentials for homes and businesses.</p>
             <Link href="/shop" className="footer-collection-link">Explore the collection <ArrowUpRight size={15} aria-hidden="true" /></Link>
           </div>
           <nav className="footer-directory-column" aria-label="Shop products"><h3>The collection</h3>{shopLinks.map(([label, href]) => <Link key={label} href={href}>{label}</Link>)}</nav>

@@ -28,9 +28,8 @@ export default function Page() {
             01 / DIFFERENT SPACES. SHARED POSSIBILITY.
           </span>
           <h2 id="solutions-introduction-title">
-            A world that’s yours.
-            <br />
-            <em>An energy conversation to match.</em>
+            <span data-motion-line>A world that’s yours.</span>
+            <em data-motion-line>An energy conversation to match.</em>
           </h2>
           <p>
             Every space has its own rhythm. Start with how you live, what you
@@ -51,9 +50,8 @@ export default function Page() {
           <div className="solutions-perspectives-heading">
             <span className="eyebrow">02 / FIND YOUR ELEMENT</span>
             <h2 id="perspectives-title">
-              Where would you
-              <br />
-              <em>like to begin?</em>
+              <span data-motion-line>Where would you</span>
+              <em data-motion-line>like to begin?</em>
             </h2>
             <p>
               A starting point for your space.
@@ -129,9 +127,8 @@ export default function Page() {
           <div>
             <span className="eyebrow">04 / THE COMPLETE PICTURE</span>
             <h2 id="solutions-approach-title">
-              Good questions.
-              <br />
-              <em>A clearer direction.</em>
+              <span data-motion-line>Good questions.</span>
+              <em data-motion-line>A clearer direction.</em>
             </h2>
             <p>
               A useful enquiry connects your priorities, your existing setup and

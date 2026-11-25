@@ -44,12 +44,47 @@
   align-self: center;
   transform: none;
 }
-.sales-hero-scene > img {
+.sales-hero-stage {
+  --sales-hero-overlap: 52svh;
+  height: calc(100svh + var(--sales-hero-overlap));
+  isolation: isolate;
+}
+.sales-hero-stage > .sales-hero {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  contain: paint;
+}
+/* The rounded foreground starts at the hero edge and passes over its pinned image. */
+.sales-hero-stage + .home-content {
+  margin-top: calc(-52svh - 28px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sales-hero-stage { --sales-hero-overlap: 0px; }
+  .sales-hero-stage + .home-content { margin-top: -28px; }
+}
+.sales-hero .sales-hero-scene {
+  z-index: 0;
+  contain: paint;
+  pointer-events: none;
+  transform: none;
+  will-change: auto;
+}
+.sales-hero-image {
+  position: absolute;
+  inset: 0;
+}
+.sales-hero-image[data-pending] {
+  visibility: hidden;
+}
+.sales-hero-image > img {
+  object-fit: cover;
   object-position: 70% center;
   filter: saturate(0.8);
 }
-.sales-hero-scene {
-  animation: sales-scene-in 0.7s ease-out;
+.sales-hero .sales-hero-atmosphere {
+  z-index: 1;
+  pointer-events: none;
 }
 .sales-hero-atmosphere {
   background:
@@ -57,11 +92,12 @@
     linear-gradient(180deg, #002d1d60, transparent 40%, #002d1df0);
 }
 .sales-hero .sales-hero-copy {
+  z-index: 2;
   left: 10%;
   right: 7%;
   top: calc(var(--cinematic-header-height) + 7%);
   bottom: 235px;
-  transform: translateY(calc(var(--scene-progress) * -25px));
+  transform: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -111,7 +147,9 @@
   gap: 24px;
   align-items: center;
   color: #edf7ef;
-  opacity: calc(1 - var(--scene-progress) * 1.4);
+}
+.sales-hero :is(.hero-coordinate, .sales-slide-controls, .sales-bottom-rail) {
+  z-index: 2;
 }
 .sales-slide-position {
   display: flex;
@@ -293,16 +331,6 @@
 }
 .essentials-swipe-hint {
   display: none;
-}
-@keyframes sales-scene-in {
-  from {
-    opacity: 0.5;
-    transform: scale(1.025);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 @media (max-width: 1100px) {
   .energy-essentials .curated-products {
@@ -498,29 +526,14 @@
     font-size: 24px;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .sales-hero-scene {
-    animation: none;
-  }
-}
 .sales-hero,
 .element-panel {
   touch-action: pan-y;
 }
-/* Keep the curved reveal pinned even when mobile browser chrome reduces height. */
 @media (max-height: 700px) {
-  .sales-hero-stage {
-    height: 200svh;
-    min-height: 0;
-  }
-  .sales-hero {
-    position: sticky;
-    top: 0;
+  .sales-hero-stage > .sales-hero {
     height: 100svh;
     min-height: 0;
-  }
-  .sales-hero-stage + .home-content {
-    margin-top: calc(-100svh - 25px);
   }
   .sales-hero .sales-hero-copy {
     top: 110px;

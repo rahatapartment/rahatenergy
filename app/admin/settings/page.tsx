@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { catalogue } from "@/lib/catalogue";
 import { AdminShell } from "@/components/admin/AdminShell";
-import { AdminAccountForms } from "@/components/admin/OperationForms";
 import { operationsAccess } from "@/lib/operations-access";
 import { Disconnected } from "@/components/admin/OperationsViews";
+import { paymentModeLabel, paymentsReady } from "@/lib/paystack";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Operations settings" };
 export default async function Page() {
@@ -11,28 +11,15 @@ export default async function Page() {
   const connected = db
     ? await db.$queryRaw`SELECT 1`.then(() => true).catch(() => false)
     : false;
-  const users =
-    actor?.role === "OWNER" && connected
-      ? await db!.adminUser.findMany({
-          select: {
-            id: true,
-            name: true,
-            email: true,
-            role: true,
-            active: true,
-          },
-          orderBy: { createdAt: "asc" },
-        })
-      : [];
   const flags = [
     [
       "Independent database",
       connected ? "Connected" : "Connection unavailable",
     ],
-    ["Payment mode", "Test only · live keys rejected"],
+    ["Payment mode", paymentModeLabel()],
     [
-      "Paystack test configuration",
-      process.env.ENERGY_PAYSTACK_SECRET_KEY?.startsWith("sk_test_")
+      "Paystack configuration",
+      paymentsReady()
         ? "Configured"
         : "Not configured",
     ],
@@ -86,22 +73,12 @@ export default async function Page() {
       ) : (
         <>
           <p className="notice">
-            {actor?.bootstrap
-              ? "Initial setup session: create your first named OWNER account. Existing setup sessions and the shared password stop working once a named account exists."
-              : "Named accounts use hashed passwords and revocable sessions. Owner actions and changes are recorded in audit history."}
+            The store owner signs in with the email and password configured in the environment.
+            Invite other team members from Team access.
           </p>
-          {!actor?.bootstrap && (
-            <Link className="button dark" href="/admin/team">
-              Manage team access →
-            </Link>
-          )}
-          {actor?.bootstrap && (
-            <AdminAccountForms
-              users={users}
-              self={actor!.id}
-              owner={actor!.role === "OWNER"}
-            />
-          )}
+          <Link className="button dark" href="/admin/team">
+            Manage team access →
+          </Link>
         </>
       )}
     </AdminShell>

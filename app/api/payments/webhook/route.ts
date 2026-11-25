@@ -1,32 +1,41 @@
 import { NextResponse } from "next/server";
-import { validSignature, verifyPayment } from "@/lib/paystack";
+import { validWebhookSignature, verifyPayment, paymentReferencePattern, paymentMode, referenceMode } from "@/lib/paystack";
 import { finalizePayment } from "@/lib/commerce";
+import { processNotifications } from "@/lib/notifications";
+import { orderEmailKey } from "@/lib/order-emails";
 import { requireDb, commerceFailure } from "@/lib/commerce-http";
 import { CommerceError } from "@/lib/commerce-validation";
+export const maxDuration = 30;
+
 export async function POST(req: Request) {
   try {
-    const raw = await req.text();
+    const raw = Buffer.from(await req.arrayBuffer());
     if (raw.length > 100000) throw new CommerceError("Webhook too large.", 413);
-    if (!validSignature(raw, req.headers.get("x-paystack-signature")))
+    if (!validWebhookSignature(raw, req.headers))
       throw new CommerceError("Invalid signature.", 401);
     let body;
     try {
-      body = JSON.parse(raw);
+      body = JSON.parse(raw.toString("utf8"));
     } catch {
       throw new CommerceError("Invalid webhook.", 400);
     }
+    if (!body || typeof body.event !== "string")
+      throw new CommerceError("Invalid webhook.", 400);
     if (body.event !== "charge.success")
       return NextResponse.json({ received: true });
     const reference = body.data?.reference;
-    if (
-      typeof reference !== "string" ||
-      !/^REPAY-[a-f0-9]{32}$/.test(reference)
-    )
+    if (typeof reference !== "string" || !reference)
       throw new CommerceError("Invalid reference.", 400);
-    const db = requireDb();
-    if (!(await db.payment.findUnique({ where: { reference } })))
+    if (!paymentReferencePattern.test(reference) || referenceMode(reference) !== paymentMode())
       return NextResponse.json({ received: true });
-    await finalizePayment(db, await verifyPayment(reference));
+    const db = requireDb();
+    const payment = await db.payment.findUnique({
+      where: { reference }, select: { orderId: true },
+    });
+    if (!payment) return NextResponse.json({ received: true });
+    const result = await finalizePayment(db, await verifyPayment(reference));
+    if (result.paid)
+      await processNotifications(db, 1, orderEmailKey("order-confirmation", payment.orderId)).catch(() => undefined);
     return NextResponse.json({ received: true });
   } catch (e) {
     return commerceFailure(e);

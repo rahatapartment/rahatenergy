@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       .parse(await smallJson(req));
     const db = requireDb();
     const id = await inviteAdmin(db, actor, input);
-    await processNotifications(db, 3);
+    await processNotifications(db, 1, `admin-invite:${id}`).catch(() => undefined);
     const job = await db.notification.findUnique({
       where: { eventKey: `admin-invite:${id}` },
       select: { sentAt: true },

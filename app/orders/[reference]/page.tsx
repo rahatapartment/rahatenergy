@@ -1,16 +1,17 @@
 import { cookies } from "next/headers";
 import Link from "next/link";
+import { courierDeliveryFeeNote } from "@/lib/delivery-fees";
 import { getDb } from "@/lib/db";
 import { orderCookie } from "@/lib/commerce";
 import { hashToken } from "@/lib/commerce-validation";
-import { validPaymentUrl } from "@/lib/paystack";
+import { paymentMode, paymentsReady, referenceMode, validPaymentUrl } from "@/lib/paystack";
 import { money } from "@/lib/catalogue";
 import {
   VerifyOrder,
   ClearPurchasedItems,
 } from "@/components/store/OrderActions";
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Your test order", referrer: "no-referrer" };
+export const metadata = { title: "Your order", referrer: "no-referrer" };
 export default async function Page({
   params,
 }: {
@@ -64,6 +65,7 @@ export default async function Page({
         state?: string;
         pickupAddress?: string;
         optionLabel?: string;
+        courierCollectsFee?: boolean;
       }
     | undefined;
   const paid = order.paymentStatus === "PAID";
@@ -79,7 +81,7 @@ export default async function Page({
         />
       )}
       <div className="page-heading">
-        <span className="eyebrow">RAHAT ENERGY · TEST ORDER</span>
+        <span className="eyebrow">RAHAT ENERGY{order.payments[0] && referenceMode(order.payments[0].reference) === "test" ? " · TEST ORDER" : ""}</span>
         <h1>{paid ? "Payment verified." : "Your order, in view."}</h1>
         <p>
           Order reference: <strong>{order.reference}</strong>
@@ -93,7 +95,7 @@ export default async function Page({
         }
       >
         {order.fulfillmentStatus === "PAYMENT_REVIEW"
-          ? "A test payment was captured after the stock reservation expired or was released. Staff review is required; fulfillment is blocked."
+          ? "A payment was captured after the stock reservation expired or was released. Staff review is required; fulfillment is blocked."
           : paid
             ? "Your payment was verified directly with Paystack in test mode. No live funds were charged."
             : `Payment status: ${order.paymentStatus}. A browser redirect alone does not confirm payment.`}
@@ -136,6 +138,7 @@ export default async function Page({
                     .filter(Boolean)
                     .join(", ")}
             </p>
+            {address?.courierCollectsFee && <p>{courierDeliveryFeeNote}</p>}
           </section>
           <section className="checkout-form-section">
             <h2>Order history</h2>
@@ -177,23 +180,25 @@ export default async function Page({
             </div>
             <div>
               <dt>Delivery / collection</dt>
-              <dd>{money(order.deliveryFeeKobo)}</dd>
+              <dd>{address?.courierCollectsFee ? "Pay the delivery person on arrival" : money(order.deliveryFeeKobo)}</dd>
             </div>
           </dl>
           <div className="summary-total">
-            <span>Total</span>
+            <span>{address?.courierCollectsFee ? "Paystack total" : "Total"}</span>
             <strong>{money(order.totalKobo)}</strong>
           </div>
           {!paid && <VerifyOrder reference={order.reference} />}
           {order.paymentStatus === "PENDING" &&
             order.expiresAt.getTime() > Date.now() &&
+            paymentsReady() &&
             order.payments[0]?.authorizationUrl &&
+            referenceMode(order.payments[0].reference) === paymentMode() &&
             validPaymentUrl(order.payments[0].authorizationUrl) && (
               <a
                 className="button lime wide"
                 href={order.payments[0].authorizationUrl}
               >
-                Continue test payment
+                Continue payment
               </a>
             )}
           <details className="recovery-code">

@@ -1,6 +1,9 @@
 import { auditCreate } from "@/lib/audit";
 import { Prisma, PrismaClient } from "@prisma/client";
 import { createHash, randomBytes } from "node:crypto";
+import { courierDeliveryOptionId } from "./delivery-fees";
+import { queueOrderEmail } from "./order-emails";
+import { fulfilmentChoices } from "./operation-rules";
 import { catalogue } from "./catalogue";
 import {
   CommerceError,
@@ -11,6 +14,8 @@ import {
 } from "./commerce-validation";
 import {
   initializePayment,
+  paymentMode,
+  referenceMode,
   type VerifiedPayment,
   validPaymentUrl,
 } from "./paystack";
@@ -68,7 +73,9 @@ async function priced(
     (sum, i) => sum + i.quantity * i.unitPriceKobo,
     0,
   );
-  const totalKobo = subtotalKobo + option.feeKobo;
+  const courierCollectsFee = option.id === courierDeliveryOptionId;
+  const deliveryFeeKobo = courierCollectsFee ? 0 : option.feeKobo;
+  const totalKobo = subtotalKobo + deliveryFeeKobo;
   if (
     !Number.isSafeInteger(totalKobo) ||
     totalKobo < 1 ||
@@ -79,7 +86,8 @@ async function priced(
     items,
     option,
     subtotalKobo,
-    deliveryFeeKobo: option.feeKobo,
+    deliveryFeeKobo,
+    courierCollectsFee,
     totalKobo,
   };
 }
@@ -153,7 +161,7 @@ export async function createCheckout(db: PrismaClient, input: CheckoutInput) {
       update: {},
     });
     const reference = `RE-${randomBytes(10).toString("hex").toUpperCase()}`;
-    const paymentReference = `REPAY-${randomBytes(16).toString("hex")}`;
+    const paymentReference = `REPAY-${paymentMode() === "live" ? "LIVE-" : ""}${randomBytes(16).toString("hex")}`;
     const expiresAt = new Date(Date.now() + 15 * 60_000);
     const order = await tx.order.create({
       data: {
@@ -176,6 +184,7 @@ export async function createCheckout(db: PrismaClient, input: CheckoutInput) {
               ...input.address,
               optionLabel: quote.option.label,
               pickupAddress: quote.option.pickupAddress,
+              courierCollectsFee: quote.courierCollectsFee,
             },
           },
         },
@@ -308,6 +317,8 @@ export async function beginPayment(
     throw new CommerceError(
       "This payment attempt is closed. Start a new checkout.",
     );
+  if (referenceMode(payment.reference) !== paymentMode())
+    throw new CommerceError("This payment session belongs to a different Paystack mode.", 409);
   if (payment.authorizationUrl && validPaymentUrl(payment.authorizationUrl))
     return payment.authorizationUrl;
   const claim = await db.payment.updateMany({
@@ -360,14 +371,14 @@ export function assertVerified(
       : verified.amount;
   if (
     verified.reference !== payment.reference ||
-    verified.domain !== "test" ||
+    verified.domain !== referenceMode(payment.reference) ||
     verified.currency !== "NGN" ||
     amount !== payment.amountKobo ||
     !Number.isSafeInteger(verified.amount) ||
     verified.amount < payment.amountKobo
   )
     throw new CommerceError(
-      "Payment verification did not match the saved test order.",
+      "Payment verification did not match the saved order.",
       422,
     );
 }
@@ -444,7 +455,7 @@ export async function finalizePayment(
             productId: r.productId,
             delta: -r.quantity,
             reservedDelta: -r.quantity,
-            reason: "Verified test payment",
+            reason: `Verified ${verified.domain} payment`,
             actor: "paystack",
             eventKey: `sale:${r.id}`,
           },
@@ -472,7 +483,7 @@ export async function finalizePayment(
         create: {
           orderId: order.id,
           amountKobo: order.totalKobo,
-          reason: "Late test payment after approved cancellation",
+          reason: `Late ${verified.domain} payment after approved cancellation`,
           requestedBy: "commerce",
         },
         update: {},
@@ -482,25 +493,14 @@ export async function finalizePayment(
         orderId: order.id,
         actor: "paystack",
         event: valid
-          ? "TEST_PAYMENT_VERIFIED_STOCK_DEDUCTED"
-          : "LATE_TEST_PAYMENT_REQUIRES_REVIEW",
+          ? `${verified.domain.toUpperCase()}_PAYMENT_VERIFIED_STOCK_DEDUCTED`
+          : `LATE_${verified.domain.toUpperCase()}_PAYMENT_REQUIRES_REVIEW`,
       },
     });
-    if (process.env.ENERGY_EMAIL_FROM) {
-      await tx.notification.upsert({
-        where: { eventKey: `order-confirmation:${order.id}` },
-        create: {
-          eventKey: `order-confirmation:${order.id}`,
-          payload: {
-            from: process.env.ENERGY_EMAIL_FROM,
-            to: [snapshot.email],
-            subject: `Rahat Energy test order ${order.reference}`,
-            text: `Hello ${snapshot.name},\n\nYour TEST payment for ${order.reference} has been verified.\n${order.items.map((i) => `${i.quantity} x ${i.name}: NGN ${((i.quantity * i.unitPriceKobo) / 100).toFixed(2)}`).join("\n")}\nTotal: NGN ${(order.totalKobo / 100).toFixed(2)}\nDelivery method: ${order.delivery?.method}.\n${valid ? "Your order awaits processing." : "Your payment requires staff review because the inventory reservation expired. Do not assume dispatch is confirmed."}\nNo live payment has been taken.`,
-          },
-        },
-        update: {},
-      });
-    }
+    await queueOrderEmail(tx, "order-confirmation", order, {
+      test: verified.domain === "test",
+      review: !valid,
+    });
     return { reference: order.reference, paid: true, review: !valid };
   }, txOptions);
 }
@@ -517,15 +517,6 @@ export async function expireReservations(db: PrismaClient) {
   for (const order of orders) await closeUnpaidOrder(db, order.id, "EXPIRED");
   return orders.length;
 }
-export const fulfillmentTransitions: Record<string, string[]> = {
-  PENDING: ["PROCESSING"],
-  PROCESSING: ["READY_FOR_PICKUP", "DISPATCHED"],
-  READY_FOR_PICKUP: ["DELIVERED"],
-  DISPATCHED: ["DELIVERED"],
-  DELIVERED: [],
-  CANCELLED: [],
-  PAYMENT_REVIEW: [],
-};
 export async function updateFulfillment(
   db: PrismaClient,
   id: string,
@@ -536,18 +527,18 @@ export async function updateFulfillment(
     await lockOrder(tx, id);
     const order = await tx.order.findUniqueOrThrow({
       where: { id },
-      include: { delivery: true },
+      include: {
+        delivery: true,
+        items: true,
+        payments: { where: { status: "PAID" }, select: { reference: true }, take: 1 },
+      },
     });
     if (
       order.paymentStatus !== "PAID" ||
-      !fulfillmentTransitions[order.fulfillmentStatus]?.includes(status)
+      !order.delivery ||
+      !fulfilmentChoices(order.fulfillmentStatus, order.delivery.method).includes(status)
     )
       throw new CommerceError("This fulfillment transition is not permitted.");
-    if (
-      (status === "READY_FOR_PICKUP" && order.delivery?.method !== "PICKUP") ||
-      (status === "DISPATCHED" && order.delivery?.method !== "DELIVERY")
-    )
-      throw new CommerceError("Status does not match the delivery method.");
     await tx.order.update({
       where: { id },
       data: { fulfillmentStatus: status },
@@ -578,5 +569,11 @@ export async function updateFulfillment(
         data: { from: order.fulfillmentStatus, to: status },
       },
     });
+    if (status === "DELIVERED") {
+      const payment = order.payments[0];
+      await queueOrderEmail(tx, "order-fulfilled", order, {
+        test: payment ? referenceMode(payment.reference) === "test" : false,
+      });
+    }
   }, txOptions);
 }

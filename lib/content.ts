@@ -203,7 +203,7 @@ export const faqs = [
   {
     question: "Can I pay or place an order on the website?",
     answer:
-      "Checkout supports Paystack test payments when database, pricing, stock and delivery options are configured. Live payments are disabled. A test order is recorded only after you submit the checkout details.",
+      "Checkout uses Paystack when pricing, stock and delivery options are available. An order is recorded when you submit the checkout details.",
   },
   {
     question: "Can I request help with a complete energy system?",
@@ -305,7 +305,7 @@ export const policies = {
       ],
       [
         "Enquiries and access",
-        "When the enquiry service is connected, submissions are saved in the independent Rahat Energy database for authorised operations staff to review. The form reports when saving is unavailable. Checkout collects contact and delivery details to create a test order when you submit. Private order access uses an authentication cookie; the checkout attempt key and private access code are saved in session storage for recovery during that browser session.",
+        "When the enquiry service is connected, submissions are saved in the independent Rahat Energy database for authorised operations staff to review. The form reports when saving is unavailable. Checkout collects contact and delivery details to create an order when you submit. Private order access uses an authentication cookie; the checkout attempt key and private access code are saved in session storage for recovery during that browser session.",
       ],
       [
         "Administrator sessions",
@@ -331,7 +331,7 @@ export const policies = {
       ],
       [
         "Quotes and purchases",
-        "An enquiry is a request for information. Online checkout supports test payments only when configured. A test order records the equipment, quantities, price snapshot and selected delivery arrangement. Live purchases and final commercial terms still require approval.",
+        "An enquiry is a request for information. An online order records the equipment, quantities, price and selected delivery arrangement.",
       ],
       [
         "Before launch",

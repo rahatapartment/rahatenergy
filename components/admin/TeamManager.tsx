@@ -1,12 +1,13 @@
 "use client";
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { permissionKeys, permissionLabels } from "@/lib/admin-permissions";
+import { permissionKeys, permissionLabels, teamAccessPresets } from "@/lib/admin-permissions";
 type Member = {
   id: string;
   name: string;
   email: string;
   role: string;
+  roleLabel: string | null;
   active: boolean;
   permissions: string[];
 };
@@ -18,22 +19,59 @@ type Invitation = {
   acceptedAt: string | null;
   revokedAt: string | null;
 };
-function Permissions({ selected = [] }: { selected?: string[] }) {
+type AccessType = keyof typeof teamAccessPresets | "custom";
+
+function AccessFields({ roleLabel, permissions }: { roleLabel?: string | null; permissions?: string[] }) {
+  const startingType = !roleLabel || roleLabel === "Team member"
+    ? "team-member"
+    : roleLabel === "Manager" ? "manager" : "custom";
+  const [type, setType] = useState<AccessType>(startingType);
+  const [customLabel, setCustomLabel] = useState(startingType === "custom" ? roleLabel ?? "" : "");
+  const [selected, setSelected] = useState<string[]>(permissions ?? [...teamAccessPresets["team-member"].permissions]);
+  const preset = type === "custom" ? null : teamAccessPresets[type];
+
+  function choose(next: AccessType) {
+    setType(next);
+    setSelected(next === "custom" ? [] : [...teamAccessPresets[next].permissions]);
+  }
   return (
-    <fieldset className="team-permissions">
-      <legend>Allowed actions</legend>
-      {permissionKeys.map((key) => (
-        <label key={key}>
-          <input
-            type="checkbox"
-            name="permissions"
-            value={key}
-            defaultChecked={selected.includes(key)}
-          />
-          {permissionLabels[key]}
+    <>
+      <div className="inventory-inputs">
+        <label>
+          Account type
+          <select value={type} onChange={event => choose(event.target.value as AccessType)}>
+            <option value="manager">Manager</option>
+            <option value="team-member">Team member</option>
+            <option value="custom">Custom</option>
+          </select>
         </label>
-      ))}
-    </fieldset>
+        {preset ? <input type="hidden" name="roleLabel" value={preset.label} /> : (
+          <label>
+            Custom role name
+            <input name="roleLabel" value={customLabel} onChange={event => setCustomLabel(event.target.value)} required minLength={2} maxLength={60} />
+          </label>
+        )}
+      </div>
+      <p className="small muted">{preset?.description ?? "Choose the permissions for this custom role."} {preset && "You can adjust the selection below."}</p>
+      <fieldset className="team-permissions">
+        <legend>Allowed actions</legend>
+        {permissionKeys.map(key => (
+          <label key={key}>
+            <input
+              type="checkbox"
+              name="permissions"
+              value={key}
+              checked={selected.includes(key)}
+              onChange={event => {
+                const checked = event.target.checked;
+                setSelected(current => checked ? [...current, key] : current.filter(value => value !== key));
+              }}
+            />
+            {permissionLabels[key]}
+          </label>
+        ))}
+      </fieldset>
+    </>
   );
 }
 export function TeamManager({
@@ -83,10 +121,7 @@ export function TeamManager({
     <>
       <section className="inventory-form">
         <h2>Invite a team member</h2>
-        <p>
-          One business owner. Each team member uses their own email and only the
-          permissions you grant.
-        </p>
+        <p>Choose a preset or create a custom role. Team invitations, refunds and cancellations stay with the store owner.</p>
         {!emailReady && (
           <p className="notice">
             Email invitations need the Resend API key, sender address and
@@ -99,18 +134,8 @@ export function TeamManager({
               Email address
               <input name="email" type="email" required autoComplete="off" />
             </label>
-            <label>
-              Role name
-              <input
-                name="roleLabel"
-                defaultValue="Team member"
-                required
-                minLength={2}
-                maxLength={60}
-              />
-            </label>
           </div>
-          <Permissions />
+          <AccessFields />
           <button className="button dark" disabled={busy || !emailReady}>
             {busy ? "Working…" : "Send invitation"}
           </button>
@@ -139,6 +164,7 @@ export function TeamManager({
                 void request("/api/admin/users", "PATCH", {
                   id: m.id,
                   role: "OPERATOR",
+                  roleLabel: f.get("roleLabel"),
                   active: f.get("active") === "on",
                   permissions: f.getAll("permissions"),
                 });
@@ -152,7 +178,7 @@ export function TeamManager({
                 />{" "}
                 Account active
               </label>
-              <Permissions selected={m.permissions} />
+              <AccessFields roleLabel={m.roleLabel} permissions={m.permissions} />
               <button className="button dark" disabled={busy}>
                 Save access
               </button>

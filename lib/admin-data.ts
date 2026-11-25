@@ -1,8 +1,14 @@
 import { getDb } from "./db";
+import { paymentMode } from "./paystack";
 export async function adminData() {
   const db = getDb();
   if (!db) return null;
   try {
+    const mode = paymentMode();
+    const reference = mode === "live"
+      ? { startsWith: "REPAY-LIVE-" }
+      : { startsWith: "REPAY-", not: { startsWith: "REPAY-LIVE-" } };
+    const ordersInMode = { payments: { some: { reference } } };
     const [
       orders,
       deliveries,
@@ -37,16 +43,17 @@ export async function adminData() {
         orderBy: { createdAt: "desc" },
       }),
       db.payment.aggregate({
-        where: { status: "PAID" },
+        where: { status: "PAID", reference },
         _sum: { amountKobo: true },
       }),
-      db.order.count({ where: { paymentStatus: "PAID" } }),
-      db.order.count({ where: { paymentStatus: "PENDING" } }),
+      db.order.count({ where: { ...ordersInMode, paymentStatus: "PAID" } }),
+      db.order.count({ where: { ...ordersInMode, paymentStatus: "PENDING" } }),
       db.inventory.findMany(),
-      db.delivery.count({ where: { status: { not: "DELIVERED" } } }),
+      db.delivery.count({ where: { status: { not: "DELIVERED" }, order: ordersInMode } }),
       db.quotation.count({ where: { status: "NEW" } }),
     ]);
     return {
+      mode,
       orders,
       deliveries,
       customers,

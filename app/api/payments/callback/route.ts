@@ -1,9 +1,10 @@
 export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
-import { verifyPayment, appOrigin } from "@/lib/paystack";
+import { verifyPayment, appOrigin, paymentReferencePattern } from "@/lib/paystack";
 import { finalizePayment } from "@/lib/commerce";
 import { requireDb, commerceFailure } from "@/lib/commerce-http";
 import { processNotifications } from "@/lib/notifications";
+import { orderEmailKey } from "@/lib/order-emails";
 export async function GET(req: Request) {
   let origin: string;
   try {
@@ -14,7 +15,7 @@ export async function GET(req: Request) {
   const reference = new URL(req.url).searchParams.get("reference");
   let target = "/track-order";
   try {
-    if (!reference || !/^REPAY-[a-f0-9]{32}$/.test(reference))
+    if (!reference || !paymentReferencePattern.test(reference))
       return NextResponse.redirect(new URL(target, origin));
     const db = requireDb();
     const payment = await db.payment.findUnique({
@@ -23,8 +24,9 @@ export async function GET(req: Request) {
     });
     if (!payment) return NextResponse.redirect(new URL(target, origin));
     target = `/orders/${payment.order.reference}`;
-    await finalizePayment(db, await verifyPayment(reference));
-    await processNotifications(db, 1).catch(() => undefined);
+    const result = await finalizePayment(db, await verifyPayment(reference));
+    if (result.paid)
+      await processNotifications(db, 1, orderEmailKey("order-confirmation", payment.orderId)).catch(() => undefined);
   } catch {
     /* The order page displays persisted status and offers server verification again. */
   }

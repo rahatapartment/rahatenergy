@@ -1,6 +1,7 @@
 "use client";
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -8,17 +9,27 @@ import {
 } from "react";
 import { normalizeCart, type CartLine } from "@/lib/cart";
 const KEY = "rahat-energy-cart-v1";
+type AddOptions = { openDrawer?: boolean };
 const CartContext = createContext<{
   lines: CartLine[];
   ready: boolean;
   notice: string;
   update: (id: string, quantity: number) => void;
-  add: (id: string, quantity: number) => void;
-}>({ lines: [], ready: false, notice: "", update: () => {}, add: () => {} });
+  add: (id: string, quantity: number, options?: AddOptions) => void;
+  cartOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
+}>({
+  lines: [], ready: false, notice: "", update: () => {}, add: () => {},
+  cartOpen: false, openCart: () => {}, closeCart: () => {},
+});
 export function CartProvider({ children }: { children: ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([]);
   const [ready, setReady] = useState(false);
   const [notice, setNotice] = useState("");
+  const [cartOpen, setCartOpen] = useState(false);
+  const openCart = useCallback(() => setCartOpen(true), []);
+  const closeCart = useCallback(() => setCartOpen(false), []);
   useEffect(() => {
     try {
       setLines(normalizeCart(JSON.parse(localStorage.getItem(KEY) || "[]")));
@@ -50,14 +61,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
       ]),
     );
   }
-  function add(id: string, quantity: number) {
+  function add(id: string, quantity: number, { openDrawer = true }: AddOptions = {}) {
     setLines((current) =>
       normalizeCart([...current, { productId: id, quantity }]),
     );
     setNotice("Added to your cart.");
+    if (openDrawer) setCartOpen(true);
   }
   return (
-    <CartContext.Provider value={{ lines, ready, update, add, notice }}>
+    <CartContext.Provider value={{
+      lines, ready, update, add, notice, cartOpen,
+      openCart, closeCart,
+    }}>
       {children}
       <div className="sr-only" role="status" aria-live="polite">
         {notice}

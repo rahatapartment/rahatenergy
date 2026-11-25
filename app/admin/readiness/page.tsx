@@ -4,6 +4,7 @@ import { operationsAccess } from "@/lib/operations-access";
 import { storeData } from "@/lib/store-data";
 import { inventoryReadiness, workerReadiness } from "@/lib/launch-readiness";
 import { money } from "@/lib/catalogue";
+import { paymentModeLabel, paymentsReady } from "@/lib/paystack";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Launch readiness" };
 export default async function Page() {
@@ -20,7 +21,7 @@ export default async function Page() {
     db && connected
       ? await Promise.all([
           db.deliveryOption.count({ where: { enabled: true } }),
-          db.adminUser.count({ where: { active: true, role: "OWNER" } }),
+          db.adminUser.count({ where: { active: true, role: "OPERATOR" } }),
           db.jobRun.findFirst({
             where: { job: "commerce", status: "SUCCEEDED" },
             orderBy: { startedAt: "desc" },
@@ -67,8 +68,8 @@ export default async function Page() {
     [
       "Owner access",
       operational
-        ? `${operational[1]} active named owners`
-        : "Named accounts have not been verified",
+        ? `Environment owner · ${operational[1]} active team members`
+        : "Environment owner signed in. Team status unavailable.",
       "/admin/settings",
       "Manage accounts",
     ],
@@ -80,13 +81,17 @@ export default async function Page() {
     ],
     [
       "Payments",
-      "Test mode only. A completed provider transaction still needs verification.",
+      paymentsReady()
+        ? `${paymentModeLabel()} configured. Verify a completed Paystack transaction.`
+        : `${paymentModeLabel()}. Paystack credentials or callback URL need configuration.`,
       "/admin/orders",
       "Review orders",
     ],
     [
       "Email",
-      "Confirm actual customer delivery after a test order; configured keys alone do not prove delivery.",
+      process.env.ENERGY_RESEND_API_KEY && process.env.ENERGY_EMAIL_FROM
+        ? "Sender configured. Confirm order and fulfilment emails in a customer inbox."
+        : "Customer emails are queued. Configure the Resend API key and a verified sender to send them.",
       "/admin/monitoring",
       "Review notifications",
     ],
@@ -152,7 +157,7 @@ export default async function Page() {
       <p className="notice">
         Before live sales: approve delivery, returns and warranty terms;
         complete account recovery/MFA; test payment, confirmation email,
-        fulfilment and customer tracking. Live payments remain disabled.
+        fulfilment and customer tracking.
       </p>
     </AdminShell>
   );

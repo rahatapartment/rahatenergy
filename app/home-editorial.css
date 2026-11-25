@@ -73,18 +73,6 @@ body {
 .editorial-inline-link:hover svg {
   transform: translate(3px, -3px);
 }
-.home-editorial.reveal-ready [data-reveal] {
-  opacity: 0;
-  transform: translateY(26px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s cubic-bezier(0.2, 0.6, 0.3, 1);
-}
-.home-editorial.reveal-ready [data-reveal].is-revealed,
-.home-editorial.reveal-ready [data-reveal]:focus-within {
-  opacity: 1;
-  transform: none;
-}
 /* The collection is a single, explorable editorial installation. */
 .element-experience {
   background: #1c4a3b;
@@ -1547,11 +1535,6 @@ footer .brand-icon {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .home-editorial.reveal-ready [data-reveal] {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
   .element-image > img {
     animation: none;
   }

@@ -54,8 +54,8 @@ export function CategoryHero({
               SHOP RAHAT ENERGY
             </span>
             <h1 id="category-title">
-              {category}.<br />
-              <em>{headlines[slug]}</em>
+              <span data-motion-line>{category}.</span>
+              <em data-motion-line>{headlines[slug]}</em>
             </h1>
             <p>{intro}</p>
             <a href="#category-products" className="solutions-hero-enter">

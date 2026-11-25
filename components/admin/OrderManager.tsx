@@ -1,4 +1,5 @@
 "use client";
+import { fulfilmentStatuses, statusLabel } from "@/lib/operation-rules";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { money } from "@/lib/catalogue";
@@ -138,12 +139,16 @@ export function OrdersTable({
 export function FulfillmentControl({
   id,
   allowed,
+  current,
+  method,
 }: {
   id: string;
   allowed: string[];
+  current: string;
+  method: string;
 }) {
-  const [status, setStatus] = useState(allowed[0] || "");
-  useEffect(() => setStatus(allowed[0] || ""), [allowed]);
+  const [status, setStatus] = useState(current);
+  useEffect(() => setStatus(current), [current]);
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState("");
   const router = useRouter();
@@ -174,14 +179,17 @@ export function FulfillmentControl({
   return (
     <div className="inventory-form">
       <label className="field-label">
-        Next fulfillment status
+        Fulfilment status
         <select value={status} onChange={(e) => setStatus(e.target.value)}>
-          {allowed.map((s) => (
-            <option key={s}>{s}</option>
+          {fulfilmentStatuses(method).map((choice) => (
+            <option key={choice} value={choice} disabled={choice !== current && !allowed.includes(choice)}>
+              {statusLabel(choice, method)}
+            </option>
           ))}
         </select>
       </label>
-      <button className="button dark" disabled={pending} onClick={save}>
+      {status === "DELIVERED" && <p className="small">Saving this status queues the customer’s completion email.</p>}
+      <button className="button dark" disabled={pending || !allowed.includes(status)} onClick={save}>
         {pending ? "Saving…" : "Update fulfillment"}
       </button>
       {message && (

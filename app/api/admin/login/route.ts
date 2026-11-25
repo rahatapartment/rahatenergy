@@ -1,9 +1,10 @@
 import { auditCreate } from "@/lib/audit";
 import { NextResponse } from "next/server";
-import { timingSafeEqual } from "node:crypto";
+import { createHash, timingSafeEqual } from "node:crypto";
 import { z } from "zod";
 import { ADMIN_COOKIE, createAdminSession } from "@/lib/admin-auth";
 import { getDb } from "@/lib/db";
+import { environmentOwnerCredentials, environmentOwnerEmail, environmentOwnerId } from "@/lib/admin-owner";
 import { verifyPassword } from "@/lib/passwords";
 import { sameOrigin, limitRequest } from "@/lib/security";
 import { commerceFailure, smallJson } from "@/lib/commerce-http";
@@ -34,9 +35,7 @@ export async function POST(req: Request) {
           .trim()
           .toLowerCase()
           .email()
-          .max(254)
-          .or(z.literal(""))
-          .optional(),
+          .max(254),
         password: z.string().min(1).max(128),
       })
       .strict()
@@ -47,58 +46,31 @@ export async function POST(req: Request) {
         { status: 400 },
       );
     const db = getDb();
-    const named = db ? await db.adminUser.count() : 0;
+    const { email, password } = body.data;
     let token: string;
-    if (named) {
-      const user = await db!.adminUser.findUnique({
-        where: { email: body.data.email || "" },
-      });
-      if (
-        !user?.active ||
-        !(await verifyPassword(body.data.password, user.passwordHash))
-      ) {
-        if (user)
-          await db!.$transaction((tx) =>
-            auditCreate(tx, {
-              data: {
-                actor: user.id,
-                action: "SIGN_IN_FAILED",
-                subject: user.id,
-                data: {},
-              },
-            }),
-          );
-        return NextResponse.json(
-          { error: "Invalid sign-in details." },
-          { status: 401 },
-        );
-      }
-      await db!.$transaction((tx) =>
-        auditCreate(tx, {
-          data: {
-            actor: user.id,
-            action: "SIGN_IN",
-            subject: user.id,
-            data: {},
-          },
-        }),
-      );
-      token = await createAdminSession(user);
-    } else {
-      const expected = process.env.ENERGY_ADMIN_PASSWORD;
-      if (!expected || expected.length < 16)
-        return NextResponse.json(
-          { error: "Independent admin credentials are not configured." },
-          { status: 503 },
-        );
-      const a = Buffer.from(body.data.password),
-        b = Buffer.from(expected);
-      if (a.length !== b.length || !timingSafeEqual(a, b))
-        return NextResponse.json(
-          { error: "Invalid sign-in details." },
-          { status: 401 },
-        );
+    const owner = environmentOwnerCredentials();
+    if (email === environmentOwnerEmail() || !db) {
+      if (!owner && !db)
+        return NextResponse.json({ error: "Admin credentials are not configured." }, { status: 503 });
+      const digest = (value: string) => createHash("sha256").update(value).digest();
+      if (!owner || email !== owner.email || !timingSafeEqual(digest(password), digest(owner.password)))
+        return NextResponse.json({ error: "Invalid sign-in details." }, { status: 401 });
+      if (db)
+        await db.$transaction(tx => auditCreate(tx, {
+          data: { actor: environmentOwnerId, action: "SIGN_IN", subject: environmentOwnerId, data: {} },
+        }));
       token = await createAdminSession();
+    } else {
+      const user = await db.adminUser.findUnique({ where: { email } });
+      const valid = !!user?.active && user.role === "OPERATOR" &&
+        await verifyPassword(password, user.passwordHash);
+      if (user)
+        await db.$transaction(tx => auditCreate(tx, {
+          data: { actor: user.id, action: valid ? "SIGN_IN" : "SIGN_IN_FAILED", subject: user.id, data: {} },
+        }));
+      if (!valid || !user)
+        return NextResponse.json({ error: "Invalid sign-in details." }, { status: 401 });
+      token = await createAdminSession(user);
     }
     const res = NextResponse.json(
       { ok: true },

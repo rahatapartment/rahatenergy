@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { updateFulfillment } from "@/lib/commerce";
+import { processNotifications } from "@/lib/notifications";
+import { orderEmailKey } from "@/lib/order-emails";
 import {
   requireDb,
   adminMutation,
@@ -24,7 +26,10 @@ export async function PATCH(
       })
       .strict()
       .parse(await smallJson(req));
-    await updateFulfillment(requireDb(), params.id, status, actor.id);
+    const db = requireDb();
+    await updateFulfillment(db, params.id, status, actor.id);
+    if (status === "DELIVERED")
+      await processNotifications(db, 1, orderEmailKey("order-fulfilled", params.id)).catch(() => undefined);
     return NextResponse.json({ ok: true });
   } catch (e) {
     return commerceFailure(e);

@@ -1,0 +1,161 @@
+.quote-experience {
+  background: #f5f7f1;
+}
+.quote-experience .quote-hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  height: auto;
+  min-height: clamp(565px, 78svh, 850px);
+  padding: calc(var(--cinematic-header-height) + 42px) max(6%, calc((100vw - 1320px) / 2)) 92px;
+  background: #142c22;
+  contain: paint;
+}
+.quote-hero-image {
+  position: absolute;
+  inset: 0 0 0 40%;
+  z-index: 0;
+  overflow: hidden;
+  background: #929185;
+}
+.quote-hero-image img {
+  object-fit: cover;
+  object-position: 60% 51%;
+}
+.quote-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, #142c2280, transparent 30%),
+    linear-gradient(90deg, #142c22 35%, #142c22ed 43%, #142c2270 60%, #142c2210 83%),
+    linear-gradient(0deg, #142c2275, transparent 31%);
+}
+.quote-hero .quote-hero-copy {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 680px);
+  transform: none;
+  opacity: 1;
+}
+.quote-hero .quote-hero-copy h1 {
+  font-size: clamp(54px, 6.8vw, 104px);
+  margin: 22px 0;
+}
+.quote-hero .quote-hero-copy h1 em { color: #e9d9b4; }
+.quote-hero .quote-hero-copy > p {
+  max-width: 355px;
+  margin: 0 0 22px;
+}
+.quote-hero .solutions-hero-enter { margin-top: 0; }
+
+.quote-surface {
+  position: relative;
+  z-index: 3;
+  margin-top: -28px;
+  border-radius: clamp(26px, 5vw, 72px) clamp(26px, 5vw, 72px) 0 0;
+  background: #f5f7f1;
+}
+.quote-brief {
+  display: grid;
+  grid-template-columns: minmax(240px, .75fr) minmax(0, 1.45fr);
+  align-items: start;
+  gap: clamp(36px, 7vw, 112px);
+  width: min(1200px, 88%);
+  margin: 0 auto;
+  padding: clamp(52px, 8vw, 110px) 0;
+}
+.quote-guidance { min-width: 0; padding-top: 12px; }
+.quote-guidance h2 {
+  margin: 0 0 22px;
+  color: #173a2b;
+  font: 400 clamp(43px, 5.25vw, 75px)/.95 var(--font-editorial), Georgia, serif;
+  letter-spacing: -.045em;
+}
+.quote-guidance h2 em {
+  color: #406854;
+  font-style: italic;
+}
+.quote-guidance p {
+  max-width: 340px;
+  color: #506258;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.quote-next,
+.quote-selection {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #cbd9ca;
+}
+.quote-next h3 {
+  margin: 0 0 8px;
+  color: #1d4533;
+  font-size: 14px;
+  font-weight: 600;
+}
+.quote-next .contact-inline-link { margin-top: 6px; }
+.quote-selection > span { display: block; color: #577061; font-size: 12px; }
+.quote-selection a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  color: #1d4533;
+  font-size: 14px;
+}
+.quote-form-card {
+  scroll-margin-top: calc(var(--cinematic-header-height) + 18px);
+  padding: clamp(25px, 3.6vw, 54px);
+  border-color: #d8e2d4;
+  border-radius: 34px 8px 8px;
+  background: #fffefa;
+}
+.quote-form-card .form-section-heading h2 {
+  margin: 6px 0 8px;
+  color: #1b402f;
+  font: 400 clamp(27px, 3vw, 40px)/1.1 var(--font-editorial), Georgia, serif;
+}
+.quote-form-card .form-section-heading:not(:first-child) {
+  padding-top: 17px;
+  border-top: 1px solid #e2e8dd;
+}
+.quote-form-card .form-grid input:not([type="checkbox"]),
+.quote-form-card .form-grid select,
+.quote-form-card .form-grid textarea {
+  border-color: #cbd7c9;
+  border-radius: 7px;
+  background: #fcfdf9;
+}
+.quote-form-card .form-grid :is(input, select, textarea):focus-visible {
+  outline: 2px solid #34664b;
+  outline-offset: 2px;
+}
+.quote-form-card .form-grid label.full textarea[name="requirements"] { min-height: 150px; }
+.quote-form-card .form-grid .button {
+  border-radius: 999px;
+  justify-content: space-between;
+  padding-inline: 20px;
+}
+@media (max-width: 850px) {
+  .quote-brief { gap: 35px; width: 90%; }
+}
+@media (max-width: 760px) {
+  .quote-experience .quote-hero {
+    min-height: clamp(500px, 77svh, 685px);
+    align-items: end;
+    padding: calc(var(--cinematic-header-height) + 42px) 6% 80px;
+  }
+  .quote-hero-image { inset: 0; }
+  .quote-hero-image img { object-position: 58% 40%; }
+  .quote-hero::after {
+    background: linear-gradient(180deg, #142c2280, transparent 27%),
+      linear-gradient(0deg, #142c22fa 8%, #142c22dd 39%, #142c2245 81%),
+      linear-gradient(90deg, #142c2270, transparent 85%);
+  }
+  .quote-hero .quote-hero-copy h1 { font-size: clamp(43px, 10vw, 72px); margin: 16px 0; }
+  .quote-hero .quote-hero-copy > p { margin-bottom: 14px; }
+  .quote-brief { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .quote-form-card { border-radius: 23px 7px 7px; }
+}

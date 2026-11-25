@@ -57,7 +57,7 @@ export default async function Page() {
             {[
               ["Queued emails", data[3]],
               ["Email review required", data[4]],
-              ["Pending test refunds", data[5]],
+              ["Pending refunds", data[5]],
               ["Last worker result", last?.status || "Not observed"],
             ].map(([label, value]) => (
               <div className="metric" key={label}>

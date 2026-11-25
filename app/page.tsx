@@ -5,7 +5,6 @@ import { storeData } from "@/lib/store-data";
 import { faqs } from "@/lib/content";
 import { FAQList } from "@/components/store/Content";
 import { CategoryExperience } from "@/components/store/CategoryExperience";
-import { HomeMotion } from "@/components/store/HomeMotion";
 import { HeroExperience } from "@/components/store/HeroExperience";
 import { ProductCarousel } from "@/components/store/ProductCarousel";
 export const dynamic = "force-dynamic";
@@ -15,9 +14,9 @@ export default async function Home() {
     <main id="main">
       <HeroExperience />
       <div className="home-content">
-        <HomeMotion>
+        <div className="home-editorial">
           <section
-            className="energy-introduction"
+            className="energy-introduction" data-store-motion="glide"
             id="energy-introduction"
             data-header-surface
             aria-labelledby="introduction-title"
@@ -56,7 +55,7 @@ export default async function Home() {
           </section>
           <CategoryExperience />
           <ProductCarousel products={products} />
-          <section className="living-energy" aria-labelledby="living-title">
+          <section className="living-energy" data-store-motion="glide" aria-labelledby="living-title">
             <Image
               src="/images/hero.webp"
               alt="Illustrative solar-powered architecture; not a completed Rahat Energy project"
@@ -124,7 +123,7 @@ export default async function Home() {
             </div>
           </section>
           <section
-            className="considered-journey"
+            className="considered-journey" data-store-motion="fade"
             aria-labelledby="journey-title"
           >
             <div className="journey-heading">
@@ -191,7 +190,7 @@ export default async function Home() {
               ))}
             </div>
           </section>
-          <section className="answers-section" aria-labelledby="answers-title">
+          <section className="answers-section" data-store-motion="lift" aria-labelledby="answers-title">
             <div className="answers-heading" data-reveal>
               <span className="eyebrow">06 / BEFORE YOUR NEXT STEP</span>
               <h2 id="answers-title">
@@ -210,7 +209,7 @@ export default async function Home() {
               />
             </div>
           </section>
-          <section className="next-chapter" aria-labelledby="chapter-title">
+          <section className="next-chapter" data-store-motion="glide" aria-labelledby="chapter-title">
             <div className="chapter-watermark" aria-hidden="true" />
             <div className="chapter-topline">
               <span className="eyebrow">07 / YOUR NEXT CHAPTER</span>
@@ -248,7 +247,7 @@ export default async function Home() {
               </Link>
             </div>
           </section>
-        </HomeMotion>
+        </div>
       </div>
     </main>
   );

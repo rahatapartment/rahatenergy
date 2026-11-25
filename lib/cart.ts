@@ -18,7 +18,10 @@ export function normalizeCart(input: unknown): CartLine[] {
   }
   return [...merged].map(([productId, quantity]) => ({ productId, quantity }));
 }
-export function cartSummary(lines: CartLine[], products: StoreProduct[]) {
+export function cartSummary(
+  lines: CartLine[],
+  products: readonly Pick<StoreProduct, "id" | "priceKobo">[],
+) {
   let subtotal = 0;
   let unknownPrice = false;
   for (const line of lines) {

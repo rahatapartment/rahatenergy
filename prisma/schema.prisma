@@ -253,6 +253,7 @@ model AdminUser {
   name           String
   passwordHash   String
   role           String   @default("OPERATOR")
+  roleLabel      String?
   active         Boolean  @default(true)
   sessionVersion Int      @default(0)
   createdAt      DateTime @default(now())

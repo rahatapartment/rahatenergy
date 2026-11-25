@@ -33,9 +33,8 @@ export function CartHero() {
               <span /> YOUR ENERGY EDIT
             </span>
             <h1 id="cart-title">
-              Considered choices.
-              <br />
-              <em>New possibilities.</em>
+              <span data-motion-line>Considered choices.</span>
+              <em data-motion-line>New possibilities.</em>
             </h1>
             <p>
               Keep your choices together. Refine the details, then take your

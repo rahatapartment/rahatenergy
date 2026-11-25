@@ -8,6 +8,11 @@ export const quoteUpdateSchema = z
     reason: z.string().trim().min(5).max(500),
   })
   .strict();
+export const quoteResponseSchema = z.object({
+  version: z.number().int().min(0),
+  message: z.string().trim().min(10).max(5000),
+}).strict();
+
 export const deliveryUpdateSchema = z
   .object({
     status: z.enum([

@@ -89,7 +89,7 @@ export function CategoryExperience() {
     buttons.current[next]?.focus();
   }
   return (
-    <section className="element-experience" aria-labelledby="elements-title">
+    <section className="element-experience" data-store-motion="fade" aria-labelledby="elements-title">
       <div className="element-topline">
         <span className="eyebrow">02 / THE ELEMENTS OF YOUR ENERGY</span>
         <span className="element-status">

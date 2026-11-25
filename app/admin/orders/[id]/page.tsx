@@ -3,7 +3,7 @@ import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
 import { isAdmin, currentAdmin } from "@/lib/admin-auth";
 import { getDb } from "@/lib/db";
-import { fulfillmentTransitions } from "@/lib/commerce";
+import { fulfilmentChoices } from "@/lib/operation-rules";
 import { money } from "@/lib/catalogue";
 import { AdminShell } from "@/components/admin/AdminShell";
 import {
@@ -46,18 +46,12 @@ export default async function Page({ params }: { params: { id: string } }) {
         state?: string;
         pickupAddress?: string;
         optionLabel?: string;
+        courierCollectsFee?: boolean;
       }
     | undefined;
-  const allowed =
-    order.paymentStatus === "PAID"
-      ? (fulfillmentTransitions[order.fulfillmentStatus] || []).filter((s) =>
-          s === "READY_FOR_PICKUP"
-            ? order.delivery?.method === "PICKUP"
-            : s === "DISPATCHED"
-              ? order.delivery?.method === "DELIVERY"
-              : true,
-        )
-      : [];
+  const allowed = order.paymentStatus === "PAID" && order.delivery
+    ? fulfilmentChoices(order.fulfillmentStatus, order.delivery.method)
+    : [];
   return (
     <AdminShell title={order.reference} authenticated>
       <Link href="/admin/orders" className="text-link">
@@ -78,7 +72,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       </div>
       {order.fulfillmentStatus === "PAYMENT_REVIEW" && (
         <div className="notice error">
-          A verified test payment requires manual resolution. Stock was not
+          A verified payment requires manual resolution. Stock was not
           deducted and fulfillment is blocked. Investigate the gateway record
           before arranging a new reservation or a refund.
         </div>
@@ -101,7 +95,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           </p>
           {order.refund?.providerRefundId && (
             <p className="small">
-              Verified test refund ID: {order.refund.providerRefundId}
+              Verified refund ID: {order.refund.providerRefundId}
             </p>
           )}
         </section>
@@ -157,10 +151,15 @@ export default async function Page({ params }: { params: { id: string } }) {
       </div>
       <p className="small" style={{ marginTop: 20 }}>
         Subtotal {money(order.subtotalKobo)} · Delivery{" "}
-        {money(order.deliveryFeeKobo)} · Total {money(order.totalKobo)}
+        {address?.courierCollectsFee ? "fee paid to courier on arrival" : money(order.deliveryFeeKobo)} · Paystack total {money(order.totalKobo)}
       </p>
       {hasPermission(actor, "orders.manage") && (
-        <FulfillmentControl id={order.id} allowed={allowed} />
+        <FulfillmentControl
+          id={order.id}
+          allowed={allowed}
+          current={order.fulfillmentStatus}
+          method={order.delivery?.method || "DELIVERY"}
+        />
       )}
       {order.delivery && hasPermission(actor, "deliveries.manage") && (
         <DeliveryEditor

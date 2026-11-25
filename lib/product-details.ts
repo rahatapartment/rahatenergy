@@ -7,6 +7,6 @@ export type ProductDetails = {
   specifications: Record<string, string>;
   faq: { question: string; answer: string }[];
 };
-export function detailsFor(product: ProductDefinition): ProductDetails {
+export function detailsFor(product: ProductDefinition): ProductDetails | undefined {
   return (details as Record<string, ProductDetails>)[product.id];
 }

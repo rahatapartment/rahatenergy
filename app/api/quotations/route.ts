@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { quoteSchema } from "@/lib/validation";
 import { getDb } from "@/lib/db";
+import { enquiryAdminLink, salesEnquiryKey, salesInbox } from "@/lib/quotation-emails";
+import { processNotifications } from "@/lib/notifications";
 import { sameOrigin, limitRequest, unavailable } from "@/lib/security";
 export async function POST(req: Request) {
   if (!sameOrigin(req))
@@ -31,6 +33,7 @@ export async function POST(req: Request) {
   if (!db) return unavailable();
   const { consent, ...data } = parsed.data;
   void consent;
+  const sales = salesInbox();
   try {
     const saved = await db.$transaction(async (tx) => {
       const quotation = await tx.quotation.create({
@@ -49,22 +52,29 @@ export async function POST(req: Request) {
             },
           },
         });
-        const admin = process.env.ENERGY_ADMIN_EMAIL;
-        if (admin && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(admin))
-          await tx.notification.create({
-            data: {
-              eventKey: `quote-admin:${quotation.id}`,
-              payload: {
-                from,
-                to: [admin],
-                subject: `New Rahat Energy enquiry ${quotation.id}`,
-                text: `A new enquiry from ${quotation.name} is ready for review in operations. Reference: ${quotation.id}.`,
-              },
+      }
+      if (sales) {
+        const link = enquiryAdminLink(quotation.id);
+        await tx.notification.create({
+          data: {
+            eventKey: salesEnquiryKey(quotation.id),
+            payload: {
+              ...(from ? { from } : {}),
+              to: [sales],
+              subject: `New Rahat Energy quote request · ${quotation.id}`,
+              text: [
+                `A new quote request from ${quotation.name} is ready in Admin → Enquiries.`,
+                `Reference: ${quotation.id}`,
+                link ? `Open enquiry: ${link}` : "",
+              ].filter(Boolean).join("\n\n"),
             },
-          });
+          },
+        });
       }
       return quotation;
     });
+    if (sales)
+      await processNotifications(db, 1, salesEnquiryKey(saved.id)).catch(() => undefined);
     return NextResponse.json({ reference: saved.id }, { status: 201 });
   } catch {
     return unavailable();

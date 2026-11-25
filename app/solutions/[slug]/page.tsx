@@ -77,9 +77,8 @@ export default function Page({ params }: { params: { slug: string } }) {
           <div className="perspective-context-copy">
             <span className="eyebrow">02 / MAKE THE CONVERSATION COUNT</span>
             <h2 id="context-title">
-              Start with
-              <br />
-              <em>your perspective.</em>
+              <span data-motion-line>Start with</span>
+              <em data-motion-line>your perspective.</em>
             </h2>
             <p>
               You do not need to know every answer. Share what you can, and
@@ -106,9 +105,8 @@ export default function Page({ params }: { params: { slug: string } }) {
             <div>
               <span className="eyebrow">03 / THE ELEMENTS TO EXPLORE</span>
               <h2 id="building-blocks-title">
-                The pieces.
-                <br />
-                <em>The bigger picture.</em>
+                <span data-motion-line>The pieces.</span>
+                <em data-motion-line>The bigger picture.</em>
               </h2>
             </div>
             <Link href="/shop" className="solutions-editorial-link">

@@ -33,9 +33,8 @@ export function HelpHero() {
               <span /> HELP & ANSWERS
             </span>
             <h1 id="help-title">
-              Good questions.
-              <br />
-              <em>Clearer possibilities.</em>
+              <span data-motion-line>Good questions.</span>
+              <em data-motion-line>Clearer possibilities.</em>
             </h1>
             <p>
               Find your way through products, quotations, ordering and the

@@ -35,9 +35,8 @@ export function AboutHero() {
               <span /> MEET RAHAT ENERGY
             </span>
             <h1 id="about-title">
-              Our perspective.
-              <br />
-              <em>Your possibilities.</em>
+              <span data-motion-line>Our perspective.</span>
+              <em data-motion-line>Your possibilities.</em>
             </h1>
             <p>
               A clearer starting point for solar, storage and the energy choices

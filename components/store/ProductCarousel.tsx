@@ -1,12 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import Image from "@/components/WebImage";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { money, productImage, type StoreProduct } from "@/lib/catalogue";
-import { ProductStockBadge } from "./ProductStockBadge";
-import { QuickAdd } from "./QuickAdd";
+import type { StoreProduct } from "@/lib/catalogue";
+import { ProductCard } from "./ProductCard";
 
 export function ProductCarousel({ products }: { products: StoreProduct[] }) {
   const rail = useRef<HTMLUListElement>(null);
@@ -33,7 +30,7 @@ export function ProductCarousel({ products }: { products: StoreProduct[] }) {
     node.scrollBy({ left: direction * (node.clientWidth + gap), behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   }
   return (
-    <section id="frequently-bought" className="home-product-carousel" aria-labelledby="home-products-title" aria-roledescription="carousel">
+    <section id="frequently-bought" className="home-product-carousel" data-store-motion="lift" aria-labelledby="home-products-title" aria-roledescription="carousel">
       <div className="home-products-heading">
         <h2 id="home-products-title">Explore our products</h2>
         <div className="home-products-navigation" role="group" aria-label="Product navigation">
@@ -47,22 +44,7 @@ export function ProductCarousel({ products }: { products: StoreProduct[] }) {
       }}>
         {products.map(product => (
           <li className="home-product-item" key={product.id}>
-            <article className="home-product-link commerce-card">
-              <Link href={`/shop/${product.slug}`} className="home-product-image card-media">
-                <ProductStockBadge product={product} />
-                <Image src={productImage(product)} alt={product.name} width={600} height={600} sizes="(max-width: 767px) 92vw, (max-width: 900px) 45vw, (max-width: 1440px) 22vw, 310px" />
-              </Link>
-              <div className="home-product-details card-content">
-                <span className="card-category">{product.category}</span>
-                <h3><Link href={`/shop/${product.slug}`}>{product.name}</Link></h3>
-                <p className="card-description">{product.description}</p>
-                <strong>{money(product.priceKobo)}</strong>
-                <div className="home-product-actions card-actions">
-                  <QuickAdd product={product} label="Add to cart" />
-                  <Link href={`/shop/${product.slug}`} className="home-product-explore card-explore" aria-label={`Explore ${product.name}`}>Explore</Link>
-                </div>
-              </div>
-            </article>
+            <ProductCard product={product} variant="carousel" />
           </li>
         ))}
       </ul>

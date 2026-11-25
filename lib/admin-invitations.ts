@@ -4,6 +4,7 @@ import type { AdminIdentity } from "./admin-auth";
 import { CommerceError } from "./commerce-validation";
 import { hashPassword } from "./passwords";
 import { auditCreate } from "./audit";
+import { environmentOwnerEmail, environmentOwnerId } from "./admin-owner";
 export const invitationHash = (token: string) =>
   createHash("sha256").update(token).digest("hex");
 export function invitationUsable(
@@ -17,11 +18,10 @@ export async function inviteAdmin(
   actor: AdminIdentity,
   input: { email: string; roleLabel: string; permissions: string[] },
 ) {
-  if (actor.role !== "OWNER" || actor.bootstrap)
-    throw new CommerceError(
-      "Create your named owner account in Settings first.",
-      403,
-    );
+  if (actor.role !== "OWNER" || actor.id !== environmentOwnerId)
+    throw new CommerceError("Owner access is required.", 403);
+  if (input.email === environmentOwnerEmail())
+    throw new CommerceError("This email is reserved for the store owner.", 409);
   if (
     !process.env.ENERGY_RESEND_API_KEY ||
     !process.env.ENERGY_EMAIL_FROM ||
@@ -99,7 +99,7 @@ export async function acceptAdminInvitation(
     const invite = await tx.adminInvitation.findUnique({
       where: { tokenHash: invitationHash(input.token) },
     });
-    if (!invite || !invitationUsable(invite))
+    if (!invite || !invitationUsable(invite) || invite.email === environmentOwnerEmail())
       throw new CommerceError(
         "This invitation has expired or is no longer available. Ask the owner for a new invitation.",
         410,
@@ -110,6 +110,7 @@ export async function acceptAdminInvitation(
         name: input.name,
         passwordHash,
         role: "OPERATOR",
+        roleLabel: invite.roleLabel,
         permissions: invite.permissions,
       },
     });

@@ -6,6 +6,7 @@ import { requireDb, commerceFailure, smallJson } from "@/lib/commerce-http";
 import { sameOrigin, limitRequest } from "@/lib/security";
 import { verifyPayment } from "@/lib/paystack";
 import { processNotifications } from "@/lib/notifications";
+import { orderEmailKey } from "@/lib/order-emails";
 export async function POST(req: Request) {
   try {
     if (!sameOrigin(req))
@@ -30,7 +31,8 @@ export async function POST(req: Request) {
       db,
       await verifyPayment(order.payments[0].reference),
     );
-    await processNotifications(db, 1).catch(() => undefined);
+    if (result.paid)
+      await processNotifications(db, 1, orderEmailKey("order-confirmation", order.id)).catch(() => undefined);
     return NextResponse.json(result, {
       headers: { "Cache-Control": "no-store" },
     });

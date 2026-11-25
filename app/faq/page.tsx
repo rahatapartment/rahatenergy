@@ -23,9 +23,8 @@ export default function Page() {
           </div>
           <span className="eyebrow">01 / A LITTLE MORE CLARITY</span>
           <h2 id="help-introduction-title">
-            A useful answer.
-            <br />
-            <em>A clearer next step.</em>
+            <span data-motion-line>A useful answer.</span>
+            <em data-motion-line>A clearer next step.</em>
           </h2>
           <p>
             Explore the current shopping experience, understand what needs
@@ -47,9 +46,8 @@ export default function Page() {
               02 / FROM A QUESTION TO A CLEARER BRIEF
             </span>
             <h2 id="help-journey-title">
-              A little context.
-              <br />
-              <em>A useful direction.</em>
+              <span data-motion-line>A little context.</span>
+              <em data-motion-line>A useful direction.</em>
             </h2>
             <p>
               Explore your options, keep your choices together and confirm the
@@ -105,9 +103,8 @@ export default function Page() {
                 A QUESTION. A SPACE. A NEW POSSIBILITY.
               </span>
               <h2 id="help-closing-title">
-                Still curious?
-                <br />
-                <em>Find a starting point.</em>
+                <span data-motion-line>Still curious?</span>
+                <em data-motion-line>Find a starting point.</em>
               </h2>
               <p>
                 Bring your project questions, explore your options or find the

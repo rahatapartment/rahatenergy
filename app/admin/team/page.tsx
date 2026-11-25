@@ -1,18 +1,19 @@
 import { operationsAccess } from "@/lib/operations-access";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { TeamManager } from "@/components/admin/TeamManager";
-import Link from "next/link";
 export const dynamic = "force-dynamic";
 export default async function Page() {
   const { actor, db } = await operationsAccess("owner");
   const [members, invitations] = db
     ? await Promise.all([
         db.adminUser.findMany({
+          where: { role: "OPERATOR" },
           select: {
             id: true,
             name: true,
             email: true,
             role: true,
+            roleLabel: true,
             active: true,
             permissions: true,
           },
@@ -34,13 +35,7 @@ export default async function Page() {
     : [[], []];
   return (
     <AdminShell title="Team access" authenticated={!!actor}>
-      {actor?.bootstrap ? (
-        <p className="notice">
-          Create the business owner account in{" "}
-          <Link href="/admin/settings">Settings</Link> before inviting your
-          team.
-        </p>
-      ) : (
+      {actor && (
         <TeamManager
           emailReady={
             !!(
@@ -50,9 +45,12 @@ export default async function Page() {
             )
           }
           key={members
-            .map((m) => `${m.id}-${m.active}-${m.permissions.join(",")}`)
+            .map((m) => `${m.id}-${m.active}-${m.roleLabel}-${m.permissions.join(",")}`)
             .join("|")}
-          members={members}
+          members={[
+            { id: actor.id, name: actor.name, email: actor.email ?? "", role: actor.role, roleLabel: null, active: true, permissions: [] },
+            ...members,
+          ]}
           invitations={invitations.map((i) => ({
             ...i,
             expiresAt: i.expiresAt.toISOString(),

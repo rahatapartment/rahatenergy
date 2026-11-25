@@ -6,12 +6,9 @@ import {
   ArrowUpRight,
   ChevronLeft,
   ChevronRight,
-  Pause,
-  Play,
   MoveHorizontal,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { usePinnedScene } from "./usePinnedScene";
+import { useRef, useState } from "react";
 const slides = [
   {
     category: "Solar panels",
@@ -54,65 +51,51 @@ const slides = [
     copy: "Explore mounting, cabling and control components. Complete your shortlist with accessories suited to your proposed system.",
   },
 ];
+
+type SlideSelection = {
+  selected: number;
+  previous: number | null;
+  pending: number | null;
+  changed: boolean;
+};
+
+function showSlide(current: SlideSelection, index: number): SlideSelection {
+  return {
+    selected: index,
+    previous: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? null
+      : current.selected,
+    pending: null,
+    changed: true,
+  };
+}
+
 export function HeroExperience() {
-  const stage = usePinnedScene();
-  const [selected, setSelected] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const [interacting, setInteracting] = useState(false);
-  const [reduced, setReduced] = useState(true);
-  const [visible, setVisible] = useState(true);
+  const [selection, setSelection] = useState<SlideSelection>({
+    selected: 0,
+    previous: null,
+    pending: null,
+    changed: false,
+  });
+  const { selected, previous, pending, changed } = selection;
   const touch = useRef<{ x: number; y: number } | null>(null);
-  useEffect(() => {
-    const m = matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(m.matches);
-    update();
-    m.addEventListener("change", update);
-    const el = stage.current;
-    const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.15 },
-    );
-    if (el) observer.observe(el);
-    const visibility = () =>
-      setVisible(
-        document.visibilityState === "visible" &&
-          !!el &&
-          el.getBoundingClientRect().bottom > 0,
-      );
-    document.addEventListener("visibilitychange", visibility);
-    return () => {
-      m.removeEventListener("change", update);
-      observer.disconnect();
-      document.removeEventListener("visibilitychange", visibility);
-    };
-  }, [stage]);
-  useEffect(() => {
-    if (paused || interacting || reduced || !visible) return;
-    const timer = setInterval(
-      () => setSelected((n) => (n + 1) % slides.length),
-      7000,
-    );
-    return () => clearInterval(timer);
-  }, [paused, interacting, reduced, visible]);
-  function choose(index: number) {
-    setSelected((index + slides.length) % slides.length);
-    setPaused(true);
+  function choose(index: number, relative = false) {
+    setSelection((current) => {
+      const target = relative ? (current.pending ?? current.selected) + index : index;
+      const next = (target + slides.length) % slides.length;
+      if (next === current.selected) return { ...current, pending: null };
+      if (next === current.previous) return showSlide(current, next);
+      return { ...current, pending: next };
+    });
   }
   const slide = slides[selected];
   return (
-    <div className="hero-stage sales-hero-stage" ref={stage}>
+    <div className="hero-stage sales-hero-stage">
       <section
         className="cinematic-hero sales-hero"
         aria-labelledby="hero-title"
         aria-roledescription="carousel"
         aria-label="Shop Rahat Energy categories"
-        onMouseEnter={() => setInteracting(true)}
-        onMouseLeave={() => setInteracting(false)}
-        onFocusCapture={() => setInteracting(true)}
-        onBlurCapture={(e) => {
-          if (!e.currentTarget.contains(e.relatedTarget as Node))
-            setInteracting(false);
-        }}
         onTouchStart={(e) => {
           touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         }}
@@ -121,39 +104,69 @@ export function HeroExperience() {
           const dx = e.changedTouches[0].clientX - touch.current.x,
             dy = e.changedTouches[0].clientY - touch.current.y;
           if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4)
-            choose(selected + (dx < 0 ? 1 : -1));
+            choose(dx < 0 ? 1 : -1, true);
           touch.current = null;
         }}
       >
-        <div className="cinematic-scene sales-hero-scene" key={slide.image}>
-          <Image
-            src={`/images/${slide.image}.webp`}
-            alt={
-              slide.image === "hero"
-                ? "Illustrative solar-powered home; not a completed Rahat Energy project"
-                : `Illustrative ${slide.category.toLowerCase()} equipment; exact models require confirmation`
-            }
-            fill
-            priority={selected === 0}
-            sizes="100vw"
-          />
+        <div className="cinematic-scene sales-hero-scene">
+          {[previous, selected, pending].map((index) => {
+            if (index === null) return null;
+            const image = slides[index];
+            const isSelected = index === selected;
+            return (
+              <div
+                key={image.image}
+                className={`sales-hero-image${isSelected && previous !== null ? " sales-hero-image-enter" : ""}`}
+                data-pending={index === pending || undefined}
+                aria-hidden={!isSelected || undefined}
+                onAnimationEnd={(event) => {
+                  if (event.target !== event.currentTarget || event.animationName !== "store-slide-image-in") return;
+                  setSelection((current) => current.selected === index
+                    ? { ...current, previous: null }
+                    : current);
+                }}
+              >
+                <Image
+                  src={`/images/${image.image}.webp`}
+                  alt={isSelected
+                    ? image.image === "hero"
+                      ? "Illustrative solar-powered home; not a completed Rahat Energy project"
+                      : `Illustrative ${image.category.toLowerCase()} equipment; exact models require confirmation`
+                    : ""}
+                  fill
+                  priority={index === 0}
+                  loading="eager"
+                  sizes="100vw"
+                  onLoad={() => {
+                    setSelection((current) => current.pending === index
+                      ? showSlide(current, index)
+                      : current);
+                  }}
+                  onError={() => {
+                    setSelection((current) => current.pending === index
+                      ? { ...current, pending: null }
+                      : current);
+                  }}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className="cinematic-atmosphere sales-hero-atmosphere" />
         <div className="hero-coordinate" aria-hidden="true">
           <span className="coordinate-line" />
           YOUR SOLAR ENERGY STORE.
         </div>
-        <div className="cinematic-copy sales-hero-copy">
+        <div className="cinematic-copy sales-hero-copy" data-slide-changed={changed || undefined}>
           <span className="cinematic-eyebrow">
             <span />
             BUY SOLAR & ENERGY EQUIPMENT
           </span>
-          <h1 id="hero-title">
-            {slide.title}
-            <br />
-            <em>{slide.accent}</em>
+          <h1 id="hero-title" key={`title-${slide.slug}`}>
+            <span className="sales-hero-line">{slide.title}</span>
+            <em className="sales-hero-line">{slide.accent}</em>
           </h1>
-          <p>{slide.copy}</p>
+          <p key={`copy-${slide.slug}`}>{slide.copy}</p>
           <div className="sales-hero-actions">
             <Link
               className="cinematic-discover"
@@ -172,7 +185,7 @@ export function HeroExperience() {
         <div className="sales-slide-controls">
           <div
             className="sales-slide-position"
-            aria-live={paused ? "polite" : "off"}
+            aria-live="polite"
           >
             <span>0{selected + 1}</span>
             <span>/ 05</span>
@@ -199,30 +212,17 @@ export function HeroExperience() {
             <button
               type="button"
               aria-label="Previous category slide"
-              onClick={() => choose(selected - 1)}
+              onClick={() => choose(-1, true)}
             >
               <ChevronLeft size={18} />
             </button>
             <button
               type="button"
               aria-label="Next category slide"
-              onClick={() => choose(selected + 1)}
+              onClick={() => choose(1, true)}
             >
               <ChevronRight size={18} />
             </button>
-            {!reduced && (
-              <button
-                type="button"
-                aria-label={
-                  paused
-                    ? "Play category slideshow"
-                    : "Pause category slideshow"
-                }
-                onClick={() => setPaused(!paused)}
-              >
-                {paused ? <Play size={15} /> : <Pause size={15} />}
-              </button>
-            )}
           </div>
           <span className="sales-swipe-hint">
             <MoveHorizontal size={17} />

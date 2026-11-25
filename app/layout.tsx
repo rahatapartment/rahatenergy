@@ -9,6 +9,7 @@ import "./product-editorial.css";
 import "./solutions-editorial.css";
 import "./about-editorial.css";
 import "./contact-editorial.css";
+import "./quote-editorial.css";
 import "./help-editorial.css";
 import "./cart-editorial.css";
 import "./tracking-editorial.css";
@@ -24,6 +25,9 @@ import "./product-cards.css";
 import "./product-detail.css";
 import "./admin-signin.css";
 import "./checkout-premium.css";
+import "./store-motion.css";
+import "./cart-drawer.css";
+import "./store-navigation.css";
 import localFont from "next/font/local";
 const manrope = localFont({
   src: "../public/fonts/manrope.ttf",

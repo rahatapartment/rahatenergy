@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { deliveryChoices, quoteTransitions } from "@/lib/operation-rules";
+import { deliveryChoices, deliveryStatuses, quoteTransitions, statusLabel } from "@/lib/operation-rules";
 function useMutation() {
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState("");
@@ -19,11 +19,13 @@ function useMutation() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setFailed(false);
-      setMessage("Saved. The operation and history have been updated.");
+      setMessage(data.message || "Saved. The operation and history have been updated.");
       router.refresh();
+      return true;
     } catch (e) {
       setFailed(true);
       setMessage(e instanceof Error ? e.message : "Unable to save.");
+      return false;
     } finally {
       setPending(false);
     }
@@ -105,6 +107,37 @@ export function QuoteEditor({
     </form>
   );
 }
+
+export function QuoteResponseForm({
+  id, version, recipient,
+}: { id: string; version: number; recipient: string }) {
+  const mutation = useMutation();
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    if (await mutation.save(
+      `/api/admin/quotations/${id}/send`,
+      { version, message: data.get("message") },
+      "POST",
+    )) form.reset();
+  }
+  return (
+    <form onSubmit={submit} className="inventory-form">
+      <h2>Send a quote</h2>
+      <p>To {recipient}</p>
+      <label className="field-label">
+        Quote details
+        <textarea name="message" rows={7} required minLength={10} maxLength={5000} placeholder="Include items, prices, any delivery charges, and how long the quote is valid." />
+      </label>
+      <button className="button dark" disabled={mutation.pending}>
+        {mutation.pending ? "Sending…" : "Send quote"}
+      </button>
+      {mutation.feedback}
+    </form>
+  );
+}
+
 export function DeliveryEditor({
   orderId,
   status,
@@ -121,7 +154,9 @@ export function DeliveryEditor({
   eligible: boolean;
 }) {
   const mutation = useMutation();
-  const choices = [status, ...deliveryChoices(status, method)];
+  const allowed = deliveryChoices(status, method);
+  const [selection, setSelection] = useState(status);
+  useEffect(() => setSelection(status), [status]);
   function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -148,10 +183,13 @@ export function DeliveryEditor({
             aria-label="Status"
             key={status}
             name="status"
-            defaultValue={status}
+            value={selection}
+            onChange={event => setSelection(event.target.value)}
           >
-            {choices.map((s) => (
-              <option key={s}>{s}</option>
+            {deliveryStatuses(method).map((choice) => (
+              <option key={choice} value={choice} disabled={choice !== status && !allowed.includes(choice)}>
+                {statusLabel(choice, method)}
+              </option>
             ))}
           </select>
         </label>
@@ -169,6 +207,7 @@ export function DeliveryEditor({
           <input name="reason" required minLength={5} maxLength={500} />
         </label>
       </div>
+      {selection === "DELIVERED" && <p className="small">Saving this status queues the customer’s completion email.</p>}
       <button className="button dark" disabled={mutation.pending}>
         {mutation.pending ? "Saving…" : "Update delivery"}
       </button>
@@ -276,7 +315,7 @@ export function OrderResolution({
           {refundStatus !== "VERIFIED" && (
             <form onSubmit={refund}>
               <label className="field-label">
-                Paystack test refund ID
+                Paystack refund ID
                 <input
                   name="providerRefundId"
                   inputMode="numeric"
@@ -288,163 +327,12 @@ export function OrderResolution({
               <button className="button dark" disabled={mutation.pending}>
                 {mutation.pending
                   ? "Verifying with provider…"
-                  : "Verify completed test refund"}
+                  : "Verify completed refund"}
               </button>
             </form>
           )}
         </div>
       )}
-      {mutation.feedback}
-    </section>
-  );
-}
-export function AdminAccountForms({
-  users,
-  self,
-  owner,
-}: {
-  users: {
-    id: string;
-    name: string;
-    email: string;
-    role: string;
-    active: boolean;
-  }[];
-  self: string;
-  owner: boolean;
-}) {
-  const mutation = useMutation();
-  function create(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const d = new FormData(e.currentTarget);
-    mutation.save(
-      "/api/admin/users",
-      {
-        name: d.get("name"),
-        email: d.get("email"),
-        role: d.get("role"),
-        password: d.get("password"),
-      },
-      "POST",
-    );
-  }
-  function change(e: FormEvent<HTMLFormElement>, id: string) {
-    e.preventDefault();
-    const d = new FormData(e.currentTarget);
-    mutation.save("/api/admin/users", {
-      id,
-      role: d.get("role"),
-      active: d.get("active") === "on",
-      ...(d.get("password") ? { password: d.get("password") } : {}),
-    });
-  }
-  if (!owner)
-    return (
-      <p className="notice">
-        Owner access is required to manage administrator accounts.
-      </p>
-    );
-  return (
-    <section className="content-section">
-      <h2>Administrator accounts</h2>
-      <p className="small muted">
-        Create the single business owner. Invite team members and assign their
-        permissions from Team access after setup.
-      </p>
-      {users.map((user) => (
-        <details
-          className="inventory-form"
-          key={`${user.id}-${user.active}-${user.role}`}
-        >
-          <summary>
-            {user.name} · {user.email} · {user.role}
-            {!user.active ? " · Disabled" : ""}
-          </summary>
-          <form
-            onSubmit={(e) => change(e, user.id)}
-            className="form-grid"
-            style={{ marginTop: 20 }}
-          >
-            <label>
-              Role
-              <select
-                name="role"
-                aria-label="Role"
-                defaultValue={user.role}
-                disabled={user.id === self}
-              >
-                <option>OWNER</option>
-              </select>
-            </label>
-            <label>
-              New password (optional)
-              <input
-                name="password"
-                type="password"
-                autoComplete="new-password"
-                minLength={16}
-                maxLength={128}
-                disabled={user.id === self}
-              />
-            </label>
-            <label className="check-field">
-              <input
-                name="active"
-                type="checkbox"
-                defaultChecked={user.active}
-                disabled={user.id === self}
-              />
-              Active account
-            </label>
-            <button
-              className="button dark"
-              disabled={mutation.pending || user.id === self}
-            >
-              Save account & revoke sessions
-            </button>
-            {user.id === self && (
-              <p className="small muted full">
-                Ask another owner to change your own account.
-              </p>
-            )}
-          </form>
-        </details>
-      ))}
-      <form className="inventory-form form-grid" onSubmit={create}>
-        <h3 className="full">Create a named administrator</h3>
-        <label>
-          Name
-          <input name="name" required minLength={2} maxLength={100} />
-        </label>
-        <label>
-          Email
-          <input name="email" type="email" required maxLength={254} />
-        </label>
-        <label>
-          Role
-          <select
-            name="role"
-            aria-label="Role"
-            defaultValue={users.length ? "OPERATOR" : "OWNER"}
-          >
-            <option>OWNER</option>
-          </select>
-        </label>
-        <label>
-          Password
-          <input
-            name="password"
-            type="password"
-            autoComplete="new-password"
-            required
-            minLength={16}
-            maxLength={128}
-          />
-        </label>
-        <button className="button dark full" disabled={mutation.pending}>
-          Create administrator
-        </button>
-      </form>
       {mutation.feedback}
     </section>
   );

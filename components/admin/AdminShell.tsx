@@ -295,7 +295,7 @@ export function AdminShell({
           <span>
             {preview
               ? "Sample controls cannot write records"
-              : "Controlled catalogue · Test payments only"}
+              : "Controlled catalogue"}
           </span>
         </footer>
       </main>

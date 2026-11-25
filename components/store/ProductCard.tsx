@@ -6,7 +6,6 @@ import { ArrowUpRight } from "lucide-react";
 import {
   productImage,
   money,
-  availability,
   isOutOfStock,
   type StoreProduct,
 } from "@/lib/catalogue";
@@ -15,23 +14,20 @@ export function ProductCard({
   variant = "default",
 }: {
   product: StoreProduct;
-  variant?: "default" | "collection" | "shop";
+  variant?: "default" | "collection" | "shop" | "carousel";
 }) {
+  const href = `/shop/${p.slug}`;
+  const canAdd = !isOutOfStock(p) && (p.enabled || p.stock === null);
   return (
     <article
-      className={
-        variant === "collection"
-          ? "product-card collection-product commerce-card"
-          : variant === "shop" ? "product-card shop-product commerce-card" : "product-card commerce-card"
-      }
+      className={`product-card commerce-card ${variant === "collection" ? "collection-product" : variant === "shop" ? "shop-product" : ""}`}
     >
-      <Link href={`/shop/${p.slug}`} className="product-art card-media">
-        <ProductStockBadge product={p} />
+      <Link href={href} className="product-art card-media" aria-label={`View ${p.name}`}>
         <Image
           src={productImage(p)}
           alt={p.name}
           sizes={
-            variant === "shop"
+            variant === "shop" || variant === "carousel"
               ? "(max-width: 767px) 92vw, (max-width: 1000px) 30vw, (max-width: 1440px) 23vw, 310px"
               : variant === "collection"
               ? "(max-width: 767px) 92vw, (max-width: 1100px) 45vw, 40vw"
@@ -44,25 +40,18 @@ export function ProductCard({
       <div className="product-copy card-content">
         <span className="card-category">{p.category}</span>
         <h3>
-          <Link href={`/shop/${p.slug}`}>{p.name}</Link>
+          <Link href={href}>{p.name}</Link>
         </h3>
-        <p className="card-description">{p.description}</p>
         <div className="product-bottom">
-          <strong>{money(p.priceKobo)}</strong>
-          {!isOutOfStock(p) && <span className="stock">
-            <i
-              className={
-                p.enabled && p.stock !== null && p.stock > p.reserved
-                  ? "available"
-                  : ""
-              }
-            />
-            {availability(p)}
-          </span>}
+          <strong className={p.priceKobo === null ? "card-price-on-request" : undefined}>{money(p.priceKobo)}</strong>
+          <ProductStockBadge product={p} />
         </div>
         <div className="card-actions">
-          <QuickAdd product={p} />
-          <Link href={`/shop/${p.slug}`} className="card-explore" aria-label={`Explore ${p.name}`}>Explore <ArrowUpRight size={15} aria-hidden="true" /></Link>
+          {canAdd ? <QuickAdd product={p} /> : (
+            <Link href={href} className="card-explore" aria-label={`View details for ${p.name}`}>
+              View details <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+          )}
         </div>
       </div>
     </article>

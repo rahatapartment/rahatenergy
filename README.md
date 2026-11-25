@@ -16,7 +16,7 @@ npm run dev
 
 Open http://localhost:3001. Run commands from this **nested `rahat-energy` directory**; the parent folder is the preserved apartment source.
 
-The storefront works without credentials. Checkout becomes available only when the independent database, verified operational inventory, delivery options and Paystack test credentials are configured. See [Phase 3 setup and status](docs/PHASE-3.md). Live payments are rejected in code.
+The storefront works without credentials. Checkout requires the independent database, verified inventory, delivery options and matching Paystack credentials. See [Paystack setup](docs/PHASE-3.md#configure-paystack).
 
 ## Independent database setup
 
@@ -33,7 +33,7 @@ The migration creates the energy schema and constraints; the seed inserts the ac
 
 ## Independent admin access
 
-Set a new `ENERGY_ADMIN_PASSWORD` (at least 16 characters) and `ENERGY_ADMIN_SESSION_SECRET` (at least 32 random characters), then restart. Open `/admin/login`. Shared-password access is for initial setup only. Once the first named owner is created, named OWNER/OPERATOR accounts replace it, with hashed passwords, independent sessions, version-based revocation and server-enforced permissions. Unconfigured admin pages expose only the foundation and public catalogue; private records and editing remain locked. With configured credentials, all operations pages require sign-in.
+Set `ENERGY_ADMIN_EMAIL`, `ENERGY_ADMIN_PASSWORD` (16–128 characters) and `ENERGY_ADMIN_SESSION_SECRET` (at least 32 random characters), then restart or redeploy. The store owner uses that email and password on `/admin/login` and lands directly in the admin workspace. Invite staff from **Team access**. Invited users create their own passwords and receive only the permissions you select. Changing the owner credentials invalidates existing owner sessions.
 
 Inventory changes are validated and written transactionally with optimistic version checks, movement history and audit records. Reserved stock cannot be edited; stock cannot fall below reservations. Unpriced products cannot be enabled. Quotes save to the new database and appear in admin; customer order-confirmation notifications use an independently configured Resend outbox. Orders have searchable views, private detail pages and controlled fulfillment actions. Delivery/pickup options can be configured in operations.
 

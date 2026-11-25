@@ -7,14 +7,18 @@ import {
   releaseInTransaction,
   assertVerified,
 } from "./commerce";
+import { queueOrderEmail } from "./order-emails";
+import { quoteResponsePrefix, salesInbox } from "./quotation-emails";
 import { deliveryChoices, quoteTransitions } from "./operation-rules";
 import {
   quoteUpdateSchema,
+  quoteResponseSchema,
   deliveryUpdateSchema,
 } from "./operations-validation";
 import {
   verifyPayment,
   fetchRefund,
+  referenceMode,
   type VerifiedPayment,
   type ProviderRefund,
 } from "./paystack";
@@ -34,8 +38,8 @@ export async function queueOperationNotice(
       payload: {
         from: process.env.ENERGY_EMAIL_FROM,
         to: [contact.email],
-        subject: `Rahat Energy test order ${order.reference} update`,
-        text: `Hello ${contact.name},\n\n${description}\nOrder: ${order.reference}\nThis is a test order. No live payment action was performed by this notification.`,
+        subject: `Rahat Energy order ${order.reference} update`,
+        text: `Hello ${contact.name},\n\n${description}\nOrder: ${order.reference}`,
       },
     },
     update: {},
@@ -84,6 +88,49 @@ export async function updateQuotation(
     });
   });
 }
+export async function sendQuotation(
+  db: PrismaClient,
+  id: string,
+  raw: unknown,
+  actor: string,
+) {
+  const input = quoteResponseSchema.parse(raw);
+  const from = process.env.ENERGY_EMAIL_FROM;
+  const replyTo = salesInbox();
+  return db.$transaction(async tx => {
+    const enquiry = await tx.quotation.findUniqueOrThrow({ where: { id } });
+    if (enquiry.status === "CLOSED")
+      throw new CommerceError("Reopen this enquiry before sending a quote.", 409);
+    const changed = await tx.quotation.updateMany({
+      where: { id, version: input.version, status: { not: "CLOSED" } },
+      data: { status: "QUOTED", version: { increment: 1 } },
+    });
+    if (!changed.count)
+      throw new CommerceError("This enquiry changed. Refresh before sending.", 409);
+    const eventKey = `${quoteResponsePrefix(id)}${input.version + 1}`;
+    await tx.notification.create({
+      data: {
+        eventKey,
+        payload: {
+          ...(from ? { from } : {}),
+          ...(replyTo ? { reply_to: [replyTo] } : {}),
+          to: [enquiry.email],
+          subject: `Your Rahat Energy quote · ${enquiry.id}`,
+          text: `Hello ${enquiry.name},\n\n${input.message}\n\nEnquiry reference: ${enquiry.id}\nRahat Energy Sales`,
+        },
+      },
+    });
+    await auditCreate(tx, {
+      data: {
+        actor,
+        action: "QUOTATION_RESPONSE_QUEUED",
+        subject: id,
+        data: { from: enquiry.status, to: "QUOTED", eventKey },
+      },
+    });
+    return eventKey;
+  }, options);
+}
 export async function updateDelivery(
   db: PrismaClient,
   orderId: string,
@@ -95,7 +142,11 @@ export async function updateDelivery(
     await lockOrder(tx, orderId);
     const order = await tx.order.findUniqueOrThrow({
       where: { id: orderId },
-      include: { delivery: true },
+      include: {
+        delivery: true,
+        items: true,
+        payments: { where: { status: "PAID" }, select: { reference: true }, take: 1 },
+      },
     });
     const delivery = order.delivery;
     if (
@@ -119,7 +170,7 @@ export async function updateDelivery(
       input.status === delivery.status &&
       input.trackingReference === (delivery.trackingReference || "")
     )
-      return;
+      return delivery.status;
     await tx.delivery.update({
       where: { orderId },
       data: {
@@ -159,13 +210,13 @@ export async function updateDelivery(
         },
       },
     });
-    if (input.status !== delivery.status)
-      await queueOperationNotice(
-        tx,
-        order,
-        `delivery:${delivery.id}:${delivery.version + 1}`,
-        `Delivery status: ${input.status.replaceAll("_", " ")}.${input.trackingReference ? ` Tracking reference: ${input.trackingReference}.` : ""}`,
-      );
+    if (input.status === "DELIVERED") {
+      const payment = order.payments[0];
+      await queueOrderEmail(tx, "order-fulfilled", order, {
+        test: payment ? referenceMode(payment.reference) === "test" : false,
+      });
+    }
+    return input.status;
   }, options);
 }
 export async function cancelOrder(
@@ -262,7 +313,7 @@ export async function cancelOrder(
         orderId: id,
         actor,
         event: paid
-          ? "ORDER_CANCELLED_TEST_REFUND_REQUIRED"
+          ? "ORDER_CANCELLED_REFUND_REQUIRED"
           : "ORDER_CANCELLED",
       },
     });
@@ -279,8 +330,8 @@ export async function cancelOrder(
       order,
       `cancellation:${id}`,
       paid
-        ? "Your test order was cancelled. A test refund requires separate verification; cancellation alone does not mark payment refunded."
-        : "Your unpaid test order was cancelled.",
+        ? "Your order was cancelled. A refund requires separate verification; cancellation alone does not mark payment refunded."
+        : "Your unpaid order was cancelled.",
     );
   }, options);
 }
@@ -391,7 +442,7 @@ export async function verifyCompletedRefund(
       : refund.transaction.id;
   if (
     String(refund.id) !== refundId ||
-    refund.domain !== "test" ||
+    refund.domain !== referenceMode(payment.reference) ||
     refund.currency !== "NGN" ||
     refund.status !== "processed" ||
     refund.amount !== order.refund.amountKobo ||
@@ -401,7 +452,7 @@ export async function verifyCompletedRefund(
     !Number.isFinite(new Date(refund.refunded_at).getTime())
   )
     throw new CommerceError(
-      "The provider has not confirmed a matching completed full test refund.",
+      "The provider has not confirmed a matching completed full refund.",
       422,
     );
   return db.$transaction(async (tx) => {
@@ -434,12 +485,12 @@ export async function verifyCompletedRefund(
       data: { status: "REFUNDED" },
     });
     await tx.orderEvent.create({
-      data: { orderId, actor, event: "PROVIDER_TEST_REFUND_VERIFIED" },
+      data: { orderId, actor, event: `PROVIDER_${refund.domain.toUpperCase()}_REFUND_VERIFIED` },
     });
     await auditCreate(tx, {
       data: {
         actor,
-        action: "TEST_REFUND_VERIFIED",
+        action: `${refund.domain.toUpperCase()}_REFUND_VERIFIED`,
         subject: orderId,
         data: { refundId, amountKobo: current.amountKobo },
       },
@@ -448,7 +499,7 @@ export async function verifyCompletedRefund(
       tx,
       latest,
       `refund:${current.id}`,
-      `The provider has confirmed the test refund for order total NGN ${(current.amountKobo / 100).toFixed(2)}.`,
+      `The provider has confirmed the refund for order total NGN ${(current.amountKobo / 100).toFixed(2)}.`,
     );
   }, options);
 }

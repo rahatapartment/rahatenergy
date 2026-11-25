@@ -7,16 +7,19 @@ export function QuoteForm({
   selected = "",
   available,
   unavailableMessage,
+  productOptions = catalogue,
 }: {
   selected?: string;
   available: boolean;
   unavailableMessage?: string;
+  productOptions?: readonly { id: string; name: string }[];
 }) {
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (pending || !available) return;
     setPending(true);
     setMessage("");
     const data = new FormData(e.currentTarget);
@@ -128,7 +131,7 @@ export function QuoteForm({
         Product of interest
         <select name="productId" defaultValue={selected}>
           <option value="">A project / help me choose</option>
-          {catalogue.map((p) => (
+          {productOptions.map((p) => (
             <option value={p.id} key={p.id}>
               {p.name}
             </option>

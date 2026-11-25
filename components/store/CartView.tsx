@@ -233,7 +233,7 @@ export function CartView({ products }: { products: StoreProduct[] }) {
             </Link>
             <p className="cart-summary-note">
               Checkout availability depends on configured pricing, delivery and
-              test payment services. Your cart does not reserve stock.
+              payment services. Your cart does not reserve stock.
             </p>
             <Link className="cart-help-link" href="/faq">
               A question before you continue? <ArrowUpRight size={14} />

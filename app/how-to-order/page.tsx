@@ -14,8 +14,8 @@ export default function Page() {
         description="Explore the collection and build a useful shortlist before confirming the details of a purchase."
       />
       <div className="notice">
-        Your cart is a shortlist. Submitting a configured test checkout creates
-        an order and reserves stock for 15 minutes. Live payments are disabled.
+        Your cart is a shortlist. Submitting checkout creates
+        an order and reserves stock for 15 minutes.
       </div>
       <section className="content-section">
         <div className="ordering-steps">

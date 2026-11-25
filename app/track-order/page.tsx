@@ -1,3 +1,4 @@
+import { CartTrigger } from "@/components/store/CartTrigger";
 import Link from "next/link";
 import { ArrowUpRight, LockKeyhole } from "lucide-react";
 import { OrderAccess } from "@/components/store/OrderActions";
@@ -20,9 +21,8 @@ export default function Page() {
           <div className="tracking-introduction">
             <span className="eyebrow">01 / A PRIVATE PERSPECTIVE</span>
             <h2 id="tracking-access-title">
-              The details.
-              <br />
-              <em>Only for you.</em>
+              <span data-motion-line>The details.</span>
+              <em data-motion-line>Only for you.</em>
             </h2>
             <p>
               Bring your reference and private access code together to view your
@@ -46,9 +46,8 @@ export default function Page() {
               <span aria-hidden="true">R / E</span>
             </div>
             <h3>
-              A little closer
-              <br />
-              <em>to clarity.</em>
+              <span data-motion-line>A little closer</span>
+              <em data-motion-line>to clarity.</em>
             </h3>
             <p>
               Enter the details saved during checkout or from your order page.
@@ -63,9 +62,8 @@ export default function Page() {
           <div className="tracking-section-heading">
             <span className="eyebrow">02 / WHAT YOU CAN REVIEW</span>
             <h2 id="tracking-perspectives-title">
-              One order.
-              <br />
-              <em>Three perspectives.</em>
+              <span data-motion-line>One order.</span>
+              <em data-motion-line>Three perspectives.</em>
             </h2>
             <p>
               After access is verified, your order page separates payment,
@@ -98,10 +96,6 @@ export default function Page() {
               </p>
             </article>
           </div>
-          <p className="tracking-test-note">
-            Online transactions on this site currently use Paystack test mode
-            only. No live funds are charged through test payments.
-          </p>
         </section>
         <section
           className="tracking-assistance"
@@ -110,9 +104,8 @@ export default function Page() {
           <div>
             <span className="eyebrow">03 / FIND YOUR WAY</span>
             <h2 id="tracking-assistance-title">
-              A little help.
-              <br />
-              <em>A clearer direction.</em>
+              <span data-motion-line>A little help.</span>
+              <em data-motion-line>A clearer direction.</em>
             </h2>
           </div>
           <div className="tracking-assistance-answers">
@@ -140,9 +133,9 @@ export default function Page() {
                 your project.
               </p>
               <div>
-                <Link href="/cart">
+                <CartTrigger className="tracking-cart-trigger">
                   Your cart <ArrowUpRight size={15} />
-                </Link>
+                </CartTrigger>
                 <Link href="/request-quote">
                   Project enquiries <ArrowUpRight size={15} />
                 </Link>

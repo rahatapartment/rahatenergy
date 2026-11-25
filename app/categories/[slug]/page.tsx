@@ -49,9 +49,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div className="category-introduction">
             <span className="eyebrow">01 / YOUR CATEGORY EDIT</span>
             <h2 id="category-collection-title">
-              {c.title}
-              <br />
-              <em>Find your next essential.</em>
+              <span data-motion-line>{c.title}</span>
+              <em data-motion-line>Find your next essential.</em>
             </h2>
             <p>{c.description}</p>
           </div>
@@ -120,9 +119,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div>
             <span className="eyebrow">02 / CHOOSING WITH CONTEXT</span>
             <h2 id="category-planning-title">
-              The right questions.
-              <br />
-              <em>A better starting point.</em>
+              <span data-motion-line>The right questions.</span>
+              <em data-motion-line>A better starting point.</em>
             </h2>
             <p>{c.description}</p>
             <Link href="/request-quote">
@@ -145,9 +143,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div>
             <span className="eyebrow">03 / COMPLETE THE PICTURE</span>
             <h2 id="category-closing-title">
-              A product question?
-              <br />
-              <em>Let’s find your next step.</em>
+              <span data-motion-line>A product question?</span>
+              <em data-motion-line>Let’s find your next step.</em>
             </h2>
             <p>
               Confirm exact models, compatibility, specifications and

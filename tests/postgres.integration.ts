@@ -4,6 +4,11 @@ import {
   productContentSchema,
 } from "../lib/product-content";
 import { catalogue } from "../lib/catalogue";
+import { courierDeliveryFeeNote, courierDeliveryOptionId } from "../lib/delivery-fees";
+import { orderEmailKey } from "../lib/order-emails";
+import { adminData } from "../lib/admin-data";
+import { POST as requestQuote } from "../app/api/quotations/route";
+import { POST as replyToQuote } from "../app/api/admin/quotations/[id]/send/route";
 import { describe, it, before, beforeEach, after, mock } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
@@ -31,10 +36,10 @@ import {
   allocateReviewedOrder,
   verifyCompletedRefund,
 } from "../lib/operations";
-import { createAdminUser, editAdminUser } from "../lib/admin-users";
+import { editAdminUser } from "../lib/admin-users";
 import { hashPassword, verifyPassword } from "../lib/passwords";
 import { limitRequest } from "../lib/security";
-import { verifyAdminSession, type AdminIdentity } from "../lib/admin-auth";
+import { adminIdentity, verifyAdminSession } from "../lib/admin-auth";
 import { POST as cancelApi } from "../app/api/admin/orders/[id]/cancel/route";
 import { POST as loginApi } from "../app/api/admin/login/route";
 import { GET as cronApi } from "../app/api/cron/commerce/route";
@@ -104,6 +109,9 @@ describe(
       process.env.ENERGY_DATABASE_URL = testUrl;
       process.env.ENERGY_DIRECT_URL = testUrl;
       process.env.ENERGY_PAYSTACK_SECRET_KEY = "sk_test_integration_fixture";
+      process.env.ENERGY_PAYSTACK_MODE = "test";
+      process.env.ENERGY_ADMIN_EMAIL = "owner@example.test";
+      process.env.ENERGY_ADMIN_PASSWORD = "fixture-owner-password-123";
       process.env.ENERGY_ADMIN_SESSION_SECRET =
         "integration-fixture-secret-at-least-32-characters";
       process.env.ENERGY_EMAIL_FROM =
@@ -394,6 +402,88 @@ describe(
         "PAID",
       );
     });
+    it("keeps courier-collected delivery fees out of Paystack and records the arrangement on the order and receipt", async () => {
+      await db!.deliveryOption.create({
+        data: {
+          id: courierDeliveryOptionId,
+          label: "Lagos delivery",
+          method: "DELIVERY",
+          state: "Lagos",
+          feeKobo: 5000,
+          enabled: true,
+        },
+      });
+      const checkout = input({
+        deliveryOptionId: courierDeliveryOptionId,
+        expectedTotalKobo: 200000,
+        address: { line1: "Fixture address", city: "Lekki", state: "Lagos" },
+      });
+      const quote = await checkoutQuote(db!, checkout.lines, checkout.deliveryOptionId);
+      assert.equal(quote.deliveryFeeKobo, 0);
+      assert.equal(quote.totalKobo, 200000);
+      const order = await createCheckout(db!, checkout);
+      const charge = await verified(order.id);
+      assert.equal(charge.amount, 200000);
+      await finalizePayment(db!, charge);
+      const delivery = await db!.delivery.findUniqueOrThrow({ where: { orderId: order.id } });
+      assert.deepEqual(
+        { ...(delivery.address as object) },
+        { ...checkout.address, optionLabel: "Lagos delivery", pickupAddress: null, courierCollectsFee: true },
+      );
+      const receipt = await db!.notification.findUniqueOrThrow({
+        where: { eventKey: `order-confirmation:${order.id}` },
+      });
+      assert.ok((receipt.payload as { text: string }).text.includes(courierDeliveryFeeNote));
+    });
+    it("finalizes verified live payments once and rejects a test response", async () => {
+      process.env.ENERGY_PAYSTACK_MODE = "live";
+      try {
+        const order = await createCheckout(db!, input());
+        const charge = await verified(order.id);
+        assert.match(charge.reference, /^REPAY-LIVE-[a-f0-9]{32}$/);
+        await assert.rejects(finalizePayment(db!, charge));
+        const liveCharge = { ...charge, domain: "live" };
+        await Promise.all([
+          finalizePayment(db!, liveCharge),
+          finalizePayment(db!, liveCharge),
+        ]);
+        const inventory = await db!.inventory.findUniqueOrThrow({
+          where: { productId: "re-001" },
+        });
+        assert.equal(inventory.stock, 9);
+        assert.equal(inventory.reserved, 0);
+        assert.equal(await db!.notification.count(), 1);
+        assert.equal(
+          (await db!.order.findUniqueOrThrow({ where: { id: order.id } })).paymentStatus,
+          "PAID",
+        );
+      } finally {
+        process.env.ENERGY_PAYSTACK_MODE = "test";
+      }
+    });
+    it("keeps test transactions out of live sales metrics", async () => {
+      const sandboxOrder = await createCheckout(db!, input());
+      await finalizePayment(db!, await verified(sandboxOrder.id));
+      process.env.ENERGY_PAYSTACK_MODE = "live";
+      try {
+        const before = await adminData();
+        assert.equal(before?.mode, "live");
+        assert.equal(before.metrics.sales, 0);
+        assert.equal(before.metrics.paidOrders, 0);
+        assert.equal(before.metrics.pendingDeliveries, 0);
+        const liveOrder = await createCheckout(db!, input());
+        const charge = await verified(liveOrder.id);
+        await finalizePayment(db!, { ...charge, domain: "live" });
+        const after = await adminData();
+        assert.equal(after?.metrics.sales, charge.amount);
+        assert.equal(after.metrics.paidOrders, 1);
+        assert.equal(after.metrics.pendingDeliveries, 1);
+      } finally {
+        process.env.ENERGY_PAYSTACK_MODE = "test";
+      }
+      const sandbox = await adminData();
+      assert.equal(sandbox?.metrics.paidOrders, 1);
+    });
     it("rejects wrong currency, amount, customer and live-domain verification", async () => {
       const order = await createCheckout(db!, input());
       const charge = await verified(order.id);
@@ -607,6 +697,104 @@ describe(
         3,
       );
     });
+    it("alerts the sales inbox and lets authorised staff send a quote without creating an order", async () => {
+      process.env.ENERGY_SALES_EMAIL = "sales@example.test";
+      process.env.ENERGY_RESEND_API_KEY = "fixture-only";
+      const sent: { to: string[]; reply_to?: string[]; text: string }[] = [];
+      mock.method(globalThis, "fetch", async (_url: unknown, init?: RequestInit) => {
+        sent.push(JSON.parse(String(init?.body)));
+        return new Response(JSON.stringify({ id: `quote-mail-${sent.length}` }), { status: 200 });
+      });
+      const request = (path: string, body: unknown, cookie?: string) =>
+        new Request(`http://localhost:3001${path}`, {
+          method: "POST",
+          headers: { origin: "http://localhost:3001", "Content-Type": "application/json", ...(cookie ? { cookie } : {}) },
+          body: JSON.stringify(body),
+        });
+      try {
+        const submitted = await requestQuote(request("/api/quotations", {
+          name: "Quote Customer", email: "buyer@example.test", phone: "08000000000",
+          productId: "re-001", quantity: 2, location: "Lagos",
+          requirements: "Please quote for two solar panels.", consent: true,
+        }));
+        assert.equal(submitted.status, 201);
+        const { reference: id } = await submitted.json();
+        const stored = await db!.quotation.findUniqueOrThrow({ where: { id } });
+        assert.equal(stored.status, "NEW");
+        assert.deepEqual(sent[0].to, ["sales@example.test"]);
+        const acknowledgement = await db!.notification.findUniqueOrThrow({ where: { eventKey: `quote-ack:${id}` } });
+        assert.deepEqual((acknowledgement.payload as { to: string[] }).to, ["buyer@example.test"]);
+        const path = `/api/admin/quotations/${id}/send`;
+        const body = { version: 0, message: "Your quote is ₦280,000 and is valid for seven days." };
+        assert.equal((await replyToQuote(request(path, body), { params: { id } })).status, 401);
+        const cookie = `${ADMIN_COOKIE}=${await createAdminSession()}`;
+        assert.equal((await replyToQuote(request(path, body, cookie), { params: { id } })).status, 200);
+        assert.equal((await replyToQuote(request(path, body, cookie), { params: { id } })).status, 409);
+        assert.deepEqual(sent[1].to, ["buyer@example.test"]);
+        assert.deepEqual(sent[1].reply_to, ["sales@example.test"]);
+        assert.ok(sent[1].text.includes(body.message));
+        assert.equal(sent.length, 2);
+        assert.equal((await db!.quotation.findUniqueOrThrow({ where: { id } })).status, "QUOTED");
+        assert.equal(await db!.order.count(), 0);
+        assert.equal(await db!.inventoryReservation.count(), 0);
+      } finally {
+        delete process.env.ENERGY_SALES_EMAIL;
+        delete process.env.ENERGY_RESEND_API_KEY;
+      }
+    });
+    it("sends branded emails once at confirmed payment and completed fulfilment", async () => {
+      const order = await createCheckout(db!, input({
+        customer: { name: "Ada <Energy>", email: "customer@example.test", phone: "08000000000" },
+      }));
+      assert.equal(await db!.notification.count(), 0);
+      await finalizePayment(db!, await verified(order.id));
+      const confirmation = await db!.notification.findUniqueOrThrow({
+        where: { eventKey: orderEmailKey("order-confirmation", order.id) },
+      });
+      const confirmationEmail = confirmation.payload as { html: string; text: string };
+      assert.match(confirmationEmail.html, /Your order is confirmed/);
+      assert.match(confirmationEmail.html, /Ada &lt;Energy&gt;/);
+      assert.ok(!confirmationEmail.html.includes("Ada <Energy>"));
+      assert.match(confirmationEmail.text, /Paid via Paystack/);
+      await updateFulfillment(db!, order.id, "DISPATCHED");
+      assert.equal(await db!.notification.count(), 1);
+      const dispatch = await db!.delivery.findUniqueOrThrow({ where: { orderId: order.id } });
+      const delivered = { status: "DELIVERED", trackingReference: "", version: dispatch.version, reason: "Customer confirmed receipt" };
+      await updateDelivery(db!, order.id, delivered, "operator-fixture");
+      await assert.rejects(updateFulfillment(db!, order.id, "DELIVERED"));
+      const completed = await db!.notification.findUniqueOrThrow({
+        where: { eventKey: orderEmailKey("order-fulfilled", order.id) },
+      });
+      const fulfilledEmail = completed.payload as { html: string; text: string };
+      assert.match(fulfilledEmail.html, /Your order was delivered/);
+      assert.match(fulfilledEmail.text, /Thank you for trusting Rahat Energy/);
+      assert.equal(await db!.notification.count(), 2);
+      process.env.ENERGY_RESEND_API_KEY = "fixture-only";
+      let sends = 0;
+      mock.method(globalThis, "fetch", async () =>
+        new Response(JSON.stringify({ id: `order-email-${++sends}` }), { status: 200 }),
+      );
+      try {
+        await Promise.all([processNotifications(db!), processNotifications(db!)]);
+        assert.equal(sends, 2);
+      } finally {
+        delete process.env.ENERGY_RESEND_API_KEY;
+      }
+    });
+    it("thanks pickup customers when their order is collected", async () => {
+      const pickup = await db!.deliveryOption.create({
+        data: { label: "Collection", method: "PICKUP", pickupAddress: "Lekki Phase 1", feeKobo: 0, enabled: true },
+      });
+      const order = await createCheckout(db!, input({ deliveryOptionId: pickup.id, expectedTotalKobo: 200000 }));
+      await finalizePayment(db!, await verified(order.id));
+      await updateFulfillment(db!, order.id, "READY_FOR_PICKUP");
+      assert.equal(await db!.notification.count(), 1);
+      await updateFulfillment(db!, order.id, "DELIVERED");
+      const notice = await db!.notification.findUniqueOrThrow({
+        where: { eventKey: orderEmailKey("order-fulfilled", order.id) },
+      });
+      assert.match((notice.payload as { subject: string }).subject, /Your order was collected/);
+    });
     it("leases and sends a confirmation once through a mocked email provider", async () => {
       const order = await createCheckout(db!, input());
       await finalizePayment(db!, await verified(order.id));
@@ -742,7 +930,7 @@ describe(
         updateDelivery(
           db!,
           order.id,
-          { ...raw, status: "DELIVERED" },
+          { ...raw, status: "FAILED_DELIVERY" },
           "operator-fixture",
         ),
       );
@@ -753,25 +941,19 @@ describe(
       await updateDelivery(
         db!,
         order.id,
-        { ...raw, status: "READY_FOR_DISPATCH", version: 1 },
+        { ...raw, status: "DISPATCHED", version: 1 },
         "operator-fixture",
       );
       await updateDelivery(
         db!,
         order.id,
-        { ...raw, status: "DISPATCHED", version: 2 },
+        { ...raw, status: "FAILED_DELIVERY", version: 2 },
         "operator-fixture",
       );
       await updateDelivery(
         db!,
         order.id,
-        { ...raw, status: "FAILED_DELIVERY", version: 3 },
-        "operator-fixture",
-      );
-      await updateDelivery(
-        db!,
-        order.id,
-        { ...raw, status: "READY_FOR_DISPATCH", version: 4 },
+        { ...raw, status: "READY_FOR_DISPATCH", version: 3 },
         "operator-fixture",
       );
       assert.equal(
@@ -1049,29 +1231,11 @@ describe(
         10,
       );
     });
-    it("disables setup sessions after named accounts exist and revokes disabled named sessions", async () => {
-      const bootstrap = await createAdminSession();
-      const actor: AdminIdentity = {
-        id: "energy-admin",
-        name: "Fixture owner",
-        role: "OWNER",
-        sessionVersion: 0,
-        bootstrap: true,
-      };
-      const owner = await createAdminUser(db!, actor, {
-        name: "Fixture Owner",
-        email: "owner@example.test",
-        password: "fixture-owner-password-123",
-        role: "OWNER",
-      });
-      assert.ok(!(await verifyAdminSession(bootstrap)));
-      const ownerIdentity: AdminIdentity = {
-        ...owner,
-        role: "OWNER",
-        bootstrap: false,
-      };
-      const ownerToken = await createAdminSession(owner);
-      assert.ok(await verifyAdminSession(ownerToken));
+    it("keeps environment owner access after invitations and revokes disabled operator sessions", async () => {
+      const ownerToken = await createAdminSession();
+      const ownerIdentity = (await adminIdentity(ownerToken))!;
+      assert.equal(ownerIdentity.email, "owner@example.test");
+      assert.equal(ownerIdentity.role, "OWNER");
       const operator = await db!.adminUser.create({
         data: {
           name: "Fixture Operator",
@@ -1082,6 +1246,7 @@ describe(
       });
       const operatorToken = await createAdminSession(operator);
       assert.ok(await verifyAdminSession(operatorToken));
+      assert.ok(await verifyAdminSession(ownerToken));
       const row = await db!.adminUser.findUniqueOrThrow({
         where: { id: operator.id },
       });
@@ -1095,26 +1260,13 @@ describe(
       });
       assert.ok(!(await verifyAdminSession(operatorToken)));
       await assert.rejects(
-        editAdminUser(db!, ownerIdentity, owner.id, {
+        editAdminUser(db!, ownerIdentity, ownerIdentity.id, {
           active: false,
           role: "OPERATOR",
         }),
       );
     });
-    it("rejects operator financial actions at the API and accepts named sign-in only after setup", async () => {
-      const actor: AdminIdentity = {
-        id: "energy-admin",
-        name: "Fixture",
-        role: "OWNER",
-        sessionVersion: 0,
-        bootstrap: true,
-      };
-      const owner = await createAdminUser(db!, actor, {
-        name: "Fixture Owner",
-        email: "owner@example.test",
-        password: "fixture-owner-password-123",
-        role: "OWNER",
-      });
+    it("requires the environment owner email and password, accepts operators, and restricts financial actions", async () => {
       const operator = await db!.adminUser.create({
         data: {
           name: "Fixture Operator",
@@ -1153,19 +1305,11 @@ describe(
           },
           body: JSON.stringify({ email, password }),
         });
-      process.env.ENERGY_ADMIN_PASSWORD = "fixture-bootstrap-password";
-      assert.equal(
-        (await loginApi(request("", "fixture-bootstrap-password"))).status,
-        401,
-      );
-      assert.equal(
-        (
-          await loginApi(
-            request("owner@example.test", "fixture-owner-password-123"),
-          )
-        ).status,
-        200,
-      );
+      assert.equal((await loginApi(request("", "fixture-owner-password-123"))).status, 400);
+      assert.equal((await loginApi(request("wrong@example.test", "fixture-owner-password-123"))).status, 401);
+      assert.equal((await loginApi(request("owner@example.test", "wrong-password"))).status, 401);
+      assert.equal((await loginApi(request(" OWNER@example.test ", "fixture-owner-password-123"))).status, 200);
+      assert.equal((await loginApi(request("operator@example.test", "fixture-operator-password-123"))).status, 200);
     });
     it("uses shared atomic database rate limits and records authenticated worker runs", async () => {
       const results = await Promise.all(

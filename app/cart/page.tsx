@@ -36,9 +36,8 @@ export default async function Page() {
           <div>
             <span className="eyebrow">02 / BEFORE YOUR NEXT STEP</span>
             <h2 id="cart-guidance-title">
-              Good energy.
-              <br />
-              <em>Starts with clarity.</em>
+              <span data-motion-line>Good energy.</span>
+              <em data-motion-line>Starts with clarity.</em>
             </h2>
             <Link href="/how-to-order">
               Explore the ordering guide <ArrowUpRight size={17} />
@@ -81,9 +80,8 @@ export default async function Page() {
         <section className="cart-closing">
           <span className="eyebrow">MORE THAN INDIVIDUAL PRODUCTS</span>
           <h2>
-            A bigger picture?
-            <br />
-            <em>Begin with your space.</em>
+            <span data-motion-line>A bigger picture?</span>
+            <em data-motion-line>Begin with your space.</em>
           </h2>
           <p>
             Explore the questions that help shape an energy solution for your

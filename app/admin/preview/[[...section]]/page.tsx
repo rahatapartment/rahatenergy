@@ -49,7 +49,7 @@ export default function Page({ params }: { params: { section?: string[] } }) {
               [
                 "02",
                 "Orders & reviews",
-                "Inspect payment, delivery and history. Owner review is required for cancellations, stock reallocation and completed test refunds.",
+                "Inspect payment, delivery and history. Owner review is required for cancellations, stock reallocation and completed refunds.",
                 "orders",
               ],
               [
@@ -259,8 +259,8 @@ export default function Page({ params }: { params: { section?: string[] } }) {
             <h3>Revocable sessions</h3>
             <p>
               Changing an account’s role, password or active state revokes its
-              existing sessions. The shared setup password stops working after
-              the first named owner is created.
+              existing sessions. Changing the owner credentials in the
+              environment also revokes the owner’s existing sessions.
             </p>
           </article>
         </div>
@@ -291,7 +291,7 @@ export default function Page({ params }: { params: { section?: string[] } }) {
         ["Catalogue", "Review product descriptions, specifications, photos and cover images."],
         ["Inventory", "Confirm prices, available stock and which products can be purchased."],
         ["Delivery", "Review delivery charges, supported locations and pickup arrangements."],
-        ["Owner access", "Confirm named owner accounts and staff permissions."],
+        ["Owner access", "Confirm the owner credentials and invited staff permissions."],
         ["Payments & email", "Complete a test order and verify payment and customer notification delivery."],
         ["Background work", "Check recent successful worker runs and any failed notification jobs."],
       ].map(([title, detail]) => <article className="readiness-card" key={title}><h2>{title}</h2><p>{detail}</p><span className="small muted">Preview only · no operational status claimed</span></article>)}</div>}

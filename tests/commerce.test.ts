@@ -22,8 +22,8 @@ const product: StoreProduct = {
   lowStockThreshold: 5,
   version: 0,
 };
-test("catalogue contains unique owner-supplied products with real photographs and valid prices", () => {
-  assert.equal(catalogue.length, 18);
+test("catalogue contains unique owner-supplied products with valid image paths and prices", () => {
+  assert.equal(catalogue.length, 19);
   for (const k of ["id", "sku", "slug"] as const)
     assert.equal(new Set(catalogue.map(p => p[k])).size, catalogue.length);
   for (const p of catalogue) {
@@ -138,7 +138,12 @@ test("state mutations require same origin and enforce request limits", () => {
 test("independent sessions reject unsigned, wrong audience and legacy tokens", async () => {
   process.env.ENERGY_ADMIN_SESSION_SECRET =
     "independent-test-secret-at-least-32-characters";
-  assert.ok(await verifyAdminSession(await createAdminSession()));
+  process.env.ENERGY_ADMIN_EMAIL = "owner@example.test";
+  process.env.ENERGY_ADMIN_PASSWORD = "fixture-owner-password";
+  const ownerToken = await createAdminSession();
+  assert.ok(await verifyAdminSession(ownerToken));
+  process.env.ENERGY_ADMIN_PASSWORD = "rotated-owner-password";
+  assert.ok(!(await verifyAdminSession(ownerToken)));
   assert.ok(!(await verifyAdminSession(undefined)));
   assert.ok(!(await verifyAdminSession("invalid")));
   const legacy = await new SignJWT({ role: "admin" })

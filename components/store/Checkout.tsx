@@ -1,7 +1,9 @@
 "use client";
+import { courierDeliveryFeeNote, courierDeliveryOptionId } from "@/lib/delivery-fees";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useCart } from "./CartProvider";
+import { CartTrigger } from "./CartTrigger";
 import Image from "@/components/WebImage";
 import { ArrowLeft, ArrowRight, LockKeyhole, ShoppingBag, Truck, ShieldCheck, MapPin } from "lucide-react";
 import { money, productImage, type StoreProduct } from "@/lib/catalogue";
@@ -40,13 +42,20 @@ export function Checkout({
   products,
   options,
   available,
+  paymentAvailable,
+  testMode,
 }: {
   products: StoreProduct[];
   options: Option[];
   available: boolean;
+  paymentAvailable: boolean;
+  testMode: boolean;
 }) {
   const { lines, ready } = useCart();
-  const [optionId, setOptionId] = useState(options[0]?.id || "");
+  const [selectedOptionId, setOptionId] = useState("");
+  const optionId = options.some((option) => option.id === selectedOptionId)
+    ? selectedOptionId
+    : options[0]?.id || "";
   const [quote, setQuote] = useState<Quote | null>(null);
   const [reviewing, setReviewing] = useState(false);
   const [pending, setPending] = useState(false);
@@ -69,6 +78,7 @@ export function Checkout({
     }
   }, []);
   const option = options.find((o) => o.id === optionId);
+  const courierCollectsFee = option?.id === courierDeliveryOptionId;
   const linesKey = JSON.stringify(lines);
   useEffect(() => {
     setQuote(null);
@@ -101,7 +111,7 @@ export function Checkout({
   }, [ready, linesKey, lines.length, optionId, available, reviewAgain]);
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!quote || !option || pending || reviewing || !available) return;
+    if (!quote || !option || pending || reviewing || !available || !paymentAvailable) return;
     setPending(true);
     setError("");
     const form = new FormData(e.currentTarget);
@@ -193,8 +203,8 @@ export function Checkout({
   return (
     <div className="checkout-grid">
       <form onSubmit={submit} className="checkout-main-form">
-        <div className="checkout-test-notice"><ShieldCheck size={18} /><p><strong>Test checkout</strong><span>This checkout supports test payments only. Real payments are not enabled.</span></p></div>
-        {!available && <div className="checkout-unavailable" role="status"><p>Online checkout isn’t available right now. Your items are saved, and our team can help you with pricing and delivery.</p><Link href="/request-quote">Request a quote <ArrowRight size={15} /></Link></div>}
+        {testMode && <div className="checkout-test-notice"><ShieldCheck size={18} /><p><strong>Test checkout</strong><span>This checkout supports test payments only. Real payments are not enabled.</span></p></div>}
+        {(!available || !paymentAvailable) && <div className="checkout-unavailable" role="status"><p>Online checkout isn’t available right now. Your items are saved, and our team can help you with pricing and delivery.</p><Link href="/request-quote">Request a quote <ArrowRight size={15} /></Link></div>}
         {recovery && (
           <div className="notice" style={{ marginTop: 16 }}>
             An earlier checkout attempt is saved on this device.{" "}
@@ -265,12 +275,13 @@ export function Checkout({
               )}
               {options.map((o) => (
                 <option key={o.id} value={o.id}>
-                  {o.label} · {money(o.feeKobo)}
+                  {o.id === courierDeliveryOptionId ? o.label : `${o.label} · ${money(o.feeKobo)}`}
                 </option>
               ))}
             </select>
           </label>
-          {option?.method === "PICKUP" ? (
+          {courierCollectsFee && <p className="checkout-pickup">{courierDeliveryFeeNote}</p>}
+          {!option ? null : option.method === "PICKUP" ? (
             <div className="checkout-pickup"><MapPin size={18} />
               <div><strong>Collection location</strong>
               <br />
@@ -314,11 +325,11 @@ export function Checkout({
           )}
         </section>
         <div className="checkout-payment-panel checkout-panel">
-        <div className="checkout-panel-heading"><span>03</span><div><h2>Review & continue</h2><p>You’ll complete your test payment on Paystack.</p></div></div>
+        <div className="checkout-panel-heading"><span>03</span><div><h2>Review & continue</h2><p>You’ll complete your payment on Paystack.</p></div></div>
         <label className="check-field">
           <input name="consent" type="checkbox" required />
           <span>
-            I have reviewed this test order and agree to these details being
+            I have reviewed this order and agree to these details being
             used to process it.{" "}
             <Link className="inline-link" href="/policies/privacy">
               Privacy notice
@@ -328,13 +339,13 @@ export function Checkout({
         <button
           type="submit"
           className="checkout-submit"
-          disabled={!available || !quote || pending || reviewing}
+          disabled={!available || !paymentAvailable || !quote || pending || reviewing}
         >
           {pending
-            ? "Preparing secure test payment…"
+            ? "Preparing secure payment…"
             : reviewing
               ? "Checking current prices…"
-              : "Continue to Paystack test checkout"}
+              : "Continue to Paystack"}
           <ArrowRight size={18} aria-hidden="true" />
         </button>
         <p className="checkout-payment-note"><LockKeyhole size={13} />Card details are entered on Paystack, not on this website.</p>
@@ -393,18 +404,18 @@ export function Checkout({
               </div>
               <div>
                 <dt>Delivery / collection</dt>
-                <dd>{money(quote.deliveryFeeKobo)}</dd>
+                <dd>{courierCollectsFee ? "Pay the delivery person on arrival" : money(quote.deliveryFeeKobo)}</dd>
               </div>
             </dl>
             <div className="summary-total">
-              <span>Total (NGN)</span>
+              <span>{courierCollectsFee ? "Pay now (NGN)" : "Total (NGN)"}</span>
               <strong>{money(quote.totalKobo)}</strong>
             </div>
           </>
         ) : (
           <div className="checkout-total-pending" role="status"><div><span>Total</span><strong>Pending review</strong></div><p>{reviewing ? "Confirming current prices and availability…" : "Your final total will appear once prices, stock and your delivery option have been confirmed."}</p></div>
         )}
-        <Link href="/cart" className="checkout-edit-cart"><ArrowLeft size={14} />Edit your cart</Link>
+        <CartTrigger className="checkout-edit-cart"><ArrowLeft size={14} />Edit your cart</CartTrigger>
         <div className="checkout-summary-assurance"><div><ShieldCheck size={17} /><span>Prices and stock confirmed before payment</span></div><div><Truck size={17} /><span>Delivery or collection, arranged around you</span></div></div>
         <div className="checkout-summary-help"><span>Need a hand with your order?</span><Link href="/contact">Contact our team <ArrowRight size={14} /></Link></div>
       </aside>

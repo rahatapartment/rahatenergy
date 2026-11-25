@@ -25,9 +25,8 @@ export default function Page() {
           </div>
           <span className="eyebrow">01 / A LITTLE MORE PERSPECTIVE</span>
           <h2 id="about-introduction-title">
-            A clearer starting point.
-            <br />
-            <em>A more considered journey.</em>
+            <span data-motion-line>A clearer starting point.</span>
+            <em data-motion-line>A more considered journey.</em>
           </h2>
           <p>
             Rahat Energy brings solar panels, inverters, battery storage,
@@ -62,11 +61,9 @@ export default function Page() {
               02 / SOLAR, STORAGE & THE BIGGER PICTURE
             </span>
             <h2 id="about-perspective-title">
-              Start with
-              <br />
-              your space.
-              <br />
-              <em>See the whole picture.</em>
+              <span data-motion-line>Start with</span>
+              <span data-motion-line>your space.</span>
+              <em data-motion-line>See the whole picture.</em>
             </h2>
             <p>
               A product for an existing setup. An energy plan for your home. A
@@ -93,11 +90,9 @@ export default function Page() {
           <div className="about-principles-heading">
             <span className="eyebrow">03 / WHAT GUIDES THE EXPERIENCE</span>
             <h2 id="about-principles-title">
-              Clarity.
-              <br />
-              Context.
-              <br />
-              <em>Conversation.</em>
+              <span data-motion-line>Clarity.</span>
+              <span data-motion-line>Context.</span>
+              <em data-motion-line>Conversation.</em>
             </h2>
             <p>
               Useful information. Clear next steps.
@@ -138,9 +133,8 @@ export default function Page() {
             <div>
               <span className="eyebrow">04 / THE ELEMENTS OF YOUR ENERGY</span>
               <h2 id="about-collection-title">
-                Different pieces.
-                <br />
-                <em>A connected perspective.</em>
+                <span data-motion-line>Different pieces.</span>
+                <em data-motion-line>A connected perspective.</em>
               </h2>
             </div>
             <p>
@@ -192,9 +186,8 @@ export default function Page() {
                 A PRODUCT QUESTION. A PROJECT. A BIGGER IDEA.
               </span>
               <h2 id="about-conversation-title">
-                A little curiosity.
-                <br />
-                <em>A world of possibility.</em>
+                <span data-motion-line>A little curiosity.</span>
+                <em data-motion-line>A world of possibility.</em>
               </h2>
               <p>
                 Bring your questions, your shortlist or the plans taking shape

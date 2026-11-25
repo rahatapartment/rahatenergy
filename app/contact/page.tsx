@@ -54,9 +54,8 @@ export default async function Page() {
           </div>
           <span className="eyebrow">01 / THE RIGHT PLACE TO BEGIN</span>
           <h2 id="contact-introduction-title">
-            Every question.
-            <br />
-            <em>A useful starting point.</em>
+            <span data-motion-line>Every question.</span>
+            <em data-motion-line>A useful starting point.</em>
           </h2>
           <p>
             Choose the route that suits what you need. Bring context to a
@@ -99,9 +98,8 @@ export default async function Page() {
           <div className="contact-enquiry-introduction">
             <span className="eyebrow">02 / YOUR PROJECT, IN CONTEXT</span>
             <h2 id="contact-enquiry-title">
-              A little context.
-              <br />
-              <em>A clearer conversation.</em>
+              <span data-motion-line>A little context.</span>
+              <em data-motion-line>A clearer conversation.</em>
             </h2>
             <p>
               Tell us about your space, existing equipment and priorities.
@@ -146,9 +144,8 @@ export default async function Page() {
               03 / CLEAR ROUTES. CONFIRMED DETAILS.
             </span>
             <h2 id="contact-details-title">
-              Direct details.
-              <br />
-              <em>Carefully confirmed.</em>
+              <span data-motion-line>Direct details.</span>
+              <em data-motion-line>Carefully confirmed.</em>
             </h2>
             <p>
               Business phone, email, visiting address and opening hours will
@@ -169,9 +166,8 @@ export default async function Page() {
               <span>PRIVATE ORDER ACCESS</span>
             </div>
             <h3>
-              Already have
-              <br />
-              <em>an order?</em>
+              <span data-motion-line>Already have</span>
+              <em data-motion-line>an order?</em>
             </h3>
             <p>
               Keep your reference and private access code together. Use them to
@@ -193,9 +189,8 @@ export default async function Page() {
           <div>
             <span className="eyebrow">04 / A LITTLE MORE UNDERSTANDING</span>
             <h2 id="contact-answers-title">
-              Before you
-              <br />
-              <em>reach out.</em>
+              <span data-motion-line>Before you</span>
+              <em data-motion-line>reach out.</em>
             </h2>
             <p>A few useful answers to help you find your next step.</p>
             <Link href="/faq" className="contact-inline-link">
@@ -220,9 +215,8 @@ export default async function Page() {
                 A QUESTION. A PROJECT. A CLEARER DIRECTION.
               </span>
               <h2 id="contact-closing-title">
-                Possibility starts
-                <br />
-                <em>with a question.</em>
+                <span data-motion-line>Possibility starts</span>
+                <em data-motion-line>with a question.</em>
               </h2>
               <p>Bring what you know. Make room for what comes next.</p>
               <Link href="/solutions" className="contact-closing-secondary">

@@ -51,7 +51,7 @@ export default async function Page({
             <>
               <div className="metric-grid">
                 {[
-                  ["Test sales", money(data.metrics.sales)],
+                  [data.mode === "live" ? "Live sales" : "Test sales", money(data.metrics.sales)],
                   ["Paid orders", data.metrics.paidOrders],
                   ["Pending orders", data.metrics.pendingOrders],
                   ["Low stock", data.metrics.lowStock],
