@@ -46,18 +46,25 @@ Use a server-side role authorised for Prisma queries, and keep migration authori
 
 ## Configure Paystack
 
-The deployed storefront uses `https://rahatenergy-xi.vercel.app/api/payments/webhook`.
-In Paystack, choose the matching environment and open **Developers → API
-configuration**. Save the webhook URL and select `charge.success` if the
-dashboard offers event selection. Generate the webhook signing secret in the
-same environment.
+The production storefront origin is `https://www.rahat-energy.com`. In Paystack,
+switch to **Live** and open **Developers → API configuration**. Save these URLs
+in the corresponding fields.
+
+| Paystack setting | Production URL |
+| --- | --- |
+| Webhook URL | `https://www.rahat-energy.com/api/payments/webhook` |
+| Callback URL | `https://www.rahat-energy.com/api/payments/callback` |
+
+If the dashboard offers event selection, include `charge.success` and any
+refund events already configured. Retain the existing live signing secret
+when changing URLs.
 
 In **Vercel → Project → Settings → Environment Variables** set these values
 for the target deployment, then redeploy.
 
 | Variable | Value |
 | --- | --- |
-| `NEXT_PUBLIC_APP_URL` | `https://rahatenergy-xi.vercel.app` for the production storefront |
+| `NEXT_PUBLIC_APP_URL` | `https://www.rahat-energy.com` for the production storefront |
 | `ENERGY_PAYSTACK_MODE` | `test` on staging or `live` on production after test verification |
 | `ENERGY_PAYSTACK_SECRET_KEY` | Matching `sk_test_…` or `sk_live_…` key |
 | `ENERGY_PAYSTACK_WEBHOOK_SECRET` | Matching `whsec_…` signing secret |
@@ -66,7 +73,10 @@ Use a separate staging database and its public HTTPS origin for the test
 deployment. Apply the database migrations and configure enabled products with
 stock, prices and a delivery or pickup option. Configure the commerce cron and
 email settings above for reservation expiry and receipt delivery. The customer
-return URL is set by the server for each transaction.
+return URL is set by the server for each transaction. In Vercel, serve the
+storefront at the `www` domain and redirect the apex domain to it so checkout
+and admin requests use the same origin. Order emails, quote email links, and
+admin invitations also use `NEXT_PUBLIC_APP_URL`.
 
 Complete a test checkout and confirm that **Developers → Webhooks** shows an
 HTTP 200 for `charge.success`, that the order is paid, and that inventory is
