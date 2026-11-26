@@ -502,7 +502,10 @@ export async function finalizePayment(
       review: !valid,
     });
     if (verified.domain === "live")
-      await queueOrderEmail(tx, "sale-notification", order, { review: !valid });
+      await queueOrderEmail(tx, "sale-notification", order, {
+        review: !valid,
+        paymentReference: payment.reference,
+      });
     return { reference: order.reference, paid: true, review: !valid };
   }, txOptions);
 }

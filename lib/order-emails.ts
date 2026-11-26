@@ -13,7 +13,11 @@ type EmailOrder = {
   items: { name: string; quantity: number; unitPriceKobo: number }[];
   delivery: { method: string; address: Prisma.JsonValue } | null;
 };
-type EmailOptions = { test?: boolean; review?: boolean };
+type EmailOptions = {
+  test?: boolean;
+  review?: boolean;
+  paymentReference?: string;
+};
 
 const entities: Record<string, string> = {
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
@@ -32,22 +36,91 @@ function storefrontOrigin() {
   }
 }
 
+function renderSaleNotification(order: EmailOrder, options: EmailOptions) {
+  const title = options.review ? "Payment received. Review required." : "New Rahat Energy sale";
+  const subject = `${title} · ${order.reference}`;
+  const customer = order.customerSnapshot as { name?: string; email?: string; phone?: string };
+  const address = order.delivery?.address as {
+    optionLabel?: string;
+    pickupAddress?: string;
+    line1?: string;
+    city?: string;
+    state?: string;
+    courierCollectsFee?: boolean;
+  } | null;
+  const pickup = order.delivery?.method === "PICKUP";
+  const fulfillment = pickup ? "Pickup" : order.delivery ? "Delivery" : "Not recorded";
+  const location = pickup
+    ? address?.pickupAddress
+    : [address?.line1, address?.city, address?.state].filter(Boolean).join(", ");
+  const contact = [
+    ["Name", customer?.name],
+    ["Email", customer?.email],
+    ["Phone", customer?.phone],
+  ];
+  const delivery = [
+    ["Method", address?.optionLabel || fulfillment],
+    [pickup ? "Pickup address" : "Delivery address", location],
+  ];
+  const details = [
+    ["Order reference", order.reference],
+    ["Paystack reference", options.paymentReference],
+  ].filter(([, value]) => value);
+  const subtotal = money(order.items.reduce((sum, item) => sum + item.quantity * item.unitPriceKobo, 0));
+  const deliveryFee = order.deliveryFeeKobo > 0 ? money(order.deliveryFeeKobo) : "";
+  const courierNote = address?.courierCollectsFee ? courierDeliveryFeeNote : "";
+  const total = money(order.totalKobo);
+  const origin = storefrontOrigin();
+  const destination = origin ? `${origin}/admin/orders/${encodeURIComponent(order.id)}` : "";
+  const formatDetails = (fields: (string | undefined)[][]) =>
+    fields.map(([label, value]) => `${label}: ${value || "Not recorded"}`).join("\n");
+  const detailRows = (fields: (string | undefined)[][]) =>
+    fields.map(([label, value]) => `<p style="margin:0 0 8px;overflow-wrap:anywhere"><strong>${escapeHtml(label ?? "")}</strong><br>${escapeHtml(value || "Not recorded")}</p>`).join("");
+  const itemRows = order.items.map(item => `<tr>
+<td style="border-bottom:1px solid #e2e8df;padding:12px 8px 12px 0;overflow-wrap:anywhere"><strong>${escapeHtml(item.name)}</strong><br><span style="color:#516458">${item.quantity} × ${money(item.unitPriceKobo)}</span></td>
+<td align="right" style="border-bottom:1px solid #e2e8df;padding:12px 0;white-space:nowrap">${money(item.quantity * item.unitPriceKobo)}</td>
+</tr>`).join("");
+  const text = [
+    title,
+    formatDetails(details),
+    `Customer\n${formatDetails(contact)}`,
+    `Fulfillment\n${formatDetails(delivery)}`,
+    order.items.map(item => `${item.quantity} × ${item.name} at ${money(item.unitPriceKobo)} each — ${money(item.quantity * item.unitPriceKobo)}`).join("\n"),
+    `Items subtotal: ${subtotal}`,
+    deliveryFee ? `Delivery included in payment: ${deliveryFee}` : "",
+    `Paid via Paystack: ${total}`,
+    courierNote,
+    destination ? `View order in Admin: ${destination}` : "",
+  ].filter(Boolean).join("\n\n");
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escapeHtml(subject)}</title></head>
+<body style="margin:0;background:#eff3ed;color:#253e32;font:15px/1.55 Arial,sans-serif">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#eff3ed"><tr><td align="center" style="padding:24px 12px">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;background:#fffdf7">
+<tr><td style="padding:24px;background:#143729;color:#f4dfb7;border-bottom:4px solid #d7b777">
+<div style="font:24px Georgia,serif">Rahat Energy</div>
+<div style="margin-top:8px;font-size:11px;letter-spacing:2px">STORE ORDERS</div>
+</td></tr>
+<tr><td style="padding:28px 24px">
+<h1 style="margin:0 0 18px;color:#143729;font:32px/1.15 Georgia,serif">${escapeHtml(title)}</h1>
+<div style="padding:16px;background:#eff3ed">${detailRows(details)}</div>
+<h2 style="margin:24px 0 10px;color:#143729;font:22px Georgia,serif">Customer</h2>
+${detailRows(contact)}
+<h2 style="margin:24px 0 10px;color:#143729;font:22px Georgia,serif">Fulfillment</h2>
+${detailRows(delivery)}
+<h2 style="margin:24px 0 10px;color:#143729;font:22px Georgia,serif">Items</h2>
+<table width="100%" cellspacing="0" cellpadding="0"><thead><tr><th scope="col" align="left" style="border-bottom:1px solid #e2e8df;padding-bottom:8px">Product</th><th scope="col" align="right" style="border-bottom:1px solid #e2e8df;padding-bottom:8px">Amount</th></tr></thead><tbody>${itemRows}</tbody></table>
+<p style="margin:16px 0 4px">Items subtotal <strong>${subtotal}</strong></p>
+${deliveryFee ? `<p style="margin:0 0 4px">Delivery included in payment <strong>${deliveryFee}</strong></p>` : ""}
+<p style="margin:14px 0;padding:14px 16px;background:#eff3ed;color:#143729"><strong>Paid via Paystack</strong><br><span style="font:26px Georgia,serif">${total}</span></p>
+${courierNote ? `<p style="margin:12px 0;color:#516458">${escapeHtml(courierNote)}</p>` : ""}
+${destination ? `<p style="margin:24px 0 0"><a href="${escapeHtml(destination)}" style="display:inline-block;background:#1c4a3b;color:#fff;padding:12px 18px;border-radius:4px;text-decoration:none">View order in Admin</a></p>` : ""}
+</td></tr><tr><td style="border-top:1px solid #e2e8df;padding:16px 24px;color:#516458;font-size:12px">Rahat Energy · Sales notifications</td></tr>
+</table></td></tr></table></body></html>`;
+  return { to: ["experience@rahat-energy.com"], subject, text, html };
+}
+
 export function renderOrderEmail(kind: EmailKind, order: EmailOrder, options: EmailOptions = {}) {
-  if (kind === "sale-notification") {
-    const title = options.review ? "Payment received — review required" : "New Rahat Energy sale";
-    const origin = storefrontOrigin();
-    return {
-      to: ["experience@rahat-energy.com"],
-      subject: `${title} · ${order.reference}`,
-      text: [
-        title,
-        `Order reference: ${order.reference}`,
-        ...order.items.map(item => `${item.quantity} × ${item.name}`),
-        `Paid via Paystack: ${money(order.totalKobo)}`,
-        origin ? `View order: ${origin}/admin/orders/${encodeURIComponent(order.id)}` : "",
-      ].filter(Boolean).join("\n"),
-    };
-  }
+  if (kind === "sale-notification") return renderSaleNotification(order, options);
   const customer = order.customerSnapshot as { name: string; email: string };
   const address = order.delivery?.address as {
     pickupAddress?: string;
