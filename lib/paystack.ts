@@ -76,11 +76,23 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     signal: AbortSignal.timeout(10_000),
   });
   const body = await res.json().catch(() => null);
-  if (!res.ok || body?.status !== true || !body.data)
+  if (!res.ok || body?.status !== true || !body.data) {
+    if (path === "/transaction/initialize") {
+      const providerCode = body?.code;
+      console.warn("Paystack checkout initialization failed", {
+        httpStatus: res.status,
+        providerCode:
+          typeof providerCode === "string" &&
+          /^[a-z][a-z0-9_]{0,63}$/.test(providerCode)
+            ? providerCode
+            : undefined,
+      });
+    }
     throw new CommerceError(
       "The payment service could not complete this request. Please check your order before trying again.",
       502,
     );
+  }
   return body.data as T;
 }
 export type VerifiedPayment = {
