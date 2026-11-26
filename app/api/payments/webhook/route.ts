@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { validWebhookSignature, verifyPayment, paymentReferencePattern, paymentMode, referenceMode } from "@/lib/paystack";
 import { finalizePayment } from "@/lib/commerce";
-import { processNotifications } from "@/lib/notifications";
-import { orderEmailKey } from "@/lib/order-emails";
+import { sendPaymentEmails } from "@/lib/order-emails";
 import { requireDb, commerceFailure } from "@/lib/commerce-http";
 import { CommerceError } from "@/lib/commerce-validation";
 export const maxDuration = 30;
@@ -35,7 +34,7 @@ export async function POST(req: Request) {
     if (!payment) return NextResponse.json({ received: true });
     const result = await finalizePayment(db, await verifyPayment(reference));
     if (result.paid)
-      await processNotifications(db, 1, orderEmailKey("order-confirmation", payment.orderId)).catch(() => undefined);
+      await sendPaymentEmails(db, payment.orderId);
     return NextResponse.json({ received: true });
   } catch (e) {
     return commerceFailure(e);

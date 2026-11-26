@@ -139,7 +139,7 @@ test("independent sessions reject unsigned, wrong audience and legacy tokens", a
   process.env.ENERGY_ADMIN_SESSION_SECRET =
     "independent-test-secret-at-least-32-characters";
   process.env.ENERGY_ADMIN_EMAIL = "owner@example.test";
-  process.env.ENERGY_ADMIN_PASSWORD = "fixture-owner-password";
+  process.env.ENERGY_ADMIN_PASSWORD = "short-fixture";
   const ownerToken = await createAdminSession();
   assert.ok(await verifyAdminSession(ownerToken));
   process.env.ENERGY_ADMIN_PASSWORD = "rotated-owner-password";

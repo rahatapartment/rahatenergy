@@ -33,7 +33,7 @@ The migration creates the energy schema and constraints; the seed inserts the ac
 
 ## Independent admin access
 
-Set `ENERGY_ADMIN_EMAIL`, `ENERGY_ADMIN_PASSWORD` (16–128 characters) and `ENERGY_ADMIN_SESSION_SECRET` (at least 32 random characters), then restart or redeploy. The store owner uses that email and password on `/admin/login` and lands directly in the admin workspace. Invite staff from **Team access**. Invited users create their own passwords and receive only the permissions you select. Changing the owner credentials invalidates existing owner sessions.
+Set `ENERGY_ADMIN_EMAIL`, `ENERGY_ADMIN_PASSWORD` (1–128 characters) and `ENERGY_ADMIN_SESSION_SECRET` (at least 32 random characters), then restart or redeploy. The store owner uses that email and password on `/admin/login` and lands directly in the admin workspace. Invite staff from **Team access**. Invited users create their own passwords and receive only the permissions you select. Changing the owner credentials invalidates existing owner sessions.
 
 Inventory changes are validated and written transactionally with optimistic version checks, movement history and audit records. Reserved stock cannot be edited; stock cannot fall below reservations. Unpriced products cannot be enabled. Quotes save to the new database and appear in admin; customer order-confirmation notifications use an independently configured Resend outbox. Orders have searchable views, private detail pages and controlled fulfillment actions. Delivery/pickup options can be configured in operations.
 

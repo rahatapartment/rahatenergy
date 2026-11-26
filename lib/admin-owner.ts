@@ -10,6 +10,6 @@ export function environmentOwnerCredentials() {
   const email = environmentOwnerEmail();
   const password = process.env.ENERGY_ADMIN_PASSWORD;
   if (!email || !z.string().email().max(254).safeParse(email).success ||
-      !password || password.length < 16 || password.length > 128) return null;
+      !password || password.length > 128) return null;
   return { email, password };
 }

@@ -5,8 +5,7 @@ import { hashToken, CommerceError } from "@/lib/commerce-validation";
 import { requireDb, commerceFailure, smallJson } from "@/lib/commerce-http";
 import { sameOrigin, limitRequest } from "@/lib/security";
 import { verifyPayment } from "@/lib/paystack";
-import { processNotifications } from "@/lib/notifications";
-import { orderEmailKey } from "@/lib/order-emails";
+import { sendPaymentEmails } from "@/lib/order-emails";
 export async function POST(req: Request) {
   try {
     if (!sameOrigin(req))
@@ -32,7 +31,7 @@ export async function POST(req: Request) {
       await verifyPayment(order.payments[0].reference),
     );
     if (result.paid)
-      await processNotifications(db, 1, orderEmailKey("order-confirmation", order.id)).catch(() => undefined);
+      await sendPaymentEmails(db, order.id);
     return NextResponse.json(result, {
       headers: { "Cache-Control": "no-store" },
     });

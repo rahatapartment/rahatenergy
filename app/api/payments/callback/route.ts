@@ -3,8 +3,7 @@ import { NextResponse } from "next/server";
 import { verifyPayment, appOrigin, paymentReferencePattern } from "@/lib/paystack";
 import { finalizePayment } from "@/lib/commerce";
 import { requireDb, commerceFailure } from "@/lib/commerce-http";
-import { processNotifications } from "@/lib/notifications";
-import { orderEmailKey } from "@/lib/order-emails";
+import { sendPaymentEmails } from "@/lib/order-emails";
 export async function GET(req: Request) {
   let origin: string;
   try {
@@ -26,7 +25,7 @@ export async function GET(req: Request) {
     target = `/orders/${payment.order.reference}`;
     const result = await finalizePayment(db, await verifyPayment(reference));
     if (result.paid)
-      await processNotifications(db, 1, orderEmailKey("order-confirmation", payment.orderId)).catch(() => undefined);
+      await sendPaymentEmails(db, payment.orderId);
   } catch {
     /* The order page displays persisted status and offers server verification again. */
   }

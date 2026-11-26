@@ -1,8 +1,9 @@
-import type { Prisma } from "@prisma/client";
+import type { Prisma, PrismaClient } from "@prisma/client";
+import { processNotifications } from "./notifications";
 import { money } from "./catalogue";
 import { courierDeliveryFeeNote } from "./delivery-fees";
 
-type EmailKind = "order-confirmation" | "order-fulfilled";
+type EmailKind = "order-confirmation" | "order-fulfilled" | "sale-notification";
 type EmailOrder = {
   id: string;
   reference: string;
@@ -32,6 +33,21 @@ function storefrontOrigin() {
 }
 
 export function renderOrderEmail(kind: EmailKind, order: EmailOrder, options: EmailOptions = {}) {
+  if (kind === "sale-notification") {
+    const title = options.review ? "Payment received — review required" : "New Rahat Energy sale";
+    const origin = storefrontOrigin();
+    return {
+      to: ["experience@rahat-energy.com"],
+      subject: `${title} · ${order.reference}`,
+      text: [
+        title,
+        `Order reference: ${order.reference}`,
+        ...order.items.map(item => `${item.quantity} × ${item.name}`),
+        `Paid via Paystack: ${money(order.totalKobo)}`,
+        origin ? `View order: ${origin}/admin/orders/${encodeURIComponent(order.id)}` : "",
+      ].filter(Boolean).join("\n"),
+    };
+  }
   const customer = order.customerSnapshot as { name: string; email: string };
   const address = order.delivery?.address as {
     pickupAddress?: string;
@@ -125,4 +141,11 @@ export async function queueOrderEmail(
     },
     update: {},
   });
+}
+
+export async function sendPaymentEmails(db: PrismaClient, orderId: string) {
+  await Promise.allSettled([
+    processNotifications(db, 1, orderEmailKey("order-confirmation", orderId)),
+    processNotifications(db, 1, orderEmailKey("sale-notification", orderId)),
+  ]);
 }

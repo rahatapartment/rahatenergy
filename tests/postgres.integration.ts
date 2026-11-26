@@ -452,7 +452,14 @@ describe(
         });
         assert.equal(inventory.stock, 9);
         assert.equal(inventory.reserved, 0);
-        assert.equal(await db!.notification.count(), 1);
+        assert.equal(await db!.notification.count(), 2);
+        const sale = await db!.notification.findUniqueOrThrow({
+          where: { eventKey: orderEmailKey("sale-notification", order.id) },
+        });
+        const saleEmail = sale.payload as { to: string[]; subject: string; text: string };
+        assert.deepEqual(saleEmail.to, ["experience@rahat-energy.com"]);
+        assert.ok(saleEmail.subject.includes(order.reference));
+        assert.match(saleEmail.text, /Paid via Paystack/);
         assert.equal(
           (await db!.order.findUniqueOrThrow({ where: { id: order.id } })).paymentStatus,
           "PAID",
