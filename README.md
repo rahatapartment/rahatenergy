@@ -49,7 +49,7 @@ Connected deployments use shared PostgreSQL route counters; disconnected develop
 - `/orders/[reference]` — private verified order confirmation and status
 - `/about`, `/contact`, `/request-quote`
 - `/solutions`, `/solutions/home`, `/solutions/business`, `/solutions/bulk-projects`
-- `/categories/solar-panels`, `/categories/solar-inverters`, `/categories/battery-storage`, `/categories/solar-lighting`, `/categories/energy-accessories`
+- `/categories/solar-panels`, `/categories/solar-inverters`, `/categories/battery-storage`, `/categories/solar-lighting`, `/categories/energy-accessories`, `/categories/power-stations`, `/categories/fans`, `/categories/massage-chairs`
 - `/faq`, `/how-to-order`, `/track-order` (reference and private-code order access)
 - `/policies/delivery`, `/policies/returns`, `/policies/privacy`, `/policies/terms` (drafts for approval)
 - `/admin/preview` — read-only walkthrough with labelled sample screens; no database required

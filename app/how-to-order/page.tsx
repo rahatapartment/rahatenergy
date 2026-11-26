@@ -22,7 +22,7 @@ export default function Page() {
           {[
             [
               "Explore the collection",
-              "Browse the five categories. Use search and filters to find the products you want to discuss.",
+              "Browse the product categories. Use search and filters to find the products you want to discuss.",
               "Browse products",
               "/shop",
             ],

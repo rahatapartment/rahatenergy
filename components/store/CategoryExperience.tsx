@@ -9,12 +9,14 @@ import {
   BatteryCharging,
   Lightbulb,
   PlugZap,
+  Fan,
+  Armchair,
   MoveHorizontal,
 } from "lucide-react";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { categories, imageFor } from "@/lib/catalogue";
 
-const icons = [Sun, Cable, BatteryCharging, Lightbulb, PlugZap, BatteryCharging];
+const icons = [Sun, Cable, BatteryCharging, Lightbulb, PlugZap, BatteryCharging, Fan, Armchair];
 const chapters = [
   {
     slug: "solar-panels",
@@ -43,10 +45,22 @@ const chapters = [
   {
     slug: "energy-accessories",
     verb: "Complete.",
-    title: "Comfort for your everyday.",
-    copy: "Explore the Rahat Hybrid Fan and Massage Chair for everyday comfort.",
+    title: "Everyday accessories.",
+    copy: "Browse accessories for everyday use."
   },
   { slug: "power-stations", verb: "Go.", title: "Take your power with you.", copy: "Explore Rahat portable power stations for backup at home and power on the move." },
+  {
+    slug: "fans",
+    verb: "Cool.",
+    title: "Keep air moving.",
+    copy: "Explore the Rahat Hybrid Fan for cooling at home or in your workspace.",
+  },
+  {
+    slug: "massage-chairs",
+    verb: "Relax.",
+    title: "Make time to unwind.",
+    copy: "Explore the Rahat Massage Chair for seated massage and relaxation at home.",
+  },
 ];
 
 export function CategoryExperience() {
@@ -93,7 +107,7 @@ export function CategoryExperience() {
       <div className="element-topline">
         <span className="eyebrow">02 / THE ELEMENTS OF YOUR ENERGY</span>
         <span className="element-status">
-          <i /> FIVE CONNECTED CATEGORIES
+          <i /> {categories.length} PRODUCT CATEGORIES
         </span>
       </div>
       <div className="element-layout">
@@ -104,8 +118,7 @@ export function CategoryExperience() {
             <em>One bigger picture.</em>
           </h2>
           <p>
-            Shop five categories of solar and energy equipment. Choose a
-            category to explore the collection.
+            Browse solar equipment, portable power and products for everyday comfort.
           </p>
           <div
             className="element-tabs"

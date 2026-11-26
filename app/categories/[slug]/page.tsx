@@ -8,13 +8,15 @@ import {
   BatteryCharging,
   Lightbulb,
   PlugZap,
+  Fan,
+  Armchair,
 } from "lucide-react";
 import { categoryContent } from "@/lib/content";
 import { storeData } from "@/lib/store-data";
 import { ProductCard } from "@/components/store/ProductCard";
 import { CategoryHero } from "@/components/store/CategoryHero";
 export const dynamic = "force-dynamic";
-const icons = [Sun, Cable, BatteryCharging, Lightbulb, PlugZap, BatteryCharging];
+const icons = [Sun, Cable, BatteryCharging, Lightbulb, PlugZap, BatteryCharging, Fan, Armchair];
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const c = categoryContent.find((c) => c.slug === params.slug);
   return { title: c?.category || "Category not found", description: c?.intro };
@@ -77,7 +79,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <div>
               <span className="eyebrow">
                 THE COLLECTION / {String(selection.length).padStart(2, "0")}{" "}
-                PRODUCTS
+                {selection.length === 1 ? "PRODUCT" : "PRODUCTS"}
               </span>
               <h3>Shop {c.category.toLowerCase()}.</h3>
             </div>

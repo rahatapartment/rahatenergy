@@ -8,7 +8,10 @@ const shopLinks = [
   ["Solar inverters", "/categories/solar-inverters"],
   ["Lithium batteries", "/categories/battery-storage"],
   ["Portable power", "/categories/power-stations"],
-  ["Lighting & accessories", "/shop"],
+  ["Solar lighting", "/categories/solar-lighting"],
+  ["Energy accessories", "/categories/energy-accessories"],
+  ["Fans", "/categories/fans"],
+  ["Massage chairs", "/categories/massage-chairs"],
 ];
 const companyLinks = [
   ["Our story", "/about"],

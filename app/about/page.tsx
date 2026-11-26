@@ -138,7 +138,7 @@ export default function Page() {
               </h2>
             </div>
             <p>
-              Explore the five categories.
+              Explore the product categories.
               <br />
               Find a useful place to begin.
             </p>

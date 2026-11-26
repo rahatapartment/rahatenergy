@@ -10,7 +10,9 @@ const headlines: Record<string, string> = {
   "solar-inverters": "Connect your possibilities.",
   "battery-storage": "Beyond the daylight.",
   "solar-lighting": "See your space differently.",
-  "energy-accessories": "Connect the details.",
+  "energy-accessories": "Find everyday essentials.",
+  fans: "Keep cool.",
+  "massage-chairs": "Take a moment to relax.",
 };
 export function CategoryHero({
   slug,
@@ -71,7 +73,7 @@ export function CategoryHero({
             <span className="scroll-track">
               <ArrowDown size={15} />
             </span>
-            <span>{String(count).padStart(2, "0")} PRODUCTS TO EXPLORE</span>
+            <span>{String(count).padStart(2, "0")} {count === 1 ? "PRODUCT" : "PRODUCTS"} TO EXPLORE</span>
           </a>
           <Link href="/shop" className="solutions-all-perspectives">
             Shop all products <ArrowUpRight size={16} />

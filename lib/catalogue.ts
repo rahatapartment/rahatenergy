@@ -6,6 +6,8 @@ export const categories = [
   "Solar Lighting",
   "Energy Accessories",
   "Power Stations",
+  "Fans",
+  "Massage Chairs",
 ] as const;
 export type ProductDefinition = Omit<(typeof definitions)[number], "priceKobo" | "specifications"> & { priceKobo: number | null; specifications: Record<string, string> };
 export type StoreProduct = ProductDefinition & {

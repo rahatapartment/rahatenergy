@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "@/components/WebImage";
 import { usePathname } from "next/navigation";
+import { categoryContent } from "@/lib/content";
 import { Menu, X, ArrowUpRight, ShoppingBag, Search } from "lucide-react";
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import { useCart } from "./CartProvider";
@@ -28,14 +29,7 @@ export function Chrome({ children }: { children: ReactNode }) {
   const isHome = path === "/";
   const hasCinematicHero =
     isHome ||
-    [
-      "solar-panels",
-      "solar-inverters",
-      "battery-storage",
-      "solar-lighting",
-      "energy-accessories",
-      "power-stations",
-    ].some((slug) => path === `/categories/${slug}`) ||
+    categoryContent.some(({ slug }) => path === `/categories/${slug}`) ||
     [
       "/about",
       "/contact",

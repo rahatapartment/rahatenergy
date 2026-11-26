@@ -48,7 +48,7 @@ const slides = [
     image: "accessories",
     title: "Every detail matters.",
     accent: "Shop the essentials.",
-    copy: "Explore mounting, cabling and control components. Complete your shortlist with accessories suited to your proposed system.",
+    copy: "Browse everyday accessories from Rahat Energy.",
   },
 ];
 

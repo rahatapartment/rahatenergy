@@ -70,19 +70,17 @@ export const categoryContent = [
   {
     slug: "energy-accessories",
     category: "Energy Accessories",
-    title: "The details complete the system.",
+    title: "Everyday accessories.",
     intro:
-      "Explore the Rahat Hybrid Fan and Rahat Massage Chair for everyday comfort.",
+      "Browse everyday accessories from Rahat Energy.",
     description:
-      "Discover Rahat products for comfort at home or work. Ask about operating modes, power requirements and delivery.",
+      "Find accessories for everyday use and check the available quantities.",
     checks: [
-      "The equipment the accessory must work with",
-      "Required electrical and mechanical ratings",
-      "Cable lengths, mounting layout or controller needs",
-      "Verified component specifications and quantities",
+      "Product specifications and what is included",
+      "Quantities available for your order",
     ],
     productDescription:
-      "Include this accessory in a project enquiry so its specification can be checked against the rest of the system. Exact ratings, dimensions and included components require confirmation.",
+      "Check product details and availability before ordering.",
   },
   {
     slug: "power-stations", category: "Power Stations", title: "Power wherever you need it.",
@@ -90,6 +88,24 @@ export const categoryContent = [
     description: "Compare portable power stations by rated output and battery capacity to find an option for your equipment.",
     checks: ["Equipment you want to power", "Required output and battery capacity", "Charging options", "Connections and portability"],
     productDescription: "Explore portable backup power from Rahat Energy. Ask for pricing and charging specifications.",
+  },
+  {
+    slug: "fans",
+    category: "Fans",
+    title: "Keep air moving.",
+    intro: "Explore the Rahat Hybrid Fan for cooling at home or in your workspace.",
+    description: "Choose a fan based on the space you want to cool, the airflow you need and the power options available.",
+    checks: ["Room size and placement", "Fan speeds and airflow", "Power options and runtime"],
+    productDescription: "Check available speeds, power options and runtime before choosing a fan.",
+  },
+  {
+    slug: "massage-chairs",
+    category: "Massage Chairs",
+    title: "Make time to unwind.",
+    intro: "Explore the Rahat Massage Chair for seated massage and relaxation at home.",
+    description: "Consider the seating fit, available massage settings and the floor space needed for delivery and use.",
+    checks: ["Seat dimensions and fit", "Massage settings and intensity", "Floor space and delivery access"],
+    productDescription: "Ask for a demonstration to check seating fit, massage settings and controls.",
   },
 ] as const;
 export const solutionContent = [
